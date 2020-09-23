@@ -1,0 +1,37 @@
+[NAME]
+ShowScrollbar
+[DESCRIPTION]
+The ShowScrollBar function shows or hides the specified scroll bar.
+[DECLARATION]
+Declare Function ShowScrollBar Lib "user32" (ByVal hwnd As Long, ByVal wBar As Long, ByVal bShow As Long) As Long
+[VBNET]
+System.Windows.Forms.ScrollBar.Visible
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd 
+[in] Handle to a scroll bar control or a window with a standard scroll bar, depending on the value of the wBar parameter. 
+
+· wBar 
+[in] Specifies the scroll bar(s) to be shown or hidden. This parameter can be one of the following values. Value Meaning 
+SB_BOTH
+ Shows or hides a window's standard horizontal and vertical scroll bars. 
+SB_CTL
+ Shows or hides a scroll bar control. The hWnd parameter must be the handle to the scroll bar control. 
+SB_HORZ
+ Shows or hides a window's standard horizontal scroll bars. 
+SB_VERT
+ Shows or hides a window's standard vertical scroll bar. 
+
+· bShow 
+[in] Specifies whether the scroll bar is shown or hidden. If this parameter is TRUE, the scroll bar is shown; otherwise, it is hidden. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Show Scrollbar*EAA889AFAD651D87A59701C968474702.html
+[RELATED]
+ShowWindow

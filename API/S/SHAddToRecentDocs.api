@@ -1,0 +1,30 @@
+[NAME]
+SHAddToRecentDocs
+[DESCRIPTION]
+Adds a document to the shell’s list of recently used documents or clears all documents from the list. The user gains access to the list through the Start menu of the Windows taskbar.
+[DECLARATION]
+Declare Sub SHAddToRecentDocs Lib "shell32.dll" (ByVal uFlags As Long, ByVal pv As String)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· uFlags
+Flag that indicates the meaning of the pv parameter. This parameter can be one of the following values:
+SHARD_PATH
+ pv is the address of a path string.
+SHARD_PIDL
+ pv is the address of an item identifier list.
+
+· pv
+Pointer to a buffer that contains the path and filename of the document, or the address of an ITEMIDLIST structure that contains an item identifier list uniquely identifying the document. If this parameter is NULL, the function clears all documents from the list.
+[RETURNS]
+No return value.
+[EXAMPLES]
+Recent Docs*D2B3CC80BD91CAEA85BD6858A833FC10.html
+[RELATED]
+SHBrowseForFolder
+SHFileOperation
+SHGetPathFromIDList

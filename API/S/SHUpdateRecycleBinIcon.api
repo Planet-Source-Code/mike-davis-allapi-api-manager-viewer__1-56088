@@ -1,0 +1,21 @@
+[NAME]
+SHUpdateRecycleBinIcon
+[DESCRIPTION]
+SHUpdateRecycleBinIcon updates the Recycle Bin icon on the desktop to reflect the state of the systemwide Recycle Bin.
+[DECLARATION]
+Declare Function SHUpdateRecycleBinIcon Lib "shell32.dll" () As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shell32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Undocumented
+[EXAMPLES]
+Empty Recycle Bin*CF50E5E11277B90CB13684D62FAF4CF8.html
+[RELATED]
+SHEmptyRecycleBin
+SHQueryRecycleBin

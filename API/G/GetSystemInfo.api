@@ -1,0 +1,23 @@
+[NAME]
+GetSystemInfo
+[DESCRIPTION]
+The GetSystemInfo function returns information about the current system.
+[DECLARATION]
+Declare Sub GetSystemInfo Lib "kernel32" Alias "GetSystemInfo" (lpSystemInfo As SYSTEM_INFO)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpSystemInfo
+Points to a SYSTEM_INFO structure to be filled in by this function.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+System Information*79BC8EA9CB24F51BF41148643F0B4309.html
+[RELATED]
+GetDeviceCaps
+GetSystemMetrics
+GetNativeSystemInfo

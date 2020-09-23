@@ -1,0 +1,27 @@
+[NAME]
+PathAppend
+[DESCRIPTION]
+Appends one path to the end of another.
+[DECLARATION]
+Declare Function PathAppend Lib "shlwapi.dll" Alias "PathAppendA" (ByVal pszPath As String, ByVal pMore As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+[in/out] Pointer to a buffer with the NULL-terminated string to which the file name will be appended. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string.
+
+· pszMore
+[in] Address of the string that represents the file name.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (1)*DF41BF47AD590065254CF99793AED05E.html
+[RELATED]
+PathAddBackslash
+PathAddExtension
+PathBuildRoot
+PathCanonicalize

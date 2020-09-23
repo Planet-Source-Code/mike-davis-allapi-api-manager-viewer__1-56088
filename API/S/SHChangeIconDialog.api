@@ -1,0 +1,21 @@
+[NAME]
+SHChangeIconDialog
+[DESCRIPTION]
+Unsupported function! Shows the "Change Icon" dialog
+[DECLARATION]
+Declare Function SHChangeIconDialog Lib "shell32" Alias "#62" (ByVal hOwner As Long, ByVal szFilename As String, ByVal Reserved As Long, lpIconIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+No return value.
+[EXAMPLES]
+SHChangeIconDialog*361DF72BB82B71A3ECA1E7FFF14CFD16.html
+PickIconDlg*8DF36343754932D48C048D20B37F7246.html
+[RELATED]
+

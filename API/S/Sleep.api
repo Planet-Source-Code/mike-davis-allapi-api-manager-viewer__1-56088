@@ -1,0 +1,27 @@
+[NAME]
+Sleep
+[DESCRIPTION]
+The Sleep function suspends the execution of the current thread for a specified interval.
+[DECLARATION]
+Declare Sub Sleep Lib "kernel32" Alias "Sleep" (ByVal dwMilliseconds As Long)
+[VBNET]
+System.Threading.Thread.Sleep
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwMilliseconds
+Specifies the time, in milliseconds, for which to suspend execution. A value of zero causes the thread to relinquish the remainder of its time slice to any other thread of equal priority that is ready to run. If there are no other threads of equal priority ready to run, the function returns immediately, and the thread continues execution. A value of INFINITE causes an infinite delay.
+[RETURNS]
+This function does not return a value. 
+[EXAMPLES]
+Sleep*243924BFD56A682BE235638B53961E09.html
+Keyboard Animation*9F18BC9B988A4DEA6176576D71D085A5.html
+CreateCursor*A9B78B38399F85150C731A1B12FEEF16.html
+AsyncThread*FE3ACF25A0FA80872B2D730CA474AC4B.html
+BlockInput*1B463387B31CF691556B7458C7FE1D68.html
+Restore Window*487ACBBA850036062779018152798383.html
+[RELATED]
+SleepEx
+sleeping

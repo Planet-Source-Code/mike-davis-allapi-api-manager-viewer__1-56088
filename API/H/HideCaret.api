@@ -1,0 +1,23 @@
+[NAME]
+HideCaret
+[DESCRIPTION]
+The HideCaret function removes the caret from the screen. Hiding a caret does not destroy its current shape or invalidate the insertion point.
+[DECLARATION]
+Declare Function HideCaret Lib "user32" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd 
+Identifies the window that owns the caret. If this parameter is NULL, HideCaret searches the current task for the window that owns the caret. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Caret*CF0AA280383530E27035F2D533841703.html
+[RELATED]
+ShowCaret

@@ -1,0 +1,31 @@
+[NAME]
+waveOutGetVolume
+[DESCRIPTION]
+The waveOutGetVolume function retrieves the current volume level of the specified waveform-audio output device.
+[DECLARATION]
+Declare Function waveOutGetVolume Lib "Winmm" (ByVal wDeviceID As Integer, dwVolume As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwo
+Handle to an open waveform-audio output device. This parameter can also be a device identifier.
+
+· pdwVolume
+Pointer to a variable to be filled with the current volume setting. The low-order word of this location contains the left-channel volume setting, and the high-order word contains the right-channel setting. A value of 0xFFFF represents full volume, and a value of 0x0000 is silence.
+If a device does not support both left and right volume control, the low-order word of the specified location contains the mono volume level.
+
+The full 16-bit setting(s) set with the waveOutSetVolume function is returned, regardless of whether the device supports the full 16 bits of volume-level control.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+MMSYSERR_NOTSUPPORTED Function isn't supported. 
+[EXAMPLES]
+WAVE Volume*62A65E87720EE28BE9513E7CB0BE2E7C.html
+[RELATED]
+waveOutSetVolume

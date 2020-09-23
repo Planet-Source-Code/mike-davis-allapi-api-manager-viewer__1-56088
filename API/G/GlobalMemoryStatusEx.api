@@ -1,0 +1,23 @@
+[NAME]
+GlobalMemoryStatusEx
+[DESCRIPTION]
+The GlobalMemoryStatusEx function obtains information about the system's current usage of both physical and virtual memory.
+[DECLARATION]
+Declare Function GlobalMemoryStatusEx Lib "kernel32.dll" (ByRef lpBuffer As MEMORYSTATUSEX) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpBuffer 
+[in/out] Pointer to a MEMORYSTATUSEX structure. GlobalMemoryStatusEx stores information about current memory availability in this structure. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+MemoryStatusEx*8EA3DFC77FAC1280BDCA0AAA3E231BB1.html
+[RELATED]
+GlobalMemoryStatus

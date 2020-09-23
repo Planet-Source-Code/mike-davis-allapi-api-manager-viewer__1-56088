@@ -1,0 +1,43 @@
+[NAME]
+SHSetValue
+[DESCRIPTION]
+Sets the value of a registry key.
+[DECLARATION]
+Declare Function SHSetValue Lib "SHLWAPI.DLL" Alias "SHSetValueA" (ByVal hKey As Long, ByVal pszSubKey As String, ByVal pszValue As String, ByVal dwType As Long, pvData As String, ByVal cbData As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· hkey 
+Handle to the currently open key, or any of the following predefined values: 
+HKEY_CLASSES_ROOT 
+HKEY_CURRENT_CONFIG 
+HKEY_CURRENT_USER 
+HKEY_DYN_DATA (Windows 95 only) 
+HKEY_LOCAL_MACHINE 
+HKEY_PERFORMANCE_DATA (Windows NT only) 
+HKEY_USERS 
+
+· pszSubKey 
+Address of a null-terminated string that specifies the name of the subkey with which a value is associated. This can be NULL or a pointer to an empty string. In this case, the value will be added to the key identified by the hKey parameter. 
+
+· pszValue 
+Address of a null-terminated string that specifies the value. 
+
+· dwType 
+Type of data to be stored. This parameter must be the REG_SZ type. For more information, see Registry Data Types. 
+
+· pvData 
+Address of a null-terminated string that contains the value to set for the specified key. 
+
+· cbData 
+Length, in bytes, of the string pointed to by the pvData parameter, not including the terminating null character. 
+[RETURNS]
+Returns ERROR_SUCCESS if successful, or a nonzero error code defined in Winerror.h otherwise. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to retrieve a generic description of the error.
+[EXAMPLES]
+Environment Variables*B24F9455F35DDEE269073BD635BD9216.html
+[RELATED]
+RegSetValueEx

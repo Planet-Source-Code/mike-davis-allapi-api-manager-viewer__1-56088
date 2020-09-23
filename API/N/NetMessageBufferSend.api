@@ -1,0 +1,46 @@
+[NAME]
+NetMessageBufferSend
+[DESCRIPTION]
+The NetMessageBufferSend function sends a buffer of information to a registered message alias.
+[DECLARATION]
+Declare Function NetMessageBufferSend Lib   "NETAPI32.DLL" (yServer As Any, yToName As Byte,   yFromName As Any, yMsg As Byte, ByVal lSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· servername 
+[in] Pointer to a constant Unicode string specifying the name of the remote server on which the function is to execute. The string must begin with \\. If this parameter is NULL, the local computer is used. 
+
+· msgname 
+[in] Pointer to a constant Unicode string specifying the message alias to which the message buffer should be sent. 
+
+· fromname 
+[in] Pointer to a constant Unicode string specifying who the message is from. If this parameter is NULL, the message is sent from the local computer name. 
+
+· buf 
+[in] Pointer to a buffer that contains the message text. 
+
+· buflen 
+[in] Specifies a DWORD value that contains the length, in bytes, of the message text pointed to by the buf parameter. 
+[RETURNS]
+If the function succeeds, the return value is NERR_Success.
+
+If the function fails, the return value can be one of the following error codes.
+
+ERROR_ACCESS_DENIED 
+ The user does not have access to the requested information. 
+ERROR_INVALID_PARAMETER 
+ The specified parameter is invalid. 
+ERROR_NOT_SUPPORTED 
+ This network request is not supported. 
+NERR_NameNotFound 
+ The user name could not be found. 
+NERR_NetworkError 
+ A general failure occurred in the network hardware. 
+[EXAMPLES]
+NetMessageBufferSend*CD8435C769A965C6D8C5E45E9CC77B58.html
+[RELATED]
+NetUserGetInfo

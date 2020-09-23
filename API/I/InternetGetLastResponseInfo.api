@@ -1,0 +1,28 @@
+[NAME]
+InternetGetLastResponseInfo
+[DESCRIPTION]
+Retrieves the last Microsoft® Win32® Internet function error description or server response on the thread calling this function.
+[DECLARATION]
+Declare Function InternetGetLastResponseInfo Lib "wininet.dll" Alias "InternetGetLastResponseInfoA" (lpdwError As Long, ByVal lpszBuffer As String, lpdwBufferLength As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpdwError
+[out] Address of an unsigned long integer variable that receives an error message pertaining to the operation that failed.
+
+· lpszBuffer
+[out] Address of a buffer that receives the error text.
+
+· lpdwBufferLength
+[in, out] Address of an unsigned long integer variable that contains the size of the lpszBuffer buffer in TCHARs. When the function returns, this parameter contains the size of the string written to the buffer, not including the terminating zero.
+[RETURNS]
+Returns TRUE if error text was successfully written to the buffer, or FALSE otherwise. To get extended error information, call GetLastError. If the buffer is too small to hold all the error text, GetLastError returns ERROR_INSUFFICIENT_BUFFER, and the lpdwBufferLength parameter contains the minimum buffer size required to return all the error text. 
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+InternetOpen
+InternetCloseHandle

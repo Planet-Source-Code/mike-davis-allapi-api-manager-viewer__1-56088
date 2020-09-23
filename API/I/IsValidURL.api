@@ -1,0 +1,33 @@
+[NAME]
+IsValidURL
+[DESCRIPTION]
+Determines if a specified string is a valid URL.
+[DECLARATION]
+Declare Function IsValidURL Lib "URLMON.DLL" (ByVal pbc As Long, ByVal szURL As String, ByVal dwReserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Internet Explorer 3.0
+[LIBRARY]
+Urlmon
+[PARAMETERS]
+· pBC
+[in] Pointer to the IBindCtx interface. This parameter is currently ignored. It should be set to NULL. 
+
+· szURL
+[in] Pointer to a string value that contains the full URL to be checked. 
+
+· dwReserved
+[in] Reserved. Must be set to 0.
+[RETURNS]
+Returns one of the following values.
+S_OK 
+ The szURL parameter contains a valid URL. 
+S_FALSE 
+ The szURL parameter does not contain a valid URL. 
+E_INVALIDARG 
+ One of the parameters is invalid. 
+[EXAMPLES]
+Valid URL*14665764A4E2195D4B1DDBFE8E827D64.html
+[RELATED]
+PathIsURL

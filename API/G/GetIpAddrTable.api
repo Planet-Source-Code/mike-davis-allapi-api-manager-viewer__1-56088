@@ -1,0 +1,32 @@
+[NAME]
+GetIpAddrTable
+[DESCRIPTION]
+The GetIpAddrTable function retrieves the interface-to-IP address mapping table.
+[DECLARATION]
+Declare Function GetIpAddrTable Lib "IPHlpApi" (pIPAdrTable As Byte, pdwSize As Long, ByVal Sort As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 SP4 or later;  Requires Windows 98 or later
+[LIBRARY]
+Iphlpapi
+[PARAMETERS]
+· pIpAddrTable 
+[out] Pointer to a buffer that receives the interface–to–IP address mapping table as a structure. 
+
+· pdwSize 
+[in, out] On input, specifies the size of the buffer pointed to by the pIpAddrTable parameter. 
+On output, if the buffer is not large enough to hold the returned mapping table, the function sets this parameter equal to the required buffer size. 
+
+· bOrder 
+[in] Specifies whether the returned mapping table should be sorted in ascending order by IP address. If this parameter is TRUE, the table is sorted. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR.
+
+If the function fails, use to obtain the message string for the returned error.
+[EXAMPLES]
+Multiple IPs*20345ADDCCFB6761860EFC67A4DB5C2D.html
+Get IP*87CE0B960AB6714155D5C44C037C7234.html
+[RELATED]
+GetIpNetTable
+GetIpStatistics

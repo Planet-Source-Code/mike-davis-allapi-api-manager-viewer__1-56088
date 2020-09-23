@@ -1,0 +1,38 @@
+[NAME]
+GetFileVersionInfo
+[DESCRIPTION]
+The GetFileVersionInfo function returns version information about a specified file.
+[DECLARATION]
+Declare Function GetFileVersionInfo Lib "version.dll"  Alias "GetFileVersionInfoA" (ByVal lptstrFilename As String, ByVal dwHandle As Long, ByVal dwLen As Long, lpData As Any) As Long
+[VBNET]
+System.Diagnostics.FileVersionInfo
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Version
+[PARAMETERS]
+· lptstrFilename
+Pointer to a null-terminated filename string that specifies the file of interest.
+
+· dwHandle
+This parameter is ignored.
+
+· dwLen
+Specifies the size, in bytes, of the buffer pointed to by lpData.
+Call the GetFileVersionInfoSize function to determine the size in bytes of a file’s version information. dwLen should be equal to or greater than that value.
+If the buffer pointed to by lpData is not large enough, the function truncates the file’s-version information to the size of the buffer.
+
+· lpData
+Pointer to a buffer to receive file-version information.
+You can use this value in a subsequent call to the VerQueryValue function.
+The file version information is always in Unicode format.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+FileInfo*C8787F620B85FE0EFC06CD359F8AEDF5.html
+[RELATED]
+GetFileVersionInfoSize
+VerQueryValue
+Ver Info

@@ -1,0 +1,31 @@
+[NAME]
+SelectPalette
+[DESCRIPTION]
+The SelectPalette function selects the specified logical palette into a device context.
+[DECLARATION]
+Declare Function SelectPalette Lib "gdi32" Alias "SelectPalette" (ByVal hdc As Long, ByVal hPalette As Long, ByVal bForceBackground As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· hpal
+Identifies the logical palette to be selected.
+
+· bForceBackground
+Specifies whether the logical palette is forced to be a background palette. If this value is TRUE, the RealizePalette function causes the logical palette to be mapped to the colors already in the physical palette in the best possible way. This is always done, even if the window for which the palette is realized belongs to a thread without active focus.
+If this value is FALSE, RealizePalette causes the logical palette to be copied into the device palette when the application is in the foreground. (If the hdc parameter is a memory device context, this parameter is ignored.)
+[RETURNS]
+If the function succeeds, the return value identifies the device context’s previous logical palette. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Palette*278F9A3D3077C522E71022E302B9E0E4.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+[RELATED]
+RealizePalette

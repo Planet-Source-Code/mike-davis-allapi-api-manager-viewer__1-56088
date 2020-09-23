@@ -1,0 +1,39 @@
+[NAME]
+SendMessage
+[DESCRIPTION]
+The SendMessage function sends the specified message to a window or windows. The function calls the window procedure for the specified window and does not return until the window procedure has processed the message. The PostMessage function, in contrast, posts a message to a thread’s message queue and returns immediately.
+[DECLARATION]
+Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose window procedure will receive the message. If this parameter is HWND_BROADCAST, the message is sent to all top-level windows in the system, including disabled or invisible unowned windows, overlapped windows, and pop-up windows; but the message is not sent to child windows.
+
+· Msg
+Specifies the message to be sent.
+
+· wParam
+Specifies additional message-specific information.
+
+· lParam
+Specifies additional message-specific information.
+[RETURNS]
+The return value specifies the result of the message processing and depends on the message sent. 
+[EXAMPLES]
+Send Message*1432F32780BBD9CDE496343B060FD75D.html
+Drag Form*9C957F312C79F2F6F91B5D6FE4898AB9.html
+Hotkey*8DB21EE66D0ED1F6D24CE1B9C4274D4C.html
+AddFontResource*6DA75DAC29F25179DB3CE0F0583B791C.html
+Redirect Output*DBE61037E261CDE165E2120438BB65CE.html
+RichText Line Numbers*B2EDCFCEE7E5D5F06635283138EFB178.html
+ScrollDC*B5E684592EBC7270DDCFE1C072E99F75.html
+Resize Listbox*AF90F3B82C6AF79A1C031A4F002257D5.html
+ProgressBar Color*11C0A1CA844467D2E3A592BD7814B5CF.html
+[RELATED]
+PostMessage
+SendMessageTimeout

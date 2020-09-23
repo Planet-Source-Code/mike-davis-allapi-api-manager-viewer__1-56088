@@ -1,0 +1,24 @@
+[NAME]
+GetIcmpStatistics
+[DESCRIPTION]
+The GetIcmpStatistics function retrieves the Internet Control Message Protocol (ICMP) statistics for the local computer.
+[DECLARATION]
+Declare Function GetIcmpStatistics Lib "iphlpapi" (pStats As MIBICMPINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 98 or later
+[LIBRARY]
+Iphlpapi
+[PARAMETERS]
+· pStats 
+[out] Pointer to a MIB_ICMP structure that receives the ICMP statistics for the local computer. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR.
+
+If the function fails, use FormatMessage to obtain the message string for the returned error.
+[EXAMPLES]
+ICMP Stats*EFBFACC308743C2BBC0BE2F3C0DDD859.html
+[RELATED]
+GetUdpStatistics
+GetTcpStatistics

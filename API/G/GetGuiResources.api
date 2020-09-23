@@ -1,0 +1,30 @@
+[NAME]
+GetGuiResources
+[DESCRIPTION]
+The GetGuiResources function retrieves the count of handles to graphical user interface (GUI) objects in use by the specified process.
+[DECLARATION]
+Declare Function GetGuiResources Lib "user32.dll" (ByVal hProcess As Long, ByVal uiFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+User32
+[PARAMETERS]
+· hProcess 
+[in] Handle to the process. The handle must have the PROCESS_QUERY_INFORMATION access right. For more information, see Process Security and Access Rights. 
+
+· uiFlags 
+[in] Specifies the GUI object type. This parameter can be one of the following values.
+GR_GDIOBJECTS 
+ Return the count of GDI objects. 
+GR_USEROBJECTS 
+ Return the count of USER objects.
+[RETURNS]
+If the function succeeds, the return value is the count of handles to GUI objects in use by the process. If no GUI objects are in use, the return value is zero.
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+GUI Resources*69800605644F02E492B079D2492028AD.html
+[RELATED]
+GetCurrentProcess
+GetFreeResources

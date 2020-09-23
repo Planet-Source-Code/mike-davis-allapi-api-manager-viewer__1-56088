@@ -1,0 +1,32 @@
+[NAME]
+EnumProcessModules
+[DESCRIPTION]
+The EnumProcessModules function retrieves a handle for each module in the specified process.
+[DECLARATION]
+Declare Function EnumProcessModules Lib "PSAPI.DLL" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+[VBNET]
+System.Diagnostics.Process.Modules
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Psapi
+[PARAMETERS]
+· hProcess
+[in] Handle to the process.
+
+· lphModule
+[out] Pointer to the array that receives the list of module handles.
+
+· cb
+[in] Specifies the size, in bytes, of the lphModule array.
+
+· lpcbNeeded
+[out] Receives the number of bytes required to store all module handles in the lphModule array.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+EnumProcesses

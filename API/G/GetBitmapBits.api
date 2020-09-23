@@ -1,0 +1,29 @@
+[NAME]
+GetBitmapBits
+[DESCRIPTION]
+The GetBitmapBits function copies the bitmap bits of a specified bitmap into a buffer.
+[DECLARATION]
+Declare Function GetBitmapBits Lib "gdi32" Alias "GetBitmapBits" (ByVal hBitmap As Long, ByVal dwCount As Long, lpBits As Any) As Long
+[VBNET]
+System.Drawing.Bitmap.LockBits
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hBitmap
+Identifies the bitmap.
+
+· dwCount
+Length of the buffer.
+
+· lpBits
+Points to a buffer to receive the bitmap data.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Bitmap Bits*FCF52530F97D901283E74DFB0D54D5D4.html
+[RELATED]
+SetBitmapBits

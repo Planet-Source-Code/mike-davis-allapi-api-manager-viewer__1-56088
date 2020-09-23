@@ -1,0 +1,44 @@
+[NAME]
+TabbedTextOut
+[DESCRIPTION]
+The TabbedTextOut function writes a character string at a specified location, expanding tabs to the values specified in an array of tab-stop positions. Text is written in the currently selected font.
+[DECLARATION]
+Declare Function TabbedTextOut Lib "user32" Alias "TabbedTextOutA" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long, ByVal nTabPositions As Long, lpnTabStopPositions As Long, ByVal nTabOrigin As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawString
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hDC
+Identifies the device context.
+
+· X
+Specifies the x-coordinate of the starting point of the string, in logical units.
+
+· Y
+Specifies the y-coordinate of the starting point of the string, in logical units.
+
+· lpString
+Points to the character string to draw. The string does not need to be zero-terminated, since nCount specifies the length of the string.
+
+· nCount
+Specifies the number of characters in the string.
+
+· nTabPositions
+Specifies the number of values in the array of tab-stop positions.
+
+· lpnTabStopPositions
+Points to an array containing the tab-stop positions, in device units. The tab stops must be sorted in increasing order; the smallest x-value should be the first item in the array.
+Windows 95: A tab stop can be specified as a negative value, which causes text to be right-aligned on the tab stop rather than left-aligned.
+
+· nTabOrigin
+Specifies the x-coordinate of the starting position from which tabs are expanded, in logical units.
+[RETURNS]
+If the function succeeds, the return value is the dimensions, in logical units, of the string. The height is in the high-order word and the width is in the low-order word. 
+[EXAMPLES]
+TabbedTextOut*301A3B005FF367078EE838ED46452055.html
+[RELATED]
+TextOut
+drawtext

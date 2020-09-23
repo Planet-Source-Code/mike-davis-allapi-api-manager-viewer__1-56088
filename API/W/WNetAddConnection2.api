@@ -1,0 +1,101 @@
+[NAME]
+WNetAddConnection2
+[DESCRIPTION]
+The WNetAddConnection2 function makes a connection to a network resource. The function can redirect a local device to the network resource.
+[DECLARATION]
+Declare Function WNetAddConnection2 Lib "mpr.dll" Alias "WNetAddConnection2A" (lpNetResource As NETRESOURCE, ByVal lpPassword As String, ByVal lpUserName As String, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Mpr
+[PARAMETERS]
+· lpNetResource
+Points to a NETRESOURCE structure that specifies details of the proposed connection: information about the network resource, the local device, and the network resource provider.
+You must specify the following members of the NETRESOURCE structure:
+dwType
+ Specifies the type of network resource to connect to. If lpLocalName points to a non-empty string, this member can be RESOURCETYPE_DISK or RESOURCETYPE_PRINT. If lpLocalName is NULL or points to an empty string, dwType can be RESOURCETYPE_DISK, RESOURCETYPE_PRINT, or RESOURCETYPE_ANY.
+lpLocalName
+ Points to a null-terminated string that specifies the name of a local device to be redirected, such as “F:” or “LPT1”. The string is treated in a case-insensitive manner. If the string is empty or lpLocalName is NULL, the function makes a connection to the network resource without redirecting a local device.
+lpRemoteName
+ Points to a null-terminated string that specifies the network resource to connect to. The string can be up to MAX_PATH characters in length. The string must follow the network provider’s naming conventions.
+lpProvider
+ Points to a null-terminated string that specifies the network provider to connect to. If lpProvider is NULL or points to an empty string, the operating system attempts to determine the correct provider by parsing the string pointed to by lpRemoteName.
+ You should set this member only if you know for sure which network provider you want to use. Otherwise, let the operating system determine which provider the network name maps to.
+ If this member is not NULL, the operating system attempts to make a connection only to the named network provider.
+
+The WNetAddConnection2 function ignores the other members of the NETRESOURCE structure.
+
+· lpPassword
+Points to a null-terminated string that specifies a password to be used in making the network connection.
+If lpPassword is NULL, the function uses the current default password associated with the user specified by lpUserName.
+If lpPassword points to an empty string, the function does not use a password.
+
+· lpUsername
+Points to a null-terminated string that specifies a user name to be used in making the connection.
+If lpUserName is NULL, the function uses the default user name. The user context for the process provides the default user name.
+The lpUserName parameter is specified when users want to connect to a network resource for which they have been assigned a user name or account other than the default user name or account.
+The user-name string represents a security context. It may be specific to a network provider.
+
+· dwFlags
+A set of bit flags that specify connection options. The following bit flag constant is currently defined:
+CONNECT_UPDATE_PROFILE
+ The network resource connection should be remembered.
+
+If this bit flag is set, the operating system automatically attempts to restore the connection when the user logs on.
+The operating system remembers only successful connections that redirect local devices. It does not remember unsuccessful connections or deviceless connections. A deviceless connection occurs when lpLocalName is NULL or points to an empty string.
+If this bit flag is clear, the operating system will not automatically restore the connection at logon.
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is an error code. Returning an error code provides compatibility with the behavior of the Windows 3.1 function WNetAddConnection. You can also call the GetLastError function to obtain the (same) error code. One of the following error codes may be returned when WNetAddConnection2 fails:
+ERROR_ACCESS_DENIED 
+ Access to the network resource was denied. 
+ 
+ERROR_ALREADY_ASSIGNED 
+ The local device specified by lpLocalName is already connected to a network resource. 
+ 
+ERROR_BAD_DEV_TYPE 
+ The type of local device and the type of network resource do not match. 
+ 
+ERROR_BAD_DEVICE 
+ The value specified by lpLocalName is invalid. 
+ 
+ERROR_BAD_NET_NAME 
+ The value specified by lpRemoteName is not acceptable to any network resource provider. The resource name is invalid, or the named resource cannot be located. 
+ 
+ERROR_BAD_PROFILE 
+ The user profile is in an incorrect format. 
+ 
+ERROR_BAD_PROVIDER 
+ The value specified by lpProvider does not match any provider. 
+ 
+ERROR_BUSY 
+ The router or provider is busy, possibly initializing. The caller should retry. 
+ 
+ERROR_CANCELLED 
+ The attempt to make the connection was cancelled by the user through a dialog box from one of the network resource providers, or by a called resource. 
+ 
+ERROR_CANNOT_OPEN_PROFILE 
+ The system is unable to open the user profile to process persistent connections. 
+ 
+ERROR_DEVICE_ALREADY_REMEMBERED 
+ An entry for the device specified in lpLocalName is already in the user profile. 
+ 
+ERROR_EXTENDED_ERROR 
+ A network-specific error occured. Call the WNetGetLastError function to get a description of the error. 
+ 
+ERROR_INVALID_PASSWORD 
+ The specified password is invalid. 
+ 
+ERROR_NO_NET_OR_BAD_PATH 
+ A network component has not started, or the specified name could not be handled. 
+ 
+ERROR_NO_NETWORK 
+ There is no network present. 
+[EXAMPLES]
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+AddConnection2*3A4DB0F9FF48C4015DDA832077D95DAA.html
+[RELATED]
+WNetAddConnection

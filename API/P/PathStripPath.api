@@ -1,0 +1,28 @@
+[NAME]
+PathStripPath
+[DESCRIPTION]
+Removes the path portion of a fully qualified path and file.
+[DECLARATION]
+Declare Sub PathStripPath Lib "shlwapi.dll" Alias "PathStripPathA" (ByVal pszPath As String)
+[VBNET]
+System.IO.FileInfo.Name
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+Address of a string that contains the path and file name that will have the path portion removed.
+[RETURNS]
+No return value.
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathQuoteSpaces
+PathUnquoteSpaces
+PathStripToRoot
+PathMatchSpec
+PathMakeSystemFolder
+PathIsSystemFolder
+stripdir

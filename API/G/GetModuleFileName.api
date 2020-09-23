@@ -1,0 +1,29 @@
+[NAME]
+GetModuleFileName
+[DESCRIPTION]
+The GetModuleFileName function retrieves the full path and filename for the executable file containing the specified module.
+[DECLARATION]
+Declare Function GetModuleFileName Lib "kernel32" Alias "GetModuleFileNameA" (ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
+[VBNET]
+System.Diagnostics.ProcessModule.FileName
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hModule
+Identifies the module whose executable filename is being requested. If this parameter is NULL, GetModuleFileName returns the path for the file used to create the calling process.
+
+· lpFilename
+Points to a buffer that is filled in with the path and filename of the given module.
+
+· nSize
+Specifies the length, in characters, of the lpFilename buffer. If the length of the path and filename exceeds this limit, the string is truncated.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the string copied to the buffer. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ModuleFilename*69D2103B03D18956955B77AE2C449F73.html
+[RELATED]
+LoadLibrary

@@ -1,0 +1,28 @@
+[NAME]
+EnumProps
+[DESCRIPTION]
+The EnumProps function enumerates all entries in the property list of a window by passing them, one by one, to the specified callback function. EnumProps continues until the last entry is enumerated or the callback function returns FALSE.
+[DECLARATION]
+Declare Function EnumProps Lib "user32" Alias "EnumPropsA" (ByVal hWnd As Long, ByVal lpEnumFunc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose property list is to be enumerated.
+
+· lpEnumFunc
+Points to the callback function. For more information about the callback function, see the PropEnumProc function.
+[RETURNS]
+The return value specifies the last value returned by the callback function. It is -1 if the function did not find a property for enumeration. 
+[EXAMPLES]
+Properties*9FC2D28C05ED9EB1D75BA4465ABF15A9.html
+EnumPropsEx*6C729C211996374B0856051301084BA6.html
+[RELATED]
+SetProp
+GetProp
+RemoveProp
+EnumPropsEx

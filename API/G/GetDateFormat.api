@@ -1,0 +1,84 @@
+[NAME]
+GetDateFormat
+[DESCRIPTION]
+The GetDateFormat function formats a date as a date string for a specified locale. The function formats either a specified date or the local system date.
+[DECLARATION]
+Declare Function GetDateFormat Lib "kernel32" Alias "GetDateFormatA" (ByVal Locale As Long, ByVal dwFlags As Long, lpDate As SYSTEMTIME, ByVal lpFormat As String, ByVal lpDateStr As String, ByVal cchDate As Long) As Long
+[VBNET]
+System.Globalization.CultureInfo.DateTimeFormat
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Locale
+Specifies the locale for which the date string is to be formatted. If lpFormat is NULL, the function formats the string according to the date format for this locale. If lpFormat is not NULL, the function uses the locale only for information not specified in the format picture string (for example, the locale’s day and month names).
+This parameter can be a locale identifier created by the MAKELCID macro, or one of the following predefined values:
+LOCALE_SYSTEM_DEFAULT
+ Default system locale.
+LOCALE_USER_DEFAULT
+ Default user locale.
+
+· dwFlags
+A set of bit flags that specify various function options. If lpFormat is non-NULL, this parameter must be zero.
+If lpFormat is NULL, you can specify a combination of the following flags:
+LOCALE_NOUSEROVERRIDE
+ If set, the function formats the string using the system default date format for the specified locale. If not set, the function formats the string using any user overrides to the locale’s default date format.
+DATE_SHORTDATE
+ Use the short date format. This is the default. Cannot be used with DATE_LONGDATE or DATE_YEARMONTH.
+DATE_LONGDATE
+ Use the long date format. Cannot be used with DATE_SHORTDATE or DATE_YEARMONTH.
+DATE_YEARMONTH
+ Use the year/month format. Cannot be used with DATE_SHORTDATE or DATE_LONGDATE.
+DATE_USE_ALT_CALENDAR
+ Use the alternate calendar, if one exists, to format the date string. If this flag is set, the function uses the default format for that alternate calendar, rather than using any user overrides. The user overrides will be used only in the event that there is no default format for the specified alternate calendar.
+
+· lpDate
+Pointer to a SYSTEMTIME structure that contains the date information to be formatted. If this pointer is NULL, the function uses the current local system date.
+
+· lpFormat
+Pointer to a format picture string to use to form the date string. If lpFormat is NULL, the function uses the date format of the specified locale.
+Use the following elements to construct a format picture string. If you use spaces to separate the elements in the format string, these spaces will appear in the same location in the output string. The letters must be in uppercase or lowercase as shown in the table (for example, “MM” not “mm”). Characters in the format string that are enclosed in single quotation marks will appear in the same location and unchanged in the output string.
+d
+ Day of month as digits with no leading zero for single-digit days.
+dd
+ Day of month as digits with leading zero for single-digit days.
+ddd
+ Day of week as a three-letter abbreviation. The function uses the LOCALE_SABBREVDAYNAME value associated with the specified locale.
+dddd
+ Day of week as its full name. The function uses the LOCALE_SDAYNAME value associated with the specified locale.
+M
+ Month as digits with no leading zero for single-digit months.
+MM
+ Month as digits with leading zero for single-digit months.
+MMM
+ Month as a three-letter abbreviation. The function uses the LOCALE_SABBREVMONTHNAME value associated with the specified locale.
+MMMM
+ Month as its full name. The function uses the LOCALE_SMONTHNAME value associated with the specified locale.
+y
+ Year as last two digits, but with no leading zero for years less than 10.
+yy
+ Year as last two digits, but with leading zero for years less than 10.
+yyyy
+ Year represented by full four digits.
+gg
+ Period/era string. The function uses the CAL_SERASTRING value associated with the specified locale. This element is ignored if the date to be formatted does not have an associated era or period string.
+
+For example, to get the date string
+“Wed, Aug 31 94”
+use the following picture string:
+“ddd',' MMM dd yy”
+
+· lpDateStr
+Pointer to a buffer that receives the formatted date string.
+
+· cchDate
+Specifies the size, in bytes (ANSI version) or characters (Unicode version), of the lpDateStr buffer. If cchDate is zero, the function returns the number of bytes or characters required to hold the formatted date string, and the buffer pointed to by lpDateStr is not used.
+[RETURNS]
+If the function succeeds, the return value is the number of bytes (ANSI version) or characters (Unicode version) written to the lpDateStr buffer, or if the cchDate parameter is zero, the number of bytes or characters required to hold the formatted date string. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. GetLastError may return one of the following error codes: ERROR_INSUFFICIENT_BUFFER, ERROR_INVALID_FLAGS, ERROR_INVALID_PARAMETER
+[EXAMPLES]
+DateFormat*0F7A619280B317A2785A510E89FE075C.html
+[RELATED]
+

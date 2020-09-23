@@ -1,0 +1,42 @@
+[NAME]
+InternetGetConnectedState
+[DESCRIPTION]
+Retrieves the connected state of the local system.
+[DECLARATION]
+Declare Function InternetGetConnectedState Lib "wininet.dll" (ByRef lpdwFlags As Long, ByVal dwReserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Internet Explorer 4.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpdwFlags
+[out] Pointer to an unsigned long integer variable where the connection description should be returned. This can be a combination of the following values:
+INTERNET_CONNECTION_CONFIGURED
+ Local system has a valid connection to the Internet, but it may or may not be currently connected.
+INTERNET_CONNECTION_LAN
+ Local system uses a local area network to connect to the Internet.
+INTERNET_CONNECTION_MODEM
+ Local system uses a modem to connect to the Internet.
+INTERNET_CONNECTION_MODEM_BUSY
+ No longer used.
+INTERNET_CONNECTION_OFFLINE
+ Local system is in offline mode.
+INTERNET_CONNECTION_PROXY
+ Local system uses a proxy server to connect to the Internet.
+INTERNET_RAS_INSTALLED
+ Local system has RAS installed.
+
+· dwReserved
+[in] Reserved. Must be set to zero.
+[RETURNS]
+Returns TRUE if there is an Internet connection, or FALSE otherwise.
+[EXAMPLES]
+GetConnectedState*88D2FE2FA2043A1CAED411B3FFE14536.html
+IsConnected*6F338CFEBC8FF98D27B6E3A9DE5576D7.html
+[RELATED]
+IsDestinationReachable
+IsNetworkAlive
+InternetAttemptConnect
+InternetGetConnectedStateEx

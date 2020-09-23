@@ -1,0 +1,24 @@
+[NAME]
+SetCurrentDirectory
+[DESCRIPTION]
+The SetCurrentDirectory function changes the current directory for the current process.
+[DECLARATION]
+Declare Function SetCurrentDirectory Lib "kernel32" Alias "SetCurrentDirectoryA" (ByVal lpPathName As String) As Long
+[VBNET]
+System.Environment.CurrentDirectory
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpPathName
+Points to a null-terminated string that specifies the path to the new current directory. This parameter may be a relative path or a fully qualified path. In either case, the fully qualified path of the specified directory is calculated and stored as the current directory.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+SetCurrentDirectory*F1E8B7CABB1B4CF971F59AC6092E96A7.html
+[RELATED]
+GetCurrentDirectory
+currentdirectory

@@ -1,0 +1,31 @@
+[NAME]
+fCreateShellLink
+[DESCRIPTION]
+The fCreateShellLink creates a shell link
+[DECLARATION]
+Declare Function fCreateShellLink Lib "VB5STKIT.DLL" (ByVal lpstrFolderName As String, ByVal lpstrLinkName As String, ByVal lpstrLinkPath As String, ByVal lpstrLinkArgs As String) As Long
+[VBNET]
+N/A
+[OS]
+Visual Basic Runtimes
+[LIBRARY]
+Vb5stkit
+[PARAMETERS]
+· lpstrFolderName
+folder where to create the link
+
+· lpstrLinkName
+text caption for the link
+
+· lpstrLinkPath
+full path to the target of the link
+
+· lpstrLinkArguments
+command-line arguments for the link
+[RETURNS]
+Undocumented
+[EXAMPLES]
+CreateShellLink*A630F27D6BD8CE1990110256749600FB.html
+CreateShellLink v6*885D5A2BFCEF11AA540FCF9E73167351.html
+[RELATED]
+SHGetSpecialFolderLocation

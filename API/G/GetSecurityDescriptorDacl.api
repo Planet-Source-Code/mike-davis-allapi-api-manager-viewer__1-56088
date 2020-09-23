@@ -1,0 +1,33 @@
+[NAME]
+GetSecurityDescriptorDacl
+[DESCRIPTION]
+The GetSecurityDescriptorDacl function retrieves a pointer to the discretionary access-control list (ACL) in a specified security descriptor.
+[DECLARATION]
+Declare Function GetSecurityDescriptorDacl Lib "advapi32.dll" (pSecurityDescriptor As Byte, lpbDaclPresent As Long, pDacl As Long, lpbDaclDefaulted As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSecurityDescriptor
+[in] Pointer to the SECURITY_DESCRIPTOR structure containing the discretionary ACL. The function retrieves a pointer to it.
+
+· lpbDaclPresent
+[out] Pointer to a value that indicates the presence of a discretionary ACL in the specified security descriptor. If this parameter is TRUE, the security descriptor contains a discretionary ACL, and the remaining output parameters in this function receive valid values. If this parameter is FALSE, the security descriptor does not contain a discretionary ACL, and the remaining output parameters do not receive valid values.
+
+· pDacl
+[out] Pointer to a pointer to an ACL structure. If a discretionary ACL exists, the function sets the pointer pointed to by pDacl to the address of the security descriptor's discretionary ACL. If a discretionary ACL does not exist, no value is stored.
+If the function stores a NULL value in the pointer pointed to by pDacl, the security descriptor has a NULL discretionary ACL. A NULL discretionary ACL implicitly allows all access to an object.
+
+· lpbDaclDefaulted
+[out] Pointer to a flag set to the value of the SE_DACL_DEFAULTED flag in the SECURITY_DESCRIPTOR_CONTROL structure if a discretionary ACL exists for the security descriptor. If this flag is TRUE, the discretionary ACL was retrieved by a default mechanism; if FALSE, the discretionary ACL was explicitly specified by a user.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+InitializeSecurityDescriptor

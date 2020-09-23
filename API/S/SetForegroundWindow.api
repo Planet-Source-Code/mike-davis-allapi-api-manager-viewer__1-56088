@@ -1,0 +1,26 @@
+[NAME]
+SetForegroundWindow
+[DESCRIPTION]
+The SetForegroundWindow function puts the thread that created the specified window into the foreground and activates the window. Keyboard input is directed to the window, and various visual cues are changed for the user.
+[DECLARATION]
+Declare Function SetForegroundWindow Lib "user32" Alias "SetForegroundWindow" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window that should be activated and brought to the foreground.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ForeGround Window*FDE3C804A571196D3C52D7CC368A491A.html
+AllowSetForegroundWindow*B7C44612023F283F9F4815D6C2252FD0.html
+[RELATED]
+SetWindowPos
+SetFocus
+SetActiveWindow

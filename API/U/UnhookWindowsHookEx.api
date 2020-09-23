@@ -1,0 +1,23 @@
+[NAME]
+UnhookWindowsHookEx
+[DESCRIPTION]
+The UnhookWindowsHookEx function removes a hook procedure installed in a hook chain by the SetWindowsHookEx function.
+[DECLARATION]
+Declare Function UnhookWindowsHookEx Lib "user32" Alias "UnhookWindowsHookEx" (ByVal hHook As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hhk
+Identifies the hook to be removed. This parameter is a hook handle obtained by a previous call to SetWindowsHookEx.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Hooks*35AD48797A780091740CBCF14EBC094D.html
+[RELATED]
+SetWindowsHookEx

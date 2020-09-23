@@ -1,0 +1,50 @@
+[NAME]
+RegNotifyChangeKeyValue
+[DESCRIPTION]
+The RegNotifyChangeKeyValue function notifies the caller about changes to the attributes or contents of a specified registry key. Note that the function does not notify the caller if the specified key is deleted.
+[DECLARATION]
+Declare Function RegNotifyChangeKeyValue Lib "advapi32.dll" Alias "RegNotifyChangeKeyValue" (ByVal hKey As Long, ByVal bWatchSubtree As Long, ByVal dwNotifyFilter As Long, ByVal hEvent As Long, ByVal fAsynchronus As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 98 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+
+· bWatchSubtree
+Specifies a flag that indicates whether to report changes in the specified key and all of its subkeys or only in the specified key. If this parameter is TRUE, the function reports changes in the key and its subkeys. If the parameter is FALSE, the function reports changes only in the key.
+
+· dwNotifyFilter
+Specifies a set of flags that control which changes should be reported. This parameter can be a combination of the following values:
+REG_NOTIFY_CHANGE_NAME
+ Notify the caller if a subkey is added or deleted.
+REG_NOTIFY_CHANGE_ATTRIBUTES
+ Notify the caller of changes to the attributes of the key, such as the security descriptor information.
+REG_NOTIFY_CHANGE_LAST_SET
+ Notify the caller of changes to a value of the key. This can include adding or deleting a value, or changing an existing value.
+REG_NOTIFY_CHANGE_SECURITY
+ Notify the caller of changes to the security descriptor of the key.
+
+· hEvent
+Identifies an event. If the fAsynchronous parameter is TRUE, the function returns immediately and changes are reported by signaling this event. If fAsynchronous is FALSE, hEvent is ignored.
+
+· fAsynchronous
+Specifies a flag that indicates how the function reports changes. If this parameter is TRUE, the function returns immediately and reports changes by signaling the specified event. When this parameter is FALSE, the function does not return until a change has occurred.
+If hEvent does not specify a valid event, the fAsynchronous parameter cannot be TRUE.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+RegNotifyChangeKeyValue*5B7128D345F8EBCE2557C095EED673D5.html
+[RELATED]
+RegCreateKey
+RegOpenKey
+RegCloseKey

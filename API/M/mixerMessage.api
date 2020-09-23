@@ -1,0 +1,35 @@
+[NAME]
+mixerMessage
+[DESCRIPTION]
+The mixerMessage function sends a custom mixer driver message directly to a mixer driver.
+[DECLARATION]
+Declare Function mixerMessage Lib "winmm.dll" Alias "mixerMessage" (ByVal hmx As Long, ByVal uMsg As Long, ByVal dwParam1 As Long, ByVal dwParam2 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmx
+Handle of an open instance of a mixer device. This handle is returned by the mixerOpen function.
+
+· uMsg
+Custom mixer driver message to send to the mixer driver. This message must be above or equal to the MXDM_USER constant.
+
+· dwParam1 and dwParam2
+Arguments associated with the message being sent.
+[RETURNS]
+Returns a value that is specific to the custom mixer driver message. Possible error values include the following:
+MMSYSERR_INVALHANDLE 
+ The specified device handle is invalid. 
+ 
+MMSYSERR_INVALPARAM 
+ The uMsg parameter specified in the MXDM_USER message is invalid. 
+ 
+MMSYSERR_NOTSUPPORTED 
+ The mixer device did not process the message. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+mixerOpen

@@ -1,0 +1,29 @@
+[NAME]
+EnumThreadWindows
+[DESCRIPTION]
+The EnumThreadWindows function enumerates all nonchild windows associated with a thread by passing the handle of each window, in turn, to an application-defined callback function. EnumThreadWindows continues until the last window is enumerated or the callback function returns FALSE.
+[DECLARATION]
+Declare Function EnumThreadWindows Lib "user32" Alias "EnumThreadWindows" (ByVal dwThreadId As Long, ByVal lpfn As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· dwThreadId
+Identifies the thread whose windows are to be enumerated.
+
+· lpfn
+Points to an application-defined callback function. For more information about the callback function, see the EnumThreadWndProc callback function.
+
+· lParam
+Specifies a 32-bit, application-defined value to be passed to the callback function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum Classnames*A2A6293A01E25C7EBF36F85FCEFCDFE8.html
+[RELATED]
+GetCurrentThread

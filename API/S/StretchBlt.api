@@ -1,0 +1,57 @@
+[NAME]
+StretchBlt
+[DESCRIPTION]
+The StretchBlt function copies a bitmap from a source rectangle into a destination rectangle, stretching or compressing the bitmap to fit the dimensions of the destination rectangle, if necessary. Windows stretches or compresses the bitmap according to the stretching mode currently set in the destination device context.
+[DECLARATION]
+Declare Function StretchBlt Lib "gdi32" Alias "StretchBlt" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawImage
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdcDest
+Identifies the destination device context.
+
+· nXOriginDest
+Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nYOriginDest
+Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nWidthDest
+Specifies the width, in logical units, of the destination rectangle.
+
+· nHeightDest
+Specifies the height, in logical units, of the destination rectangle.
+
+· hdcSrc
+Identifies the source device context.
+
+· nXOriginSrc
+Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nYOriginSrc
+Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nWidthSrc
+Specifies the width, in logical units, of the source rectangle.
+
+· nHeightSrc
+Specifies the height, in logical units, of the source rectangle.
+
+· dwRop
+Specifies the raster operation to be performed. Raster operation codes define how Windows combines colors in output operations that involve a brush, a source bitmap, and a destination bitmap.
+See the BitBlt function for a list of common raster operation codes.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+Print Graphic*C06CED3AA5931E92AB1EE89F9FA2EFEA.html
+ColorAdjustment*CCF635CFE4B221D627087F594B3C1D26.html
+[RELATED]
+BitBlt
+Bitmaps

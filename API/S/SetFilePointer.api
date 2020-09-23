@@ -1,0 +1,44 @@
+[NAME]
+SetFilePointer
+[DESCRIPTION]
+The SetFilePointer function moves the file pointer of an open file.
+[DECLARATION]
+Declare Function SetFilePointer Lib "kernel32" Alias "SetFilePointer" (ByVal hFile As Long, ByVal lDistanceToMove As Long, lpDistanceToMoveHigh As Long, ByVal dwMoveMethod As Long) As Long
+[VBNET]
+System.IO.FileStream.Seek
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Identifies the file whose file pointer is to be moved. The file handle must have been created with GENERIC_READ or GENERIC_WRITE access to the file.
+
+· lDistanceToMove
+Specifies the number of bytes to move the file pointer. A positive value moves the pointer forward in the file and a negative value moves it backward.
+
+· lpDistanceToMoveHigh
+Points to the high-order word of the 64-bit distance to move. If the value of this parameter is NULL, SetFilePointer can operate only on files whose maximum size is 2^32 - 2. If this parameter is specified, the maximum file size is 2^64 - 2. This parameter also receives the high-order word of the new value of the file pointer.
+
+· dwMoveMethod
+Specifies the starting point for the file pointer move. This parameter can be one of the following values:
+FILE_BEGIN
+ The starting point is zero or the beginning of the file. If FILE_BEGIN is specified, DistanceToMove is interpreted as an unsigned location for the new file pointer.
+FILE_CURRENT
+ The current value of the file pointer is the starting point.
+FILE_END
+ The current end-of-file position is the starting point.
+[RETURNS]
+If the SetFilePointer function succeeds, the return value is the low-order doubleword of the new file pointer, and if lpDistanceToMoveHigh is not NULL, the function puts the high-order doubleword of the new file pointer into the LONG pointed to by that parameter. 
+
+If the function fails and lpDistanceToMoveHigh is NULL, the return value is 0xFFFFFFFF. To get extended error information, call GetLastError. 
+
+If the function fails, and lpDistanceToMoveHigh is non-NULL, the return value is 0xFFFFFFFF and GetLastError will return a value other than NO_ERROR. 
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+End Of file*EEE812D41301556E9385F49FBB834736.html
+[RELATED]
+CreateFile
+OpenFile
+CloseHandle

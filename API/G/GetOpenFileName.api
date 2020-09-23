@@ -1,0 +1,29 @@
+[NAME]
+GetOpenFileName
+[DESCRIPTION]
+The GetOpenFileName function creates an Open common dialog box that lets the user specify the drive, directory, and the name of a file or set of files to open.
+[DECLARATION]
+Declare Function GetOpenFileName Lib "comdlg32.dll" Alias "GetOpenFileNameA" (pOpenfilename As OPENFILENAME) As Long
+[VBNET]
+System.Windows.Forms.OpenFileDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+lpofn
+Pointer to an OPENFILENAME structure that contains information used to initialize the dialog box. When GetOpenFileName returns, this structure contains information about the user’s file selection.
+[RETURNS]
+If the user specifies a filename and clicks the OK button, the return value is nonzero. The buffer pointed to by the lpstrFile member of the OPENFILENAME structure contains the full path and filename specified by the user. 
+
+If the user cancels or closes the Open dialog box or an error occurs, the return value is zero. To get extended error information, call the CommDlgExtendedError function, which can return one of the following values:
+CDERR_FINDRESFAILURE, CDERR_NOHINSTANCE, CDERR_INITIALIZATION, CDERR_NOHOOK, CDERR_LOCKRESFAILURE, CDERR_NOTEMPLATE, CDERR_LOADRESFAILURE, CDERR_STRUCTSIZE, CDERR_LOADSTRFAILURE, FNERR_BUFFERTOOSMALL, CDERR_MEMALLOCFAILURE, FNERR_INVALIDFILENAME, CDERR_MEMLOCKFAILURE, FNERR_SUBCLASSFAILURE
+[EXAMPLES]
+Open Dialog*4DA65E8AFD564F7A0A83E4118FDA74D3.html
+Common Dialogs*1D52C7E03E3782E75B883E436E7B341B.html
+[RELATED]
+GetSaveFileName
+CHOOSECOLOR
+PrintDialog
+PAGESETUPDLG
+CHOOSEFONT

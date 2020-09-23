@@ -1,0 +1,35 @@
+[NAME]
+OpenThreadToken
+[DESCRIPTION]
+The OpenThreadToken function opens the access token associated with a thread.
+[DECLARATION]
+Declare Function OpenThreadToken Lib "Advapi32" (ByVal ThreadHandle As Long, ByVal DesiredAccess As Long, ByVal OpenAsSelf As Long, TokenHandle As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· ThreadHandle 
+[in] Handle to the thread whose access token is opened. 
+
+· DesiredAccess 
+[in] Specifies an access mask that specifies the requested types of access to the access token. These requested access types are reconciled against the token's discretionary access-control list (DACL) to determine which accesses are granted or denied. 
+For a list of access rights for access tokens, see Access Rights for Access-Token Objects. 
+
+· OpenAsSelf 
+[in] Indicates whether the access check is to be made against the security context of the thread calling the OpenThreadToken function or against the security context of the process for the calling thread. 
+If this parameter is FALSE, the access check is performed using the security context for the calling thread. If the thread is impersonating a client, this security context can be that of a client process. If this parameter is TRUE, the access check is made using the security context of the process for the calling thread. 
+
+· TokenHandle 
+[out] Pointer to a variable that receives a handle the newly opened access token.
+
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+OpenProcessToken

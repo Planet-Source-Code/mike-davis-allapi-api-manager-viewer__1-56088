@@ -1,0 +1,31 @@
+[NAME]
+GetShortPathName
+[DESCRIPTION]
+The GetShortPathName function obtains the short path form of a specified input path.
+[DECLARATION]
+Declare Function GetShortPathName Lib "kernel32" Alias "GetShortPathNameA" (ByVal lpszLongPath As String, ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpszLongPath
+Points to a null-terminated path string. The function obtains the short form of this path.
+
+· lpszShortPath
+Points to a buffer to receive the null-terminated short form of the path specified by lpszLongPath.
+
+· cchBuffer
+Specifies the size, in characters, of the buffer pointed to by lpszShortPath.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the string copied to lpszShortPath, not including the terminating null character. 
+
+If the function fails due to the lpszShortPath buffer being too small to contain the short path string, the return value is the size, in characters, of the short path string. You need to call the function with a short path buffer that is at least as large as the short path string. 
+
+If the function fails for any other reason, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Short Pathname*F4DE451FEA5C2FEE6155E621AA302812.html
+[RELATED]
+GetFullPathName

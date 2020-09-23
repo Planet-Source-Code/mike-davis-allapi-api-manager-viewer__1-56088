@@ -1,0 +1,32 @@
+[NAME]
+GetFileType
+[DESCRIPTION]
+The GetFileType function returns the type of the specified file.
+[DECLARATION]
+Declare Function GetFileType Lib "kernel32" Alias "GetFileType" (ByVal hFile As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Identifies an open file handle.
+[RETURNS]
+The return value is one of the following values:
+FILE_TYPE_UNKNOWN 
+ The type of the specified file is unknown. 
+ 
+FILE_TYPE_DISK 
+ The specified file is a disk file. 
+ 
+FILE_TYPE_CHAR 
+ The specified file is a character file, typically an LPT device or a console. 
+ 
+FILE_TYPE_PIPE 
+ The specified file is either a named or anonymous pipe. 
+[EXAMPLES]
+GetFileSizeEx*D85F7D5EAEF74832410F8A8245BCA265.html
+[RELATED]
+GetFileAttributes

@@ -1,0 +1,21 @@
+[NAME]
+GetOpenFileNamePreview
+[DESCRIPTION]
+The GetOpenFileNamePreview function selects a file by using the Open dialog box. The dialog box also allows the user to preview the currently specified AVI file. This function augments the capability found in the GetOpenFileName function.
+[DECLARATION]
+Declare Function GetOpenFileNamePreview Lib "msvfw32.dll" (ByRef lpofn As OPENFILENAME) As Long
+[VBNET]
+System.Windows.Forms.OpenFileDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Msvfw32
+[PARAMETERS]
+· lpofn
+Pointer to an OPENFILENAME structure used to initialize the dialog box. On return, the structure contains information about the user's file selection.
+[RETURNS]
+Returns a handle to the selected file.
+[EXAMPLES]
+GetFilePreview*4F5AD6AB980C6F5AA9968080BFD40865.html
+[RELATED]
+GetSaveFileNamePreview

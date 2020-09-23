@@ -1,0 +1,32 @@
+[NAME]
+DrawAnimatedRects
+[DESCRIPTION]
+The DrawAnimatedRects function draws a wire-frame rectangle and animates it to indicate the opening of an icon or the minimizing or maximizing of a window.
+[DECLARATION]
+Declare Function DrawAnimatedRects Lib "user32" Alias "DrawAnimatedRects" (ByVal hwnd As Long, ByVal idAni As Long, lprcFrom As Rect, lprcTo As Rect) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd
+[in] Handle to the window to which the rectangle is clipped. If this parameter is NULL, the working area of the screen is used.
+
+· idAni
+[in] Specifies the type of animation. If you specify IDANI_CAPTION, the window caption will animate from the position specified by lprcFrom to the position specified by lprcTo. The effect is similar to minimizing or maximizing a window.
+
+· lprcFrom
+[in] Pointer to a RECT structure specifying the location and size of the icon or minimized window. Coordinates are relative to the rectangle specified by the lprcClip parameter.
+
+· lprcTo
+[in] Pointer to a RECT structure specifying the location and size of the restored window. Coordinates are relative to the rectangle specified by the lprcClip parameter.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+DrawAnimatedRects*012807A3FC890288A01122F2577B2DBF.html
+[RELATED]
+

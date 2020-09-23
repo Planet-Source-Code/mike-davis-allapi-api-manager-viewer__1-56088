@@ -1,0 +1,66 @@
+[NAME]
+LZOpenFile
+[DESCRIPTION]
+The LZOpenFile function creates, opens, reopens, or deletes the specified file.
+[DECLARATION]
+Declare Function LZOpenFile Lib "lz32.dll" Alias "LZOpenFileA" (ByVal lpszFile As String, lpOf As OFSTRUCT, ByVal style As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Lz32
+[PARAMETERS]
+· lpFileName
+Points to a string that specifies the name of a file.
+
+· lpReOpenBuf
+Points to the OFSTRUCT structure that is to receive information about the file when the file is first opened. The structure can be used in subsequent calls to the LZOpenFile function to refer to the open file.
+The szPathName member of this structure contains characters from the original equipment manufacturer (OEM) character set.
+
+· wStyle
+Specifies the action to take. This parameter can be a combination of the following values:
+OF_CANCEL
+ Ignored. In the Win32-based application programming interface (API), the OF_PROMPT style produces a dialog box containing a Cancel button.
+OF_CREATE
+ Directs LZOpenFile to create a new file. If the file already exists, it is truncated to zero length.
+OF_DELETE
+ Deletes the file.
+OF_EXIST
+ Opens the file and then closes it to test for a file’s existence.
+OF_PARSE
+ Fills the OFSTRUCT structure but carries out no other action.
+OF_PROMPT
+ Displays a dialog box if the requested file does not exist. The dialog box informs the user that Windows cannot find the file, and it contains Retry and Cancel buttons. Choosing the Cancel button directs LZOpenFile to return a “file not found” error message.
+OF_READ
+ Opens the file for reading only.
+OF_READWRITE
+ Opens the file for reading and writing.
+OF_REOPEN
+ Opens the file using information in the reopen buffer.
+OF_SHARE_DENY_NONE
+ Opens the file without denying other processes read or write access to the file. LZOpenFile fails if the file has been opened in compatibility mode by any other process.
+OF_SHARE_DENY_READ
+ Opens the file and denies other processes read access to the file. LZOpenFile fails if the file has been opened in compatibility mode or has been opened for read access by any other process.
+OF_SHARE_DENY_WRITE
+ Opens the file and denies other processes write access to the file. LZOpenFile fails if the file has been opened in compatibility mode or has been opened for write access by any other process.
+OF_SHARE_EXCLUSIVE
+ Opens the file in exclusive mode, denying other processes both read and write access to the file. LZOpenFile fails if the file has been opened in any other mode for read or write access, even by the current process.
+OF_WRITE
+ Opens the file for writing only.
+[RETURNS]
+If the function succeeds and the value specified by the wStyle parameter is not OF_READ, the return value is a handle identifying the file. If the file is compressed and opened with wStyle set to OF_READ, the return value is a special file handle. 
+
+If the function fails, the return value is an LZERROR_* code. These codes have values less than zero. Note that LZOpenFile calls neither SetLastError nor SetLastErrorEx; thus, its failure does not affect a thread’s last-error code. 
+
+Here is a list of the LZERROR_* codes that LZOpenFile can return upon failure:
+LZERROR_BADINHANDLE 
+ The handle identifying the source file is not valid. The file cannot be read. 
+ 
+LZERROR_GLOBALLOC 
+ The maximum number of open compressed files has been exceeded or local memory cannot be allocated. 
+[EXAMPLES]
+LZDecompress*5D1511F5671125E884499D3F117565EE.html
+[RELATED]
+LZCopy
+LZClose

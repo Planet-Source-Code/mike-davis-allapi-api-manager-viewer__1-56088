@@ -1,0 +1,21 @@
+[NAME]
+Putfocus
+[DESCRIPTION]
+The PutFocus function sets the keyboard focus to the specified window. The window must be associated with the calling thread’s message queue.
+[DECLARATION]
+Declare Function Putfocus Lib "user32" Alias "SetFocus" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window that will receive the keyboard input. If this parameter is NULL, keystrokes are ignored.
+[RETURNS]
+If the function succeeds, the return value is the handle of the window that previously had the keyboard focus. If the hWnd parameter is invalid or the window is not associated with the calling thread’s message queue, the return value is NULL. 
+[EXAMPLES]
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+[RELATED]
+

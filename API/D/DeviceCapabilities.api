@@ -1,0 +1,100 @@
+[NAME]
+DeviceCapabilities
+[DESCRIPTION]
+The DeviceCapabilities function retrieves the capabilities of a printer device driver.
+[DECLARATION]
+Declare Function DeviceCapabilities Lib "winspool.drv" Alias "DeviceCapabilitiesA" (ByVal lpDeviceName As String, ByVal lpPort As String, ByVal iIndex As Long, ByVal lpOutput As String, lpDevMode As DEVMODE) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winspool.drv
+[PARAMETERS]
+· pDevice
+Pointer to a null-terminated string that contains the name of the printer. Note that this is the name of the printer, not of the printer driver.
+
+· pPort
+Pointer to a null-terminated string that contains the name of the port to which the device is connected, such as “LPT1”.
+
+· fwCapability
+Specifies the capabilities to query. This parameter can be one of the following values:
+DC_BINADJUST
+ Windows 95 only: Retrieves the page positioning for the paper source specified in the DEVMODE structure pointed to by pdevMode. The return value can be one of the following:
+ DCBA_FACEUPNONE
+ DCBA_FACEUPCENTER
+ DCBA_FACEUPLEFT
+ DCBA_FACEUPRIGHT
+ DCBA_FACEDOWNNONE
+ DCBA_FACEDOWNCENTER
+ DCBA_FACEDOWNLEFT
+ DCBA_FACEDOWNRIGHT
+DC_BINNAMES
+ Copies an array containing a list of the names of the paper bins. This array is in the form char PaperNames[cBinMax][cchBinName] where cchBinName is 24. If the pOutput parameter is NULL, the return value is the number of bin entries required. Otherwise, the return value is the number of bins copied.
+DC_BINS
+ Retrieves a list of available bins. The function copies the list to the pOutput parameter as a WORD array. If pOutput is NULL, the function returns the number of supported bins to allow the application the opportunity to allocate a buffer with the correct size. For more information about these bins, see the description of the dmDefaultSource member of the DEVMODE structure.
+DC_COPIES
+ Returns the number of copies the device can print.
+DC_DRIVER
+ Returns the version number of the printer driver.
+DC_DATATYPE_PRODUCED
+ Windows 95 only: The return value is the number of datatypes supported by the printer driver. If the function returns -1, the driver understands the “RAW” datatype only. The names of the supported datatypes are copied to an array. Use the names in the DOCINFO structure when calling the StartDoc function to specify the datatype.
+DC_DUPLEX
+ Returns the level of duplex support. The function returns 1 if the printer is capable of duplex printing. Otherwise, the return value is zero.
+DC_EMF_COMPLIANT
+ Windows 95 only: Determines if a printer driver supports enhanced metafile (EMF). A return value of 1 means the driver supports EMF. A return value of -1 means that the driver does not support EMF
+DC_ENUMRESOLUTIONS
+ Returns a list of available resolutions. If pOutput is NULL, the function returns the number of available resolution configurations. Resolutions are represented by pairs of LONG integers representing the horizontal and vertical resolutions (specified in dots per inch).
+DC_EXTRA
+ Returns the number of bytes required for the device-specific portion of the DEVMODE structure for the printer driver.
+DC_FIELDS
+ Returns the dmFields member of the printer driver’s DEVMODE structure. The dmFields member indicates which members in the device-independent portion of the structure are supported by the printer driver.
+DC_FILEDEPENDENCIES
+ Returns a list of files that also need to be loaded when a driver is installed. If the pOutput parameter is NULL, the function returns the number of files. Otherwise, pOutput points to an array of filenames in the form char[chFileName, 64]. Each filename is a null-terminated string.
+DC_MAXEXTENT
+ Returns a POINTS structure that contains the maximum paper size that the dmPaperLength and dmPaperWidth members of the printer driver’s DEVMODE structure can specify. The x member of the POINTS structure contains the maximum dmPaperWidth value, and the y member contains the maximum dmPaperLength value.
+DC_MINEXTENT
+ Returns a POINTS structure that contains the minimum paper size that the dmPaperLength and dmPaperWidth members of the printer driver’s DEVMODE structure can specify. The x member of the POINTS structure contains the minimum dmPaperWidth value, and the y member contains the minimum dmPaperLength value.
+DC_ORIENTATION
+ Returns the relationship between portrait and landscape orientations for a device, in terms of the number of degrees that portrait orientation is rotated counterclockwise to produce landscape orientation. The return value can be one of the following:
+  0
+   No landscape orientation.
+  90
+   Portrait is rotated 90 degrees to produce landscape. (For example, Hewlett-Packard PCL printers.)
+  270
+   Portrait is rotated 270 degrees to produce landscape. (For example, dot-matrix printers.)
+DC_PAPERNAMES
+ Retrieves a list of supported paper names (for example, Letter or Legal). If the pOutput parameter is NULL, the function returns the number of paper sizes available. Otherwise, pOutput points to an array for the paper names in the form char[cPaperNames, 64]. Each paper name is a null-terminated string.
+DC_PAPERS
+ Retrieves a list of supported paper sizes. The function copies the list to pOutput as a WORD array and returns the number of entries in the array. If pOutput is NULL, the function returns the number of supported paper sizes to allow the application the opportunity to allocate a buffer with the correct size. For more information on paper sizes, see the description of the dmPaperSize member of the DEVMODE structure.
+DC_PAPERSIZE
+ Copies the dimensions of all supported paper sizes, in tenths of a millimeter, to an array of POINT structures pointed to by the pOutput parameter. The width (x-dimension) and length (y-dimension) of a paper size are returned as if the paper were in the DMORIENT_PORTRAIT orientation.
+DC_SIZE
+ Returns the dmSize member of the printer driver’s DEVMODE structure.
+DC_TRUETYPE
+ Retrieves the abilities of the driver to use TrueType fonts. For DC_TRUETYPE, the pOutput parameter should be NULL. The return value can be one or more of the following:
+  DCTT_BITMAP
+   Device can print TrueType fonts as graphics. (For example, dot-matrix and PCL printers.)
+  DCTT_DOWNLOAD
+   Device can download TrueType fonts. (For example, PCL and PostScript printers.)
+  DCTT_DOWNLOAD_OUTLINE
+   Windows 95 only: Device can download outline TrueType fonts.
+  DCTT_SUBDEV
+   Device can substitute device fonts for TrueType fonts. (For example, PostScript printers.)
+DC_VERSION
+ Returns the specification version to which the printer driver conforms.
+
+· pOutput
+Pointer to an array of bytes. The format of the array depends on the setting of the fwCapability parameter. If pOutput is zero, DeviceCapabilities returns the number of bytes required for the output data.
+
+· pDevMode
+Pointer to a DEVMODE structure. If this parameter is NULL, DeviceCapabilities retrieves the current default initialization values for the specified printer driver. Otherwise, the function retrieves the values contained in the structure to which pDevMode points.
+[RETURNS]
+If the function succeeds, the return value depends on the setting of the fwCapability parameter. 
+
+If the function fails, the return value is -1.
+[EXAMPLES]
+Printer DeviceCapabilities*4564DAF4411855BFA88A09106F37EDE3.html
+Printer DeviceCaps*4CA104000BD2979F11D8BFE96204A8D2.html
+[RELATED]
+

@@ -1,0 +1,20 @@
+[NAME]
+SHRestartSystemMB
+[DESCRIPTION]
+Unsupported function! It shows the "System Settings Change" message box ("You must restart your computer before the new settings will take effect.")
+[DECLARATION]
+Declare Function SHRestartSystemMB Lib "shell32" Alias "#59" (ByVal hOwner As Long, ByVal sExtraPrompt As String, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHRestartSystemMB*BD3C7C378B7D1DF0B503C210B31D32BA.html
+[RELATED]
+

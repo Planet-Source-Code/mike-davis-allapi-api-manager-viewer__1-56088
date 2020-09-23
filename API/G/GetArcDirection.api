@@ -1,0 +1,28 @@
+[NAME]
+GetArcDirection
+[DESCRIPTION]
+The GetArcDirection function returns the current arc direction for the specified device context. Arc and rectangle functions use the arc direction.
+[DECLARATION]
+Declare Function GetArcDirection Lib "gdi32" Alias "GetArcDirection" (ByVal hdc As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawArc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+[RETURNS]
+If the function succeeds, the return value specifies the current arc direction. Following are the valid return values:
+AD_COUNTERCLOCKWISE 
+ Arcs and rectangles are drawn counterclockwise. 
+ 
+AD_CLOCKWISE 
+ Arcs and rectangles are drawn clockwise. 
+ 
+If an error occurs, the return value is zero.
+[EXAMPLES]
+ArcTo*DBB92A9DC50BAB40FA9C8DDAA40F7F8A.html
+[RELATED]
+SetArcDirection

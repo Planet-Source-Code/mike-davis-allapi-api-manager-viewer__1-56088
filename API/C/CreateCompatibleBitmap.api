@@ -1,0 +1,31 @@
+[NAME]
+CreateCompatibleBitmap
+[DESCRIPTION]
+The CreateCompatibleBitmap function creates a bitmap compatible with the device that is associated with the specified device context.
+[DECLARATION]
+Declare Function CreateCompatibleBitmap Lib "gdi32" Alias "CreateCompatibleBitmap" (ByVal hdc As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
+[VBNET]
+System.Drawing.Bitmap
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· nWidth
+Specifies the bitmap width, in pixels.
+
+· nHeight
+Specifies the bitmap height, in pixels.
+[RETURNS]
+If the function succeeds, the return value is a handle to the bitmap. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+[RELATED]
+CreateCompatibleDC
+DeleteObject

@@ -1,0 +1,30 @@
+[NAME]
+Send
+[DESCRIPTION]
+The Windows Sockets send function sends data on a connected socket.
+[DECLARATION]
+Declare Function Send Lib "wsock32.dll" Alias "send" (ByVal s As Long, buf As Any, ByVal buflen As Long, ByVal flags As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket.Send
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· s
+[in] A descriptor identifying a connected socket.
+
+· buf
+[in] A buffer containing the data to be transmitted.
+
+· len
+[in] The length of the data in buf.
+
+· flags
+[in] An indicator specifying the way in which the call is made.
+[RETURNS]
+If no error occurs, send returns the total number of bytes sent, which can be less than the number indicated by len. Otherwise, a value of SOCKET_ERROR is returned, and a specific error code can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+recv

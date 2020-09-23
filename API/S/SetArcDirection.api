@@ -1,0 +1,30 @@
+[NAME]
+SetArcDirection
+[DESCRIPTION]
+The SetArcDirection sets the drawing direction to be used for arc and rectangle functions.
+[DECLARATION]
+Declare Function SetArcDirection Lib "gdi32" Alias "SetArcDirection" (ByVal hdc As Long, ByVal ArcDirection As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawArc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 98 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· ArcDirection
+Specifies the new arc direction. This parameter can be one of the following values:
+AD_COUNTERCLOCKWISE
+ Figures drawn counterclockwise.
+AD_CLOCKWISE
+ Figures drawn clockwise.
+[RETURNS]
+If the function succeeds, the return value specifies the old arc direction. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+ArcTo*DBB92A9DC50BAB40FA9C8DDAA40F7F8A.html
+[RELATED]
+GetArcDirection

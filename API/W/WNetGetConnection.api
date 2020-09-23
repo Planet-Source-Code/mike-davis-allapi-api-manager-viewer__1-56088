@@ -1,0 +1,44 @@
+[NAME]
+WNetGetConnection
+[DESCRIPTION]
+The WNetGetConnection function retrieves the name of the network resource associated with a local device.
+[DECLARATION]
+Private Declare Function WNetGetConnection Lib "mpr.dll" Alias "WNetGetConnectionA" (ByVal lpszLocalName As String, ByVal lpszRemoteName As String, cbRemoteName As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Mpr
+[PARAMETERS]
+· lpLocalName 
+[in] Pointer to a constant null-terminated string that specifies the name of the local device to get the network name for. 
+
+· lpRemoteName 
+[out] Pointer to a buffer that receives the null-terminated remote name used to make the connection. 
+
+· lpnLength 
+[in/out] Pointer to a variable that specifies the size, in characters, of the buffer pointed to by the lpRemoteName parameter. If the function fails because the buffer is not large enough, this parameter returns the required buffer size. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is a system error code, such as one of the following values.
+
+ERROR_BAD_DEVICE 
+ The string pointed to by the lpLocalName parameter is invalid. 
+ERROR_NOT_CONNECTED 
+ The device specified by lpLocalName is not a redirected device. For more information, see the following Remarks section. 
+ERROR_MORE_DATA 
+ The buffer is too small. The lpnLength parameter points to a variable that contains the required buffer size. More entries are available with subsequent calls. 
+ERROR_CONNECTION_UNAVAIL 
+ The device is not currently connected, but it is a persistent connection. For more information, see the following Remarks section. 
+ERROR_NO_NETWORK 
+ The network is unavailable. 
+ERROR_EXTENDED_ERROR 
+ A network-specific error occurred. To obtain a description of the error, call the WNetGetLastError function. 
+ERROR_NO_NET_OR_BAD_PATH 
+ None of the providers recognize the local name as having a connection. However, the network is not available for at least one provider to whom the connection may belong. 
+[EXAMPLES]
+All Drives*208BAA658B49A5E0CABADB86D012A1D2.html
+[RELATED]
+WNetAddConnection

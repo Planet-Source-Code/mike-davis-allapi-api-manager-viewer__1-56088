@@ -1,0 +1,32 @@
+[NAME]
+Shell_NotifyIcon
+[DESCRIPTION]
+Sends a message to the system to add, modify, or delete an icon from the taskbar status area.
+[DECLARATION]
+Declare Function Shell_NotifyIcon Lib "shell32.dll" Alias "Shell_NotifyIconA" (ByVal dwMessage As Long, lpData As NOTIFYICONDATA) As Long
+[VBNET]
+System.Windows.Forms.NotifyIcon
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· dwMessage
+Identifier of the message to send. This parameter can be one of these values:
+NIM_ADD
+ Adds an icon to the status area.
+NIM_DELETE
+ Deletes an icon from the status area.
+NIM_MODIFY
+ Modifies an icon in the status area.
+
+· pnid
+Pointer to a NOTIFYICONDATA structure. The content of the structure depends on the value of dwMessage.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Tray Icon*A6B8BC3A0B447FD719E95143043905A8.html
+[RELATED]
+

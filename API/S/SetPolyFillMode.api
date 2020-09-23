@@ -1,0 +1,28 @@
+[NAME]
+SetPolyFillMode
+[DESCRIPTION]
+The SetPolyFillMode function sets the polygon fill mode for functions that fill polygons.
+[DECLARATION]
+Declare Function SetPolyFillMode Lib "gdi32" (ByVal hdc As Long, ByVal nPolyFillMode As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc 
+Identifies the device context. 
+
+· iPolyFillMode 
+Specifies the new fill mode. This parameter can be either of the following values:
+ALTERNATE 
+ Selects alternate mode (fills the area between odd-numbered and even-numbered polygon sides on each scan line). 
+WINDING 
+ Selects winding mode (fills any region with a nonzero winding value). 
+[RETURNS]
+The return value specifies the previous filling mode. If an error occurs, the return value is zero.
+[EXAMPLES]
+Polygon Fillmode*8CE7A2A65D860326159968B3450AEB20.html
+[RELATED]
+GetPolyFillMode

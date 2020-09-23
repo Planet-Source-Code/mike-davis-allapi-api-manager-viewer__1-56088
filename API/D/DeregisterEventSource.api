@@ -1,0 +1,24 @@
+[NAME]
+DeregisterEventSource
+[DESCRIPTION]
+The DeregisterEventSource function closes a write handle to the specified event log.
+[DECLARATION]
+Declare Function DeregisterEventSource Lib "advapi32" (ByVal hEventLog As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hEventLog 
+[in/out] Handle to the event log. This handle is returned by the RegisterEventSource function. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ReportEvent*3E333A9BA6779769EB5D9723FB7FCAA7.html
+[RELATED]
+ReportEvent
+RegisterEventSource

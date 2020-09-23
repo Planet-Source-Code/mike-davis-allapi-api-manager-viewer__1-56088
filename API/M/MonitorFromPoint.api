@@ -1,0 +1,33 @@
+[NAME]
+MonitorFromPoint
+[DESCRIPTION]
+The MonitorFromPoint function retrieves a handle to the display monitor that contains a specified point.
+[DECLARATION]
+Declare Function MonitorFromPoint Lib "user32.dll" (ByVal x As Long, ByVal y As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+System.Windows.Forms.Screen.FromPoint
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· pt
+[in] A POINT structure that specifies the point of interest in virtual-screen coordinates.
+
+· dwFlags
+[in] Determines the function's return value if the point is not contained within any display monitor.
+This parameter can be one of the following values.
+MONITOR_DEFAULTTONEAREST
+ Returns a handle to the display monitor that is nearest to the point.
+MONITOR_DEFAULTTONULL
+ Returns NULL.
+MONITOR_DEFAULTTOPRIMARY
+ Returns a handle to the primary display monitor.
+[RETURNS]
+If the point is contained by a display monitor, the return value is an HMONITOR handle to that display monitor.
+
+If the point is not contained by a display monitor, the return value depends on the value of dwFlags. 
+[EXAMPLES]
+Enum Monitors*10B6D40C610184A77A0F255EF0CEE768.html
+[RELATED]
+EnumDisplayMonitors

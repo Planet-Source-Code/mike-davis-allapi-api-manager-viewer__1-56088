@@ -1,0 +1,22 @@
+[NAME]
+ExitThread
+[DESCRIPTION]
+The ExitThread function ends a thread.
+[DECLARATION]
+Declare Sub ExitThread Lib "kernel32" Alias "ExitThread" (ByVal dwExitCode As Long)
+[VBNET]
+System.Threading.Thread.Abort
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwExitCode
+Specifies the exit code for the calling thread. Use the GetExitCodeThread function to retrieve a thread’s exit code.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+ExitThread*3A085577712A6D10C70AE2DFE3ACB076.html
+[RELATED]
+GetCurrentThread
+GetExitCodeThread

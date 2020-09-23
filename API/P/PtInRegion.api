@@ -1,0 +1,31 @@
+[NAME]
+PtInRegion
+[DESCRIPTION]
+The PtInRegion function determines whether the specified point is inside the specified region.
+[DECLARATION]
+Declare Function PtInRegion Lib "gdi32" Alias "PtInRegion" (ByVal hRgn As Long, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hrgn
+Identifies the region to be examined.
+
+· X
+Specifies the x-coordinate of the point.
+
+· Y
+Specifies the y-coordinate of the point.
+[RETURNS]
+If the specified point is in the region, the return value is nonzero. 
+
+If the specified point is not in the region, the return value is zero. 
+[EXAMPLES]
+Point in ...*66150F7BC58BDDB0200DAF320FD6BCFA.html
+[RELATED]
+CreateEllipticRgnIndirect
+PtInRect
+Window Region

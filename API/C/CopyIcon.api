@@ -1,0 +1,24 @@
+[NAME]
+CopyIcon
+[DESCRIPTION]
+The CopyIcon function copies the specified icon from another module to the current module.
+[DECLARATION]
+Declare Function CopyIcon Lib "user32" (ByVal hIcon As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hIcon 
+[in] Handle to the icon to be copied. 
+[RETURNS]
+If the function succeeds, the return value is a handle to the duplicate icon.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+LoadIcon
+DestroyIcon

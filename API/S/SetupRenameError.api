@@ -1,0 +1,56 @@
+[NAME]
+SetupRenameError
+[DESCRIPTION]
+The RenameError function generates a dialog box that informs the user of a file renaming error.
+[DECLARATION]
+Declare Function SetupRenameError Lib "setupapi.dll" Alias "SetupRenameErrorA" (ByVal hwndParent As Long, ByVal DialogTitle As String, ByVal SourceFile As String, ByVal TargetFile As String, ByVal Win32ErrorCode As Long, ByVal Style As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Setupapi
+[PARAMETERS]
+· hwndParent
+Handle to the parent window for this dialog box.
+
+· DialogTitle
+This optional parameter points to a null-terminated string specifying the error dialog box title. If this parameter is NULL, the default title of "Rename Error" (localized) is used.
+
+· SourceFile
+Pointer to a null-terminated string specifying the full path of the source file on which the operation failed.
+
+· TargetFile
+Pointer to a null-terminated string specifying the full path of the target file on which the operation failed.
+
+· Win32ErrorCode
+The Win32 error code encountered during the file operation. For information about Win32 error codes, see the WINERROR.H file included with the Platform SDK.
+
+· Style
+Specifies flags that control display formatting and behavior of the dialog box. This parameter can be one of the following flags:
+IDF_NOBEEP
+ Prevent the dialog box from beeping to get the user's attention when it first appears.
+IDF_NOFOREGROUND
+ Prevent the dialog box from becoming the foreground window.
+[RETURNS]
+This function returns one of the following values: 
+
+DPROMPT_SUCCESS 
+
+The user retried the operation and it was successful. 
+
+DPROMPT_CANCEL 
+
+The user clicked on the Cancel button. 
+
+DPROMPT_SKIPFILE 
+
+The user clicked on the Skip File button. 
+
+DPROMPT_OUTOFMEMORY 
+
+There is insufficient memory to process the request. 
+[EXAMPLES]
+SetupRenameError*E5CC884DA0226A37E79B3CF061396AA9.html
+[RELATED]
+

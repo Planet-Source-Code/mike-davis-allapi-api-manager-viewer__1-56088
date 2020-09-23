@@ -1,0 +1,89 @@
+[NAME]
+SetupPromptForDisk
+[DESCRIPTION]
+The SetupPromptForDisk function displays a dialog box that prompts the user for a disk.
+[DECLARATION]
+Declare Function SetupPromptForDisk Lib "setupapi.dll" Alias "SetupPromptForDiskA" (ByVal hwndParent As Long, ByVal DialogTitle As String, ByVal DiskName As String, ByVal PathToSource As String, ByVal FileSought As String, ByVal TagFile As String, ByVal DiskPromptStyle As Long, ByVal PathBuffer As String, ByVal PathBufferSize As Long, ByRef PathRequiredSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Setupapi
+[PARAMETERS]
+· hwndParent
+Handle to the parent window for this dialog box.
+
+· DialogTitle
+This optional parameter points to a null-terminated string specifying the dialog title. If this parameter is NULL, the default of ""%s--Files Needed"" (localized) is used. The "%s" is replaced with the text retrieved from the parent window. If no text is retrieved from the parent window, the title is "Files Needed".
+
+· DiskName
+This optional parameter points to a null-terminated string specifying the name of the disk to insert. If this parameter is NULL, the default "(Unknown)" (localized) is used.
+
+· PathToSource
+This optional parameter points to a null-terminated string specifying the path part of the expected location of the file, for example, F:\mips. If not specified, the path where SetupPromptForDisk most recently successfully located a file is used. If that list is empty, a system default is used.
+
+· FileSought
+Pointer to a null-terminated string specifying the name of the file needed (filename part only). The filename is displayed if the user clicks on the Browse button. This routine looks for the file using its compressed form names; therefore, you can pass cmd.exe and not worry that the file actually exists as cmd.ex_ on the source media.
+
+· TagFile
+This optional parameter points to a null-terminated string specifying a tag file (filename part only) that identifies the presence of a particular removable media volume. If the currently selected path would place the file on removable media and a tag file is specified, SetupPromptForDisk looks for the tag file at the root of the drive to determine whether to continue.
+For example, if PathToSource is A:\i386, the tagfile is disk1.tag, and the user types B:\i386 into the edit control of the prompt dialog box, the routine looks for B:\disk1.tag to determine whether to continue. If the tag file is not found, the function looks for the tagfile using PathToSource.
+
+If a tag file is not specified, removable media works just like non-removable media and FileSought is looked for before continuing.
+
+· DiskPromptStyle
+Specifies the behavior of the dialog box. This can be a combination of the following flags:
+IDF_CHECKFIRST
+ Check for the file/disk before displaying the prompt dialog box, and, if present, return DPROMPT_SUCCESS immediately.
+IDF_NOBEEP
+ Prevent the dialog box from beeping to get the user's attention when it first appears.
+IDF_NOBROWSE
+ Do not display the browse option.
+IDF_NOCOMPRESSED
+ Do not check for compressed versions of the source file.
+IDF_NODETAILS
+ Do not display detail information.
+IDF_NOFOREGROUND
+ Prevent the dialog box from becoming the foreground window.
+IDF_NOSKIP
+ Do not display the skip option.
+IDF_OEMDISK
+ Prompt for a disk supplied by a hardware manufacturer.
+IDF_WARNIFSKIP
+ Warn the user that skipping a file may affect the installation.
+
+· PathBuffer
+This optional parameter points to a caller-supplied buffer that, upon return, receives the path (no filename) of the location specified by the user through the dialog box.
+
+· PathBufferSize
+Specifies the size of the buffer pointed to by PathBuffer. It should be at least MAX_PATH long.
+
+· PathRequiredSize
+This optional parameter points to a caller-supplied variable that receives the required size for PathBuffer.
+[RETURNS]
+The function returns one of the following values: 
+
+DPROMPT_SUCCESS 
+
+The requested disk/file is present and accessible. If PathBuffer was specified, it contains the path to the file (not including the filename). 
+
+DPROMPT_CANCEL 
+
+The user clicked on the Cancel button. 
+
+DPROMPT_SKIPFILE 
+
+The user clicked on the Skip File button. 
+
+DPROMPT_BUFFERTOOSMALL 
+
+The provided PathBuffer is too small. Check PathRequiredSize for the actual size needed for the buffer. 
+
+DPROMPT_OUTOFMEMORY 
+
+There is insufficient memory to process the request. 
+[EXAMPLES]
+SetupPromptForDisk*618BAAAEDE25A0CDD5E3861B767E1AC7.html
+[RELATED]
+

@@ -1,0 +1,52 @@
+[NAME]
+EnumServicesStatus
+[DESCRIPTION]
+The EnumServicesStatus function enumerates services in the specified service control manager database. The name and status of each service are provided.
+[DECLARATION]
+Declare Function EnumServicesStatus Lib "advapi32.dll" Alias "EnumServicesStatusA" (ByVal hSCManager As Long, ByVal dwServiceType As Long, ByVal dwServiceState As Long, lpServices As Any, ByVal cbBufSize As Long, pcbBytesNeeded As Long, lpServicesReturned As Long, lpResumeHandle As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hSCManager
+[in] Handle to the service control manager database. The OpenSCManager function returns this handle, which must have SC_MANAGER_ENUMERATE_SERVICE access.
+
+· dwServiceType
+[in] Specifies the type of services to enumerate. This parameter can be one or more of the following values.
+SERVICE_WIN32
+ Enumerates services of type SERVICE_WIN32_OWN_PROCESS and SERVICE_WIN32_SHARE_PROCESS.
+SERVICE_DRIVER
+ Enumerates services of type SERVICE_KERNEL_DRIVER and SERVICE_FILE_SYSTEM_DRIVER.
+
+· dwServiceState
+[in] Specifies the services to enumerate based on their state. This parameter must be one of the following values. Value Meaning
+SERVICE_ACTIVE Enumerates services that are in the following states: SERVICE_START_PENDING, SERVICE_STOP_PENDING, SERVICE_RUNNING, SERVICE_CONTINUE_PENDING, SERVICE_PAUSE_PENDING, and SERVICE_PAUSED.
+SERVICE_INACTIVE Enumerates services that are in the SERVICE_STOPPED state.
+SERVICE_STATE_ALL Combines the following states: SERVICE_ACTIVE and SERVICE_INACTIVE.
+
+· lpServices
+[out] Pointer to a buffer that contains an array of ENUM_SERVICE_STATUS structures that receive the name and service status information for each service in the database. The buffer must be large enough to hold the structures, plus the strings to which their members point.
+
+· cbBufSize
+[in] Specifies the size, in bytes, of the buffer pointed to by the lpServices parameter.
+
+· pcbBytesNeeded
+[out] Pointer to a variable that receives the number of bytes needed to return the remaining service entries.
+
+· lpServicesReturned
+[out] Pointer to a variable that receives the number of service entries returned.
+
+· lpResumeHandle
+[in/out] Pointer to a variable that, on input, specifies the starting point of enumeration. You must set this value to zero the first time this function is called. On output, this value is zero if the function succeeds. However, if the function returns zero and the GetLastError function returns ERROR_MORE_DATA, this value is used to indicate the next service entry to be read when the function is called to retrieve the additional data.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumServicesStatus*D6705C917821069283D192E4F5D63A6F.html
+[RELATED]
+OpenSCManager
+CloseServiceHandle

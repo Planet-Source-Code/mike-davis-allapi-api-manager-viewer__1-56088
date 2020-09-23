@@ -1,0 +1,62 @@
+[NAME]
+FlatSB_SetScrollProp
+[DESCRIPTION]
+Sets the properties for a flat scroll bar.
+[DECLARATION]
+Declare Function FlatSB_SetScrollProp Lib "comctl32" (ByVal hWnd As Long, ByVal index As Long, ByVal newValue As Long, ByVal fRedraw As Boolean) As Boolean
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· index
+Parameter that determines what newValue represents and which property is being set. This parameter can be one of the following values: WSB_PROP_CXHSCROLL  newValue is an INT value that represents the width, in pixels, of the direction buttons in a horizontal scroll bar.
+WSB_PROP_CXHTHUMB
+ newValue is an INT value that represents the width, in pixels, of the thumb in a horizontal scroll bar.
+WSB_PROP_CXVSCROLL
+ newValue is an INT value that represents the width, in pixels, of the vertical scroll bar.
+WSB_PROP_CYHSCROLL
+ newValue is an INT value that represents the height, in pixels, of the horizontal scroll bar.
+WSB_PROP_CYVSCROLL
+ newValue is an INT value that represents the height, in pixels, of the direction buttons in a vertical scroll bar.
+WSB_PROP_CYVTHUMB
+ newValue is an INT value that represents the height, in pixels, of the thumb in a vertical scroll bar.
+WSB_PROP_HBKGCOLOR
+ newValue is a COLORREF value that represents the background color in a horizontal scroll bar.
+WSB_PROP_HSTYLE
+ newValue is one of the following values that changes the visual effects for the horizontal scroll bar.
+  FSB_ENCARTA_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar will be displayed in 3-D.
+  FSB_FLAT_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar will be displayed in inverted colors.
+  FSB_REGULAR_MODE
+   A normal, nonflat scroll bar is displayed. No special visual effects will be applied.
+WSB_PROP_PALETTE
+ newValue is an HPALETTE value that represents the new palette that the scroll bar should use when drawing.
+WSB_PROP_VBKGCOLOR
+ newValue is a COLORREF value that represents the background color in a vertical scroll bar.
+WSB_PROP_VSTYLE
+ newValue is one of the following values that changes the visual effects for the vertical scroll bar:
+  FSB_ENCARTA_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar will be displayed in 3-D.
+  FSB_FLAT_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar will be displayed in inverted colors.
+  FSB_REGULAR_MODE
+   A normal, nonflat scroll bar is displayed. No special visual effects will be applied.
+
+· newValue
+New value to set. This parameter depends on the flag passed in index.
+
+· fRedraw
+Parameter that specifies whether the scroll bar should be redrawn immediately to reflect the change. If this parameter is TRUE, the scroll bar is redrawn; if it is FALSE, the scroll bar is not redrawn.
+[RETURNS]
+Returns nonzero if successful, or zero otherwise.
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_GetScrollProp

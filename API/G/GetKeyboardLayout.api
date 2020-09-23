@@ -1,0 +1,22 @@
+[NAME]
+GetKeyboardLayout
+[DESCRIPTION]
+The GetKeyboardLayout function retrieves the active input locale identifier (formerly called the keyboard layout) for the specified thread. If the idThread parameter is zero, the input locale identifier for the active thread is returned.
+[DECLARATION]
+Declare Function GetKeyboardLayout Lib "user32" (ByVal dwLayout As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· idThread 
+[in] Identifies the thread to query or is zero for the current thread. 
+[RETURNS]
+The return value is the input locale identifier for the thread. The low word contains a language identifier for the input language and the high word contains a device handle for the physical layout of the keyboard.
+[EXAMPLES]
+Keyboard Layout*FC9A0C9925093EB7C2DE5C600A38F0C9.html
+[RELATED]
+ActivateKeyboardLayout
+GetKeyboardLayoutName

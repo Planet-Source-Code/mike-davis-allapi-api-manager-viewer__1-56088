@@ -1,0 +1,24 @@
+[NAME]
+GetClipCursor
+[DESCRIPTION]
+The GetClipCursor function retrieves the screen coordinates of the rectangular area to which the cursor is confined.
+[DECLARATION]
+Declare Function GetClipCursor Lib "user32" (lprc As RECT) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpRect 
+[out] Pointer to a RECT structure that receives the screen coordinates of the confining rectangle. The structure receives the dimensions of the screen if the cursor is not confined to a rectangle. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+GetClipCursor*07A4A5F64C8059C2FED92B7421A1741F.html
+[RELATED]
+ClipCursor
+GetCursorPos

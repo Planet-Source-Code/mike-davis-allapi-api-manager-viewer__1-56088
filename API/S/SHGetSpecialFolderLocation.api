@@ -1,0 +1,67 @@
+[NAME]
+SHGetSpecialFolderLocation
+[DESCRIPTION]
+Retrieves the location of a special folder.
+[DECLARATION]
+Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· hwndOwner
+Handle of the owner window that the client should specify if it displays a dialog box or message box.
+
+· nFolder
+Value specifying the folder to retrieve the location of. This parameter can be one of the following values:
+CSIDL_BITBUCKET
+ Recycle bin ¾ file system directory containing file objects in the user’s recycle bin. The location of this directory is not in the registry; it is marked with the hidden and system attributes to prevent the user from moving or deleting it.
+CSIDL_COMMON_DESKTOP
+ File system directory that contains files and folders that appear on the desktop for all users.
+CSIDL_COMMON_PROGRAMS
+ File system directory that contains the directories for the common program groups that appear on the Start menu for all users.
+CSIDL_COMMON_STARTMENU
+ File system directory that contains the programs and folders that appear on the Start menu for all users.
+CSIDL_COMMON_STARTUP
+ File system directory that contains the programs that appear in the Startup folder for all users. The system starts these programs whenever any user logs on to Windows NT or starts up Windows 95.
+CSIDL_CONTROLS
+ Control Panel ¾ virtual folder containing icons for the control panel applications.
+CSIDL_DESKTOP
+ Windows desktop ¾ virtual folder at the root of the name space.
+CSIDL_DESKTOPDIRECTORY
+ File system directory used to physically store file objects on the desktop (not to be confused with the desktop folder itself).
+CSIDL_DRIVES
+ My Computer ¾ virtual folder containing everything on the local computer: storage devices, printers, and Control Panel. The folder may also contain mapped network drives.
+CSIDL_FONTS
+ Virtual folder containing fonts.
+CSIDL_NETHOOD
+ File system directory containing objects that appear in the network neighborhood.
+CSIDL_NETWORK
+ Network Neighborhood ¾ virtual folder representing the top level of the network hierarchy.
+CSIDL_PERSONAL
+ File system directory that serves as a common respository for documents.
+CSIDL_PRINTERS
+ Printers folder ¾ virtual folder containing installed printers.
+CSIDL_PROGRAMS
+ File system directory that contains the user’s program groups (which are also file system directories).
+CSIDL_RECENT
+ File system directory that contains the user’s most recently used documents.
+CSIDL_SENDTO
+ File system directory that contains Send To menu items.
+CSIDL_STARTMENU
+ File system directory containing Start menu items.
+CSIDL_STARTUP
+ File system directory that corresponds to the user’s Startup program group.
+CSIDL_TEMPLATES
+ File system directory that serves as a common repository for document templates.
+
+· ppidl
+Address that receives a pointer to an item identifier list specifying the folder’s location relative to the root of the name space (the desktop).
+[RETURNS]
+Returns NOERROR if successful or an OLE-defined error result otherwise. 
+[EXAMPLES]
+Special Folder*30DE6DE860FE9B2CAC3E63F7063A28CD.html
+[RELATED]
+SHGetPathFromIDList

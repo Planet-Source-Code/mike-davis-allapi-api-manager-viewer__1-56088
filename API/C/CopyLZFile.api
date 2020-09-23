@@ -1,0 +1,29 @@
+[NAME]
+CopyLZFile
+[DESCRIPTION]
+The CopyLZFile function copies a source file to a destination file. If the source file is compressed with the Microsoft File Compression Utility (COMPRESS.EXE), this function creates a decompressed destination file.
+[DECLARATION]
+Declare Function CopyLZFile Lib "lz32" Alias "CopyLZFile" (ByVal n1 As Long, ByVal n2 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Lz32
+[PARAMETERS]
+· hfSource
+Identifies the source file.
+
+· hfDest
+Identifies the destination file.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Decompress*6D2861192FDF4370BCF95C099BE0F2F0.html
+[RELATED]
+LZCopy
+OpenFile
+CreateFile
+CloseHandle

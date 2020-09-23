@@ -1,0 +1,27 @@
+[NAME]
+GetCursorPos
+[DESCRIPTION]
+The GetCursorPos function retrieves the cursor’s position, in screen coordinates.
+[DECLARATION]
+Declare Function GetCursorPos Lib "user32" Alias "GetCursorPos" (lpPoint As POINTAPI) As Long
+[VBNET]
+System.Windows.Forms.Cursor.Current.Position
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpPoint
+Points to a POINT structure that receives the screen coordinates of the cursor.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Flat Button*1A4BADF4A37061033CDBCF7982126427.html
+TrackPopupMenu*F18C007AEBF3B72E64843219796BE01C.html
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+Mouse Capture*D3BC22113C988A4C5A099C36BB8C2089.html
+Track Popup Menu*A813019EEF294EB54FD73FE9CBB74F6A.html
+[RELATED]
+SetCursorPos

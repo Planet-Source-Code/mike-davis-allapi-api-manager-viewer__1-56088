@@ -1,0 +1,43 @@
+[NAME]
+EnumDisplaySettings
+[DESCRIPTION]
+The EnumDisplaySettings function obtains information about one of a display device’s graphics modes. You can obtain information for all of a display device’s graphics modes by making a series of calls to this function.
+[DECLARATION]
+Declare Function EnumDisplaySettings Lib "user32" Alias "EnumDisplaySettingsA" (ByVal lpszDeviceName As Long, ByVal iModeNum As Long, lpDevMode As Any) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpszDeviceName
+Pointer to a null-terminated string that specifies the display device whose graphics mode the function will obtain information about.
+This parameter can be NULL. A NULL value specifies the current display device on the computer that the calling thread is running on.
+If lpszDeviceName is not NULL, the string must be of the form \\.\DisplayX, where X can have the values 1, 2, or 3.
+Windows 95: lpszDeviceName must be NULL.
+
+· iModeNum
+Index value that specifies the graphics mode for which information is to be obtained.
+Graphics mode indexes start at zero. To obtain information for all of a display device’s graphics modes, make a series of calls to EnumDisplaySettings, as follows: Set iModeNum to zero for the first call, and increment iModeNum by one for each subsequent call. Continue calling the function until the return value is FALSE.
+When you call EnumDisplaySettings with iModeNum set to zero, the operating system initializes and caches information about the display device. When you call EnumDisplaySettings with iModeNum set to a non-zero value, the function returns the information that was cached the last time the function was called with iModeNum set to zero.
+
+· lpDevMode
+Pointer to a DEVMODE structure into which the function stores information about the specified graphics mode.
+The EnumDisplaySettings function sets values for the following five DEVMODE members:
+dmBitsPerPel
+dmPelsWidth
+dmPelsHeight
+dmDisplayFlags
+dmDisplayFrequency
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the function fails, the return value is zero. 
+
+The function fails if iModeNum is greater than the index of the display device’s last graphics mode. As noted in the description of the iModeNum parameter, you can use this behavior to enumerate all of a display device’s graphics modes. 
+[EXAMPLES]
+Change Resolution*D30C6FE933807D158AFF771D2F780906.html
+Enum Display Settings*E3CEAEF06A4AB58302C2C7D56E387163.html
+[RELATED]
+ChangeDisplaySettings

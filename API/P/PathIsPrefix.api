@@ -1,0 +1,29 @@
+[NAME]
+PathIsPrefix
+[DESCRIPTION]
+Searches a path to determine if it contains a valid prefix of the type passed by pszPrefix. A prefix is one of these types: "C:\\", ".", "..", "..\\".
+[DECLARATION]
+Declare Function PathIsPrefix Lib "shlwapi.dll" Alias "PathIsPrefixA" (ByVal pszPrefix As String, ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPrefix
+Address of the prefix for which to search.
+
+· pszPath
+Address of the path to be searched.
+[RETURNS]
+Returns TRUE if the compared path is the full prefix for the path, or FALSE otherwise. 
+[EXAMPLES]
+Path Functions (4)*3AC595ADD1B5DC0D9A2A8ACA63DF8BBE.html
+[RELATED]
+PathIsDirectory
+PathIsDirectoryEmpty
+PathIsLFNFileSpec
+PathIsNetworkPath
+PathIsRelative
+PathIsRoot

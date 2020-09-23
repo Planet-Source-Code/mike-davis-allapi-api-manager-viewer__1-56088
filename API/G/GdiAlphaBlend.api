@@ -1,0 +1,57 @@
+[NAME]
+GdiAlphaBlend
+[DESCRIPTION]
+The GdiAlphaBlend function displays bitmaps that have transparent or semitransparent pixels.
+[DECLARATION]
+Declare Function GdiAlphaBlend Lib "gdi32.dll" (ByVal hdc As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal hdc As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal lInt As Long, ByVal BLENDFUNCT As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdcDest
+[in] Handle to the destination device context.
+
+· nXOriginDest
+[in] Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nYOriginDest
+[in] Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nWidthDest
+[in] Specifies the width, in logical units, of the destination rectangle.
+
+· nHeightDest
+[in] Specifies the height, in logical units, of the destination rectangle.
+
+· hdcSrc
+[in] Handle to the source device context.
+
+· nXOriginSrc
+[in] Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nYOriginSrc
+[in] Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nWidthSrc
+[in] Specifies the width, in logical units, of the source rectangle.
+
+· nHeightSrc
+[in] Specifies the height, in logical units, of the source rectangle.
+
+· blendFunction
+[in] Specifies the alpha-blending function for source and destination bitmaps, a global alpha value to be applied to the entire source bitmap, and format information for the source bitmap. The source and destination blend functions are currently limited to AC_SRC_OVER. See the BLENDFUNCTION and EMRALPHABLEND structures.
+
+[RETURNS]
+If the function succeeds, the return value is TRUE.
+
+If the function fails, the return value is FALSE. 
+
+Windows NT/ 2000: To get extended error information, call GetLastError. This can return the following value.
+ERROR_INVALID_PARAMETER One or more of the input parameters is invalid. 
+[EXAMPLES]
+GdiAlphaBlend*167DA290A3F9E9D1D1BC408BA31DE5FE.html
+[RELATED]
+AlphaBlend

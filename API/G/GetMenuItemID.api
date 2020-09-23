@@ -1,0 +1,26 @@
+[NAME]
+GetMenuItemID
+[DESCRIPTION]
+The GetMenuItemID function retrieves the menu item identifier of a menu item located at the specified position in a menu.
+[DECLARATION]
+Declare Function GetMenuItemID Lib "user32" Alias "GetMenuItemID" (ByVal hMenu As Long, ByVal nPos As Long) As Long
+[VBNET]
+System.Windows.Forms.Menu.MenuItems().MenuID
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMenu
+Identifies the menu that contains the item whose identifier is to be retrieved.
+
+· nPos
+Specifies the zero-based relative position of the menu item whose identifier is to be retrieved.
+[RETURNS]
+If the function succeeds, the return value specifies the identifier of the given menu item. If the menu item identifier is NULL or if the specified item opens a submenu, the return value is 0xFFFFFFFF. 
+[EXAMPLES]
+Bitmap Menu*1EC5CC4476C4AA834EAA48DBF68CE788.html
+[RELATED]
+GetMenu
+GetSubMenu
+ModifyMenu

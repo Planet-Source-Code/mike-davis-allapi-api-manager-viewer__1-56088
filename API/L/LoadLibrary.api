@@ -1,0 +1,35 @@
+[NAME]
+LoadLibrary
+[DESCRIPTION]
+The LoadLibrary function maps the specified executable module into the address space of the calling process.
+[DECLARATION]
+Declare Function LoadLibrary Lib "kernel32" Alias "LoadLibraryA" (ByVal lpLibFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpLibFileName
+Points to a null-terminated string that names the executable module (either a .DLL or .EXE file). The name specified is the filename of the module and is not related to the name stored in the library module itself, as specified by the LIBRARY keyword in the module-definition (.DEF) file.
+If the string specifies a path but the file does not exist in the specified directory, the function fails. When specifying a path, be sure to use backslashes (\), not forward slashes (/).
+If a path is not specified and the filename extension is omitted, the default library extension .DLL is appended. However, the filename string can include a trailing point character (.) to indicate that the module name has no extension. When no path is specified, the function searches for the file in the following sequence:
+1. The directory from which the application loaded.
+2. The current directory.
+3. Windows 95: The Windows system directory. Use the GetSystemDirectory function to get the path of this directory.
+Windows NT: The 32-bit Windows system directory. Use the GetSystemDirectory function to get the path of this directory. The name of this directory is SYSTEM32.
+4. Windows NT: The 16-bit Windows system directory. There is no Win32 function that obtains the path of this directory, but it is searched. The name of this directory is SYSTEM.
+5. The Windows directory. Use the GetWindowsDirectory function to get the path of this directory.
+6. The directories that are listed in the PATH environment variable.
+The first directory searched is the one directory containing the image file used to create the calling process (for more information, see the CreateProcess function). Doing this allows private dynamic-link library (DLL) files associated with a process to be found without adding the process’s installed directory to the PATH environment variable.
+Once the function obtains a fully qualified path to a library module file, the path is compared (case independently) to the full paths of library modules currently loaded into the calling process. These libraries include those loaded when the process was starting up as well as those previously loaded by LoadLibrary but not unloaded by FreeLibrary. If the path matches the path of an already loaded module, the function just increments the reference count for the module and returns the module handle for that library.
+[RETURNS]
+If the function succeeds, the return value is a handle to the module. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Call Procedure*BFE74A1901430F2637D60129E2B3C775.html
+Register Server (2)*27D7E88041923D22A3F0BF14F852A36A.html
+[RELATED]
+FreeLibrary

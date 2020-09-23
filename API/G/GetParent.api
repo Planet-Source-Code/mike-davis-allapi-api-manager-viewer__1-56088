@@ -1,0 +1,22 @@
+[NAME]
+GetParent
+[DESCRIPTION]
+The GetParent function retrieves the handle of the specified child window’s parent window.
+[DECLARATION]
+Declare Function GetParent Lib "user32" Alias "GetParent" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Parent 
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose parent window handle is to be retrieved.
+[RETURNS]
+If the function succeeds, the return value is the handle of the parent window. If the window has no parent window, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+GetAncestor*6248B95588B11C5F134EAA9F3CE6877D.html
+[RELATED]
+SetParent

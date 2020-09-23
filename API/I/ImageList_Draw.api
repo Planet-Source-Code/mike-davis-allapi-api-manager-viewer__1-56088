@@ -1,0 +1,48 @@
+[NAME]
+ImageList_Draw
+[DESCRIPTION]
+The ImageList_Draw function draws an image list item in the specified device context.
+[DECLARATION]
+Declare Function ImageList_Draw Lib "comctl32.dll" (ByVal himl As Long, ByVal i As Long, ByVal hdcDst As Long, ByVal x As Long, ByVal y As Long, ByVal fStyle As Long) As Long
+[VBNET]
+System.Windows.Forms.ImageList.Draw
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· himl
+Handle to the image list.
+
+· i
+Specifies the index of the image to draw.
+
+· hdcDst
+Handle to the destination device context.
+
+· x
+Specifies the x-coordinate at which to draw within the specified device context.
+
+· y
+Specifies the y-coordinate at which to draw within the specified device context.
+
+· fStyle
+Flag specifying the drawing style. This parameter can be one or more of the following values:
+ILD_BLEND25, ILD_FOCUS
+ Draws the image, blending 25 percent with the system highlight color. This value has no effect if the image list does not contain a mask.
+ILD_BLEND50, ILD_SELECTED, ILD_BLEND
+ Draws the image, blending 50 percent with the system highlight color. This value has no effect if the image list does not contain a mask.
+ILD_MASK
+ Draws the mask.
+ILD_NORMAL
+ Draws the image using the background color for the image list. If the background color is the CLR_NONE value, the image is drawn transparently using the mask.
+ILD_TRANSPARENT
+ Draws the image transparently using the mask, regardless of the background color. This value has no effect if the image list does not contain a mask.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ImageList*FFF4B6DE1075139CC7AFCCA45CDF2A2C.html
+[RELATED]
+ImageList_DrawEx

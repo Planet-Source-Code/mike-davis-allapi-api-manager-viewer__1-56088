@@ -1,0 +1,20 @@
+[NAME]
+SHFormatDrive
+[DESCRIPTION]
+This is an undocumented funtion! It shows the Format-dialog.
+[DECLARATION]
+Declare Function SHFormatDrive Lib "shell32" (ByVal hwndOwner As Long, ByVal iDrive As Long, ByVal iCapacity As Long, ByVal iFormatType As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHFormatDrive*4F7D2B23A075537C33B1FAC106009D08.html
+[RELATED]
+

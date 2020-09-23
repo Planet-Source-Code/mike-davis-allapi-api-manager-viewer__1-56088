@@ -1,0 +1,28 @@
+[NAME]
+GetSystemMenu
+[DESCRIPTION]
+The GetSystemMenu function allows the application to access the window menu (also known as the System menu or the Control menu) for copying and modifying.
+[DECLARATION]
+Declare Function GetSystemMenu Lib "user32" Alias "GetSystemMenu" (ByVal hwnd As Long, ByVal bRevert As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window that will own a copy of the window menu.
+
+· bRevert
+Specifies the action to be taken. If this parameter is FALSE, GetSystemMenu returns the handle of the copy of the window menu currently in use. The copy is initially identical to the window menu, but it can be modified.
+If this parameter is TRUE, GetSystemMenu resets the window menu back to the Windows default state. The previous window menu, if any, is destroyed.
+[RETURNS]
+If the bRevert parameter is FALSE, the return value is the handle of a copy of the window menu. If the bRevert parameter is TRUE, the return value is NULL. 
+[EXAMPLES]
+Remove Menu*142D5FF627FD8EAEC36D2B985455BEAE.html
+TrackPopupMenu*F18C007AEBF3B72E64843219796BE01C.html
+Disable Resize*B4E6EB28154F45D3F3287EF365CEA5C7.html
+[RELATED]
+GetMenuItemCount
+RemoveMenu

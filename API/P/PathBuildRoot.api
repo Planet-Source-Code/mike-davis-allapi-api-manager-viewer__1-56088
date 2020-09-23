@@ -1,0 +1,27 @@
+[NAME]
+PathBuildRoot
+[DESCRIPTION]
+Creates a root path from a given drive number.
+[DECLARATION]
+Declare Function PathBuildRoot Lib "shlwapi.dll" Alias "PathBuildRootA" (ByVal szRoot As String, ByVal iDrive As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· szRoot
+Address of the string that receives the constructed root path. This buffer must be at least four characters in size.
+
+· iDrive
+Integer value that indicates the desired drive number. It should be between 0 and 25.
+[RETURNS]
+Returns the address of the constructed root path. If the call fails for any reason (for example, an invalid drive number), szRoot is returned unchanged. 
+[EXAMPLES]
+Path Functions (1)*DF41BF47AD590065254CF99793AED05E.html
+[RELATED]
+PathAddBackslash
+PathAddExtension
+PathAppend
+PathCanonicalize

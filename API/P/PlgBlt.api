@@ -1,0 +1,52 @@
+[NAME]
+PlgBlt
+[DESCRIPTION]
+The PlgBlt function performs a bit-block transfer of the bits of color data from the specified rectangle in the source device context to the specified parallelogram in the destination device context. If the given bitmask handle identifies a valid monochrome bitmap, the function uses this bitmap to mask the bits of color data from the source rectangle.
+[DECLARATION]
+Declare Function PlgBlt Lib "gdi32" Alias "PlgBlt" (ByVal hdcDest As Long, lpPoint As POINTAPI, ByVal hdcSrc As Long, ByVal nXSrc As Long, ByVal nYSrc As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hbmMask As Long, ByVal xMask As Long, ByVal yMask As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdcDest
+Identifies the destination device context.
+
+· lpPoint
+Points to an array of three points in logical space that identify three corners of the destination parallelogram. The upper-left corner of the source rectangle is mapped to the first point in this array, the upper-right corner to the second point in this array, and the lower-left corner to the third point. The lower-right corner of the source rectangle is mapped to the implicit fourth point in the parallelogram.
+
+· hdcSrc
+Identifies the source device context.
+
+· nXSrc
+Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nYSrc
+Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+
+· nWidth
+Specifies the width, in logical units, of the source rectangle.
+
+· nHeight
+Specifies the height, in logical units, of the source rectangle.
+
+· hbmMask
+Identifies an optional monochrome bitmap that is used to mask the colors of the source rectangle.
+
+· xMask
+Specifies the x-coordinate of the upper-left corner of the the monochrome bitmap.
+
+· yMask
+Specifies the y-coordinate of the upper-left corner of the the monochrome bitmap.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+BLT's*BC7FDE76E0692916C2533493199332CB.html
+[RELATED]
+BitBlt
+StretchBlt
+PatBlt

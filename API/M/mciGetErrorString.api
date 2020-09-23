@@ -1,0 +1,27 @@
+[NAME]
+mciGetErrorString
+[DESCRIPTION]
+The mciGetErrorString function retrieves a string that describes the specified MCI error code.
+[DECLARATION]
+Declare Function mciGetErrorString Lib "winmm.dll" Alias "mciGetErrorStringA" (ByVal dwError As Long, ByVal lpstrBuffer As String, ByVal uLength As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· fdwError 
+Error code returned by the mciSendCommand or mciSendString function. 
+
+· lpszErrorText 
+Address of a buffer that receives a null-terminated string describing the specified error. 
+
+· cchErrorText 
+Length of the buffer, in characters, pointed to by the lpszErrorText parameter. 
+[RETURNS]
+Returns TRUE if successful or FALSE if the error code is not known.
+[EXAMPLES]
+mciSendCommand*0A7B74FDAE39E1281F12FB93F367030F.html
+[RELATED]
+mciSendCommand

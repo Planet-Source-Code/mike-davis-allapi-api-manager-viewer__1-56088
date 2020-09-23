@@ -1,0 +1,42 @@
+[NAME]
+SetMapMode
+[DESCRIPTION]
+The SetMapMode function sets the mapping mode of the specified device context. The mapping mode defines the unit of measure used to transform page-space units into device-space units, and also defines the orientation of the device’s x and y axes.
+[DECLARATION]
+Declare Function SetMapMode Lib "gdi32" Alias "SetMapMode" (ByVal hdc As Long, ByVal nMapMode As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· fnMapMode
+Specifies the new mapping mode. It can be any one of the following values:
+MM_ANISOTROPIC
+ Logical units are mapped to arbitrary units with arbitrarily scaled axes. Use the SetWindowExtEx and SetViewportExtEx functions to specify the units, orientation, and scaling that you want.
+MM_HIENGLISH
+ Each logical unit is mapped to 0.001 inch. Positive x is to the right; positive y is up.
+MM_HIMETRIC
+ Each logical unit is mapped to 0.01 millimeter. Positive x is to the right; positive y is up.
+MM_ISOTROPIC
+ Logical units are mapped to arbitrary units with equally scaled axes; that is, one unit along the x-axis is equal to one unit along the y-axis. Use the SetWindowExtEx and SetViewportExtEx functions to specify the units and the orientation of the axes that you want. Graphics device interface (GDI) makes adjustments as necessary to ensure the x and y units remain the same size (for example, if you set the window extent, the viewport will be adjusted to keep the units isotropic).
+MM_LOENGLISH
+ Each logical unit is mapped to 0.01 inch. Positive x is to the right; positive y is up.
+MM_LOMETRIC
+ Each logical unit is mapped to 0.1 millimeter. Positive x is to the right; positive y is up.
+MM_TEXT
+ Each logical unit is mapped to one device pixel. Positive x is to the right; positive y is down.
+MM_TWIPS
+ Each logical unit is mapped to one twentieth of a printer’s point (1/1440 inch, also called a “twip”). Positive x is to the right; positive y is up.
+[RETURNS]
+If the function succeeds, the return value identifies the previous mapping mode. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+Using Small Fonts*EA102B119E10A73164A17DA6869BB0FB.html
+[RELATED]
+

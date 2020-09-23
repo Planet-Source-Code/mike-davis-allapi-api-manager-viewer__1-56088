@@ -1,0 +1,23 @@
+[NAME]
+AllowSetForegroundWindow
+[DESCRIPTION]
+The AllowSetForegroundWindow function enables the specified process to set the foreground window using the SetForegroundWindow function.
+[DECLARATION]
+Declare Function AllowSetForegroundWindow Lib "user32.dll" (ByVal dwProcessId As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows ME
+[LIBRARY]
+User32
+[PARAMETERS]
+· dwProcessId
+[in] Specifies the identifier of the process that will be enabled to set the foreground window. If this parameter is ASFW_ANY, all processes will be enabled to set the foreground window.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. The function will fail if the calling process cannot set the foreground window. To get extended error information, call GetLastError. 
+[EXAMPLES]
+AllowSetForegroundWindow*B7C44612023F283F9F4815D6C2252FD0.html
+[RELATED]
+SetForegroundWindow

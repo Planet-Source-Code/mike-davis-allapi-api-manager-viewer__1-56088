@@ -1,0 +1,21 @@
+[NAME]
+FillPath
+[DESCRIPTION]
+The FillPath function closes any open figures in the current path and fills the path’s interior by using the current brush and polygon-filling mode.
+[DECLARATION]
+Declare Function FillPath Lib "gdi32" Alias "FillPath" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context (DC) that contains a valid path.
+[RETURNS]
+After its interior is filled, the path is discarded from the DC identified by the hdc parameter. 
+[EXAMPLES]
+Paths*5F53F54D4DA9FC54323733AE6157802B.html
+[RELATED]
+StrokeAndFillPath

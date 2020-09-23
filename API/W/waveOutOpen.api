@@ -1,0 +1,64 @@
+[NAME]
+waveOutOpen
+[DESCRIPTION]
+The waveOutOpen function opens the given waveform-audio output device for playback.
+[DECLARATION]
+Declare Function waveOutOpen Lib "winmm.dll" Alias "waveOutOpen" (lphWaveOut As Long, ByVal uDeviceID As Long, lpFormat As WAVEFORMAT, ByVal dwCallback As Long, ByVal dwInstance As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· phwo
+Address filled with a handle identifying the open waveform-audio output device. Use the handle to identify the device when calling other waveform-audio output functions. This parameter might be NULL if the WAVE_FORMAT_QUERY flag is specified for fdwOpen.
+
+· uDeviceID
+Identifier of the waveform-audio output device to open. It can be either a device identifier or a handle of an open waveform-audio input device.You can use the following flag instead of a device identifier:
+WAVE_MAPPER
+The function selects a waveform-audio output device capable of playing the given format.
+
+· pwfx
+Address of a WAVEFORMATEX structure that identifies the format of the waveform-audio data to be sent to the device. You can free this structure immediately after passing it to waveOutOpen.
+
+· dwCallback
+Address of a fixed callback function, an event handle, a handle to a window, or the identifier of a thread to be called during waveform-audio playback to process messages related to the progress of the playback. If no callback function is required, this value can be zero. For more information on the callback function, see waveOutProc.
+
+· dwCallbackInstance
+User-instance data passed to the callback mechanism. This parameter is not used with the window callback mechanism.
+
+· fdwOpen
+Flags for opening the device. The following values are defined:
+CALLBACK_EVENT
+The dwCallback parameter is an event handle.
+CALLBACK_FUNCTION
+The dwCallback parameter is a callback procedure address.
+CALLBACK_NULL
+No callback mechanism. This is the default setting.
+CALLBACK_THREAD
+The dwCallback parameter is a thread identifier.
+CALLBACK_WINDOW
+The dwCallback parameter is a window handle.
+WAVE_ALLOWSYNC
+If this flag is specified, a synchronous waveform-audio device can be opened. If this flag is not specified while opening a synchronous driver, the device will fail to open.
+WAVE_FORMAT_DIRECT
+If this flag is specified, the ACM driver does not perform conversions on the audio data.
+WAVE_FORMAT_QUERY
+If this flag is specified, waveOutOpen queries the device to determine if it supports the given format, but the device is not actually opened.
+WAVE_MAPPED
+If this flag is specified, the uDeviceID parameter specifies a waveform-audio device to be mapped to by the wave mapper.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_ALLOCATED Specified resource is already allocated. 
+MMSYSERR_BADDEVICEID Specified device identifier is out of range. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+WAVERR_BADFORMAT Attempted to open with an unsupported waveform-audio format. 
+WAVERR_SYNC The device is synchronous but waveOutOpen was called without using the WAVE_ALLOWSYNC flag. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+waveOutClose
+waveOutGetPosition
+waveOutGetDevCaps

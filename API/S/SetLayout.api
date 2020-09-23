@@ -1,0 +1,30 @@
+[NAME]
+SetLayout
+[DESCRIPTION]
+The SetLayout function changes the layout of a device context (DC).
+[DECLARATION]
+Declare Function SetLayout Lib "gdi32" (ByVal hdc As Long, ByVal dwLayout As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+[in] Handle to the device context.
+
+· dwLayout
+[in] Specifies the device context layout. This parameter can be one or more of the following values.
+LAYOUT_BITMAPORIENTATIONPRESERVED
+ Disables any reflection during BitBlt and StretchBlt operations.
+LAYOUT_RTL
+ Sets the default horizontal layout to be right to left.
+[RETURNS]
+If the function succeeds, it returns the previous layout of the device context.
+
+If the function fails, it returns GDI_ERROR. To get extended error information, call GetLastError.
+[EXAMPLES]
+Layout*EBD9BEC4D70ABC789D439C1F136B0538.html
+[RELATED]
+GetLayout

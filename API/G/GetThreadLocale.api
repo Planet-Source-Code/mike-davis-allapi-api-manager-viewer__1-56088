@@ -1,0 +1,20 @@
+[NAME]
+GetThreadLocale
+[DESCRIPTION]
+The GetThreadLocale function returns the calling thread's current locale.
+[DECLARATION]
+Declare Function GetThreadLocale Lib "KERNEL32" Alias "GetThreadLocale" () As Long
+[VBNET]
+System.Threading.Thread.CurrentCulture
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The function returns the calling thread’s 32-bit LCID locale identifier.
+[EXAMPLES]
+CompareString*CA7B8C2AD40CDF346BED6FFE90E33B46.html
+[RELATED]
+GetLocaleInfo

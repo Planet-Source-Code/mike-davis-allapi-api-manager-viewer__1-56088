@@ -1,0 +1,37 @@
+[NAME]
+MoveToEx
+[DESCRIPTION]
+The MoveToEx function updates the current position to the specified point and optionally returns the previous position.
+[DECLARATION]
+Declare Function MoveToEx Lib "gdi32" Alias "MoveToEx" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, lpPoint As POINTAPI) As Long
+[VBNET]
+System.Drawing.Graphics.DrawLine
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· X
+Specifies the x-coordinate of the new position, in logical units.
+
+· Y
+Specifies the y-coordinate of the new position, in logical units.
+
+· lpPoint
+Points to a POINT structure in which the previous current position is stored. If this parameter is a NULL pointer, the previous position is not returned.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+Spiral*C978545ADE9F5CE21BFA0353C04FEDA9.html
+Lines*A0B0293A2DB49F5F93C15A62E095C819.html
+AngleArc*E8DC46530A1091387CDD20D0808C9FD0.html
+PolyLines*FA586E422CF4E8E331254332E3C57241.html
+[RELATED]
+LineTo
+drawline

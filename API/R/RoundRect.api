@@ -1,0 +1,41 @@
+[NAME]
+RoundRect
+[DESCRIPTION]
+The RoundRect function draws a rectangle with rounded corners. The rectangle is outlined by using the current pen and filled by using the current brush.
+[DECLARATION]
+Declare Function RoundRect Lib "gdi32" Alias "RoundRect" (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As Long, ByVal Y3 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nLeftRect
+Specifies the x-coordinate of the upper-left corner of the rectangle.
+
+· nTopRect
+Specifies the y-coordinate of the upper-left corner of the rectangle.
+
+· nRightRect
+Specifies the x-coordinate of the lower-right corner of the rectangle.
+
+· nBottomRect
+Specifies the y-coordinate of the lower-right corner of the rectangle.
+
+· nWidth
+Specifies the width of the ellipse used to draw the rounded corners.
+
+· nHeight
+Specifies the height of the ellipse used to draw the rounded corners.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+Rectangle

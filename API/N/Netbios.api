@@ -1,0 +1,25 @@
+[NAME]
+Netbios
+[DESCRIPTION]
+The Netbios function interprets and executes the specified network control block (NCB).
+[DECLARATION]
+Declare Function Netbios Lib "netapi32.dll" Alias "Netbios" (pncb As NCB) As Byte
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· pncb
+Pointer to an NCB structure describing the network control block.
+[RETURNS]
+For synchronous requests, the return value is the return code of the NCB structure. That value is also returned in the ncb_retcode member of the NCB structure. 
+
+There are two return value possibilities for accepted asynchronous requests. If the asynchronous command has already completed when Netbios returns to its caller, the return value is the return code of the NCB structure, just as if it were a synchronous NCB structure. If the asynchronous command is still pending when Netbios returns to its caller, the return value is zero. 
+
+If the address specified by the pncb parameter is invalid, the return value is NRC_BADNCB. 
+[EXAMPLES]
+AdapterAddress*705685484CC1F1A3481096476FA9914C.html
+[RELATED]
+

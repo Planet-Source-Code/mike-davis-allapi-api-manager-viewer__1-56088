@@ -1,0 +1,24 @@
+[NAME]
+PathAddBackslash
+[DESCRIPTION]
+Adds a backslash to the end of a string to create the correct syntax for a path. If the source path already has a trailing backslash, no backslash will be added.
+[DECLARATION]
+Declare Function PathAddBackslash Lib "shlwapi.dll" Alias "PathAddBackslashA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpszPath
+[in/out] Pointer to a buffer with a string that represents a path. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string.
+[RETURNS]
+Returns the address of the NULL that terminates the string.
+[EXAMPLES]
+Path Functions (1)*DF41BF47AD590065254CF99793AED05E.html
+[RELATED]
+PathAddExtension
+PathAppend
+PathBuildRoot
+PathCanonicalize

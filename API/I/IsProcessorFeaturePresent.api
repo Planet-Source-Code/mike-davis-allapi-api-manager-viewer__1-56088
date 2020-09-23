@@ -1,0 +1,42 @@
+[NAME]
+IsProcessorFeaturePresent
+[DESCRIPTION]
+The IsProcessorFeaturePresent function determines whether the specified processor feature is supported by the current computer.
+[DECLARATION]
+Declare Function IsProcessorFeaturePresent Lib "kernel32.dll" (ByVal ProcessorFeature As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· ProcessorFeature 
+[in] Specifies the processor feature to be tested. This parameter can be one of the following values.
+
+PF_FLOATING_POINT_PRECISION_ERRATA 
+ In rare circumstances, a floating-point precision error can occur (Pentium).  
+PF_FLOATING_POINT_EMULATED 
+ Floating-point operations are emulated using a software emulator. 
+ Windows 2000/XP: This function returns a nonzero value if floating-point operations are emulated; otherwise, it returns zero.
+ Windows NT 4.0: This function returns zero if floating-point operations are emulated; otherwise, it returns a nonzero value. This behavior is a bug that is fixed in later versions.
+PF_COMPARE_EXCHANGE_DOUBLE 
+ The compare and exchange double operation is available (Pentium, MIPS, and Alpha).  
+PF_MMX_INSTRUCTIONS_AVAILABLE 
+ The MMX instruction set is available.  
+PF_XMMI_INSTRUCTIONS_AVAILABLE 
+ The XMMI instruction set is available. 
+PF_3DNOW_INSTRUCTIONS_AVAILABLE 
+ The 3D-Now instruction set is available. 
+PF_RDTSC_INSTRUCTION_AVAILABLE 
+ The RDTSC instruction is available. 
+PF_PAE_ENABLED 
+ The processor is PAE-enabled.
+[RETURNS]
+If feature is supported, the return value is a nonzero value. 
+
+If the feature is not supported, the return value is zero.
+[EXAMPLES]
+Processor Features*4592CFB499D9562F67F59DAAC12A36B1.html
+[RELATED]
+

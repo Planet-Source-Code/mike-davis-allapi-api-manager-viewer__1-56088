@@ -1,0 +1,41 @@
+[NAME]
+CreateRoundRectRgn
+[DESCRIPTION]
+The CreateRoundRectRgn function creates a rectangular region with rounded corners.
+[DECLARATION]
+Declare Function CreateRoundRectRgn Lib "gdi32" Alias "CreateRoundRectRgn" (ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As Long, ByVal Y3 As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· nLeftRect
+Specifies the x-coordinate of the upper-left corner of the region.
+
+· nTopRect
+Specifies the y-coordinate of the upper-left corner of the region.
+
+· nRightRect
+Specifies the x-coordinate of the lower-right corner of the region.
+
+· nBottomRect
+Specifies the y-coordinate of the lower-right corner of the region.
+
+· nWidthEllipse
+Specifies the width of the ellipse used to create the rounded corners.
+
+· nHeightEllipse
+Specifies the height of the ellipse used to create the rounded corners.
+[RETURNS]
+If the function succeeds, the return value is the handle to the region. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+CreateRectRgnIndirect
+SetWindowRgn
+DeleteObject
+Window Region

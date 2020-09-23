@@ -1,0 +1,26 @@
+[NAME]
+GetOldestEventLogRecord
+[DESCRIPTION]
+The GetOldestEventLogRecord function retrieves the absolute record number of the oldest record in the specified event log.
+[DECLARATION]
+Declare Function GetOldestEventLogRecord Lib "advapi32.dll" (ByVal hEventLog As Long, OldestRecord As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hEventLog
+[in] Handle to the open event log. This handle is returned by the OpenEventLog or OpenBackupEventLog function.
+
+· OldestRecord
+[out] Pointer to the buffer that receives the absolute record number of the oldest record in the specified event log.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EventLog*FFA44FA214A7EA318DB17E175869588C.html
+[RELATED]
+ReportEvent

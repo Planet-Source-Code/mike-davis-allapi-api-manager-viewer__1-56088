@@ -1,0 +1,34 @@
+[NAME]
+HtmlHelp
+[DESCRIPTION]
+The HtmlHelp function displays a custom Help topic.
+[DECLARATION]
+Declare Function HtmlHelp Lib "hhctrl.ocx" Alias "HtmlHelpA" (ByVal hwndCaller As Long, ByVal pszFile As String, ByVal uCommand As Long, ByVal dwData As Long) As Long
+[VBNET]
+N/A
+[OS]
+HTML Help Viewer Components - Installed using the free run time installer hhupd.exe
+[LIBRARY]
+Hhctrl.ocx
+[PARAMETERS]
+· hwndCaller
+A handle to an application window or Null. If a window handle is specified, the HTML Help window will be forced to be on-top of the calling window. If a 0 (zero) is specified, this condition will not occur.
+
+· pszFile
+File to display; optionally also specifies which window type to display it in, delimited with the right angle bracket character (filename&gt;windowtype). If you omit the window type, the HtmlHelp function will use the default window type specified in the HTML Help project file. For uCommand values that don't require a source file, pszFile can be Null, or 0 (zero), in VBA. However, a compiled HTML Help file is typically specified.  
+
+· uCommand
+The action to perform; see the remainder of this section for examples of how to display a Help topic by using either the HH_HELP_CONTEXT or HH_DISPLAY_TOPIC command. 
+HH_DISPLAY_TOPIC
+ Displays a Help topic by passing the URL of the HTML file that contains the topic as the dwData argument. 
+HH_HELP_CONTEXT
+ Displays a Help topic by passing the mapped context ID for the topic as the dwData argument. 
+
+· dwData
+Specifies additional data depending on the value of uCommand. Note that in this declaration this argument is declared As Any, because this argument accepts several different data types. You must be careful to pass the correct data type or risk an invalid page fault (also known as general protection fault [GPF]).
+[RETURNS]
+If the function succeeds, the return value is the handle of the HTML help window.
+[EXAMPLES]
+HtmlHelp*5358139BB464C3B36A2F3386C7E15804.html
+[RELATED]
+WinHelp

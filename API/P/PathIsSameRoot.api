@@ -1,0 +1,27 @@
+[NAME]
+PathIsSameRoot
+[DESCRIPTION]
+Compares two paths to determine if they have a common root component.
+[DECLARATION]
+Declare Function PathIsSameRoot Lib "shlwapi.dll" Alias "PathIsSameRootA" (ByVal pszPath1 As String, ByVal pszPath2 As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath1
+Address of the first path to be compared.
+
+· pszPath2
+Address of the second path to be compared.
+[RETURNS]
+Returns TRUE if both strings have the same root component, or FALSE otherwise. 
+[EXAMPLES]
+Path Functions (5)*3C8CF3591E287C7FF73FEF775E8A315A.html
+[RELATED]
+PathIsUNC
+PathIsUNCServer
+PathIsUNCServerShare
+PathIsURL

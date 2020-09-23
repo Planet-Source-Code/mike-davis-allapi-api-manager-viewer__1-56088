@@ -1,0 +1,41 @@
+[NAME]
+LookupAccountName
+[DESCRIPTION]
+The LookupAccountName function accepts the name of a system and an account as input. It retrieves a security identifier (SID) for the account and the name of the domain on which the account was found.
+[DECLARATION]
+Declare Function LookupAccountName Lib "advapi32.dll" Alias "LookupAccountNameA" (lpSystemName As String, ByVal lpAccountName As String, sid As Any, cbSid As Long, ByVal ReferencedDomainName As String, cbReferencedDomainName As Long, peUse As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpSystemName
+[in] Pointer to a null-terminated string specifying the system. This string can be the name of a remote computer. If this string is NULL, the account name is looked up on the local system.
+
+· lpAccountName
+[in] Pointer to a null-terminated string specifying the account name.
+
+· Sid
+[out] Pointer to a buffer receiving the SID structure that corresponds to the account name pointed to by the lpAccountName parameter. If this parameter is NULL, the function returns the required buffer size.
+
+· cbSid
+[in/out] Pointer to a variable. On input, this value specifies the size, in bytes, of the Sid buffer. If the function fails because the buffer is too small, this variable receives the required buffer size. If the Sid parameter is NULL, this parameter must be zero.
+
+· DomainName
+[out] Pointer to a buffer receiving the name of the domain where the account name is found. If this parameter is NULL, the function returns the required buffer size.
+
+· cbDomainName
+[in/out] Pointer to a variable. On input, this value specifies the size, in TCHARs, of the DomainName buffer. If the function fails because the buffer is too small, this variable receives the required buffer size, including the terminating null character. If the DomainName parameter is NULL, this parameter must be zero.
+
+· peUse
+[out] Pointer to a SID_NAME_USE enumerated type indicating the type of the account when the function returns.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetUserName

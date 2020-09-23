@@ -1,0 +1,31 @@
+[NAME]
+lstrcat
+[DESCRIPTION]
+The lstrcat function appends one string to another.
+[DECLARATION]
+Declare Function lstrcat Lib "kernel32" Alias "lstrcatA" (ByVal lpString1 As String, ByVal lpString2 As String) As Long
+[VBNET]
+System.String.Concat
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString1
+Points to a null-terminated string. The buffer must be large enough to contain both strings.
+
+· lpString2
+Points to the null-terminated string to be appended to the string specified in the lpString1 parameter.
+[RETURNS]
+If the function succeeds, the return value is a pointer to the buffer. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Browse For Folder*774F8232380EA83E4CF374E8F31ED355.html
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+[RELATED]
+lstrcmp
+lstrcmpi
+lstrcpy
+lstrcpyn
+lstrlen

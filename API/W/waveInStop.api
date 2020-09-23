@@ -1,0 +1,24 @@
+[NAME]
+waveInStop
+[DESCRIPTION]
+The waveInStop function stops waveform-audio input.
+[DECLARATION]
+Declare Function waveInStop Lib "winmm.dll" Alias "waveInStop" (ByVal hWaveIn As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwi
+Handle of the waveform-audio input device.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+waveInOpen

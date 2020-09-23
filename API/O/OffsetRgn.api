@@ -1,0 +1,40 @@
+[NAME]
+OffsetRgn
+[DESCRIPTION]
+The OffsetRgn function moves a region by the specified offsets.
+[DECLARATION]
+Declare Function OffsetRgn Lib "gdi32" Alias "OffsetRgn" (ByVal hRgn As Long, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hrgn
+Identifies the region to be moved.
+
+· nXOffset
+Specifies the number of logical units to move left or right.
+
+· nYOffset
+Specifies the number of logical units to move up or down.
+[RETURNS]
+The return value specifies the new region’s complexity. It can be one of the following values:
+NULLREGION 
+ Region is empty. 
+ 
+SIMPLEREGION 
+ Region is a single rectangle. 
+ 
+COMPLEXREGION 
+ Region is more than one rectangle. 
+ 
+ERROR 
+ An error occurred; region is unaffected. 
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+CreateRectRgnIndirect
+CreateRoundRectRgn
+Window Region

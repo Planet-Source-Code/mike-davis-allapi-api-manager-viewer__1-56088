@@ -1,0 +1,27 @@
+[NAME]
+PathCanonicalize
+[DESCRIPTION]
+Canonicalizes a path.
+[DECLARATION]
+Declare Function PathCanonicalize Lib "shlwapi.dll" Alias "PathCanonicalizeA" (ByVal pszBuf As String, ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpszDst
+Address of a string that receives the canonicalized path. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string..
+
+· lpszSrc
+Address of the path to be canonicalized.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (1)*DF41BF47AD590065254CF99793AED05E.html
+[RELATED]
+PathAddBackslash
+PathAddExtension
+PathAppend
+PathBuildRoot

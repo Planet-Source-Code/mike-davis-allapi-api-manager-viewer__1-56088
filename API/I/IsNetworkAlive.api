@@ -1,0 +1,30 @@
+[NAME]
+IsNetworkAlive
+[DESCRIPTION]
+Determines whether the local system is connected to a network and the type of network connection, for example, LAN, WAN, or both.
+[DECLARATION]
+Declare Function IsNetworkAlive Lib "SENSAPI.DLL" (ByRef lpdwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 5 or later); Requires Windows 95 or later (with Internet Explorer 5 or later)
+[LIBRARY]
+Sensapi
+[PARAMETERS]
+· lpdwFlags 
+Provides information on the type of network connection available when the return value is TRUE. The flags can be: 
+NETWORK_ALIVE_LAN 
+ The computer has one or more LAN cards that are active. 
+NETWORK_ALIVE_WAN 
+ The computer has one or more active RAS connections. 
+NETWORK_ALIVE_AOL 
+ This flag is only valid in Windows 95 and Windows 98. Indicates the computer is connected to the America Online network. 
+[RETURNS]
+TRUE 
+ The local system is connected to a network. 
+FALSE 
+ Call GetLastError to determine the reason for no connectivity. 
+[EXAMPLES]
+IsNetworkAlive*3229D1B9576945938E46F3739A97EE27.html
+[RELATED]
+IsDestinationReachable

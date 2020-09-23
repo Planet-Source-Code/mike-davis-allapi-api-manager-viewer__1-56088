@@ -1,0 +1,42 @@
+[NAME]
+GetDriveType
+[DESCRIPTION]
+The GetDriveType function determines whether a disk drive is a removable, fixed, CD-ROM, RAM disk, or network drive.
+[DECLARATION]
+Declare Function GetDriveType Lib "kernel32" Alias "GetDriveTypeA" (ByVal nDrive As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpRootPathName
+Points to a null-terminated string that specifies the root directory of the disk to return information about. If lpRootPathName is NULL, the function uses the root of the current directory.
+[RETURNS]
+The return value specifies the type of drive. It can be one of the following values:
+DRIVE_UNKNOWN 
+ The drive type cannot be determined. 
+ 
+DRIVE_NO_ROOT_DIR 
+ The root directory does not exist. 
+ 
+DRIVE_REMOVABLE 
+ The disk can be removed from the drive. 
+ 
+DRIVE_FIXED 
+ The disk cannot be removed from the drive. 
+ 
+DRIVE_REMOTE 
+ The drive is a remote (network) drive. 
+ 
+DRIVE_CDROM 
+ The drive is a CD-ROM drive. 
+ 
+DRIVE_RAMDISK 
+ The drive is a RAM disk.
+[EXAMPLES]
+DriveType*E2E66E4B99C259A184137ABDF7BB9537.html
+All Drives*208BAA658B49A5E0CABADB86D012A1D2.html
+[RELATED]
+GetLogicalDriveStrings

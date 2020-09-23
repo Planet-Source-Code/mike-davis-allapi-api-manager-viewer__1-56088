@@ -1,0 +1,20 @@
+[NAME]
+VDMEnumProcessWOW
+[DESCRIPTION]
+Enumerates 16-bit processes.Unsupported function!
+[DECLARATION]
+Function VDMEnumProcessWOW Lib "VDMDBG.dll" (ByVal fp As Long, lparam As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Vdmdbg
+[PARAMETERS]
+Unsupported function
+[RETURNS]
+Undocumented
+[EXAMPLES]
+Enum16Bit*0D25A476EDB108B7EBD4FE678ACC2474.html
+[RELATED]
+VDMEnumTaskWOWEx

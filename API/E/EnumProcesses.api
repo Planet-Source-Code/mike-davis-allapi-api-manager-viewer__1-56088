@@ -1,0 +1,31 @@
+[NAME]
+EnumProcesses
+[DESCRIPTION]
+The EnumProcesses function retrieves the process identifier for each process object in the system.
+[DECLARATION]
+Declare Function EnumProcesses Lib "PSAPI.DLL" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+[VBNET]
+System.Diagnostics.Process
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Psapi
+[PARAMETERS]
+· lpidProcess
+[out] Pointer to an array that receives the list of process identifiers.
+
+· cb
+[in] Specifies the size, in bytes, of the lpidProcess array.
+
+· cbNeeded
+[out] Receives the number of bytes returned in the lpidProcess array.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+CreateProcess
+OpenProcess
+Enum Processes

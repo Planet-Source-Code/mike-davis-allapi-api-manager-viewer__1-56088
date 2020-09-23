@@ -1,0 +1,37 @@
+[NAME]
+GetMessage
+[DESCRIPTION]
+The GetMessage function retrieves a message from the calling thread’s message queue and places it in the specified structure. This function can retrieve both messages associated with a specified window and thread messages posted via the PostThreadMessage function.
+[DECLARATION]
+Declare Function GetMessage Lib "user32" Alias "GetMessageA" (lpMsg As MSG, ByVal hwnd As Long, ByVal wMsgFilterMin As Long, ByVal wMsgFilterMax As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpMsg
+Points to an MSG structure that receives message information from the thread’s message queue.
+
+· hWnd
+Identifies the window whose messages are to be retrieved. One value has a special meaning:
+NULL
+ GetMessage retrieves messages for any window that belongs to the calling thread and thread messages posted to the calling thread via PostThreadMessage.
+
+· wMsgFilterMin
+Specifies the integer value of the lowest message value to be retrieved.
+
+· wMsgFilterMax
+Specifies the integer value of the highest message value to be retrieved.
+[RETURNS]
+If the function retrieves a message other than WM_QUIT, the return value is nonzero. 
+
+If the function retrieves the WM_QUIT message, the return value is zero. 
+
+If there is an error, the return value is -1. For example, the function fails if hWnd is an invalid window handle.
+[EXAMPLES]
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+TranslateMessage
+DispatchMessage

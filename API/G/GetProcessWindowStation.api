@@ -1,0 +1,22 @@
+[NAME]
+GetProcessWindowStation
+[DESCRIPTION]
+The GetProcessWindowStation function returns a handle of the window station associated with the calling process.
+[DECLARATION]
+Declare Function GetProcessWindowStation Lib "user32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Win9x/ME: Not supported
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is a handle of the window station associated with the calling process. 
+
+If the function fails, the return value is NULL. This can occur if the calling process is not an application written for Windows NT. To get extended error information, call GetLastError. 
+[EXAMPLES]
+EnumDesktops*61D8353D4B6B7827D7F7BE22007AC256.html
+[RELATED]
+EnumDesktops

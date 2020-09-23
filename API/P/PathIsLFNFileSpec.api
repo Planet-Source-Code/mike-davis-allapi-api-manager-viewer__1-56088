@@ -1,0 +1,26 @@
+[NAME]
+PathIsLFNFileSpec
+[DESCRIPTION]
+Determines whether or not a file name is in long format.
+[DECLARATION]
+Declare Function PathIsLFNFileSpec Lib "shlwapi.dll" Alias "PathIsLFNFileSpecA" (ByVal lpName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszName
+[in] NULL-terminated string with the file name to be tested.
+[RETURNS]
+Returns TRUE if pszName exceeds the number of characters allowed by the 8.3 format, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (4)*3AC595ADD1B5DC0D9A2A8ACA63DF8BBE.html
+[RELATED]
+PathIsDirectory
+PathIsDirectoryEmpty
+PathIsNetworkPath
+PathIsPrefix
+PathIsRelative
+PathIsRoot

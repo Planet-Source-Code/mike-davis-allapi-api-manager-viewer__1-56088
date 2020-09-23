@@ -1,0 +1,37 @@
+[NAME]
+SetLayeredWindowAttributes
+[DESCRIPTION]
+The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window.
+[DECLARATION]
+Declare Function SetLayeredWindowAttributes Lib "user32" (ByVal hWnd As Long, ByVal crKey As Long, ByVal bAlpha As Byte, ByVal dwFlags As Long) As Long
+[VBNET]
+System.Windows.Forms.Opacity
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd
+[in] Handle to the layered window. A layered window is created by specifying WS_EX_LAYERED when creating the window with the CreateWindowEx function or by setting WS_EX_LAYERED via SetWindowLong after the window has been created.
+
+· crKey
+[in] Pointer to a COLORREF value that specifies the transparency color key to be used when composing the layered window. All pixels painted by the window in this color will be transparent. To generate a COLORREF, use the RGB macro.
+
+· bAlpha
+[in] Alpha value used to describe the opacity of the layered window. Similar to the SourceConstantAlpha member of the BLENDFUNCTION structure. When bAlpha is 0, the window is completely transparent. When bAlpha is 255, the window is opaque.
+
+· dwFlags
+[in] Specifies an action to take. This parameter can be one or more of the following values.
+LWA_COLORKEY
+ Use crKey as the transparency color.
+LWA_ALPHA
+ Use bAlpha to determine the opacity of the layered window..
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Layered*F93035EA44358524F2E35155881EBB02.html
+[RELATED]
+SetWindowLong
+Opacity

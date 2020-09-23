@@ -1,0 +1,26 @@
+[NAME]
+OpenEventLog
+[DESCRIPTION]
+The OpenEventLog function opens a handle to an event log.
+[DECLARATION]
+Declare Function OpenEventLog Lib "advapi32.dll" Alias "OpenEventLogA" (ByVal lpUNCServerName As String, ByVal lpSourceName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpUNCServerName
+[in] Pointer to a null-terminated string that specifies the Universal Naming Convention (UNC) name of the server on which the event log is to be opened.
+
+· lpSourceName
+[in] Pointer to a null-terminated string that specifies the name of the logfile that the returned handle will reference. This can be the Application, Security, or System logfile, or a custom registered logfile. If a custom registered logfile name cannot be found, the event logging service opens the Application logfile, however, there will be no associated message or category string file.
+[RETURNS]
+If the function succeeds, the return value is the handle of an event log. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+EventLog*FFA44FA214A7EA318DB17E175869588C.html
+[RELATED]
+CloseEventLog

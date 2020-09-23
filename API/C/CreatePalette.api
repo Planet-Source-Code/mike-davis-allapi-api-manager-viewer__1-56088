@@ -1,0 +1,25 @@
+[NAME]
+CreatePalette
+[DESCRIPTION]
+The CreatePalette function creates a logical color palette.
+[DECLARATION]
+Declare Function CreatePalette Lib "gdi32" Alias "CreatePalette" (lpLogPalette As LOGPALETTE) As Long
+[VBNET]
+System.Drawing.Imaging.ColorPalette
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lplgpl
+Points to a LOGPALETTE structure that contains information about the colors in the logical palette.
+[RETURNS]
+If the function succeeds, the return value is a handle that identifies a logical palette. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+[RELATED]
+GetDeviceCaps
+SelectPalette
+RealizePalette

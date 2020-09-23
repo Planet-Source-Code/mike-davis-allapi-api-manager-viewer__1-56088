@@ -1,0 +1,23 @@
+[NAME]
+GetCursor
+[DESCRIPTION]
+The GetCursor function retrieves the handle of the current cursor.
+[DECLARATION]
+Declare Function GetCursor Lib "user32" Alias "GetCursor" () As Long
+[VBNET]
+System.Windows.Forms.Cursor.Current
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is the handle of the current cursor. 
+
+If there is no cursor, the return value is NULL.
+[EXAMPLES]
+GetCursor*FEB81A658DE52EFF9C9307B639B4955E.html
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+SetCursor

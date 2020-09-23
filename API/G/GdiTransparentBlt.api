@@ -1,0 +1,55 @@
+[NAME]
+GdiTransparentBlt
+[DESCRIPTION]
+The GdiTransparentBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context.
+[DECLARATION]
+Private Declare Function GdiTransparentBlt Lib "gdi32.dll" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal crTransparent As Long) As Boolean
+[VBNET]
+System.Drawing.Bitmap.MakeTransparent
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdcDest
+[in] Handle to the destination device context.
+
+· nXOriginDest
+[in] Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nYOriginDest
+[in] Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· nWidthDest
+[in] Specifies the width, in logical units, of the destination rectangle.
+
+· hHeightDest
+[in] Handle to the height, in logical units, of the destination rectangle.
+
+· hdcSrc
+[in] Handle to the source device context.
+
+· nXOriginSrc
+[in] Specifies the x-coordinate, in logical units, of the source rectangle.
+
+· nYOriginSrc
+[in] Specifies the y-coordinate, in logical units, of the source rectangle.
+
+· nWidthSrc
+[in] Specifies the width, in logical units, of the source rectangle.
+
+· nHeightSrc
+[in] Specifies the height, in logical units, of the source rectangle.
+
+· crTransparent
+[in] The RGB color in the source bitmap to treat as transparent.
+[RETURNS]
+If the function succeeds, the return value is TRUE.
+
+If the function fails, the return value is FALSE. 
+
+Windows NT/ 2000: To get extended error information, call GetLastError. 
+[EXAMPLES]
+GdiTransparentBlt*5C3FDECBF0D2855FA6184362C057F949.html
+[RELATED]
+TransparentBlt

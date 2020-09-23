@@ -1,0 +1,40 @@
+[NAME]
+TextOut
+[DESCRIPTION]
+The TextOut function writes a character string at the specified location, using the currently selected font.
+[DECLARATION]
+Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawString
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nXStart
+Specifies the logical x-coordinate of the reference point that Windows uses to align the string.
+
+· nYStart
+Specifies the logical y-coordinate of the reference point that Windows uses to align the string.
+
+· lpString
+Points to the string to be drawn. The string does not need to be zero-terminated, since cbString specifies the length of the string.
+
+· cbString
+Specifies the number of characters in the string.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Draw On Screen*D59CF4A10025F5E92D3016FD6AA2FE92.html
+TextAlign*F951C843A45ECDB0A0459B855FC56C40.html
+Paths*5F53F54D4DA9FC54323733AE6157802B.html
+Path2Region*CAE2714E3B7A80BD1386EB848DFE32B4.html
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+DrawText
+drawtext

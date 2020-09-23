@@ -1,0 +1,29 @@
+[NAME]
+SetBitmapBits
+[DESCRIPTION]
+The SetBitmapBits function sets the bits of color data for a bitmap to the specified values.
+[DECLARATION]
+Declare Function SetBitmapBits Lib "gdi32" Alias "SetBitmapBits" (ByVal hBitmap As Long, ByVal dwCount As Long, lpBits As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hBitmap
+Identifies the bitmap.
+
+· dwCount
+Length of the buffer.
+
+· lpBits
+Points to a buffer with the bitmap data.
+[RETURNS]
+If the function succeeds, the return value is the number of bytes used in setting the bitmap bits. 
+
+If the function fails, the return value is zero.
+[EXAMPLES]
+Bitmap Bits*FCF52530F97D901283E74DFB0D54D5D4.html
+[RELATED]
+GetBitmapBits

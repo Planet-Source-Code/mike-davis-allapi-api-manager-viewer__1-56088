@@ -1,0 +1,28 @@
+[NAME]
+GetDC
+[DESCRIPTION]
+The GetDC function retrieves a handle of a display device context (DC) for the client area of the specified window. The display device context can be used in subsequent GDI functions to draw in the client area of the window.
+[DECLARATION]
+Declare Function GetDC Lib "user32" Alias "GetDC" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.CreateGraphics.GetHdc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hWnd
+Identifies the window whose device context is to be retrieved.
+[RETURNS]
+If the function succeeds, the return value identifies the device context for the given window’s client area. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Window Draw*CF66E818E548B0ABE25AD704F73FC55D.html
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+Fontsize*40B37A60CA3A9A29DF8E1DF24E8F4E80.html
+DIB*AF7BEA96A353CD96C37F664EF9905EE1.html
+[RELATED]
+GetWindowDC
+WindowFromDC

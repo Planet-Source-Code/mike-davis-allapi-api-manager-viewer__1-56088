@@ -1,0 +1,45 @@
+[NAME]
+WNetCancelConnection2
+[DESCRIPTION]
+The WNetCancelConnection2 function breaks an existing network connection. It can also be used to remove remembered network connections that are not currently connected. This function supersedes WNetCancelConnection.
+[DECLARATION]
+Declare Function WNetCancelConnection2 Lib "mpr.dll" Alias "WNetCancelConnection2A" (ByVal lpName As String, ByVal dwFlags As Long, ByVal fForce As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Mpr
+[PARAMETERS]
+· lpName 
+Points to a null-terminated string that specifies the name of either the redirected local device or the remote network resource to disconnect from. If this parameter specifies a redirected local resource, only the specified redirection is broken; otherwise, all connections to the remote network resource are broken. 
+
+· dwFlags 
+Specifies a bitmask for the connection type. The following values are defined:
+0 
+ No stored information about the connection is updated. If the connection was marked as persistent in the registry, Windows will still restore the connection at the next logon. If the connection was not marked as persistent, the function ignores the setting of the CONNECT_UPDATE_PROFILE flag. 
+CONNECT_UPDATE_PROFILE 
+ The user profile is updated with the information that this is no longer a persistent connection. Windows will not restore this connection during subsequent logon operations. Disconnecting resources using remote names has no effect on persistent connections. 
+ 
+· fForce 
+Specifies whether the disconnection should occur even if there are open files or jobs on the connection. If this parameter is FALSE, the function fails if there are open files or jobs. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is an error code. To get extended error information, call GetLastError. GetLastError may return one of the following error codes:
+ERROR_BAD_PROFILE 
+ The user profile is in an incorrect format. 
+ERROR_CANNOT_OPEN_PROFILE 
+ The system is unable to open the user profile to process persistent connections. 
+ERROR_DEVICE_IN_USE 
+ The device is in use by an active process and cannot be disconnected. 
+ERROR_EXTENDED_ERROR 
+ A network-specific error occurred. To get a description of the error, use the WNetGetLastError function. 
+ERROR_NOT_CONNECTED 
+ The name specified by the lpName parameter is not a redirected device, or the system is not currently connected to the device specified by the parameter. 
+ERROR_OPEN_FILES 
+ There are open files, and the fForce parameter is FALSE. 
+[EXAMPLES]
+AddConnection2*3A4DB0F9FF48C4015DDA832077D95DAA.html
+[RELATED]
+WNetAddConnection2

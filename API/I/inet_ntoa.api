@@ -1,0 +1,22 @@
+[NAME]
+inet_ntoa
+[DESCRIPTION]
+The Windows Sockets inet_ntoa function converts a network address into a string in Internet standard dotted format.
+[DECLARATION]
+Declare Function inet_ntoa Lib "wsock32.dll" (ByVal inn As Long) As Long
+[VBNET]
+System.Net.IPAddress.ToString
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· in 
+[in] A structure that represents an Internet host address. 
+[RETURNS]
+If no error occurs, inet_ntoa returns a char pointer to a static buffer containing the text address in standard ".'' notation. Otherwise, it returns NULL. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+GetTcpTable*3DBD57E6A4F4E35B266FF2A4BB2FE178.html
+[RELATED]
+

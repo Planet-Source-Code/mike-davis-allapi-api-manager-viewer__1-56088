@@ -1,0 +1,38 @@
+[NAME]
+WaitForSingleObject
+[DESCRIPTION]
+The WaitForSingleObject function returns when one of the following occurs:· The specified object is in the signaled state.· The time-out interval elapses.
+[DECLARATION]
+Declare Function WaitForSingleObject Lib "kernel32" Alias "WaitForSingleObject" (ByVal hHandle As Long, ByVal dwMilliseconds As Long) As Long
+[VBNET]
+System.Threading.WaitHandle.WaitOne
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hHandle
+Identifies the object. For a list of the object types whose handles can be specified, see the following Remarks section.
+Windows NT: The handle must have SYNCHRONIZE access. For more information, see Access Masks and Access Rights.
+
+· dwMilliseconds
+Specifies the time-out interval, in milliseconds. The function returns if the interval elapses, even if the object’s state is nonsignaled. If dwMilliseconds is zero, the function tests the object’s state and returns immediately. If dwMilliseconds is INFINITE, the function’s time-out interval never elapses.
+[RETURNS]
+If the function succeeds, the return value indicates the event that caused the function to return. 
+
+If the function fails, the return value is WAIT_FAILED. To get extended error information, call GetLastError. 
+
+The return value on success is one of the following values:
+WAIT_ABANDONED 
+ The specified object is a mutex object that was not released by the thread that owned the mutex object before the owning thread terminated. Ownership of the mutex object is granted to the calling thread, and the mutex is set to nonsignaled. 
+ 
+WAIT_OBJECT_0 
+ The state of the specified object is signaled. 
+ 
+WAIT_TIMEOUT 
+ The time-out interval elapsed, and the object’s state is nonsignaled. 
+[EXAMPLES]
+Super Shell*3805D9F5937ACD5D7759F3FF7EEFFAAE.html
+Change Notification*60D3BC58AADA059FA9A9259E95A5ABDA.html
+[RELATED]
+CreateProcess

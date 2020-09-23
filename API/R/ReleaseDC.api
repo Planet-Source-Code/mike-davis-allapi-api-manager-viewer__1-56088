@@ -1,0 +1,30 @@
+[NAME]
+ReleaseDC
+[DESCRIPTION]
+The ReleaseDC function releases a device context (DC), freeing it for use by other applications. The effect of the ReleaseDC function depends on the type of device context. It frees only common and window device contexts. It has no effect on class or private device contexts.
+[DECLARATION]
+Declare Function ReleaseDC Lib "user32" Alias "ReleaseDC" (ByVal hwnd As Long, ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose device context is to be released.
+
+· hDC
+Identifies the device context to be released.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Fontsize*40B37A60CA3A9A29DF8E1DF24E8F4E80.html
+Using Small Fonts*EA102B119E10A73164A17DA6869BB0FB.html
+[RELATED]
+CreateDC
+DeleteDC
+GetDC
+GetWindowDC

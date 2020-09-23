@@ -1,0 +1,87 @@
+[NAME]
+SetupCopyError
+[DESCRIPTION]
+The SetupCopyError function generates a dialog box to notify the user of a copy file error.
+[DECLARATION]
+Declare Function SetupCopyError Lib "setupapi.dll" Alias "SetupCopyErrorA" (ByVal hwndParent As Long, ByVal DialogTitle As String, ByVal DiskName As String, ByVal PathToSource As String, ByVal SourceFile As String, ByVal TargetPathFile As String, ByVal Win32ErrorCode As Long, ByVal Style As Long, ByVal PathBuffer As String, ByVal PathBufferSize As Long, ByRef PathRequiredSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Setupapi
+[PARAMETERS]
+· hwndParent
+Handle to the parent window for this dialog box.
+
+· DialogTitle
+This optional parameter points to a null-terminated string specifying the dialog box title. If this parameter is NULL, the default title of "Copy Error" (localized to the system language) is used.
+
+· DiskName
+This optional parameter points to a null-terminated string specifying the name of the disk to insert. If this parameter is NULL, the default name "(Unknown)" (localized to the system language) is used.
+
+· PathToSource
+Pointer to the path component of the source file on which the operation failed; for example, F:\mips.
+
+· SourceFile
+Pointer to a null-terminated string specifying the filename part of the file on which the operation failed. This filename is displayed if the user clicks on the Details or Browse buttons. The SetupCopyError function looks for the file using its compressed form names; therefore, you can pass cmd.exe and not worry that the file actually exists as cmd.ex_ on the source media.
+
+· TargetPathFile
+This optional parameter points to a null-terminated string that specifies the full path of the target file for rename and copy operations. If TargetPathFile is not specified, "(Unknown)" (localized to the system language) is used.
+
+· Win32ErrorCode
+The Win32 error code encountered during the file operation. For information about Win32 error codes, see the WINERROR.H file included with the Platform SDK.
+
+· Style
+Specifies flags that control display formatting and behavior of the dialog box. This parameter can be one of the following flags:
+IDF_NOBROWSE
+ Do not display the browse option.
+IDF_NOSKIP
+ Do not display the skip file option.
+IDF_NODETAILS
+ Do not display the details option. If this flag is set, the TargetPathFile and Win32ErrorCode parameters can be omitted.
+IDF_NOCOMPRESSED
+ Do not check for compressed versions of the source file.
+IDF_OEMDISK
+ The operation source is a disk provided by a hardware manufacturer.
+IDF_NOBEEP
+ Prevent the dialog box from beeping to get the user's attention when it first appears.
+IDF_NOFOREGROUND
+ Prevent the dialog box from becoming the foreground window.
+IDF_WARNIFSKIP
+ Warn the user that skipping a file can affect the installation.
+
+· PathBuffer
+This optional parameter points to a caller-supplied variable in which this function returns the path (not including the filename) of the location specified by the user through the dialog box.
+
+· PathBufferSize
+Specifies the size of the buffer pointed to by PathBuffer. It should be at least MAX_PATH in length.
+
+· PathRequiredSize
+This optional parameter points to a caller-supplied variable in which this function returns the required buffer size.
+[RETURNS]
+The function returns one of the following values: 
+
+DPROMPT_SUCCESS 
+
+The requested disk/file is present and accessible. If PathBuffer was specified, it contains the path to the file (not including the filename). 
+
+DPROMPT_CANCEL 
+
+The user clicked on the Cancel button. 
+
+DPROMPT_SKIPFILE 
+
+The user clicked on the Skip File button. 
+
+DPROMPT_BUFFERTOOSMALL 
+
+The provided PathBuffer is too small. Check PathRequiredSize for the actual size needed. 
+
+DPROMPT_OUTOFMEMORY 
+
+There is insufficient memory to process the request. 
+[EXAMPLES]
+SetupCopyError*B227B183E3E93AC02F7841BF757A74FC.html
+[RELATED]
+

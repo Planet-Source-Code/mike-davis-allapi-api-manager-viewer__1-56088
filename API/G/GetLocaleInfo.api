@@ -1,0 +1,38 @@
+[NAME]
+GetLocaleInfo
+[DESCRIPTION]
+This function retrieves information about a locale.
+[DECLARATION]
+Declare Function GetLocaleInfo Lib "kernel32" Alias "GetLocaleInfoA" (ByVal Locale As Long, ByVal LCType As Long, ByVal lpLCData As String, ByVal cchData As Long) As Long
+[VBNET]
+System.Globalization.CultureInfo
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Locale 
+[in] Specifies the locale to retrieve information for. This parameter can be a locale identifier created by the MAKELCID macro, or one of the following predefined values: 
+Value Description 
+LOCALE_SYSTEM_DEFAULT Default system locale. 
+LOCALE_USER_DEFAULT Default user locale. 
+LOCALE_NEUTRAL Default language-neutral locale. 
+
+· LCType 
+[in] Specifies one of the LCTYPE constants to indicate the type of information to be retrieved. 
+All LCTYPE values are mutually exclusive, with the exception of LOCALE_NOUSEROVERRIDE. An application may use the binary-OR operator to combine LOCALE_NOUSEROVERRIDE with any other LCTYPE value. If passed such an LCType value, the function bypasses user overrides, and returns the system default value for the requested LCID. 
+
+· lpLCData 
+[out] Pointer to a buffer to receive the requested data. 
+
+· cchData 
+[in] Specifies the size, in characters, of the lpLCData buffer. If cchData is zero, the function returns the number of characters required to hold the information, and the buffer pointed to by lpLCData is not used. 
+[RETURNS]
+The number of bytes or characters written to the destination buffer, or, if the cchData parameter is zero, the number of characters required to hold the locale information indicates success. Zero indicates failure. To get extended error information, call GetLastError. Possible values for GetLastError include the following: 
+ERROR_INSUFFICIENT_BUFFER 
+ERROR_INVALID_FLAGS 
+ERROR_INVALID_PARAMETER 
+[EXAMPLES]
+Locale Info*442B8D7FA4C4D280DA0E50B2A6FC8E84.html
+[RELATED]
+GetThreadLocale

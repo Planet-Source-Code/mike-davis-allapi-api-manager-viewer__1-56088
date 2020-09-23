@@ -1,0 +1,50 @@
+[NAME]
+PatBlt
+[DESCRIPTION]
+The PatBlt function paints the specified rectangle using the brush that is currently selected into the specified device context. The brush color and the surface color or colors are combined by using the specified raster operation.
+[DECLARATION]
+Declare Function PatBlt Lib "gdi32" Alias "PatBlt" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal dwRop As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nXLeft
+Specifies the x-coordinate, in logical units, of the upper-left corner of the rectangle to be filled.
+
+· nYLeft
+Specifies the y-coordinate, in logical units, of the upper-left corner of the rectangle to be filled.
+
+· nWidth
+Specifies the width, in logical units, of the rectangle.
+
+· nHeight
+Specifies the height, in logical units, of the rectangle.
+
+· dwRop
+Specifies the raster operation code. This code may be one of the following values:
+PATCOPY
+ Copies the specified pattern into the destination bitmap.
+PATINVERT
+ Combines the colors of the specified pattern with the colors of the destination rectangle by using the Boolean OR operator.
+DSTINVERT
+ Inverts the destination rectangle.
+BLACKNESS
+ Fills the destination rectangle using the color associated with index 0 in the physical palette. (This color is black for the default physical palette.)
+WHITENESS
+ Fills the destination rectangle using the color associated with index 1 in the physical palette. (This color is white for the default physical palette.)
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+BLT's*BC7FDE76E0692916C2533493199332CB.html
+[RELATED]
+BitBlt
+StretchBlt
+PlgBlt

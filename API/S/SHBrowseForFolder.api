@@ -1,0 +1,24 @@
+[NAME]
+SHBrowseForFolder
+[DESCRIPTION]
+Displays a dialog box that enables the user to select a shell folder.
+[DECLARATION]
+Declare Function SHBrowseForFolder Lib "shell32" (lpbi As BrowseInfo) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· lpbi
+Pointer to a BROWSEINFO structure that contains information used to display the dialog box.
+[RETURNS]
+Returns a pointer to an item identifier list that specifies the location of the selected folder relative to the root of the name space. If the user chooses the Cancel button in the dialog box, the return value is NULL. 
+
+The calling application is responsible for freeing the returned item identifier list using the shell’s task allocator. 
+[EXAMPLES]
+Browse For Folder*774F8232380EA83E4CF374E8F31ED355.html
+[RELATED]
+SHFileOperation
+SHGetPathFromIDList

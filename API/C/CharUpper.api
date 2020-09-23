@@ -1,0 +1,27 @@
+[NAME]
+CharUpper
+[DESCRIPTION]
+The CharUpper function converts a character string or a single character to uppercase. If the operand is a character string, the function converts the characters in place. This function supersedes the AnsiUpper function.
+[DECLARATION]
+Declare Function CharUpper Lib "user32" Alias "CharUpperA" (ByVal lpsz As String) As String
+[VBNET]
+System.String.ToUpper
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpsz
+Pointer to a null-terminated string or specifies a single character. If the high-order word of this parameter is zero, the low-order word must contain a single character to be converted.
+[RETURNS]
+If the operand is a character string, the function returns a pointer to the converted string. Since the string is converted in place, the return value is equal to lpsz. 
+
+If the operand is a single character, the return value is a 32-bit value whose high-order word is zero, and low-order word contains the converted character. 
+
+There is no indication of success or failure. Failure is rare. 
+[EXAMPLES]
+Char Case*1CAA1F069D2EB1DABA0A578BF7D86B62.html
+[RELATED]
+CharLower
+IsCharUpper
+IsCharLower

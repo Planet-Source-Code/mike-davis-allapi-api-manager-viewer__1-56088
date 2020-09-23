@@ -1,0 +1,38 @@
+[NAME]
+RasEnumEntries
+[DESCRIPTION]
+The RasEnumEntries function lists all entry names in a remote access phone book.
+[DECLARATION]
+Declare Function RasEnumEntries Lib "RasApi32.DLL" Alias "RasEnumEntriesA" (ByVal reserved As String, ByVal lpszPhonebook As String, lprasentryname As Any, lpcb As Long, lpcEntries As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· reserved
+Reserved; must be NULL.
+
+· lpszPhonebook
+Windows NT: Pointer to a null-terminated string that specifies the full path and filename of a phone-book (.PBK) file. If this parameter is NULL, the function uses the current default phone-book file. The default phone-book file is the one selected by the user in the User Preferences property sheet of the Dial-Up Networking dialog box.
+Windows 95: This parameter is ignored. Dial-up networking stores phone-book entries in the registry rather than in a phone-book file.
+
+· lprasentryname
+Points to a buffer that receives an array of RASENTRYNAME structures, one for each phone-book entry. Before calling the function, an application must set the dwSize member of the first RASENTRYNAME structure in the buffer to sizeof(RASENTRYNAME) in order to identify the version of the structure being passed.
+
+· lpcb
+Points to a variable that contains the size, in bytes, of the buffer specified by lprasentryname. On return, the function sets this variable to the number of bytes required to successfully complete the call.
+
+· lpcEntries
+Points to a variable that the function, if successful, sets to the number of phone-book entries written to the buffer specified by lprasentryname.
+[RETURNS]
+If the function succeeds, the return value is zero. 
+
+If the function fails, the return value is a nonzero error value listed in the RAS header file or one of ERROR_BUFFER_TOO_SMALL or ERROR_NOT_ENOUGH_MEMORY. 
+[EXAMPLES]
+DUN*B8CFE1BB87FBCF6A6233403B805200E2.html
+Dial*8F6C4A7F1AE4ADDF77DF1B39441B4BB4.html
+[RELATED]
+RasEnumConnections
+RasHangUp

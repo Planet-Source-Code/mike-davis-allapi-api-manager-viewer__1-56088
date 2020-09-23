@@ -1,0 +1,26 @@
+[NAME]
+IsChild
+[DESCRIPTION]
+The IsChild function tests whether a window is a child window or descendant window of a specified parent window. A child window is the direct descendant of a specified parent window if that parent window is in the chain of parent windows; the chain of parent windows leads from the original overlapped or pop-up window to the child window.
+[DECLARATION]
+Declare Function IsChild Lib "user32" Alias "IsChild" (ByVal hWndParent As Long, ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWndParent
+Identifies the parent window.
+
+· hWnd
+Identifies the window to be tested.
+[RETURNS]
+If the window is a child or descendant window of the specified parent window, the return value is nonzero. 
+
+If the window is not a child or descendant window of the specified parent window, the return value is zero. 
+[EXAMPLES]
+MDIChild*1EFF52933A4F38F1549491100CE57139.html
+[RELATED]
+IsIconic

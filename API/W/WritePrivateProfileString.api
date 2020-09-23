@@ -1,0 +1,35 @@
+[NAME]
+WritePrivateProfileString
+[DESCRIPTION]
+The WritePrivateProfileString function copies a string into the specified section of the specified initialization file.This function is provided for compatibility with 16-bit Windows-based applications.
+[DECLARATION]
+Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpString As Any, ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName
+Points to a null-terminated string containing the name of the section to which the string will be copied. If the section does not exist, it is created. The name of the section is case-independent; the string can be any combination of uppercase and lowercase letters.
+
+· lpKeyName
+Points to the null-terminated string containing the name of the key to be associated with a string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries within the section, is deleted.
+
+· lpString
+Points to a null-terminated string to be written to the file. If this parameter is NULL, the key pointed to by the lpKeyName parameter is deleted.
+Windows 95: This platform does not support the use of the TAB (\t) character as part of this parameter.
+
+· lpFileName
+Points to a null-terminated string that names the initialization file.
+[RETURNS]
+If the function successfully copies the string to the initialization file, the return value is nonzero. 
+
+If the function fails, or if it flushes the cached version of the most recently accessed initialization file, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+PrivateProfileString*1E354CE393C7BEAF70812B4B8398D238.html
+GetPrivateProfileInt*7BA04E4F0371886BC2DBCF5A83162701.html
+INI Files*1107BDBCD3503C84C6E931D8D25F5969.html
+[RELATED]
+GetPrivateProfileString

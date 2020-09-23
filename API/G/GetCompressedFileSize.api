@@ -1,0 +1,29 @@
+[NAME]
+GetCompressedFileSize
+[DESCRIPTION]
+The GetCompressedFileSize function obtains the actual number of bytes of disk storage used to store a specified file. If the file is located on a volume that supports compression, and the file is compressed, the value obtained is the compressed size of the specified file. If the file is not located on a volume that supports compression, or if the file is not compressed, the value obtained is the actual file size, the same as the value returned by a call to GetFileSize.
+[DECLARATION]
+Declare Function GetCompressedFileSize Lib "kernel32" Alias "GetCompressedFileSizeA" (ByVal lpFileName As String, lpFileSizeHigh As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 98 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+Pointer to a null-terminated string that specifies the name of the file.
+
+· lpFileSizeHigh
+Pointer to a DWORD variable that the function sets to the high-order doubleword of the compressed file size. The function’s return value is the low-order doubleword of the compressed file size.
+This parameter can be NULL if the high-order doubleword of the compressed file size is not needed. Files less than 4 gigabytes in size do not need the high-order doubleword.
+[RETURNS]
+If the function succeeds, the return value is the low-order doubleword of the actual number of bytes of disk storage used to store the specified file, and if lpFileSizeHigh is non-NULL, the function puts the high-order doubleword of that actual value into the DWORD pointed to by that parameter. This is the compressed file size for compressed files, the actual file size for noncompressed files. 
+
+If the function fails, and lpFileSizeHigh is NULL, the return value is 0xFFFFFFFF. To get extended error information, call GetLastError. 
+
+If the function fails, and lpFileSizeHigh is non-NULL, the return value is 0xFFFFFFFF, and GetLastError returns a value other than NO_ERROR. 
+[EXAMPLES]
+GetCompressedFileSize*47AC0691C06ADAFE2D892DB9C0D54C70.html
+[RELATED]
+GetFileSize

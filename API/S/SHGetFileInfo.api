@@ -1,0 +1,79 @@
+[NAME]
+SHGetFileInfo
+[DESCRIPTION]
+Retrieves information about an object in the file system, such as a file, a folder, a directory, or a drive root.
+[DECLARATION]
+Declare Function SHGetFileInfo Lib "shell32.dll" Alias "SHGetFileInfoA" (ByVal pszPath As String, ByVal dwFileAttributes As Long, psfi As SHFILEINFO, ByVal cbFileInfo As Long, ByVal uFlags As Long) As Long
+[VBNET]
+System.IO.FileInfo.Name;System.IO.File.GetAttributes
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· pszPath
+Pointer to a buffer that contains the path and filename. Both absolute and relative paths are valid. If uFlags includes the SHGFI_PIDL, value pszPath must be the address of an ITEMIDLIST structure that contains the list of item identifiers that uniquely identifies the file within the shell’s name space.
+This string can use either short (the 8.3 form) or long filenames.
+
+· dwFileAttributes
+Array of file attribute flags (FILE_ATTRIBUTE_ values). If uFlags does not include the SHGFI_USEFILEATTRIBUTES value, this parameter is ignored.
+
+· psfi and cbFileInfo
+Address and size, in bytes, of the SHFILEINFO structure that receives the file information.
+
+· uFlags
+Flag that specifies the file information to retrieve. This parameter can be a combination of the following values: SHGFI_ATTRIBUTES
+ Retrieves the file attribute flags. The flags are copied to the dwAttributes member of the structure specified by psfi.
+SHGFI_DISPLAYNAME
+ Retrieves the display name for the file. The name is copied to the szDisplayName member of the structure specified by psfi.
+ The returned display name uses the long filename, if any, rather than the 8.3 form of the filename.
+SHGFI_EXETYPE
+ Returns the type of the executable file if pszPath identifies an executable file. For more information, see the comments below.
+SHGFI_ICON
+ Retrieves the handle of the icon that represents the file and the index of the icon within the system image list. The handle is copied to the hIcon member of the structure specified by psfi, and the index is copied to the iIcon member. The return value is the handle of the system image list.
+SHGFI_ICONLOCATION
+ Retrieves the name of the file that contains the icon representing the file. The name is copied to the szDisplayName member of the structure specified by psfi.
+SHGFI_LARGEICON
+ Modifies SHGFI_ICON, causing the function to retrieve the file’s large icon.
+SHGFI_LINKOVERLAY
+ Modifies SHGFI_ICON, causing the function to add the link overlay to the file’s icon.
+SHGFI_OPENICON
+ Modifies SHGFI_ICON, causing the function to retrieve the file’s open icon. A container object displays an open icon to indicate that the container is open.
+SHGFI_PIDL
+ Indicates that pszPath is the address of an ITEMIDLIST structure rather than a path name.
+SHGFI_SELECTED
+ Modifies SHGFI_ICON, causing the function to blend the file’s icon with the system highlight color.
+SHGFI_SHELLICONSIZE
+ Modifies SHGFI_ICON, causing the function to retrieve a shell-sized icon. If this flag is not specified, the function sizes the icon according to the system metric values.
+SHGFI_SMALLICON
+ Modifies SHGFI_ICON, causing the function to retrieve the file’s small icon.
+SHGFI_SYSICONINDEX
+ Retrieves the index of the icon within the system image list. The index is copied to the iIcon member of the structure specified by psfi. The return value is the handle of the system image list.
+SHGFI_TYPENAME
+ Retrieves the string that describes the file’s type. The string is copied to the szTypeName member of the structure specified by psfi.
+SHGFI_USEFILEATTRIBUTES
+ Indicates that the function should use the dwFileAttributes parameter.
+
+To retrieve the executable file type, uFlags must specify only SHGFI_EXETYPE. The return value specifies the type of the executable file:
+0
+ Nonexecutable file or an error condition.
+LOWORD = NE or PE
+HIWORD = 3.0, 3.5, or 4.0
+ Windows application
+LOWORD = MZ
+HIWORD = 0
+ MS-DOS .EXE, .COM or .BAT file
+LOWORD = PE
+HIWORD = 0
+ Win32 console application
+[RETURNS]
+· Returns a value whose meaning depends on the uFlags parameter. If uFlags specifies the SHGFI_EXETYPE value, the return value indicates the type of the executable file. For more information, see the comments below. 
+
+· If uFlags includes the SHGFI_ICON or SHGFI_SYSICONINDEX value, the return value is the handle of the system image list that contains the large icon images. If the SHGFI_SMALLICON value is also included, the return value is the handle of the image list that contains the small icon images. 
+
+· If uFlags does not include SHGFI_EXETYPE, SHGFI_ICON, SHGFI_SYSICONINDEX, or SHGFI_SMALLICON, the return value is nonzero the function succeeds, or zero otherwise. 
+[EXAMPLES]
+File Information*36D394448255E0A4922F76C39997CAD5.html
+ImageList*FFF4B6DE1075139CC7AFCCA45CDF2A2C.html
+[RELATED]
+

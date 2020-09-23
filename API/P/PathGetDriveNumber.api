@@ -1,0 +1,23 @@
+[NAME]
+PathGetDriveNumber
+[DESCRIPTION]
+Searches a path for a drive letter within the range of 'A' to 'Z' and returns the corresponding drive number.
+[DECLARATION]
+Declare Function PathGetDriveNumber Lib "shlwapi.dll" Alias "PathGetDriveNumberA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpsz
+Address of a string that contains the path to be searched.
+[RETURNS]
+Returns 0 through 25 (corresponding to 'A' through 'Z') if the path has a drive letter, or -1 otherwise. 
+[EXAMPLES]
+Path Functions (3)*F530C21468F2969BB718618F65A13B71.html
+[RELATED]
+PathFileExists
+PathFindOnPath
+PathGetCharType

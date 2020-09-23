@@ -1,0 +1,31 @@
+[NAME]
+LookupPrivilegeValue
+[DESCRIPTION]
+The LookupPrivilegeValue function retrieves the locally unique identifier (LUID) used on a specified system to locally represent the specified privilege name.
+[DECLARATION]
+Declare Function LookupPrivilegeValue Lib "advapi32.dll" Alias "LookupPrivilegeValueA" (ByVal lpSystemName As String, ByVal lpName As String, lpLuid As LARGE_INTEGER) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpSystemName
+Points to a null-terminated string specifying the name of the system on which the privilege name is looked up. If a null string is specified, the function attempts to find the privilege name on the local system.
+
+· lpName
+Points to a null-terminated string that specifies the name of the privilege, as defined in the WINNT.H header file. For example, this parameter could specify the constant SE_SECURITY_NAME, or its corresponding string, “SeSecurityPrivilege”.
+
+· lpLuid
+Points to a variable that receives the locally unique identifier by which the privilege is known on the system specified by the lpSystemName parameter.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ExitWindowsX - NT*8E8F701BA4F21ECAA4CC63ACF1AEE1A3.html
+System Shutdown*24891B9AD182321F4B92786FB2ECA2AB.html
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+[RELATED]
+

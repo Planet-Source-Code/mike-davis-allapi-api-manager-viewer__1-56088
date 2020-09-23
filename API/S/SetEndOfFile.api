@@ -1,0 +1,23 @@
+[NAME]
+SetEndOfFile
+[DESCRIPTION]
+The SetEndOfFile function moves the end-of-file (EOF) position for the specified file to the current position of the file pointer.
+[DECLARATION]
+Declare Function SetEndOfFile Lib "kernel32" (ByVal hFile As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile 
+[in] Handle to the file to have its EOF position moved. The file handle must have been created with GENERIC_WRITE access to the file.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+End Of file*EEE812D41301556E9385F49FBB834736.html
+[RELATED]
+SetFilePointer

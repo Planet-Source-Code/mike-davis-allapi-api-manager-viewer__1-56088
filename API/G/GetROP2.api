@@ -1,0 +1,23 @@
+[NAME]
+GetROP2
+[DESCRIPTION]
+The GetROP2 function retrieves the foreground mix mode of the specified device context. The mix mode specifies how the pen or interior color and the color already on the screen are combined to yield a new color.
+[DECLARATION]
+Declare Function GetROP2 Lib "gdi32" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Handle to the device context.
+[RETURNS]
+If the function succeeds, the return value specifies the foreground mix mode. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+SetROP2*C307B8A6A1E0DDF1395670D447FDC8D3.html
+[RELATED]
+SetROP2

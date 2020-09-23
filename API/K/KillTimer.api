@@ -1,0 +1,29 @@
+[NAME]
+KillTimer
+[DESCRIPTION]
+The KillTimer function destroys the specified timer.
+[DECLARATION]
+Declare Function KillTimer Lib "user32" Alias "KillTimer" (ByVal hwnd As Long, ByVal nIDEvent As Long) As Long
+[VBNET]
+System.Threading.Timer
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window associated with the specified timer. This value must be the same as the hWnd value passed to the SetTimer function that created the timer.
+
+· uIDEvent
+Specifies the timer to be destroyed. If the window handle passed to SetTimer is valid, this parameter must be the same as the uIDEvent value passed to SetTimer. If the application calls SetTimer with hWnd set to NULL, this parameter must be the timer identifier returned by SetTimer.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Key Spy*64BED1F862145FDD4477424686646320.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+SetTimer
+timeKillEvent
+timer

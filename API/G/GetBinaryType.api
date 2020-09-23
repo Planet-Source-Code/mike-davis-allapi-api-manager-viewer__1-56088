@@ -1,0 +1,38 @@
+[NAME]
+GetBinaryType
+[DESCRIPTION]
+The GetBinaryType function determines whether a file is executable, and if so, what type of executable file it is. That last property determines which subsystem an executable file runs under.
+[DECLARATION]
+Declare Function GetBinaryType Lib "kernel32" Alias "GetBinaryTypeA" (ByVal lpApplicationName As String, lpBinaryType As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpApplicationName
+Points to a null-terminated string that contains the fully qualified path of the file whose binary type the function shall determine.
+
+· lpBinaryType
+Points to a variable to receive information about the executable type of the file specified by lpApplicationName. The function adjusts a set of bit flags in this variable. The following bit flag constants are defined:
+SCS_32BIT_BINARY
+ A Win32-based application
+SCS_DOS_BINARY
+ An MS-DOS - based application
+SCS_OS216_BINARY
+ A 16-bit OS/2-based application
+SCS_PIF_BINARY
+ A PIF file that executes an MS-DOS - based application
+SCS_POSIX_BINARY
+ A POSIX - based application
+SCS_WOW_BINARY
+ A 16-bit Windows-based application
+[RETURNS]
+If the file is executable, the return value is nonzero. The function sets the variable pointed to by lpBinaryType to indicate the file’s executable type. 
+
+If the function is not executable, or if the function fails, the return value is zero. 
+[EXAMPLES]
+BinaryType*C2AB5AFC5C9B288120A79AFF6A0F7B62.html
+[RELATED]
+

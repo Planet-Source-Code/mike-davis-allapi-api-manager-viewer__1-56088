@@ -1,0 +1,29 @@
+[NAME]
+OleTranslateColor
+[DESCRIPTION]
+Converts an OLE_COLOR type to a COLORREF.
+[DECLARATION]
+Private Declare Function OleTranslateColor Lib "olepro32.dll" (ByVal OLE_COLOR As Long, ByVal hPalette As Long, pccolorref As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Olepro32
+[PARAMETERS]
+· clr 
+[in] The OLE color to be converted into a COLORREF. 
+
+· hpal 
+[in] Palette used as a basis for the conversion. 
+
+· pcolorref 
+[out] Pointer to the caller's variable that receives the converted COLORREF result. This can be NULL, indicating that the caller wants only to verify that a converted color exists. 
+[RETURNS]
+This function supports the standard return values E_INVALIDARG and E_UNEXPECTED, as well as the following: S_OK 
+
+The color was translated successfully. 
+[EXAMPLES]
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+

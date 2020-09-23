@@ -1,0 +1,36 @@
+[NAME]
+FindWindowEx
+[DESCRIPTION]
+The FindWindowEx function retrieves the handle to a window whose class name and window name match the specified strings. The function searches child windows, beginning with the one following the given child window.
+[DECLARATION]
+Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal hWnd1 As Long, ByVal hWnd2 As Long, ByVal lpsz1 As String, ByVal lpsz2 As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwndParent
+Identifies the parent window whose child windows are to be searched.
+If hwndParent is NULL, the function uses the desktop window as the parent window. The function searches among windows that are child windows of the desktop.
+
+· hwndChildAfter
+Identifies a child window. The search begins with the next child window in the Z order. hwndChildAfter must be a direct child window of hwndParent, not just a descendant window.
+If hwndChildAfter is NULL, the search begins with the first child window of hwndParent.
+Note that if both hwndParent and hwndChildAfter are NULL, the function searches all top-level windows.
+
+· lpszClass
+Points to a null-terminated string that specifies the class name or is an atom that identifies the class-name string. If this parameter is an atom, it must be a global atom created by a previous call to the GlobalAddAtom function. The atom, a 16-bit value, must be placed in the low-order word of lpszClass; the high-order word must be zero.
+
+· lpszWindow
+Points to a null-terminated string that specifies the window name (the window’s title). If this parameter is NULL, all window names match.
+[RETURNS]
+If the function succeeds, the return value is the handle to the window that has the specified class and window names. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+New Start-button*0E0BB026AA35C26821E74100E98127E3.html
+[RELATED]
+FindWindow
+DestroyWindow

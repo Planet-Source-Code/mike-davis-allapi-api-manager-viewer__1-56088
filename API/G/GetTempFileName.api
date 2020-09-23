@@ -1,0 +1,35 @@
+[NAME]
+GetTempFileName
+[DESCRIPTION]
+The GetTempFileName function creates a name for a temporary file. The filename is the concatenation of specified path and prefix strings, a hexadecimal string formed from a specified integer, and the .TMP extension.
+[DECLARATION]
+Declare Function GetTempFileName Lib "kernel32" Alias "GetTempFileNameA" (ByVal lpszPath As String, ByVal lpPrefixString As String, ByVal wUnique As Long, ByVal lpTempFileName As String) As Long
+[VBNET]
+System.IO.Path.GetTempFileName
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpPathName
+Points to a null-terminated string that specifies the directory path for the filename. This string must consist of characters in the ANSI character set. Applications typically specify a period (.) or the result of the GetTempPath function for this parameter. If this parameter is NULL, the function fails.
+
+· lpPrefixString
+Points to a null-terminated prefix string. The function uses the first three characters of this string as the prefix of the filename. This string must consist of characters in the ANSI character set.
+
+· uUnique
+Specifies an unsigned integer that the function converts to a hexadecimal string for use in creating the temporary filename.
+If uUnique is nonzero, the function appends the hexadecimal string to lpPrefixString to form the temporary filename. In this case, the function does not create the specified file, and does not test whether the filename is unique.
+If uUnique is zero, the function uses a hexadecimal string derived from the current system time. In this case, the function uses different values until it finds a unique filename, and then it creates the file in the lpPathName directory.
+
+· lpTempFileName
+Points to the buffer that receives the temporary filename. This null-terminated string consists of characters in the ANSI character set. This buffer should be at least the length, in bytes, specified by MAX_PATH to accommodate the path.
+[RETURNS]
+If the function succeeds, the return value specifies the unique numeric value used in the temporary filename. If the uUnique parameter is nonzero, the return value specifies that same number. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+[RELATED]
+GetTempPath
+tempfile

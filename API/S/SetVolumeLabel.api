@@ -1,0 +1,26 @@
+[NAME]
+SetVolumeLabel
+[DESCRIPTION]
+The SetVolumeLabel function sets the label of a file system volume.
+[DECLARATION]
+Declare Function SetVolumeLabel Lib "kernel32" Alias "SetVolumeLabelA" (ByVal lpRootPathName As String, ByVal lpVolumeName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpRootPathName
+Points to a null-terminated string specifying the root directory of a file system volume. This is the volume the function will label. If this parameter is NULL, the root of the current directory is used.
+
+· lpVolumeName
+Points to a string specifying a name for the volume. If this parameter is NULL, the function deletes the name of the specified volume.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+[RELATED]
+GetVolumeInformation

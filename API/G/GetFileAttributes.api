@@ -1,0 +1,59 @@
+[NAME]
+GetFileAttributes
+[DESCRIPTION]
+The GetFileAttributes function returns attributes for a specified file or directory.
+[DECLARATION]
+Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+[VBNET]
+System.IO.File.GetAttributes
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+Points to a null-terminated string that specifies the name of a file or directory.
+Windows NT:
+There is a default string size limit for paths of MAX_PATH characters. This limit is related to how the GetFileAttributes function parses paths. An application can transcend this limit and send in paths longer than MAX_PATH characters by calling the wide (W) version of GetFileAttributes and prepending “\\?\” to the path. The “\\?\” tells the function to turn off path parsing; it lets paths longer than MAX_PATH be used with GetFileAttributesW. This also works with UNC names. The “\\?\” is ignored as part of the path. For example, “\\?\C:\myworld\private” is seen as “C:\myworld\private”, and “\\?\UNC\bill_g_1\hotstuff\coolapps” is seen as “\\bill_g_1\hotstuff\coolapps”.
+Windows 95:
+The lpFileName string must not exceed MAX_PATH characters. Windows 95 does not support the “\\?\” prefix.
+[RETURNS]
+If the function succeeds, the return value contains the attributes of the specified file or directory. 
+
+If the function fails, the return value is 0xFFFFFFFF. To get extended error information, call GetLastError. 
+
+The attributes can be one or more of the following values:
+FILE_ATTRIBUTE_ARCHIVE 
+ The file or directory is an archive file or directory. Applications use this flag to mark files for backup or removal. 
+ 
+FILE_ATTRIBUTE_COMPRESSED 
+ The file or directory is compressed. For a file, this means that all of the data in the file is compressed. For a directory, this means that compression is the default for newly created files and subdirectories. 
+ 
+FILE_ATTRIBUTE_DIRECTORY 
+ The “file or directory” is a directory. 
+ 
+FILE_ATTRIBUTE_HIDDEN 
+ The file or directory is hidden. It is not included in an ordinary directory listing. 
+ 
+FILE_ATTRIBUTE_NORMAL 
+ The file or directory has no other attributes set. This attribute is valid only if used alone. 
+ 
+FILE_ATTRIBUTE_OFFLINE 
+ The data of the file is not immediately available. Indicates that the file data has been physically moved to offline storage. 
+ 
+FILE_ATTRIBUTE_READONLY 
+ The file or directory is read-only. Applications can read the file but cannot write to it or delete it. In the case of a directory, applications cannot delete it. 
+ 
+FILE_ATTRIBUTE_SYSTEM 
+ The file or directory is part of, or is used exclusively by, the operating system. 
+ 
+FILE_ATTRIBUTE_TEMPORARY 
+ The file is being used for temporary storage. File systems attempt to keep all of the data in memory for quicker access rather than flushing the data back to mass storage. A temporary file should be deleted by the application as soon as it is no longer needed. 
+[EXAMPLES]
+Find Files*DAD43CF20ED09D1897B0ECAAF0BF86EE.html
+[RELATED]
+FindFirstFile
+FindNextFile
+FindClose
+GetFileInformationByHandle
+fileattribs

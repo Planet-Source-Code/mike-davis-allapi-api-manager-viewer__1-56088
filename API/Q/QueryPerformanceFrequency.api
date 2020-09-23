@@ -1,0 +1,23 @@
+[NAME]
+QueryPerformanceFrequency
+[DESCRIPTION]
+The QueryPerformanceFrequency function retrieves the frequency of the high-resolution performance counter, if one exists.
+[DECLARATION]
+Declare Function QueryPerformanceFrequency Lib "kernel32" (lpFrequency As LARGE_INTEGER) As Long
+[VBNET]
+System.Diagnostics.PerformanceCounter
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFrequency 
+Points to a variable that the function sets, in counts per second, to the current performance-counter frequency. If the installed hardware does not support a high-resolution performance counter, this parameter can be to zero. 
+[RETURNS]
+If the installed hardware supports a high-resolution performance counter, the return value is nonzero. 
+
+If the installed hardware does not support a high-resolution performance counter, the return value is zero. 
+[EXAMPLES]
+Performance Counter*105B7D40B6F6B9021B5F6BDA18F12B54.html
+[RELATED]
+QueryPerformanceCounter

@@ -1,0 +1,25 @@
+[NAME]
+CreateBrushIndirect
+[DESCRIPTION]
+The CreateBrushIndirect function creates a logical brush that has the specified style, color, and pattern.
+[DECLARATION]
+Declare Function CreateBrushIndirect Lib "gdi32" Alias "CreateBrushIndirect" (lpLogBrush As LOGBRUSH) As Long
+[VBNET]
+System.Drawing.Brush
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lplb
+Points to a LOGBRUSH structure that contains information about the brush.
+[RETURNS]
+If the function succeeds, the return value identifies a logical brush. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Rectangles*D3F3719BBC36D7E57F628A99BB3D6672.html
+[RELATED]
+CreateSolidBrush
+CreateHatchBrush
+brushes

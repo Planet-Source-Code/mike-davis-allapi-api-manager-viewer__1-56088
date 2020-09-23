@@ -1,0 +1,58 @@
+[NAME]
+FlatSB_GetScrollPos
+[DESCRIPTION]
+Retrieves the thumb position in a flat scroll bar. If flat scroll bars are not initialized for the window, this function calls the standard GetScrollPos API.
+[DECLARATION]
+Declare Function FlatSB_GetScrollPos Lib "comctl32" (ByVal hWnd As Long, ByVal code As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· code
+Parameter that specifies the scroll bar type. It can be one of the following values:
+SB_HORZ
+ Retrieves the thumb position of the horizontal scroll bar.
+SB_VERT
+ Retrieves the thumb position of the vertical scroll bar.
+*** END ***GetNumberFormat
+· Locale
+Specifies the locale for which the number string is to be formatted. If lpFormat is NULL, the function formats the string according to the number format for this locale. If lpFormat is not NULL, the function uses the locale only for formatting information not specified in the NUMBERFMT structure (for example, the locale’s string value for the negative sign).
+This parameter can be a locale identifier created by the MAKELCID macro, or one of the following predefined values: LOCALE_SYSTEM_DEFAULT
+ Default system locale.
+LOCALE_USER_DEFAULT
+ Default user locale.
+
+· dwFlags
+Contains a bit flag that controls the operation of the function. If lpFormat is non-NULL, this parameter must be zero.
+If lpFormat is NULL, you can specify the LOCALE_NOUSEROVERRIDE flag to format the string using the system default number format for the specified locale; or you can specify zero to format the string using any user overrides to the locale’s default number format
+
+· lpValue
+Points to a null-terminated string containing the number string to format.
+This string can only contain the following characters:
+ · Characters ‘0’ through ‘9’
+ · One decimal point (dot) if the number is a floating-point value
+ · A minus sign in the first character position if the number is a negative value
+
+All other characters are invalid. The function returns an error if the string pointed to by lpValue deviates from these rules.
+
+· lpFormat
+Pointer to a NUMBERFMT structure that contains number formatting information. All members in the structure pointed to by lpFormat must contain appropriate values.
+If lpFormat is NULL, the function uses the number format of the specified locale.
+
+· lpNumberStr
+Points to a buffer to receive the formatted number string.
+
+· cchNumber
+Specifies the size, in bytes (ANSI version) or characters (Unicode version), of the lpNumberStr buffer. If cchNumber is zero, the function returns the number of bytes or characters required to hold the formatted number string, and the buffer pointed to by lpNumberStr is not used.
+[RETURNS]
+Returns the current thumb position of the specified flat scroll bar. 
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_SetScrollPos

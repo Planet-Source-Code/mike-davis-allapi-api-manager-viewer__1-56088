@@ -1,0 +1,40 @@
+[NAME]
+RasGetEntryDialParams
+[DESCRIPTION]
+The RasGetEntryDialParams function retrieves the connection information saved by the last successful call to the RasDial or RasSetEntryDialParams function for a specified phone-book entry.
+[DECLARATION]
+Declare Function RasGetEntryDialParams Lib "rasapi32.dll" Alias "RasGetEntryDialParamsA" (ByVal lpcstr As String, ByRef lprasdialparamsa As RASDIALPARAMS, ByRef lpbool As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· lpszPhonebook 
+[in] Windows NT/2000: Pointer to a null-terminated string that specifies the full path and file name of a phone-book (PBK) file. If this parameter is NULL, the function uses the current default phone-book file. The default phone-book file is the one selected by the user in the User Preferences property sheet of the Dial-Up Networking dialog box. 
+Windows 95: Dial-up networking stores phone-book entries in the registry rather than in a phone-book file. 
+
+· lprasdialparams 
+[in, out] Pointer to the RASDIALPARAMS structure. 
+On input, the dwSize member specifiesthe size of the RASDIALPARAMS structure, and the szEntryName member specifies a valid phone-book entry. 
+On output, the structure receives the connection parameters associated with the specified phone-book entry. 
+Note that the szPhoneNumber member of the structure does not receive the phone number associated with the phone-book entry. To get the phone number associated with a phone-book entry, call the RasGetEntryProperties function. 
+Windows 2000 and later versions: RasGetEntryDialParams does not return the actual password. Instead, the szPassword member of the RASDIALPARAMS structure contains a handle to the saved password. Substitute this handle for the saved password in subsequent calls to RasSetEntryDialParams and RasDial. When presented with this handle, RasDial will retrieve and use the saved password. The value of this handle may change in future versions of the operating system; do not develop code that depends on the contents or format of this value. 
+
+· lpfPassword 
+[out] Pointer to a flag that indicates whether the function retrieved the password associated with the user name for the phone-book entry. The function sets this flag to TRUE if the user's password was returned in the szPassword member of the RASDIALPARAMS structure pointed to by lprasdialparams. 
+Windows 2000 and later: The lpfPassword parameter is TRUE if the system has saved a password for the specified entry. If the system has no password saved for this entry, lpfPassword is FALSE. 
+[RETURNS]
+If the function succeeds, the return value is zero.
+If the function fails, the return value is one of the following error codes. 
+ERROR_BUFFER_INVALID
+ The lprasdialparams or lpfPassword pointer is invalid, or the lprasdialparams buffer is invalid. 
+ERROR_CANNOT_OPEN_PHONEBOOK
+ The phone book is corrupted or missing components. 
+ERROR_CANNOT_FIND_PHONEBOOK_ENTRY
+ The phone-book entry does not exist. 
+[EXAMPLES]
+Dial*8F6C4A7F1AE4ADDF77DF1B39441B4BB4.html
+[RELATED]
+RasDial

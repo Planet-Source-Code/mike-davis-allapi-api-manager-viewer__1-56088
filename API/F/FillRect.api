@@ -1,0 +1,34 @@
+[NAME]
+FillRect
+[DESCRIPTION]
+The FillRect function fills a rectangle by using the specified brush. This function includes the left and top borders, but excludes the right and bottom borders of the rectangle.
+[DECLARATION]
+Declare Function FillRect Lib "user32" Alias "FillRect" (ByVal hdc As Long, lpRect As RECT, ByVal hBrush As Long) As Long
+[VBNET]
+System.Drawing.Graphics.FillRectangle
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hDC
+Identifies the device context.
+
+· lprc
+Points to a RECT structure that contains the logical coordinates of the rectangle to be filled.
+
+· hbr
+Identifies the brush used to fill the rectangle.
+[RETURNS]
+If the function succeeds, the return value is TRUE. 
+
+If the function fails, the return value is FALSE. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Rectangles*D3F3719BBC36D7E57F628A99BB3D6672.html
+Pattern Brush*86931951C45A6EBFC0F88BAE8F1B8FEB.html
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+SetRect
+FillRgn
+fillrect

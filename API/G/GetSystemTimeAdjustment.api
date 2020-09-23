@@ -1,0 +1,31 @@
+[NAME]
+GetSystemTimeAdjustment
+[DESCRIPTION]
+The GetSystemTimeAdjustment function determines whether the system is applying periodic time adjustments to its time-of-day clock at each clock interrupt, along with the value and period of any such adjustments. Note that the period of such adjustments is equivalent to the time period between clock interrupts.
+[DECLARATION]
+Declare Function GetSystemTimeAdjustment Lib "kernel32" (lpTimeAdjustment As Long, lpTimeIncrement As Long, lpTimeAdjustmentDisabled As Boolean) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpTimeAdjustment
+Pointer to a DWORD that the function sets to the number of 100-nanosecond units added to the time-of-day clock at each periodic time adjustment.
+
+· lpTimeIncrement
+Pointer to a DWORD that the function sets to the interval, counted in 100-nanosecond units, between periodic time adjustments. This interval is the time period between a system’s clock interrupts.
+
+· lpTimeAdjustmentDisabled
+Pointer to a BOOL that the function sets to indicate whether periodic time adjustment is in effect.
+A value of TRUE indicates that periodic time adjustment is disabled. At each clock interrupt, the system merely adds the interval between clock interrupts to the time-of-day clock. The system is free, however, to adjust its time-of-day clock using other techniques. Such other techniques may cause the time-of-day clock to noticeably jump when adjustments are made.
+A value of FALSE indicates that periodic time adjustment is being used to adjust the time-of-day clock. At each clock interrupt, the system adds the time increment specified by SetSystemTimeAdjustment’s dwTimeIncrement parameter to the time-of-day clock. The system will not interfere with the time adjustment scheme, and will not attempt to synchronize time of day on its own via other techniques.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+TimeAdjustment*D37CC6F8C9AB376ACDA047DE4111CE22.html
+[RELATED]
+

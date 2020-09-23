@@ -1,0 +1,31 @@
+[NAME]
+GetCurrentDirectory
+[DESCRIPTION]
+The GetCurrentDirectory function retrieves the current directory for the current process.
+[DECLARATION]
+Declare Function GetCurrentDirectory Lib "kernel32" Alias "GetCurrentDirectory" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
+[VBNET]
+System.Environment.CurrentDirectory
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· nBufferLength
+Specifies the length, in characters, of the buffer for the current directory string. The buffer length must include room for a terminating null character.
+
+· lpBuffer
+Points to the buffer for the current directory string. This null-terminated string specifies the absolute path to the current directory.
+[RETURNS]
+If the function succeeds, the return value specifies the number of characters written to the buffer, not including the terminating null character. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+
+If the buffer pointed to by lpBuffer is not large enough, the return value specifies the required size of the buffer, including the number of bytes necessary for a terminating null character. 
+[EXAMPLES]
+CurrentDir*959108449BA093682CF9AE7C28890399.html
+[RELATED]
+GetWindowsDirectory
+GetSystemDirectory
+GetTempPath
+currentdirectory

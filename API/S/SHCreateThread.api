@@ -1,0 +1,38 @@
+[NAME]
+SHCreateThread
+[DESCRIPTION]
+Creates a thread.
+[DECLARATION]
+Declare Function SHCreateThread Lib "shlwapi.dll" (ByVal pfnThreadProc As Long, pData As Any, ByVal dwFlags As Long, ByVal pfnCallback As Long) As Long
+[VBNET]
+System.Threading.Thread
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 5.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 5.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pfnThreadProc
+Pointer to an application-defined function of the LPTHREAD_START_ROUTINE type. If a new thread was successfully created, this function will be called in the context of that thread. SHCreateThread does not wait for this function to complete before returning to its caller. The return value of this function will be the exit code of the thread.
+
+· pData
+Pointer to an application-defined data structure containing initialization data. It is passed to the function pointed to by pfnThreadProc and, optionally, pfnCallback.
+
+· dwFlags
+Flags that control the behavior of the function. This parameter can be a combination of the following flags.
+CTF_COINIT
+ Initialize COM for the created thread before calling either the optional function pointed to by pfnCallback or the function pointed to by pfnThreadProc. This flag is useful when COM needs to be initialized for a thread. COM will automatically be uninitialized as well.
+CTF_INSIST
+ If the attempt to create the thread with CreateThread fails, setting this flag will cause the function pointed to by pfnThreadProc to be called synchronously from the calling thread. This flag cannot be used if pfnCallback has a non-NULL value.
+CTF_PROCESS_REF
+ Hold a reference to the Windows® Explorer process for the duration of the call to the function pointed to by pfnThreadProc. This flag is useful for shell extension handlers, which might need to keep the Windows Explorer process from closing prematurely. Examples of where this action would be useful include tasks such as doing work on a background thread or copying files. For further information, see SHGetInstanceExplorer.
+CTF_THREAD_REF
+ Hold a reference to the creating thread for the duration of the call to the function pointed to by pfnThreadProc. This reference must have been set with SHSetThreadRef.
+
+· pfnCallback
+Pointer to an optional application-defined function of the LPTHREAD_START_ROUTINE type. This function is called in the context of the created thread before the function pointed to by pfnThreadProc is called. It will also receive pData as its argument. SHCreateThread will wait for the function pointed to by pfnCallback to return before returning to its caller. The return value of the function pointed to by pfnCallback is ignored.
+[RETURNS]
+Returns TRUE if the thread is successfully created, or FALSE otherwise.
+[EXAMPLES]
+Create Shell Thread*8F97E5D52E1F6838EDC02B61FDE069C9.html
+[RELATED]
+CreateThread

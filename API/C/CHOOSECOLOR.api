@@ -1,0 +1,28 @@
+[NAME]
+CHOOSECOLOR
+[DESCRIPTION]
+The ChooseColor function creates a Color common dialog box that enables the user to select a color.
+[DECLARATION]
+Declare Function ChooseColor Lib "comdlg32.dll" Alias "ChooseColorA" (pChoosecolor As CHOOSECOLOR) As Long
+[VBNET]
+System.Windows.ColorDialog.RunDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+· lpcc
+Pointer to a CHOOSECOLOR structure that contains information used to initialize the dialog box. When ChooseColor returns, this structure contains information about the user’s color selection.
+[RETURNS]
+If the user clicks the OK button of the dialog box, the return value is nonzero. The rgbResult member of the CHOOSECOLOR structure contains the RGB color value of the color selected by the user. 
+
+If the user cancels or closes the Color dialog box or an error occurs, the return value is zero. To get extended error information, call the CommDlgExtendedError function, which can return one of the following values:
+CDERR_FINDRESFAILURE, CDERR_MEMLOCKFAILURE, CDERR_INITIALIZATION, CDERR_NOHINSTANCE, CDERR_LOCKRESFAILURE, CDERR_NOHOOK, CDERR_LOADRESFAILURE, CDERR_NOTEMPLATE, CDERR_LOADSTRFAILURE, CDERR_STRUCTSIZE, CDERR_MEMALLOCFAILURE 
+[EXAMPLES]
+Common Dialogs*1D52C7E03E3782E75B883E436E7B341B.html
+[RELATED]
+PrintDialog
+PAGESETUPDLG
+CHOOSEFONT
+GetOpenFileName
+GetSaveFileName

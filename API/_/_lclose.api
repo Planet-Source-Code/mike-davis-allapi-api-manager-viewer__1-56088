@@ -1,0 +1,25 @@
+[NAME]
+_lclose
+[DESCRIPTION]
+The _lclose function closes the specified file so that it is no longer available for reading or writing.
+[DECLARATION]
+Declare Function lClose Lib "kernel32" Alias "_lclose" (ByVal hFile As Long) As Long
+[VBNET]
+N/A; Usually ClassName.Close()
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile 
+Identifies the file to be closed. This handle is returned by the function that created or last opened the file. 
+[RETURNS]
+If the function succeeds, the return value is zero. 
+
+If the function fails, the return value is HFILE_ERROR. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Is File Shared*43908045D5082ACF069B3E1AF3739128.html
+Get File Size*915091D76BC869F5A0432C14AFE64041.html
+[RELATED]
+_lopen
+CloseHandle

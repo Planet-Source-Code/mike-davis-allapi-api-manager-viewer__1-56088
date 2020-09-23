@@ -1,0 +1,42 @@
+[NAME]
+ReportFault
+[DESCRIPTION]
+The ReportFault function allows an application that performs its own exception handling to report faults to Microsoft.
+[DECLARATION]
+Declare Function ReportFault Lib "Faultrep" (pep As EXCEPTION_POINTERS, ByVal dwMode As Long) As EFaultRepRetVal
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+Faultrep
+[PARAMETERS]
+· pep 
+[in] Pointer to an EXCEPTION_POINTERS structure. 
+
+· dwMode 
+This value is reserved for system use and should be set to zero. 
+[RETURNS]
+This function returns one of the following values.
+
+frrvOk 
+ The function succeeded. 
+frrvOkManifest 
+ The function succeeded and the client was launched in manifest reporting mode. 
+frrvErr 
+ The function failed but the client was launched. 
+frrvErrNoDW 
+ The client was unable to launch. The system will perform its default actions, such as displaying the standard exception dialog box and launching the debugger. 
+frrvErrTimeout 
+ The function timed out. 
+frrvLaunchDebugger 
+ The function succeeded and the user launched the debugger. 
+frrvOkHeadless 
+ The function succeeded and the client was launched in silent reporting mode. 
+
+These return values indicate whether the reporting application was successfully launched. A successful return value does not indicate that the fault was successfully reported.
+[EXAMPLES]
+Unhandled Exception*93C6E1CFEE5BF24DE51EC599B1720D4F.html
+[RELATED]
+RaiseException
+SetUnhandledExceptionFilter

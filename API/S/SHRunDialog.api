@@ -1,0 +1,20 @@
+[NAME]
+SHRunDialog
+[DESCRIPTION]
+Unsupported function! Shows the "Run" dialog (i.e. Start menu / Run)
+[DECLARATION]
+Declare Function SHRunDialog Lib "shell32" Alias "#61" (ByVal hOwner As Long, ByVal Unknown1 As Long, ByVal Unknown2 As Long, ByVal szTitle As String, ByVal szPrompt As String, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHRunDialog*1D6326EF82C774C3BCC46B2248B80F99.html
+[RELATED]
+

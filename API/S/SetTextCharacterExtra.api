@@ -1,0 +1,26 @@
+[NAME]
+SetTextCharacterExtra
+[DESCRIPTION]
+The SetTextCharacterExtra function sets the intercharacter spacing. Intercharacter spacing is added to each character, including break characters, when the system writes a line of text.
+[DECLARATION]
+Private Declare Function SetTextCharacterExtra Lib "gdi32" (ByVal hdc As Long, ByVal nCharExtra As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc 
+[in] Handle to the device context. 
+
+· nCharExtra 
+[in] Specifies the amount of extra space, in logical units, to be added to each character. If the current mapping mode is not MM_TEXT, the nCharExtra parameter is transformed and rounded to the nearest pixel. 
+[RETURNS]
+If the function succeeds, the return value is the previous intercharacter spacing. 
+
+If the function fails, the return value is 0x80000000.
+[EXAMPLES]
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+TabbedTextOut

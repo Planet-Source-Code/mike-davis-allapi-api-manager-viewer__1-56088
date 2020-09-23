@@ -1,0 +1,32 @@
+[NAME]
+SetSecurityDescriptorDacl
+[DESCRIPTION]
+The SetSecurityDescriptorDacl function sets information in a discretionary access-control list (ACL). If a discretionary ACL is already present in the security descriptor, it is replaced.
+[DECLARATION]
+Declare Function SetSecurityDescriptorDacl Lib "advapi32.dll" (pSecurityDescriptor As SECURITY_DESCRIPTOR, ByVal bDaclPresent As Long, pDacl As Byte, ByVal bDaclDefaulted As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSecurityDescriptor
+[in/out] Pointer to the SECURITY_DESCRIPTOR structure to which the function adds the discretionary ACL. This security descriptor must be in absolute format, meaning that its members must be pointers to other structures, rather than offsets to contiguous data.
+
+· bDaclPresent
+[in] Specifies a flag indicating the presence of a discretionary ACL in the security descriptor. If this parameter is TRUE, the function sets the SE_DACL_PRESENT flag in the SECURITY_DESCRIPTOR_CONTROL structure and uses the values in the pDacl and bDaclDefaulted parameters. If it is FALSE, the function clears the SE_DACL_PRESENT flag, and pDacl and bDaclDefaulted are ignored.
+
+· pDacl
+[in] Pointer to an ACL structure specifying the discretionary ACL for the security descriptor. If this parameter is NULL, a NULL discretionary ACL is assigned to the security descriptor, allowing all access to the object. The discretionary ACL is referenced by, not copied into, the security descriptor.
+
+· bDaclDefaulted
+[in] Specifies a flag indicating the source of the discretionary ACL. If this flag is TRUE, the discretionary ACL has been retrieved by some default mechanism. If FALSE, the discretionary ACL has been explicitly specified by a user. The function stores this value in the SE_DACL_DEFAULTED flag of the SECURITY_DESCRIPTOR_CONTROL structure. If this parameter is not specified, the SE_DACL_DEFAULTED flag is cleared.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetSecurityDescriptorDacl

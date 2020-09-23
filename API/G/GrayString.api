@@ -1,0 +1,47 @@
+[NAME]
+GrayString
+[DESCRIPTION]
+The GrayString function draws gray text at the specified location. The function draws the text by copying it into a memory bitmap, graying the bitmap, and then copying the bitmap to the screen. The function grays the text regardless of the selected brush and background. GrayString uses the font currently selected for the specified device context.
+[DECLARATION]
+Declare Function GrayString Lib "user32" Alias "GrayStringA" (ByVal hDC As Long, ByVal hBrush As Long, ByVal lpOutputFunc As Long, ByVal lpData As Long, ByVal nCount As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hDC
+Identifies the device context.
+
+· hBrush
+Identifies the brush to be used for graying. If this parameter is NULL, the text is grayed with the same brush that was used to draw window text.
+
+· lpOutputFunc
+Points to the application-defined function that will draw the string, or, if TextOut is to be used to draw the string, it is a NULL pointer. For details, see the OutputProc callback function.
+
+· lpData
+Specifies a pointer to data to be passed to the output function. If the lpOutputFunc parameter is NULL, lpData must be a pointer to the string to be output.
+
+· nCount
+Specifies the number of characters to be output. If the nCount parameter is zero, GrayString calculates the length of the string (assuming lpData is a pointer to the string). If nCount is -1 and the function pointed to by lpOutputFunc returns FALSE, the image is shown but not grayed.
+
+· X
+Specifies the device x-coordinate of the starting position of the rectangle that encloses the string.
+
+· Y
+Specifies the device y-coordinate of the starting position of the rectangle that encloses the string.
+
+· nWidth
+Specifies the width, in device units, of the rectangle that encloses the string. If this parameter is zero, GrayString calculates the width of the area, assuming lpData is a pointer to the string.
+
+· nHeight
+Specifies the height, in device units, of the rectangle that encloses the string. If this parameter is zero, GrayString calculates the height of the area, assuming lpData is a pointer to the string.
+[RETURNS]
+If the string is drawn, the return value is nonzero. 
+
+If either the TextOut function or the application-defined output function returned zero, or there was insufficient memory to create a memory bitmap for graying, the return value is zero. 
+[EXAMPLES]
+GrayString*6A25C4FB6A8D7BC826EF6B6B69C81993.html
+[RELATED]
+TextOut

@@ -1,0 +1,28 @@
+[NAME]
+joyGetDevCaps
+[DESCRIPTION]
+The joyGetDevCaps function queries a joystick to determine its capabilities.
+[DECLARATION]
+Declare Function joyGetDevCaps Lib "winmm.dll" Alias "joyGetDevCapsA" (ByVal id As Long, lpCaps As JOYCAPS, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uJoyID
+Identifier of the joystick (JOYSTICKID1 or JOYSTICKID2) to be queried.
+
+· pjc
+Address of a JOYCAPS structure to contain the capabilities of the joystick.
+
+· cbjc
+Size, in bytes, of the JOYCAPS structure.
+[RETURNS]
+Returns JOYERR_NOERROR if successful or one of the following error values: 
+[EXAMPLES]
+JoyStick*19F21F546E23F1C5992A133E1482DB7C.html
+[RELATED]
+joyGetNumDevs
+joyGetPos

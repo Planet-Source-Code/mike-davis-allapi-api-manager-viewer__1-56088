@@ -1,0 +1,24 @@
+[NAME]
+DsBrowseForContainer
+[DESCRIPTION]
+The DsBrowseForContainer function sets up and displays a simple dialog box with which users can scope parts of Active Directory™. The dialog box displays a simple container picker which is either populated with containers from a particular root or which uses trusted domains. If it uses trusted domains, it can use either the domain that the user is currently logged in to, or it can use a domain that the user has specified. The user can specify a caption, title, root, and, optionally, an expansion path for the dialog box to be expanded to. Upon exiting, the path and object class of the selected object is returned. The dialog box also supports a callback to allow the user to override some of the default behaviors or to provide extra filtering.
+[DECLARATION]
+Declare Function DsBrowseForContainer Lib "dsuiext" Alias "DsBrowseForContainerA" (pInfo As DSBROWSEINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 SP6a or later with DSClient); Requires Windows 95/98 (with IE 4.01 or later and DSClient). Not supported on Windows Me
+[LIBRARY]
+Dsuiext
+[PARAMETERS]
+· pInfo
+[in] A pointer to the DSBROWSEINFO structure.
+[RETURNS]
+The function returns the following values.
+-1 There is an error. 
+IDCANCEL The user clicked the CANCEL button in the dialog box. 
+IDOK The user clicked the OK button in the dialog box. 
+[EXAMPLES]
+DsBrowseForContainer*2778413FA31EBB516F0BB6970A1870FF.html
+[RELATED]
+

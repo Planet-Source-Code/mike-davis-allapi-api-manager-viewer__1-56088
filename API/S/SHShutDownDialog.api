@@ -1,0 +1,20 @@
+[NAME]
+SHShutDownDialog
+[DESCRIPTION]
+Unsupported function! Shows the "Shut Down" dialog (i.e. Start menu / Shut Down)
+[DECLARATION]
+Declare Function SHShutDownDialog Lib "shell32" Alias "#60" (ByVal YourGuess As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHShutDownDialog*928F34DC773A833991CFBE32971B0473.html
+[RELATED]
+

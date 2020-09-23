@@ -1,0 +1,20 @@
+[NAME]
+waveInGetNumDevs
+[DESCRIPTION]
+The waveInGetNumDevs function returns the number of waveform-audio input devices present in the system.
+[DECLARATION]
+Declare Function waveInGetNumDevs Lib "winmm.dll" Alias "waveInGetNumDevs" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Returns the number of devices. A return value of zero means that no devices are present or that an error occurred.
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+waveInOpen

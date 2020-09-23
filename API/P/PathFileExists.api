@@ -1,0 +1,24 @@
+[NAME]
+PathFileExists
+[DESCRIPTION]
+Determines if a file exists.
+[DECLARATION]
+Declare Function PathFileExists Lib "shlwapi.dll" Alias "PathFileExistsA" (ByVal pszPath As String) As Long
+[VBNET]
+System.IO.File.Exists
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+Address of the file to verify.
+[RETURNS]
+Returns TRUE if the file exists, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (3)*F530C21468F2969BB718618F65A13B71.html
+[RELATED]
+PathFindOnPath
+PathGetCharType
+PathGetDriveNumber
+fileexists

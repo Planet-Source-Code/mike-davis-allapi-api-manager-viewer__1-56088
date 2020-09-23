@@ -1,0 +1,47 @@
+[NAME]
+InternetOpen
+[DESCRIPTION]
+Initializes an application's use of the Win32 Internet functions.
+[DECLARATION]
+Declare Function InternetOpen Lib "wininet" Alias "InternetOpenA" (ByVal sAgent As String, ByVal lAccessType As Long, ByVal sProxyName As String, ByVal sProxyBypass As String, ByVal lFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpszAgent
+Address of a string that contains the name of the application or entity calling the Internet functions (for example, Microsoft Internet Explorer). This name is used as the user agent in the HTTP protocol.
+
+· dwAccessType
+Type of access required. Can be one of these values:
+INTERNET_OPEN_TYPE_DIRECT
+Resolve all host names locally.
+INTERNET_OPEN_TYPE_PROXY
+Pass requests to the proxy unless a proxy bypass list is supplied and the name to be resolved bypasses the proxy. In this case, the function proceeds as for INTERNET_OPEN_TYPE_DIRECT.
+INTERNET_OPEN_TYPE_PRECONFIG
+Retrieve the proxy or direct configuration from the registry.
+
+· lpszProxyName
+Address of a string that contains the name of the proxy server (or servers) to use if proxy access was specified. If this parameter is NULL, the function reads proxy information from the registry. For more information about this parameter, see the comments below.
+
+· lpszProxyBypass
+Address of an optional list of host names or IP addresses, or both, that are known locally. Requests to these names are not routed through the proxy. The list can contain wildcards, such as "157.55.* *int*", meaning any IP address starting with 157.55, or any name containing the substring "int", will bypass the proxy.
+If this parameter specifies the "&lt;local&gt;" macro as the only entry, the function bypasses any host name that does not contain a period. For example, "www.microsoft.com" would be routed to the proxy, whereas "internet" would not.
+If this parameter is NULL, the function reads the bypass list from the registry.
+
+· dwFlags
+Flag that indicates various options affecting the behavior of the function. Can be a combination of these values:
+INTERNET_FLAG_OFFLINE
+Satisfy download operations on this handle through the persistent cache only. If the item does not exist in the cache, the function returns an appropriate error code.
+INTERNET_FLAG_ASYNC
+Future operations on this handle may fail with ERROR_IO_PENDING. A status callback will be made with INTERNET_STATUS_REQUEST_COMPLETE. This callback will be on a thread other than the one for the original request. A status callback routine must be registered or the functions will be completed synchronously.
+[RETURNS]
+Returns a valid handle that the application passes on to subsequent Win32 Internet functions. If InternetOpen fails, it returns NULL. To get a specific error code, call GetLastError. 
+[EXAMPLES]
+WinInet*C7A439CF5009BB20E10CA4C6D73F19D9.html
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+InternetOpenUrl
+InternetCloseHandle

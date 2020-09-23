@@ -1,0 +1,92 @@
+[NAME]
+TrackPopupMenuEx
+[DESCRIPTION]
+The TrackPopupMenuEx function displays a shortcut menu at the specified location and tracks the selection of items on the shortcut menu. The shortcut menu can appear anywhere on the screen.
+[DECLARATION]
+Declare Function TrackPopupMenuEx Lib "user32" (ByVal hMenu As Long, ByVal wFlags As Long, ByVal x As Long, ByVal y As Long, ByVal HWnd As Long, ByVal lptpm As Any) As Long
+[VBNET]
+System.Windows.Forms.ContextMenu.Show
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hmenu 
+[in] Handle to the shortcut menu to be displayed. This handle can be obtained by calling the CreatePopupMenu function to create a new shortcut menu or by calling the GetSubMenu function to retrieve a handle to a submenu associated with an existing menu item. 
+
+? fuFlags 
+[in] Specifies function options. 
+Use one of the following flags to specify how the function positions the shortcut menu horizontally.
+TPM_CENTERALIGN 
+ If this flag is set, the function centers the shortcut menu horizontally relative to the coordinate specified by the x parameter. 
+TPM_LEFTALIGN 
+ If this flag is set, the function positions the shortcut menu so that its left side is aligned with the coordinate specified by the x parameter. 
+TPM_RIGHTALIGN 
+ Positions the shortcut menu so that its right side is aligned with the coordinate specified by the x parameter. 
+
+Use one of the following flags to specify how the function positions the shortcut menu vertically.
+TPM_BOTTOMALIGN 
+ If this flag is set, the function positions the shortcut menu so that its bottom side is aligned with the coordinate specified by the y parameter. 
+TPM_TOPALIGN 
+ If this flag is set, the function positions the shortcut menu so that its top side is aligned with the coordinate specified by the y parameter. 
+TPM_VCENTERALIGN 
+ If this flag is set, the function centers the shortcut menu vertically relative to the coordinate specified by the y parameter. 
+
+Use the following flags to determine the user selection without having to set up a parent window for the menu.
+TPM_NONOTIFY 
+ If this flag is set, the function does not send notification messages when the user clicks on a menu item. 
+TPM_RETURNCMD 
+ If this flag is set, the function returns the menu item identifier of the user's selection in the return value. 
+
+Use one of the following flags to specify which mouse button the shortcut menu tracks.
+TPM_LEFTBUTTON 
+ If this flag is set, the user can select menu items with only the left mouse button. 
+TPM_RIGHTBUTTON 
+ If this flag is set, the user can select menu items with both the left and right mouse buttons. 
+
+Windows 98/Me, Windows 2000/XP: Use any reasonable combination of the following flags to modify the animation of a menu. For example, by selecting a horizontal and a vertical flag you can achieve diagonal animation.
+TPM_HORNEGANIMATION 
+ Animates the menu from left to right. 
+TPM_HORPOSANIMATION 
+ Animates the menu from right to left. 
+TPM_NOANIMATION 
+ Displays menu without animation. 
+TPM_VERNEGANIMATION 
+ Animates the menu from bottom to top. 
+TPM_VERPOSANIMATION 
+ Animates the menu from top to bottom. 
+
+For any animation to occur, the SystemParametersInfo function must set SPI_SETMENUANIMATION. Also, all the TPM_*ANIMATION flags, except TPM_NOANIMATION, are ignored if menu fade animation is on, See the SPI_GETMENUFADE flag in SystemParametersInfo. 
+
+Windows 98/Me, Windows 2000/XP: Use the TPM_RECURSE flag to display a menu when another menu is already displayed. This is intended to support context menus within a menu. 
+
+Use one of the following flags to specify whether to accommodate horizontal or vertical alignment.
+TPM_HORIZONTAL 
+ If the menu cannot be shown at the specified location without overlapping the excluded rectangle, the system tries to accommodate the requested horizontal alignment before the requested vertical alignment. 
+TPM_VERTICAL 
+ If the menu cannot be shown at the specified location without overlapping the excluded rectangle, the system tries to accommodate the requested vertical alignment before the requested horizontal alignment. 
+
+The excluded rectangle is a portion of the screen that the menu should not overlap; it is specified by lptpm. 
+
+Windows XP: To have text layout from right-to-left, use TPM_LAYOUTRTL. By default, the text layout is left-to-right. 
+
+· x 
+[in] Horizontal location of the shortcut menu, in screen coordinates. 
+
+· y 
+[in] Vertical location of the shortcut menu, in screen coordinates. 
+
+· hwnd 
+[in] Handle to the window that owns the shortcut menu. This window receives all messages from the menu. The window does not receive a WM_COMMAND message from the menu until the function returns. 
+If you specify TPM_NONOTIFY in the fuFlags parameter, the function does not send messages to the window identified by hwnd. However, you still have to pass a window handle in hwnd. It can be any window handle from your application. 
+
+· lptpm 
+[in] Pointer to a TPMPARAMS structure that specifies an area of the screen the menu should not overlap. This parameter can be NULL. 
+[RETURNS]
+If you specify TPM_RETURNCMD in the fuFlags parameter, the return value is the menu-item identifier of the item that the user selected. If the user cancels the menu without making a selection, or if an error occurs, then the return value is zero.
+
+If you do not specify TPM_RETURNCMD in the fuFlags parameter, the return value is nonzero if the function succeeds and zero if it fails. To get extended error information, call GetLastError.
+[EXAMPLES]
+Track Popup Menu*A813019EEF294EB54FD73FE9CBB74F6A.html
+[RELATED]
+TrackPopupMenu

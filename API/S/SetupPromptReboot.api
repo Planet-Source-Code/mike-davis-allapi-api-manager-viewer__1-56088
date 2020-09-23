@@ -1,0 +1,42 @@
+[NAME]
+SetupPromptReboot
+[DESCRIPTION]
+The SetupPromptReboot function asks the user if he wants to reboot the system, optionally dependent on whether any files in a committed file queue were in use during a file operation. If the user answers "yes" to the prompt, shutdown is initiated before this routine returns.
+[DECLARATION]
+Declare Function SetupPromptReboot Lib "setupapi.dll" (ByRef FileQueue As Long, ByVal Owner As Long, ByVal ScanOnly As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Setupapi
+[PARAMETERS]
+· FileQueue
+This optional parameter supplies a handle to the file queue upon which to base the decision about whether shutdown is necessary. If FileQueue is not specified, SetupPromptReboot assumes shutdown is necessary and asks the user what to do.
+
+· Owner
+Supplies the handle for the parent window to own windows created by this function.
+
+· ScanOnly
+This optional parameter enables you to specify whether or not to prompt the user when SetupPromptReboot is called.
+If TRUE, the user is never asked about rebooting, and system shutdown is not initiated. In this case, FileQueue must be specified. If ScanOnly is FALSE, the user is asked about rebooting, as previously described.
+
+Use ScanOnly to determine if shutdown is necessary separately from actually initiating a shutdown.
+[RETURNS]
+The function returns a combination of the following flags or -1 if an error occurred: 
+
+SPFILEQ_FILE_IN_USE 
+
+At least one file was in use during the queue commit process and there are delayed file operations pending. This flag will only be set if FileQueue is specified. 
+
+SPFILEQ_REBOOT_RECOMMENDED 
+
+The system should be rebooted. Depending on other flags and user response to the shutdown query, shutdown may be underway. 
+
+SPFILEQ_REBOOT_IN_PROGRESS 
+
+System shutdown is in progress. 
+[EXAMPLES]
+SetupPromptReboot*AEE5A070A12A847CA8E0D626CDA64044.html
+[RELATED]
+

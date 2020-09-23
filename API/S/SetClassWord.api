@@ -1,0 +1,29 @@
+[NAME]
+SetClassWord
+[DESCRIPTION]
+The SetClassWord function replaces the 16-bit (word) value at the specified offset into the extra class memory for the window class to which the specified window belongs.
+[DECLARATION]
+Declare Function SetClassWord Lib "user32" Alias "SetClassWord" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal wNewWord As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window and, indirectly, the class to which the window belongs.
+
+· nIndex
+Specifies the zero-based byte offset of the value to be replaced. Valid values are in the range zero through the number of bytes of class memory minus two; for example, if you specified 10 or more bytes of extra class memory, a value of 8 would be an index to the fifth 16-bit integer.
+
+· wNewWord
+Specifies the replacement value.
+[RETURNS]
+If the function succeeds, the return value is the previous value of the specified 16-bit integer. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Set Cursor Shape*868756AD69DCD3314B7982806E4F6BA4.html
+[RELATED]
+

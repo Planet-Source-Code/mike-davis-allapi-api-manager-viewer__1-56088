@@ -1,0 +1,47 @@
+[NAME]
+GetQueueStatus
+[DESCRIPTION]
+The GetQueueStatus function indicates the type of messages found in the calling thread's message queue.
+[DECLARATION]
+Declare Function GetQueueStatus Lib "user32" (ByVal fuFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· flags
+[in] Specifies the types of messages for which to check. This parameter can be one or more of the following values.
+QS_ALLEVENTS
+ An input, WM_TIMER, WM_PAINT, WM_HOTKEY, or posted message is in the queue.
+QS_ALLINPUT
+ Any message is in the queue.
+QS_ALLPOSTMESSAGE
+ A posted message (other than those listed here) is in the queue.
+QS_HOTKEY
+ A WM_HOTKEY message is in the queue.
+QS_INPUT
+ An input message is in the queue.
+QS_KEY
+ A WM_KEYUP, WM_KEYDOWN, WM_SYSKEYUP, or WM_SYSKEYDOWN message is in the queue.
+QS_MOUSE
+ A WM_MOUSEMOVE message or mouse-button message (WM_LBUTTONUP, WM_RBUTTONDOWN, and so on).
+QS_MOUSEBUTTON
+ A mouse-button message (WM_LBUTTONUP, WM_RBUTTONDOWN, and so on).
+QS_MOUSEMOVE
+ A WM_MOUSEMOVE message is in the queue.
+QS_PAINT
+ A WM_PAINT message is in the queue.
+QS_POSTMESSAGE
+ A posted message (other than those listed here) is in the queue.
+QS_SENDMESSAGE
+ A message sent by another thread or application is in the queue.
+QS_TIMER
+ A WM_TIMER message is in the queue.
+[RETURNS]
+The high-order word of the return value indicates the types of messages currently in the queue. The low-order word indicates the types of messages that have been added to the queue and that are still in the queue since the last call to the GetQueueStatus, GetMessage, or PeekMessage function. 
+[EXAMPLES]
+GetQueueStatus*9D7B5F8549F7D0CFA125617EEF763282.html
+[RELATED]
+GetInputState

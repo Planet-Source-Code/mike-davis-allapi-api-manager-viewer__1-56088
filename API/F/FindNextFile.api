@@ -1,0 +1,28 @@
+[NAME]
+FindNextFile
+[DESCRIPTION]
+The FindNextFile function continues a file search from a previous call to the FindFirstFile function.
+[DECLARATION]
+Declare Function FindNextFile Lib "kernel32" Alias "FindNextFileA" (ByVal hFindFile As Long, lpFindFileData As WIN32_FIND_DATA) As Long
+[VBNET]
+System.IO.DirectoryInfo.GetFiles
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFindFile
+Identifies a search handle returned by a previous call to the FindFirstFile function.
+
+· lpFindFileData
+Points to the WIN32_FIND_DATA structure that receives information about the found file or subdirectory. The structure can be used in subsequent calls to FindNextFile to refer to the found file or directory.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. If no matching files can be found, the GetLastError function returns ERROR_NO_MORE_FILES. 
+[EXAMPLES]
+Find Files*DAD43CF20ED09D1897B0ECAAF0BF86EE.html
+[RELATED]
+FindFirstFile
+GetFileAttributes
+FindClose

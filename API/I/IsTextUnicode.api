@@ -1,0 +1,65 @@
+[NAME]
+IsTextUnicode
+[DESCRIPTION]
+The IsTextUnicode function determines whether a buffer is likely to contain a form of Unicode text. The function uses various statistical and deterministic methods to make its determination, under the control of flags passed via lpi. When the function returns, the results of such tests are reported via lpi.
+[DECLARATION]
+Declare Function IsTextUnicode Lib "advapi32" (ByVal lpBuffer As String, ByVal cb As Long, lpi As Long) As Long
+[VBNET]
+N/A
+[OS]
+Included in Windows NT 3.5 and later; Requires Microsoft Layer for Unicode on Windows 95/98/Me.
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpBuffer 
+[in] Pointer to the input buffer to be examined. 
+
+· cb 
+[in] Specifies the size, in bytes, of the input buffer pointed to by lpBuffer. 
+
+· lpi 
+[in/out] On input, specifies the tests to be applied to the input buffer text. On output, receives the results of the specified tests: 1 if the contents of the buffer pass a test, zero for failure. Only flags that are set upon input to the function are significant upon output. 
+If lpi is NULL, the function uses all available tests to determine whether the data in the buffer is likely to be Unicode text. 
+
+This parameter can be one or more of the following values.
+IS_TEXT_UNICODE_ASCII16 
+ The text is Unicode, and contains onlyzero-extended ASCII values/characters. 
+IS_TEXT_UNICODE_REVERSE_ASCII16 
+ Same as the preceding, except that the Unicode text is byte-reversed. 
+IS_TEXT_UNICODE_STATISTICS 
+ The text is probably Unicode, with the determination made by applying statistical analysis. Absolute certainty is not guaranteed. See the following Remarks section.  
+IS_TEXT_UNICODE_REVERSE_STATISTICS 
+ Same as the preceding, except that the probably-Unicode text is byte-reversed. 
+IS_TEXT_UNICODE_CONTROLS 
+ The text contains Unicode representations of one or more of these nonprinting characters: RETURN, LINEFEED, SPACE, CJK_SPACE, TAB. 
+IS_TEXT_UNICODE_REVERSE_CONTROLS 
+ Same as the preceding, except that the Unicode characters are byte-reversed. 
+IS_TEXT_UNICODE_BUFFER_TOO_SMALL 
+ There are too few characters in the buffer for meaningful analysis (fewer than two bytes). 
+IS_TEXT_UNICODE_SIGNATURE 
+ The text contains the Unicode byte-order mark (BOM) 0xFEFF as its first character. 
+IS_TEXT_UNICODE_REVERSE_SIGNATURE 
+ The text contains the Unicode byte-reversed byte-order mark (Reverse BOM) 0xFFFE as its first character. 
+IS_TEXT_UNICODE_ILLEGAL_CHARS 
+ The text contains one of these Unicode-illegal characters: embedded Reverse BOM, UNICODE_NUL, CRLF (packed into one WORD), or 0xFFFF. 
+IS_TEXT_UNICODE_ODD_LENGTH 
+ The number of characters in the string is odd. A string of odd length cannot (by definition) be Unicode text. 
+IS_TEXT_UNICODE_NULL_BYTES 
+ The text contains null bytes, which indicate non-ASCII text. 
+IS_TEXT_UNICODE_UNICODE_MASK 
+ This flag constant is a combination of IS_TEXT_UNICODE_ASCII16, IS_TEXT_UNICODE_STATISTICS, IS_TEXT_UNICODE_CONTROLS, IS_TEXT_UNICODE_SIGNATURE.  
+IS_TEXT_UNICODE_REVERSE_MASK 
+ This flag constant is a combination of IS_TEXT_UNICODE_REVERSE_ASCII16, IS_TEXT_UNICODE_REVERSE_STATISTICS, IS_TEXT_UNICODE_REVERSE_CONTROLS, IS_TEXT_UNICODE_REVERSE_SIGNATURE. 
+IS_TEXT_UNICODE_NOT_UNICODE_MASK 
+ This flag constant is a combination of IS_TEXT_UNICODE_ILLEGAL_CHARS, IS_TEXT_UNICODE_ODD_LENGTH, and two currently unused bit flags. 
+IS_TEXT_UNICODE_NOT_ASCII_MASK 
+ This flag constant is a combination of IS_TEXT_UNICODE_NULL_BYTES and three currently unused bit flags. 
+[RETURNS]
+The function returns a nonzero value if the data in the buffer passes the specified tests.
+
+The function returns zero if the data in the buffer does not pass the specified tests.
+[EXAMPLES]
+Is Unicode*B5D5CF0C16F991A75B36189C0FEDD22D.html
+[RELATED]
+TextOut
+DrawText

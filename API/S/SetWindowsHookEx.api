@@ -1,0 +1,56 @@
+[NAME]
+SetWindowsHookEx
+[DESCRIPTION]
+The SetWindowsHookEx function installs an application-defined hook procedure into a hook chain. You would install a hook procedure to monitor the system for certain types of events. These events are associated either with a specific thread or with all threads in the system.
+[DECLARATION]
+Declare Function SetWindowsHookEx Lib "user32" Alias "SetWindowsHookExA" (ByVal idHook As Long, ByVal lpfn As Long, ByVal hmod As Long, ByVal dwThreadId As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· idHook
+Specifies the type of hook procedure to be installed. This parameter can be one of the following values:
+WH_CALLWNDPROC
+ Installs a hook procedure that monitors messages before the system sends them to the destination window procedure. For more information, see the CallWndProc hook procedure.
+WH_CALLWNDPROCRET
+ Installs a hook procedure that monitors messages after they have been processed by the destination window procedure. For more information, see the CallWndRetProc hook procedure.
+WH_CBT
+ Installs a hook procedure that receives notifications useful to a computer-based training (CBT) application. For more information, see the CBTProc hook procedure.
+WH_DEBUG
+ Installs a hook procedure useful for debugging other hook procedures. For more information, see the DebugProc hook procedure.
+WH_GETMESSAGE
+ Installs a hook procedure that monitors messages posted to a message queue. For more information, see the GetMsgProc hook procedure.
+WH_JOURNALPLAYBACK
+ Installs a hook procedure that posts messages previously recorded by a WH_JOURNALRECORD hook procedure. For more information, see the JournalPlaybackProc hook procedure.
+WH_JOURNALRECORD
+ Installs a hook procedure that records input messages posted to the system message queue. This hook is useful for recording macros. For more information, see the JournalRecordProc hook procedure.
+WH_KEYBOARD
+ Installs a hook procedure that monitors keystroke messages. For more information, see the KeyboardProc hook procedure.
+WH_MOUSE
+ Installs a hook procedure that monitors mouse messages. For more information, see the MouseProc hook procedure.
+WH_MSGFILTER
+ Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar. For more information, see the MessageProc hook procedure.
+WH_SHELL
+ Installs a hook procedure that receives notifications useful to shell applications. For more information, see the ShellProc hook procedure.
+WH_SYSMSGFILTER
+ Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar. The hook procedure monitors these messages for all applications in the system. For more information, see the SysMsgProc hook procedure.
+
+· lpfn
+Points to the hook procedure. If the dwThreadId parameter is zero or specifies the identifier of a thread created by a different process, the lpfn parameter must point to a hook procedure in a dynamic-link library (DLL). Otherwise, lpfn can point to a hook procedure in the code associated with the current process.
+
+· hMod
+Identifies the DLL containing the hook procedure pointed to by the lpfn parameter. The hMod parameter must be set to NULL if the dwThreadId parameter specifies a thread created by the current process and if the hook procedure is within the code associated with the current process.
+
+· dwThreadId
+Specifies the identifier of the thread with which the hook procedure is to be associated. If this parameter is zero, the hook procedure is associated with all existing threads.
+[RETURNS]
+If the function succeeds, the return value is the handle of the hook procedure. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Hooks*35AD48797A780091740CBCF14EBC094D.html
+[RELATED]
+UnhookWindowsHookEx

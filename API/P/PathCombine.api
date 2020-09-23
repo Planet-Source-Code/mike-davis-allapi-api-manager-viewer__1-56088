@@ -1,0 +1,30 @@
+[NAME]
+PathCombine
+[DESCRIPTION]
+Concatenates two strings that represent properly formed paths into one path, as well as any relative path pieces.
+[DECLARATION]
+Declare Function PathCombine Lib "shlwapi.dll" Alias "PathCombineA" (ByVal szDest As String, ByVal lpszDir As String, ByVal lpszFile As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpszDest
+[out] Pointer to a buffer with the NULL-terminated string to hold the combined path string. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string.
+
+· lpszDir
+[in]Address of the string that represents the directory path.
+
+· lpszFile
+[in]Address of the string that represents the file path.
+[RETURNS]
+Returns a pointer to a string with the concatenated path if successful, or NULL otherwise
+[EXAMPLES]
+Path Functions (2)*D31FFFFF9AECF2ADDF1992FAC3F318C1.html
+[RELATED]
+PathCommonPrefix
+PathCompactPath
+PathCompactPathEx
+PathCreateFromUrl

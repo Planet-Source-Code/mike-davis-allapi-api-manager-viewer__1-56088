@@ -1,0 +1,27 @@
+[NAME]
+PathQuoteSpaces
+[DESCRIPTION]
+Searches a path for spaces. If spaces are found, the entire path is enclosed in quotation marks.
+[DECLARATION]
+Declare Sub PathQuoteSpaces Lib "shlwapi.dll" Alias "PathQuoteSpacesA" (ByVal lpsz As String)
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpsz
+[in/out] Pointer to a buffer with a string containing the path to search. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string.
+[RETURNS]
+No return value. 
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathUnquoteSpaces
+PathStripPath
+PathStripToRoot
+PathMatchSpec
+PathMakeSystemFolder
+PathIsSystemFolder

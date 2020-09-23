@@ -1,0 +1,30 @@
+[NAME]
+waveOutGetErrorText
+[DESCRIPTION]
+The waveOutGetErrorText function retrieves a textual description of the error identified by the given error number.
+[DECLARATION]
+Declare Function waveOutGetErrorText Lib "winmm.dll" Alias "waveOutGetErrorTextA" (ByVal err As Long, ByVal lpText As String, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· mmrError
+Error number.
+
+· pszText
+Address of a buffer to be filled with the textual error description.
+
+· cchText
+Size, in characters, of the buffer pointed to by pszText.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_BADERRNUM Specified error number is out of range. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+waveOutOpen

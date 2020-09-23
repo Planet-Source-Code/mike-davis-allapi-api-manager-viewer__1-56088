@@ -1,0 +1,31 @@
+[NAME]
+InternetCheckConnection
+[DESCRIPTION]
+Allows an application to check if a connection to the Internet can be established.
+[DECLARATION]
+Declare Function InternetCheckConnection Lib "wininet.dll" Alias "InternetCheckConnectionA" (ByVal lpszUrl As String, ByVal dwFlags As Long, ByVal dwReserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Internet Explorer 3.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpszUrl
+[in] Pointer to a string containing the URL to use to check the connection. This value can be set to NULL.
+
+· dwFlags
+[in] Unsigned long integer value containing the flag values. FLAG_ICC_FORCE_CONNECTION is the only flag that is currently available. If this flag is set, it forces a connection. A sockets connection is attempted in the following order. 
+If lpszUrl is non-NULL, the host value is extracted from it and used to ping that specific host.
+If lpszUrl is NULL and there is an entry in WinInet's internal server database for the nearest server, the host value is extracted from the entry and used to ping that server.
+
+· dwReserved
+[in] Reserved. Must be set to zero.
+[RETURNS]
+Returns TRUE if a connection is made successfully, or FALSE otherwise. Use GetLastError to retrieve the error code. ERROR_NOT_CONNECTED is returned by GetLastError if a connection cannot be made or if the sockets database is unconditionally offline.
+[EXAMPLES]
+Check Connection*7BA2919B3CC7864AD0BE3278CCFA56E7.html
+[RELATED]
+InternetGetConnectedState
+IsDestinationReachable
+InternetAttemptConnect

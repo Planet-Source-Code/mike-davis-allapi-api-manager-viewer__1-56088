@@ -1,0 +1,28 @@
+[NAME]
+GetDefaultUserProfileDirectory
+[DESCRIPTION]
+The GetDefaultUserProfileDirectory function retrieves the path to the root of the Default User profile.
+[DECLARATION]
+Declare Function GetDefaultUserProfileDirectory Lib "userenv.dll" Alias "GetDefaultUserProfileDirectoryA" (ByVal lpProfileDir As String, lpcchSize As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Userenv
+[PARAMETERS]
+· lpProfileDir
+[out] Pointer to a buffer that receives the path to the Default User profile directory.
+
+· lpcchSize
+[in/out] Specifies the size of the lpProfileDir buffer, in TCHARs.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+User Directories*C15713B41CB5D206910AF83B45EF618B.html
+[RELATED]
+GetAllUsersProfileDirectory
+GetProfilesDirectory
+GetUserProfileDirectory

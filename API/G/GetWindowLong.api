@@ -1,0 +1,52 @@
+[NAME]
+GetWindowLong
+[DESCRIPTION]
+The GetWindowLong function retrieves information about the specified window. The function also retrieves the 32-bit (long) value at the specified offset into the extra window memory of a window.
+[DECLARATION]
+Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window and, indirectly, the class to which the window belongs.
+
+· nIndex
+Specifies the zero-based offset to the value to be retrieved. Valid values are in the range zero through the number of bytes of extra window memory, minus four; for example, if you specified 12 or more bytes of extra memory, a value of 8 would be an index to the third 32-bit integer. To retrieve any other value, specify one of the following values:
+GWL_EXSTYLE
+ Retrieves the extended window styles.
+GWL_STYLE
+ Retrieves the window styles.
+GWL_WNDPROC
+ Retrieves the address of the window procedure, or a handle representing the address of the window procedure. You must use the CallWindowProc function to call the window procedure.
+GWL_HINSTANCE
+ Retrieves the handle of the application instance.
+GWL_HWNDPARENT
+ Retrieves the handle of the parent window, if any.
+GWL_ID
+ Retrieves the identifier of the window.
+GWL_USERDATA
+ Retrieves the 32-bit value associated with the window. Each window has a corresponding 32-bit value intended for use by the application that created the window.
+
+The following values are also available when the hWnd parameter identifies a dialog box:
+DWL_DLGPROC
+ Retrieves the address of the dialog box procedure, or a handle representing the address of the dialog box procedure. You must use the CallWindowProc function to call the dialog box procedure.
+DWL_MSGRESULT
+ Retrieves the return value of a message processed in the dialog box procedure.
+DWL_USER
+ Retrieves extra information private to the application, such as handles or pointers.
+[RETURNS]
+If the function succeeds, the return value is the requested 32-bit value. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Number Textbox*2D6E0D802FA00D9363737A1B6CC98D14.html
+Classical*2091523979DBEDCAD728958414922C72.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+Command Style*6087CBE4D1041D4123C21637CE162CBB.html
+RTL Tree*18835A9CDD46AB9DE1E10524370F6B44.html
+[RELATED]
+SetWindowLong

@@ -1,0 +1,30 @@
+[NAME]
+GetWindowsDirectory
+[DESCRIPTION]
+The GetWindowsDirectory function retrieves the path of the Windows directory. The Windows directory contains such files as Windows-based applications, initialization files, and Help files.
+[DECLARATION]
+Declare Function GetWindowsDirectory Lib "kernel32" Alias "GetWindowsDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpBuffer
+Points to the buffer to receive the null-terminated string containing the path. This path does not end with a backslash unless the Windows directory is the root directory. For example, if the Windows directory is named WINDOWS on drive C, the path of the Windows directory retrieved by this function is C:\WINDOWS. If Windows was installed in the root directory of drive C, the path retrieved is C:\.
+
+· uSize
+Specifies the maximum size, in characters, of the buffer specified by the lpBuffer parameter. This value should be set to at least MAX_PATH to allow sufficient room in the buffer for the path.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the string copied to the buffer, not including the terminating null character. 
+
+If the length is greater than the size of the buffer, the return value is the size of the buffer required to hold the path. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Icons*8F67973007158337346584551B093BE8.html
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+GetSystemDirectory
+GetTempPath

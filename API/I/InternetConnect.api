@@ -1,0 +1,61 @@
+[NAME]
+InternetConnect
+[DESCRIPTION]
+Opens an FTP, Gopher, or HTTP session for a given site.
+[DECLARATION]
+Declare Function InternetConnect Lib "wininet.dll" Alias "InternetConnectA" (ByVal hInternetSession As Long, ByVal sServerName As String, ByVal nServerPort As Integer, ByVal sUserName As String, ByVal sPassword As String, ByVal lService As Long, ByVal lFlags As Long, ByVal lContext As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hInternet
+[in] Valid HINTERNET handle returned by a previous call to InternetOpen.
+
+· lpszServerName
+[in] Address of a null-terminated string that contains the host name of an Internet server. Alternately, the string can contain the IP number of the site, in ASCII dotted-decimal format (for example, 11.0.1.45).
+
+· nServerPort
+[in] longof the TCP/IP port on the server to connect to. These flags set only the port that will be used. The service is set by the value of dwService. This can be one of the following values:
+INTERNET_DEFAULT_FTP_PORT
+ Uses the default port for FTP servers (port 21).
+INTERNET_DEFAULT_GOPHER_PORT
+ Uses the default port for Gopher servers (port 70).
+INTERNET_DEFAULT_HTTP_PORT
+ Uses the default port for HTTP servers (port 80).
+INTERNET_DEFAULT_HTTPS_PORT
+ Uses the default port for HTTPS servers (port 443).
+INTERNET_DEFAULT_SOCKS_PORT
+ Uses the default port for SOCKS firewall servers (port 1080).
+INTERNET_INVALID_PORT_NUMBER
+ Uses the default port for the service specified by dwService.
+
+· lpszUsername
+[in] Address of a null-terminated string that contains the name of the user to log on. If this parameter is NULL, the function uses an appropriate default, except for HTTP; a NULL parameter in HTTP causes the server to return an error. For the FTP protocol, the default is "anonymous".
+
+· lpszPassword
+[in] Address of a null-terminated string that contains the password to use to log on. If both lpszPassword and lpszUsername are NULL, the function uses the default "anonymous" password. In the case of FTP, the default password is the user's e-mail name. If lpszPassword is NULL, but lpszUsername is not NULL, the function uses a blank password.
+
+· dwService
+[in] Unsigned long integer value that contains the type of service to access. This can be one of the following values:
+INTERNET_SERVICE_FTP
+ FTP service.
+INTERNET_SERVICE_GOPHER
+ Gopher service.
+INTERNET_SERVICE_HTTP
+ HTTP service.
+
+· dwFlags
+[in] Unsigned long integer value that contains the flags specific to the service used. When the value of dwService is INTERNET_SERVICE_FTP, INTERNET_FLAG_PASSIVE causes the application to use passive FTP semantics.
+
+· dwContext
+[in] Address of an unsigned long integer value that contains an application-defined value that is used to identify the application context for the returned handle in callbacks.
+[RETURNS]
+Returns a valid handle to the FTP, Gopher, or HTTP session if the connection is successful, or NULL otherwise. To get extended error information, call GetLastError. An application can also use InternetGetLastResponseInfo to determine why access to the service was denied. 
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+InternetOpen
+InternetCloseHandle

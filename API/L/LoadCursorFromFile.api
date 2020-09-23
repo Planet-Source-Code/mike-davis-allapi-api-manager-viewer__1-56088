@@ -1,0 +1,68 @@
+[NAME]
+LoadCursorFromFile
+[DESCRIPTION]
+The LoadCursorFromFile function creates a cursor based on data contained in a file. The file is specified by its name or by a system cursor identifier.
+[DECLARATION]
+Declare Function LoadCursorFromFile Lib "user32" Alias "LoadCursorFromFileA" (ByVal lpFileName As String) As Long
+[VBNET]
+System.Drawing.Bitmap
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpFileName
+Indicates the source of the file data to be used to create the cursor. The data in the file must be in either .CUR or .ANI format.
+If the high-order word of lpszFileName is nonzero, it is a pointer to a string that is a fully qualified name of a file containing cursor data.
+If the high-order word of lpszFileName is zero, the low-order word is a system cursor identifier. The function then searches the [Cursors] entry in the WIN.INI file for the file associated with the name of that system cursor. Here is a list of system cursor names and identifiers:
+“Arrow”
+ OCR_NORMAL
+“IBeam”
+ OCR_IBEAM
+“Wait”
+ OCR_WAIT
+“Crosshair”
+ OCR_CROSS
+“UpArrow”
+ OCR_UP
+“Size”
+ OCR_SIZE
+“Icon”
+ OCR_ICON
+“SizeNWSE”
+ OCR_SIZENWSE
+“SizeNESW”
+ OCR_SIZENESW
+“SizeWE”
+ OCR_SIZEWE
+“SizeNS”
+ OCR_SIZENS
+“SizeAll”
+ OCR_SIZEALL
+“No”
+ OCR_NO
+“AppStarting”
+ OCR_APPSTARTING
+
+For example, if the WIN.INI file contains the following :
+
+[Cursors]
+	Arrow = "arrow.ani"
+
+Then the call
+
+LoadCursorFromFile((LPWSTR)OCR_NORMAL)
+
+causes the LoadCursorFromFile function to obtain cursor data from the file ARROW.ANI. If the WIN.INI file doesn’t contain an entry for the specified system cursor, the function fails and returns NULL.
+[RETURNS]
+If the function is successful, the return value is a handle to the new cursor. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. GetLastError may return the following value:
+ERROR_FILE_NOT_FOUND 
+ The specified file could not be found. 
+[EXAMPLES]
+Set Cursor Shape*868756AD69DCD3314B7982806E4F6BA4.html
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+LoadCursor
+Bitmaps

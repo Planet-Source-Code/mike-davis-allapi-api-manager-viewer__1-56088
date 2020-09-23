@@ -1,0 +1,37 @@
+[NAME]
+CreatePolyPolygonRgn
+[DESCRIPTION]
+The CreatePolyPolygonRgn function creates a region consisting of a series of polygons. The polygons can overlap.
+[DECLARATION]
+Declare Function CreatePolyPolygonRgn Lib "gdi32" Alias "CreatePolyPolygonRgn" (lpPoint As POINTAPI, lpPolyCounts As Long, ByVal nCount As Long, ByVal nPolyFillMode As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lppt
+Points to an array of POINT structures that define the vertices of the polygons. The polygons are specified consecutively. Each polygon is presumed closed and each vertex is specified only once.
+
+· lpPolyCounts
+Points to an array of integers, each of which specifies the number of points in one of the polygons in the array pointed to by lppt.
+
+· nCount
+Specifies the total number of integers in the array pointed to by lpPolyCounts.
+
+· fnPolyFillMode
+Specifies the fill mode used to determine which pixels are in the region. This parameter can be one of the following values:
+ALTERNATE
+ Selects alternate mode (fills area between odd-numbered and even-numbered polygon sides on each scan line).
+WINDING
+ Selects winding mode (fills any region with a nonzero winding value).
+[RETURNS]
+If the function succeeds, the return value is the handle to the region. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+PolyPolygon Region*C47248A8EC3C239911139F927CF3AEB9.html
+[RELATED]
+CreatePolygonRgn
+Window Region

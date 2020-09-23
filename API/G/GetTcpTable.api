@@ -1,0 +1,34 @@
+[NAME]
+GetTcpTable
+[DESCRIPTION]
+The GetTcpTable function retrieves the TCP connection table.
+[DECLARATION]
+Declare Function GetTcpTable Lib "iphlpapi.dll" (ByRef pTcpTable As Any, ByRef pdwSize As Long, ByVal bOrder As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows NT 4.0 SP4 and later; Windows 98 and later
+[LIBRARY]
+Iphlpapi
+[PARAMETERS]
+· pTcpTable 
+[out] Pointer to a buffer that receives the TCP connection table as a MIB_TCPTABLE structure. 
+
+· pdwSize 
+[in, out] On input, specifies the size of the buffer pointed to by the pTcpTable parameter. 
+On output, if the buffer is not large enough to hold the returned connection table, the function sets this parameter equal to the required buffer size. 
+
+· bOrder 
+[in] Specifies whether the connection table should be sorted. If this parameter is TRUE, the table is sorted in the order of: 
+  1. Local IP address 
+  2. Local port 
+  3. Remote IP address 
+  4. Remote port
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR.
+
+If the function fails, use FormatMessage to obtain the message string for the returned error.
+[EXAMPLES]
+GetTcpTable*3DBD57E6A4F4E35B266FF2A4BB2FE178.html
+[RELATED]
+GetTcpStatistics

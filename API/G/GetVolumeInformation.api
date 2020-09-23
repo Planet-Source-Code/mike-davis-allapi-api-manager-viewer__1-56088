@@ -1,0 +1,59 @@
+[NAME]
+GetVolumeInformation
+[DESCRIPTION]
+The GetVolumeInformation function returns information about a file system and volume whose root directory is specified.
+[DECLARATION]
+Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" (ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Long, lpVolumeSerialNumber As Long, lpMaximumComponentLength As Long, lpFileSystemFlags As Long, ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpRootPathName
+Points to a string that contains the root directory of the volume to be described. If this parameter is NULL, the root of the current directory is used. If this parameter is a UNC name, you must follow it with an additional backslash. For example, you would specify \\MyServer\MyShare as \\MyServer\MyShare\.
+
+· lpVolumeNameBuffer
+Points to a buffer that receives the name of the specified volume.
+
+· nVolumeNameSize
+Specifies the length, in characters, of the volume name buffer. This parameter is ignored if the volume name buffer is not supplied.
+
+· lpVolumeSerialNumber
+Points to a variable that receives the volume serial number. This parameter can be NULL if the serial number is not required.
+
+· lpMaximumComponentLength
+Points to a doubleword value that receives the maximum length, in characters, of a filename component supported by the specified file system. A filename component is that portion of a filename between backslashes.
+The value stored in variable pointed to by *lpMaximumComponentLength is used to indicate that long names are supported by the specified file system. For example, for a FAT file system supporting long names, the function stores the value 255, rather than the previous 8.3 indicator. Long names can also be supported on systems that use the New Technology file system.
+
+· lpFileSystemFlags
+Points to a doubleword that receives flags associated with the specified file system. This parameter can be any combination of the following flags, with one exception: FS_FILE_COMPRESSION and FS_VOL_IS_COMPRESSED are mutually exclusive.
+FS_CASE_IS_PRESERVED
+ If this flag is set, the file system preserves the case of filenames when it places a name on disk.
+FS_CASE_SENSITIVE
+ If this flag is set, the file system supports case-sensitive filenames.
+FS_UNICODE_STORED_ON_DISK
+ If this flag is set, the file system supports Unicode in filenames as they appear on disk.
+FS_PERSISTENT_ACLS
+ If this flag is set, the file system preserves and enforces ACLs. For example, NTFS preserves and enforces ACLs, and FAT does not.
+FS_FILE_COMPRESSION
+ The file system supports file-based compression.
+FS_VOL_IS_COMPRESSED
+ The specified volume is a compressed volume; for example, a DoubleSpace volume.
+
+· lpFileSystemNameBuffer
+Points to a buffer that receives the name of the file system (such as FAT or NTFS).
+
+· nFileSystemNameSize
+Specifies the length, in characters, of the file system name buffer. This parameter is ignored if the file system name buffer is not supplied.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Volume Info*0638C65C35717047B8B1ECBFF3E97457.html
+GetVolumeInfo*26686254144CCBDB19D0C751C194E38F.html
+[RELATED]
+GetLogicalDriveStrings
+GetDriveType

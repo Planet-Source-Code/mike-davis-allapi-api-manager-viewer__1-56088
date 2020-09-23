@@ -1,0 +1,30 @@
+[NAME]
+WriteProfileString
+[DESCRIPTION]
+The WriteProfileString function copies a string into the specified section of the Win.ini file. <br><br>Note  This function is provided only for compatibility with 16-bit versions of Windows. Applications should store initialization information in the registry.
+[DECLARATION]
+Declare Function WriteProfileString Lib "kernel32" Alias "WriteProfileStringA" (ByVal lpszSection As String, ByVal lpszKeyName As String, ByVal lpszString As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName 
+[in] Pointer to a null-terminated string that specifies the section to which the string is to be copied. If the section does not exist, it is created. The name of the section is not case-sensitive; the string can be any combination of uppercase and lowercase letters. 
+
+· lpKeyName 
+[in] Pointer to a null-terminated string containing the key to be associated with the string. If the key does not exist in the specified section, it is created. If this parameter is NULL, the entire section, including all entries in the section, is deleted. 
+
+· lpString 
+[in] Pointer to a null-terminated string to be written to the file. If this parameter is NULL, the key pointed to by the lpKeyName parameter is deleted. 
+Windows 95/98/Me: The system does not support the use of the TAB (\t) character as part of this parameter. 
+[RETURNS]
+If the function successfully copies the string to the Win.ini file, the return value is nonzero.
+
+If the function fails, or if it flushes the cached version of Win.ini, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Profile String/Int*290543C1ED1FC8ACFCE1C1B21D77DCED.html
+[RELATED]
+GetProfileInt

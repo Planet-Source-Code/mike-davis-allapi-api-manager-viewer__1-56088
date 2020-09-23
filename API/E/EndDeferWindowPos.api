@@ -1,0 +1,24 @@
+[NAME]
+EndDeferWindowPos
+[DESCRIPTION]
+The EndDeferWindowPos function simultaneously updates the position and size of one or more windows in a single screen-refreshing cycle.
+[DECLARATION]
+Declare Function EndDeferWindowPos Lib "user32" Alias "EndDeferWindowPos" (ByVal hWinPosInfo As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWinPosInfo
+Identifies a multiple-window - position structure that contains size and position information for one or more windows. This internal structure is returned by the BeginDeferWindowPos function or by the most recent call to the DeferWindowPos function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+DeferWindowPos*16873D37FD06A83A57A07668367D1474.html
+[RELATED]
+BeginDeferWindowPos
+DeferWindowPos

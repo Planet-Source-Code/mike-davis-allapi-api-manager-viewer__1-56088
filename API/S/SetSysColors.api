@@ -1,0 +1,30 @@
+[NAME]
+SetSysColors
+[DESCRIPTION]
+The SetSysColors function sets the colors for one or more display elements. Display elements are the various parts of a window and the Windows display that appear on the system display screen.
+[DECLARATION]
+Declare Function SetSysColors Lib "user32" Alias "SetSysColors" (ByVal nChanges As Long, lpSysColor As Long, lpColorValues As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· cElements
+Specifies the number of display elements in the array pointed to by the lpaElements parameter.
+
+· lpaElements
+Points to an array of integers that specify the display elements to be changed. For a list of display elements, see the GetSysColor function.
+
+· lpaRgbValues
+Points to an array of unsigned long integers that contains the new red, green, blue (RGB) color value for each display element in the array pointed to by the lpaElements parameter.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+System Colors*DBAD9050BB4332698CCC832F4BA83FED.html
+Sys Colors*7E1C81BF49B40C73F9F8EA0541200643.html
+[RELATED]
+GetSysColor

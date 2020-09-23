@@ -1,0 +1,73 @@
+[NAME]
+GetTimeFormat
+[DESCRIPTION]
+The GetTimeFormat function formats time as a time string for a specified locale. The function formats either a specified time or the local system time.
+[DECLARATION]
+Declare Function GetTimeFormat Lib "kernel32" Alias "GetTimeFormatA" (ByVal Locale As Long, ByVal dwFlags As Long, lpTime As SYSTEMTIME, ByVal lpFormat As String, ByVal lpsTime As String, ByVal cchTime As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Locale 
+[in] Specifies the locale for which the time string is to be formatted. If lpFormat is NULL, the function formats the string according to the time format for this locale. If lpFormat is not NULL, the function uses the locale only for information not specified in the format picture string (for example, the locale's time markers). 
+This parameter can be a locale identifier created by the MAKELCID macro, or one of the following predefined values. Value Meaning 
+LOCALE_SYSTEM_DEFAULT Default system locale. 
+LOCALE_USER_DEFAULT Default user locale. 
+
+· dwFlags 
+[in] Specifies various function options. You can specify a combination of the following values. Value Meaning 
+LOCALE_NOUSEROVERRIDE If set, the function formats the string using the system default time format for the specified locale. If not set, the function formats the string using any user overrides to the locale's default time format. This flag cannot be set if lpFormat is non-NULL. 
+LOCALE_USE_CP_ACP Uses the system ANSI code page for string translation instead of the locale code page. 
+TIME_NOMINUTESORSECONDS 
+ Does not use minutes or seconds. 
+TIME_NOSECONDS 
+ Does not use seconds. 
+TIME_NOTIMEMARKER 
+ Does not use a time marker. 
+TIME_FORCE24HOURFORMAT 
+ Always uses a 24-hour time format. 
+
+· lpTime 
+[in] Pointer to a SYSTEMTIME structure that contains the time information to be formatted. If this pointer is NULL, the function uses the current local system time. 
+
+· lpFormat 
+[in] Pointer to a format picture to use to form the time string. If lpFormat is NULL, the function uses the time format of the specified locale. 
+Use the following elements to construct a format picture string. If you use spaces to separate the elements in the format string, these spaces will appear in the same location in the output string. The letters must be in uppercase or lowercase as shown (for example, "ss", not "SS"). Characters in the format string that are enclosed in single quotation marks will appear in the same location and unchanged in the output string. 
+h 
+ Hours with no leading zero for single-digit hours; 12-hour clock. 
+hh 
+ Hours with leading zero for single-digit hours; 12-hour clock. 
+H 
+ Hours with no leading zero for single-digit hours; 24-hour clock. 
+HH 
+ Hours with leading zero for single-digit hours; 24-hour clock. 
+m 
+ Minutes with no leading zero for single-digit minutes. 
+mm 
+ Minutes with leading zero for single-digit minutes. 
+s 
+ Seconds with no leading zero for single-digit seconds. 
+ss 
+ Seconds with leading zero for single-digit seconds. 
+t 
+ One character time-marker string, such as A or P. 
+tt 
+ Multicharacter time-marker string, such as AM or PM. 
+
+For example, to get the time string "11:29:40 PM" use the following picture string:  "hh':'mm':'ss tt"
+
+· lpTimeStr 
+[out] Pointer to a buffer that receives the formatted time string. 
+
+· cchTime 
+[in] Specifies the size, in TCHARs, of the lpTimeStr buffer. If cchTime is zero, the function returns the number of bytes or characters required to hold the formatted time string, and the buffer pointed to by lpTimeStr is not used. 
+[RETURNS]
+If the function succeeds, the return value is the number of TCHARs written to the buffer pointed to by lpTimeStr. If the cchTime parameter is zero, the return value is the number of bytes or characters required to hold the formatted time string. The count includes the terminating null.
+If the function fails, the return value is zero. To get extended error information, call GetLastError. GetLastError may return one of the following error codes: ERROR_INSUFFICIENT_BUFFER, ERROR_INVALID_FLAGS, ERROR_INVALID_PARAMETER
+[EXAMPLES]
+Time 2*A94ECD3654BB1A882795721FF76DDE34.html
+[RELATED]
+GetLocalTime

@@ -1,0 +1,30 @@
+[NAME]
+NetShareDel
+[DESCRIPTION]
+The NetShareDel function deletes a share name from a server's list of shared resources, disconnecting all connections to the shared resource.
+[DECLARATION]
+Declare Function NetShareDel Lib "netapi32.dll" (ByVal servername As Any, ByVal netname As String, ByVal reserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· servername 
+[in] Pointer to a string that specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If this parameter is NULL, the local computer is used. 
+Windows NT 4.0 and earlier: This string must begin with \\. 
+
+· netname 
+[in] Pointer to a string that specifies the name of the share to delete. 
+
+· reserved 
+Reserved, must be zero. 
+[RETURNS]
+If the function succeeds, the return value is NERR_Success.
+
+If the function fails, the return value can be one of the following error codes.
+[EXAMPLES]
+Edit Share*30C35D643B20E5268C18104CC64EC775.html
+[RELATED]
+NetShareAdd

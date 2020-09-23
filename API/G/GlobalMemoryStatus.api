@@ -1,0 +1,22 @@
+[NAME]
+GlobalMemoryStatus
+[DESCRIPTION]
+The GlobalMemoryStatus function retrieves information about current available memory. The function returns information about both physical and virtual memory. This function supersedes the GetFreeSpace function.
+[DECLARATION]
+Declare Sub GlobalMemoryStatus Lib "kernel32" Alias "GlobalMemoryStatus" (lpBuffer As MEMORYSTATUS)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpBuffer
+Points to a MEMORYSTATUS structure in which information about current memory availability is returned. Before calling this function, the calling process should set the dwLength member of this structure.
+[RETURNS]
+This function does not return a value. 
+[EXAMPLES]
+Memory Status*AE431367070C7CFD6F926933E30317FB.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+GlobalMemoryStatusEx

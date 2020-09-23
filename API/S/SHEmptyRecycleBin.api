@@ -1,0 +1,21 @@
+[NAME]
+SHEmptyRecycleBin
+[DESCRIPTION]
+SHEmptyRecycleBin deletes the contents of the Recycle Bin, displaying dialog boxes as desired. The function can empty the Recycle Bin of a particular drive, or it can empty all Recycle Bins as a whole.
+[DECLARATION]
+Declare Function SHEmptyRecycleBin Lib "shell32.dll" Alias "SHEmptyRecycleBinA" (ByVal hwnd As Long, ByVal pszRootPath As String, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Returns S_OK if successful, or an OLE-defined error value otherwise. 
+[EXAMPLES]
+Empty Recycle Bin*CF50E5E11277B90CB13684D62FAF4CF8.html
+[RELATED]
+SHUpdateRecycleBinIcon
+SHQueryRecycleBin

@@ -1,0 +1,27 @@
+[NAME]
+CommDlgExtendedError
+[DESCRIPTION]
+The CommDlgExtendedError function returns a common dialog box error code.
+[DECLARATION]
+Declare Function CommDlgExtendedError Lib "comdlg32.dll" Alias "CommDlgExtendedError" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the most recent call to a common dialog box function succeeded, the return value is undefined. 
+
+If the common dialog box function returned FALSE because the user closed or canceled the dialog box, the return value is zero. Otherwise, the return value is a nonzero error code. For more information, see the following Remarks section. 
+[EXAMPLES]
+CommDlgExtendedError*40E124E902D567E8B06A5678EF8CF347.html
+[RELATED]
+CHOOSECOLOR
+GetOpenFileName
+CHOOSEFONT
+GetSaveFileName
+PrintDialog
+PAGESETUPDLG

@@ -1,0 +1,27 @@
+[NAME]
+StartDoc
+[DESCRIPTION]
+The StartDoc function starts a print job. This function replaces the STARTDOC printer escape.
+[DECLARATION]
+Declare Function StartDoc Lib "gdi32" Alias "StartDocA" (ByVal hdc As Long, lpdi As DOCINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context for the print job.
+
+· lpdi
+Points to a DOCINFO structure containing the name of the document file and the name of the output file.
+[RETURNS]
+If the function succeeds, the return value is greater than zero. This value is the print job identifier for the document. 
+
+If the function fails, the return value is less than or equal to zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+PrintLine*A9598B51B969935335C537D163F055AF.html
+[RELATED]
+EndDoc
+StartPage

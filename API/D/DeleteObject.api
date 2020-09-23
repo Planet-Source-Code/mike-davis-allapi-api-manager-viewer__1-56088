@@ -1,0 +1,40 @@
+[NAME]
+DeleteObject
+[DESCRIPTION]
+The DeleteObject function deletes a logical pen, brush, font, bitmap, region, or palette, freeing all system resources associated with the object. After the object is deleted, the specified handle is no longer valid.
+[DECLARATION]
+Declare Function DeleteObject Lib "gdi32" Alias "DeleteObject" (ByVal hObject As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hObject
+Identifies a logical pen, brush, font, bitmap, region, or palette.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the specified handle is not valid or is currently selected into a device context, the return value is zero. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+FloodFill*87A1C3C5015E671A91F7947FFB19D20B.html
+Polygons*A7A7E14B2A005870BA134E6C92BB7B51.html
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+Rectangles*D3F3719BBC36D7E57F628A99BB3D6672.html
+Point in ...*66150F7BC58BDDB0200DAF320FD6BCFA.html
+Bitmap Colors*172B5720053F57342F4E6F8706B66B29.html
+Pattern Brush*86931951C45A6EBFC0F88BAE8F1B8FEB.html
+PolyPolygon Region*C47248A8EC3C239911139F927CF3AEB9.html
+Paths*5F53F54D4DA9FC54323733AE6157802B.html
+Path2Region*CAE2714E3B7A80BD1386EB848DFE32B4.html
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+DIB*AF7BEA96A353CD96C37F664EF9905EE1.html
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+Regions*5948F3347EBC02EBC690227C059661E1.html
+[RELATED]
+CreateCompatibleBitmap
+CreateFont
+CreateFontIndirect
+CreateSolidBrush

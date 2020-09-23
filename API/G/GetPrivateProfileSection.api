@@ -1,0 +1,32 @@
+[NAME]
+GetPrivateProfileSection
+[DESCRIPTION]
+The GetPrivateProfileSection function retrieves all the keys and values for the specified section of an initialization file. <br><br>Windows 95/98/Me: The specified profile section must not exceed 32K.<br><br>Windows NT/2000 or later: The specified profile section has no size limit.<br><br>Note  This function is provided only for compatibility with 16-bit applications written for Windows. Applications should store initialization information in the registry.
+[DECLARATION]
+Declare Function GetPrivateProfileSection Lib "kernel32" Alias "GetPrivateProfileSectionA" (ByVal lpAppName As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName 
+[in] Pointer to a null-terminated string specifying the name of the section in the initialization file. 
+
+· lpReturnedString 
+[out] Pointer to a buffer that receives the key name and value pairs associated with the named section. The buffer is filled with one or more null-terminated strings; the last string is followed by a second null character. 
+
+· nSize 
+[in] Specifies the size, in TCHARs, of the buffer pointed to by the lpReturnedString parameter. 
+Windows 95/98/Me: The maximum buffer size is 32,767 characters. 
+
+· lpFileName 
+[in] Pointer to a null-terminated string that specifies the name of the initialization file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory. 
+[RETURNS]
+The return value specifies the number of characters copied to the buffer, not including the terminating null character. If the buffer is not large enough to contain all the key name and value pairs associated with the named section, the return value is equal to nSize minus two. 
+[EXAMPLES]
+PrivateProfileSection*580B5712302B6C348FE86DCD4FCAA613.html
+INI Files*1107BDBCD3503C84C6E931D8D25F5969.html
+[RELATED]
+WritePrivateProfileSection

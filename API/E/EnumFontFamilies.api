@@ -1,0 +1,30 @@
+[NAME]
+EnumFontFamilies
+[DESCRIPTION]
+The EnumFontFamilies function enumerates the fonts in a specified font family that are available on a specified device. This function supersedes the EnumFonts function.
+[DECLARATION]
+Declare Function EnumFontFamilies Lib "gdi32" Alias "EnumFontFamiliesA" (ByVal hdc As Long, ByVal lpszFamily As String, ByVal lpEnumFontFamProc As Long, ByVal lParam As Long) As Long
+[VBNET]
+System.Drawing.Text.FontCollection.Families
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lpszFamily
+Points to a null-terminated string that specifies the family name of the desired fonts. If lpszFamily is NULL, EnumFontFamilies randomly selects and enumerates one font of each available type family.
+
+· lpEnumFontFamProc
+Specifies the procedure-instance address of the application-defined callback function. For information about the callback function, see the EnumFontFamProc function.
+
+· lParam
+Points to application-supplied data. The data is passed to the callback function along with the font information.
+[RETURNS]
+If the function succeeds, the return value is the last value returned by the callback function. Its meaning is implementation specific. 
+[EXAMPLES]
+EnumFonts*44F3025638237E32A8A14B39017D3C52.html
+[RELATED]
+

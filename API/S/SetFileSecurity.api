@@ -1,0 +1,29 @@
+[NAME]
+SetFileSecurity
+[DESCRIPTION]
+The SetFileSecurity function sets the security of a file or directory object. Windows NT 4.0 and later: You can use the SetNamedSecurityInfo function.
+[DECLARATION]
+Declare Function SetFileSecurity Lib "advapi32.dll" Alias "SetFileSecurityA" (ByVal lpFileName As String, ByVal SecurityInformation As Long, pSecurityDescriptor As SECURITY_DESCRIPTOR) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpFileName
+[in] Pointer to a null-terminated string specifying the file or directory for which security is set. Note that security applied to a directory is not inherited by its children.
+
+· SecurityInformation
+[in] Specifies a SECURITY_INFORMATION structure identifying the contents of the security descriptor pointed to by the pSecurityDescriptor parameter.
+
+· pSecurityDescriptor
+[in] Pointer to a SECURITY_DESCRIPTOR structure.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetFileSecurity

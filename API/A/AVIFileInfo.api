@@ -1,0 +1,27 @@
+[NAME]
+AVIFileInfo
+[DESCRIPTION]
+The AVIFileInfo function obtains information about an AVI file. 
+[DECLARATION]
+Declare Function AVIFileInfo Lib "avifil32" Alias "AVIFileInfoA" (ByVal pfile As Long, pfi As AVIFILEINFO, ByVal lSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Avifil32
+[PARAMETERS]
+· pfile 
+Handle of an open AVI file. 
+
+· pfi 
+Address of the structure used to return file information. Typically, this parameter points to an AVIFILEINFO structure. 
+
+· lSize 
+Size, in bytes, of the structure. 
+[RETURNS]
+Returns zero if successful or an error otherwise.
+[EXAMPLES]
+AVI Info*284827ED26B36C1C0A36DFDCF51A6C79.html
+[RELATED]
+AVIFileOpen

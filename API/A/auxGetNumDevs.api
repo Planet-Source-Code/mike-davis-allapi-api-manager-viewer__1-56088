@@ -1,0 +1,20 @@
+[NAME]
+auxGetNumDevs
+[DESCRIPTION]
+The auxGetNumDevs function retrieves the number of auxiliary output devices present in the system.
+[DECLARATION]
+Declare Function auxGetNumDevs Lib "winmm.dll" Alias "auxGetNumDevs" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Returns the number of device. A return value of zero means that no devices are present or that an error occurred.
+[EXAMPLES]
+auxVolume*D2AF4827063131971B7C2A4043DCDFEE.html
+[RELATED]
+auxGetDevCaps

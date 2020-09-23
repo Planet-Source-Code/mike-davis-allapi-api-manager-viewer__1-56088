@@ -1,0 +1,26 @@
+[NAME]
+auxSetVolume
+[DESCRIPTION]
+The auxSetVolume function sets the volume of the specified auxiliary output device.
+[DECLARATION]
+Declare Function auxSetVolume Lib "winmm.dll" Alias "auxSetVolume" (ByVal uDeviceID As Long, ByVal dwVolume As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the auxiliary output device to be queried. Device identifiers are determined implicitly from the number of devices present in the system. Device identifier values range from zero to one less than the number of devices present. Use the auxGetNumDevs function to determine the number of auxiliary devices in the system.
+
+· dwVolume
+Specifies the new volume setting. The low-order word specifies the left-channel volume setting, and the high-order word specifies the right-channel setting. A value of 0xFFFF represents full volume, and a value of 0x0000 is silence.
+If a device does not support both left and right volume control, the low-order word of dwVolume specifies the volume level, and the high-order word is ignored.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following: MMSYSERR_BADDEVICEID 
+ Specified device identifier is out of range. 
+[EXAMPLES]
+auxVolume*D2AF4827063131971B7C2A4043DCDFEE.html
+[RELATED]
+auxGetVolume

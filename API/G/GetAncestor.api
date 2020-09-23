@@ -1,0 +1,30 @@
+[NAME]
+GetAncestor
+[DESCRIPTION]
+The GetAncestor function retrieves the handle to the ancestor of the specified window.
+[DECLARATION]
+Declare Function GetAncestor Lib "user32.dll" (ByVal hwnd As Long, ByVal gaFlags As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Owner
+[OS]
+Requires Windows NT 4.0 SP4 or later; Requires Windows 98
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd
+[in] Handle to the window whose ancestor is to be retrieved. If this parameter is the desktop window, the function returns NULL.
+
+· gaFlags
+[in] Specifies the ancestor to be retrieved. This parameter can be one of the following values.
+GA_PARENT
+ Retrieves the parent window. This does not include the owner, as it does with the GetParent function.
+GA_ROOT
+ Retrieves the root window by walking the chain of parent windows.
+GA_ROOTOWNER
+ Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
+[RETURNS]
+The return value is the handle to the ancestor window.
+[EXAMPLES]
+GetAncestor*6248B95588B11C5F134EAA9F3CE6877D.html
+[RELATED]
+GetParent

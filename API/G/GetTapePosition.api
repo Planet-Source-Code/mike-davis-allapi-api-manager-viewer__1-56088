@@ -1,0 +1,83 @@
+[NAME]
+GetTapePosition
+[DESCRIPTION]
+The GetTapePosition function retrieves the current address of the tape, in logical or absolute blocks.
+[DECLARATION]
+Declare Function GetTapePosition Lib "kernel32" Alias "GetTapePosition" (ByVal hDevice As Long, ByVal dwPositionType As Long, lpdwPartition As Long, lpdwOffsetLow As Long, lpdwOffsetHigh As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hDevice
+Identifies the device on which to get the tape position. This handle is created by using CreateFile.
+
+· dwPositionType
+Specifies the type of address to obtain. This parameter can be one of the following values:
+TAPE_ABSOLUTE_POSITION
+ The lpdwOffsetLow and lpdwOffsetHigh parameters receive the device-specific block address. The dwPartition parameter receives zero.
+TAPE_LOGICAL_POSITION
+ The lpdwOffsetLow and lpdwOffsetHigh parameters receive the logical block address. The dwPartition parameter receives the logical tape partition.
+
+· lpdwPartition
+Points to a variable that receives the number of the current tape partition. Partitions are numbered logically from 1 through n, where 1 is the first partition on the tape and n is the last. When a device-specific block address is retrieved, or if the device supports only one partition, this parameter receives zero.
+
+· lpdwOffsetLow
+Points to a variable that receives the low-order 32 bits of the current tape position.
+
+· lpdwOffsetHigh
+Points to a variable that receives the high-order 32 bits of the current tape position. This parameter can be NULL if the high-order 32 bits are not required.
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is one of the following error codes:
+ERROR_BEGINNING_OF_MEDIA 
+ An attempt to access data before the beginning-of-medium marker failed. 
+ 
+ERROR_BUS_RESET 
+ A reset condition was detected on the bus. 
+ 
+ERROR_END_OF_MEDIA 
+ The end-of-tape marker was reached during an operation. 
+ 
+ERROR_FILEMARK_DETECTED 
+ A filemark was reached during an operation. 
+ 
+ERROR_SETMARK_DETECTED 
+ A setmark was reached during an operation. 
+ 
+ERROR_NO_DATA_DETECTED 
+ The end-of-data marker was reached during an operation. 
+ 
+ERROR_PARTITION_FAILURE 
+ The tape could not be partitioned. 
+ 
+ERROR_INVALID_BLOCK_LENGTH 
+ The block size is incorrect on a new tape in a multivolume partition. 
+ 
+ERROR_DEVICE_NOT_PARTITIONED 
+ The partition information could not be found when a tape was being loaded. 
+ 
+ERROR_MEDIA_CHANGED 
+ The tape that was in the drive has been replaced or removed. 
+ 
+ERROR_NO_MEDIA_IN_DRIVE 
+ There is no media in the drive. 
+ 
+ERROR_NOT_SUPPORTED 
+ The tape driver does not support a requested function. 
+ 
+ERROR_UNABLE_TO_LOCK_MEDIA 
+ An attempt to lock the ejection mechanism failed. 
+ 
+ERROR_UNABLE_TO_UNLOAD_MEDIA 
+ An attempt to unload the tape failed. 
+ 
+ERROR_WRITE_PROTECT 
+ The media is write protected. 
+[EXAMPLES]
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+[RELATED]
+SetTapePosition

@@ -1,0 +1,55 @@
+[NAME]
+GetThreadPriority
+[DESCRIPTION]
+The GetThreadPriority function returns the priority value for the specified thread. This value, together with the priority class of the thread’s process, determines the thread’s base-priority level.
+[DECLARATION]
+Declare Function GetThreadPriority Lib "kernel32" Alias "GetThreadPriority" (ByVal hThread As Long) As Long
+[VBNET]
+System.Threading.Thread.Priority
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hThread
+Identifies the thread.
+Windows NT: The handle must have THREAD_QUERY_INFORMATION access. For more information, see Thread Objects.
+[RETURNS]
+If the function succeeds, the return value is the thread’s priority level. 
+
+If the function fails, the return value is THREAD_PRIORITY_ERROR_RETURN. To get extended error information, call GetLastError. 
+
+The thread’s priority level is one of the following values:
+THREAD_PRIORITY_ABOVE_NORMAL 
+  
+ Indicates 1 point above normal priority for the priority class. 
+ 
+THREAD_PRIORITY_BELOW_NORMAL 
+  
+ Indicates 1 point below normal priority for the priority class. 
+ 
+THREAD_PRIORITY_HIGHEST 
+  
+ Indicates 2 points above normal priority for the priority class. 
+ 
+THREAD_PRIORITY_IDLE 
+  
+ Indicates a base-priority level of 1 for IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, or HIGH_PRIORITY_CLASS processes, and a base-priority level of 16 for REALTIME_PRIORITY_CLASS processes. 
+ 
+THREAD_PRIORITY_LOWEST 
+  
+ Indicates 2 points below normal priority for the priority class. 
+ 
+THREAD_PRIORITY_NORMAL 
+  
+ Indicates normal priority for the priority class. 
+ 
+THREAD_PRIORITY_TIME_CRITICAL 
+  
+ Indicates a base-priority level of 15 for IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, or HIGH_PRIORITY_CLASS processes, and a base-priority level of 31 for REALTIME_PRIORITY_CLASS processes. 
+[EXAMPLES]
+Application Priority*5D850E0D6D3350A8CB040C0648E7233E.html
+[RELATED]
+SetThreadPriority
+GetPriorityClass
+SetPriorityClass

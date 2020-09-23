@@ -1,0 +1,21 @@
+[NAME]
+IcmpCreateFile
+[DESCRIPTION]
+This function creates a handle on which Internet Control Message Protocol (ICMP) requests can be issued.
+[DECLARATION]
+Declare Function IcmpCreateFile Lib "icmp.dll" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 2.0
+[LIBRARY]
+Icmp
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+An ICMP handle indicates success. INVALID_HANDLE_VALUE indicates failure. To get extended error information, call GetLastError.
+[EXAMPLES]
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+[RELATED]
+IcmpCloseHandle
+IcmpSendEcho

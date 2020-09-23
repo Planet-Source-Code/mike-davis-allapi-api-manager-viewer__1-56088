@@ -1,0 +1,47 @@
+[NAME]
+LoadIcon
+[DESCRIPTION]
+The LoadIcon function loads the specified icon resource from the executable (.exe) file associated with an application instance.
+[DECLARATION]
+Declare Function LoadIcon Lib "user32" Alias "LoadIconA" (ByVal hInstance As Long, ByVal lpIconName As Long) As Long
+[VBNET]
+System.Drawing.Icon
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hInstance 
+[in] Handle to an instance of the module whose executable file contains the icon to be loaded. This parameter must be NULL when a standard icon is being loaded. 
+
+· lpIconName 
+[in] Pointer to a null-terminated string that contains the name of the icon resource to be loaded. Alternatively, this parameter can contain the resource identifier in the low-order word and zero in the high-order word. Use the MAKEINTRESOURCE macro to create this value. 
+To use one of the predefined icons, set the hInstance parameter to NULL and the lpIconName parameter to one of the following values.
+IDI_APPLICATION 
+ Default application icon. 
+IDI_ASTERISK 
+ Same as IDI_INFORMATION. 
+IDI_ERROR 
+ Hand-shaped icon. 
+IDI_EXCLAMATION 
+ Same as IDI_WARNING. 
+IDI_HAND 
+ Same as IDI_ERROR.  
+IDI_INFORMATION 
+ Asterisk icon. 
+IDI_QUESTION 
+ Question mark icon. 
+IDI_WARNING 
+ Exclamation point icon. 
+IDI_WINLOGO 
+ Windows logo icon. 
+ Windows XP: Default application icon.
+[RETURNS]
+If the function succeeds, the return value is a handle to the newly loaded icon.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Duplicate Icon*D22F36AF763FCC5718DE2C79DC7DD911.html
+[RELATED]
+LoadImage
+drawicon

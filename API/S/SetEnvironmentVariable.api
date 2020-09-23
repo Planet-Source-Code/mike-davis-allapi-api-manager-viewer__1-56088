@@ -1,0 +1,27 @@
+[NAME]
+SetEnvironmentVariable
+[DESCRIPTION]
+The SetEnvironmentVariable function sets the value of an environment variable for the current process.
+[DECLARATION]
+Declare Function SetEnvironmentVariable Lib "kernel32" Alias "SetEnvironmentVariableA" (ByVal lpName As String, ByVal lpValue As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpName
+[in] Pointer to a null-terminated string that specifies the environment variable whose value is being set. The operating system creates the environment variable if it does not exist and lpValue is not NULL.
+
+· lpValue
+[in] Pointer to a null-terminated string containing the new value of the specified environment variable. If this parameter is NULL, the variable is deleted from the current process's environment.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+SetEnvironmentVariable*CAE5E8E385A8169E93A24818D8D1C602.html
+Environment Variables*B24F9455F35DDEE269073BD635BD9216.html
+[RELATED]
+GetEnvironmentVariable

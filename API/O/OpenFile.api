@@ -1,0 +1,68 @@
+[NAME]
+OpenFile
+[DESCRIPTION]
+The OpenFile function creates, opens, reopens, or deletes a file.
+[DECLARATION]
+Declare Function OpenFile Lib "kernel32" Alias "OpenFile" (ByVal lpFileName As String, lpReOpenBuff As OFSTRUCT, ByVal wStyle As Long) As Long
+[VBNET]
+System.IO.File.Open
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+Points to a null-terminated string that names the file to be opened. The string must consist of characters from the Windows 3.x character set. The OpenFile function does not support Unicode filenames.
+
+· lpReOpenBuff
+Points to the OFSTRUCT structure that receives information about the file when it is first opened. The structure can be used in subsequent calls to the OpenFile function to refer to the open file.
+The OFSTRUCT structure contains a pathname string member whose length is limited to OFS_MAXPATHNAME characters. OFS_MAXPATHNAME is currently defined to be 128. Because of this, you cannot use the OpenFile function to open a file whose path length exceeds 128 characters. The CreateFile function does not have such a path length limitation.
+
+· uStyle
+Specifies the action to take. The following values can be combined by using the bitwise OR operator:
+OF_CANCEL
+ Ignored. In the Win32 application programming interface (API), the OF_PROMPT style produces a dialog box containing a Cancel button.
+OF_CREATE
+ Creates a new file. If the file already exists, it is truncated to zero length.
+OF_DELETE
+ Deletes the file.
+OF_EXIST
+ Opens the file and then closes it. Used to test for a file’s existence.
+OF_PARSE
+ Fills the OFSTRUCT structure but carries out no other action.
+OF_PROMPT
+ Displays a dialog box if the requested file does not exist. The dialog box informs the user that Windows cannot find the file, and it contains Retry and Cancel buttons. Choosing the Cancel button directs OpenFile to return a file-not-found error message.
+OF_READ
+ Opens the file for reading only.
+OF_READWRITE
+ Opens the file for reading and writing.
+OF_REOPEN
+ Opens the file using information in the reopen buffer.
+OF_SHARE_COMPAT
+ For MS-DOS-based file systems using the Win32 API, opens the file with compatibility mode, allowing any process on a specified computer to open the file any number of times. Other efforts to open with any other sharing mode fail.
+ Windows NT: This flag is mapped to the CreateFile function's FILE_SHARE_READ | FILE_SHARE_WRITE flags.
+OF_SHARE_DENY_NONE
+ Opens the file without denying read or write access to other processes. On MS-DOS-based file systems using the Win32 API, if the file has been opened in compatibility mode by any other process, the function fails.
+ Windows NT: This flag is mapped to the CreateFile function's FILE_SHARE_READ | FILE_SHARE_WRITE flags.
+OF_SHARE_DENY_READ
+ Opens the file and denies read access to other processes. On MS-DOS-based file systems using the Win32 API, if the file has been opened in compatibility mode or for read access by any other process, the function fails. Windows NT: This flag is mapped to the CreateFile function's FILE_SHARE_WRITE flag.
+OF_SHARE_DENY_WRITE
+ Opens the file and denies write access to other processes. On MS-DOS-based file systems using the Win32 API, if the file has been opened in compatibility mode or for write access by any other process, the function fails.
+ Windows NT: This flag is mapped to the CreateFile function's FILE_SHARE_READ flag.
+OF_SHARE_EXCLUSIVE
+ Opens the file with exclusive mode, denying both read and write access to other processes. If the file has been opened in any other mode for read or write access, even by the current process, the function fails.
+OF_VERIFY
+ Verifies that the date and time of the file are the same as when it was previously opened. This is useful as an extra check for read-only files.
+OF_WRITE
+ Opens the file for writing only.
+[RETURNS]
+If the function succeeds, the return value specifies a file handle. 
+
+If the function fails, the return value is HFILE_ERROR. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Decompress*6D2861192FDF4370BCF95C099BE0F2F0.html
+[RELATED]
+CopyLZFile
+LZCopy
+CreateFile
+CloseHandle

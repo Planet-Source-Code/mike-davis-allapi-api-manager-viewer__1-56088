@@ -1,0 +1,26 @@
+[NAME]
+GetGUIThreadInfo
+[DESCRIPTION]
+The GetGUIThreadInfo function retrieves information about the active window or a specified graphical user interface (GUI) thread.
+[DECLARATION]
+Declare Function GetGUIThreadInfo Lib "user32" (ByVal dwthreadid As Long, lpguithreadinfo As GUITHREADINFO) As Long
+[VBNET]
+N/A
+[OS]
+Included in Windows NT 4.0 SP3 and later; Included in Windows 98 and later
+[LIBRARY]
+User32
+[PARAMETERS]
+· idThread 
+[in] Identifies the thread for which information is to be retrieved. To retrieve this value, use the GetWindowThreadProcessId function. If this parameter is NULL, the function returns information for the foreground thread. 
+
+· lpgui 
+[out] Pointer to a GUITHREADINFO structure that receives information describing the thread. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+GUI Thread Info*5CD4357EF455DFF45109553077C31000.html
+[RELATED]
+GetWindowThreadProcessId

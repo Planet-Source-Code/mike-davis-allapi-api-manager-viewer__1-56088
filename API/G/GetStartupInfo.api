@@ -1,0 +1,21 @@
+[NAME]
+GetStartupInfo
+[DESCRIPTION]
+The GetStartupInfo function retrieves the contents of the STARTUPINFO structure that was specified when the calling process was created.
+[DECLARATION]
+Declare Sub GetStartupInfo Lib "kernel32" Alias "GetStartupInfoA" (lpStartupInfo As STARTUPINFO)
+[VBNET]
+System.Diagnostics.Process.StartInfo
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpStartupInfo 
+[out] Pointer to a STARTUPINFO structure that receives the startup information. 
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+Redirect Output*DBE61037E261CDE165E2120438BB65CE.html
+[RELATED]
+CreateProcess

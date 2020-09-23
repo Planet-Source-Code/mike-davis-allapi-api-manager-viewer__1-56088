@@ -1,0 +1,39 @@
+[NAME]
+NetWkstaGetInfo
+[DESCRIPTION]
+The NetWkstaGetInfo function returns information about the configuration elements for a workstation.
+[DECLARATION]
+Function NetWkstaGetInfo Lib "netapi32" (ByVal servername As String, ByVal level As Long, lpBuf As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· servername 
+Pointer to a Unicode string containing the name of the remote server on which the function is to execute. A NULL pointer or string specifies the local computer. 
+
+· level 
+Specifies one of the following values to return the level of information provided.
+100 
+ The bufptr parameter points to a WKSTA_INFO_100 structure. 
+101 
+ The bufptr parameter points to a WKSTA_INFO_101 structure. 
+102 
+ The bufptr parameter points to a WKSTA_INFO_102 structure. 
+302 
+ The bufptr parameter points to a WKSTA_INFO_302 structure. 
+402 
+ The bufptr parameter points to an WKSTA_INFO_402 structure. 
+502 
+ The bufptr parameter points to a WKSTA_INFO_502 structure. 
+ 
+· bufptr 
+Pointer to the buffer in which the data set with the level parameter is stored.
+[RETURNS]
+The fucntion returns 0 if successful.
+[EXAMPLES]
+NetWkstaGetInfo*37D4615CB55FE503A6275E24F184BC0A.html
+[RELATED]
+NetApiBufferFree

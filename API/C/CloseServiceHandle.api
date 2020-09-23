@@ -1,0 +1,23 @@
+[NAME]
+CloseServiceHandle
+[DESCRIPTION]
+The CloseServiceHandle function closes the following types of handles:· handle to a service control manager object as returned by the OpenSCManager function· handle to a service object as returned by either the OpenService or CreateService function
+[DECLARATION]
+Declare Function CloseServiceHandle Lib "advapi32.dll" (ByVal hSCObject As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hSCObject
+[in] Handle to the service control manager object or the service object to close.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumServicesStatus*D6705C917821069283D192E4F5D63A6F.html
+[RELATED]
+OpenSCManager

@@ -1,0 +1,55 @@
+[NAME]
+GetPrinter
+[DESCRIPTION]
+The GetPrinter function retrieves information about a specified printer.
+[DECLARATION]
+Declare Function GetPrinter Lib "winspool.drv" Alias "GetPrinterA" (ByVal hPrinter As Long, ByVal Level As Long, buffer As Long, ByVal pbSize As Long, pbSizeNeeded As Long) As Long
+[VBNET]
+System.Drawing.Printing.PrinterSettings.PrinterName
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winspool
+[PARAMETERS]
+· hPrinter 
+[in] Handle to the printer for which the function retrieves information. Use the OpenPrinter or AddPrinter function to retrieve a printer handle. 
+
+· Level 
+[in] Specifies the level or type of structure that the function stores into the buffer pointed to by pPrinter. 
+Windows 95/98/Me: This value can be 1, 2, or 5. 
+Windows NT/2000/XP: This value can be 1, 2, 3, 4, 5, 7, 8 or 9. 
+
+· pPrinter 
+[out] Pointer to a buffer that receives a structure containing information about the specified printer. The buffer must be large enough to receive the structure and any strings or other data to which the structure members point. If the buffer is too small, the pcbNeeded parameter returns the required buffer size. 
+The type of structure is determined by the value of Level.
+1 
+ A PRINTER_INFO_1 structure containing general printer information. 
+2 
+ A PRINTER_INFO_2 structure containing detailed information about the printer. 
+3 
+ Windows NT/2000/XP: A PRINTER_INFO_3 structure containing the printer's security information.  
+4 
+ Windows NT/2000/XP: A PRINTER_INFO_4 structure containing minimal printer information, including the name of the printer, the name of the server, and whether the printer is remote or local. 
+5 
+ A PRINTER_INFO_5 structure containing printer information such as printer attributes and time-out settings. 
+7 
+ Windows 2000/XP: A PRINTER_INFO_7 structure that indicates whether the printer is published in the directory service. 
+8 
+ Windows 2000/XP: A PRINTER_INFO_8 structure specifying the global default printer settings. 
+9
+ Windows 2000/XP: A PRINTER_INFO_9 structure specifying the per-user default printer settings. 
+
+· cbBuf 
+[in] Specifies the size, in bytes, of the buffer pointed to by pPrinter. 
+
+· pcbNeeded 
+[out] Pointer to a variable that the function sets to the size, in bytes, of the printer information. If cbBuf is smaller than this value, GetPrinter fails, and the value represents the required buffer size. If cbBuf is equal to or greater than this value, GetPrinter succeeds, and the value represents the number of bytes stored in the buffer. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Printer Status*453840951C231D0659E91C821365605F.html
+[RELATED]
+OpenPrinter
+ClosePrinter

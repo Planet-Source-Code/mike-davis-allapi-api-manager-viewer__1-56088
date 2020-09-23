@@ -1,0 +1,40 @@
+[NAME]
+EnumPorts
+[DESCRIPTION]
+The EnumPorts function enumerates the ports that are available for printing on a specified server.
+[DECLARATION]
+Declare Function EnumPorts Lib "winspool.drv" Alias "EnumPortsA" (ByVal pName As String, ByVal Level As Long, ByVal lpbPorts As Long, ByVal cbBuf As Long, pcbNeeded As Long, pcReturned As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winspool.drv
+[PARAMETERS]
+· pName
+Pointer to a null-terminated string that specifies the name of the server whose printer ports you wish to enumerate.
+If pName is NULL, the function enumerates the local machine’s printer ports.
+
+· Level
+Specifies the type of data structures pointed to by pPorts.
+This value can be 1 or 2.
+
+· pPorts
+Pointer to a buffer that receives an array of PORT_INFO_1 or PORT_INFO_2 structures. Each structure contains data that describes an available printer port. The value of Level specifies the type of structure. A Level value of 1 specifies PORT_INFO_1 structures. A Level value of 2 specifies PORT_INFO_2 structures.
+
+· cbBuf
+Specifies the size, in bytes, of the buffer pointed to by pPorts.
+
+· pcbNeeded
+Pointer to a variable that the function sets to the size, in bytes, of the data that enumerates the printer ports. If cbBuf is smaller than this value, EnumPorts fails, GetLastError returns ERROR_INSUFFICIENT_BUFFER, and the variable pointed to by pcbNeeded represents the required buffer size. If cbBuf is equal to or greater than this value, the variable pointed to by pcbNeeded represents the number of bytes stored into the buffer.
+
+· pcReturned
+Pointer to a variable that the function sets to the number of PORT_INFO_* structures that it stores into the buffer pointed to by pPorts. This is the number of printer ports that are available on the specified server.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumPorts*4C5449FBA3A6E244B92280E2AC76CFB6.html
+[RELATED]
+ConfigurePort

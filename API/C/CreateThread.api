@@ -1,0 +1,45 @@
+[NAME]
+CreateThread
+[DESCRIPTION]
+The CreateThread function creates a thread to execute within the address space of the calling process.
+[DECLARATION]
+Declare Function CreateThread Lib "kernel32" Alias "CreateThread" (lpThreadAttributes As SECURITY_ATTRIBUTES, ByVal dwStackSize As Long, lpStartAddress As Long, lpParameter As Any, ByVal dwCreationFlags As Long, lpThreadId As Long) As Long
+[VBNET]
+System.Threading.Thread
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpThreadAttributes
+Pointer to a SECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If lpThreadAttributes is NULL, the handle cannot be inherited.
+Windows NT: The lpSecurityDescriptor member of the structure specifies a security descriptor for the new thread. If lpThreadAttributes is NULL, the thread gets a default security descriptor.
+Windows 95: The lpSecurityDescriptor member of the structure is ignored.
+
+· dwStackSize
+Specifies the size, in bytes, of the stack for the new thread. If 0 is specified, the stack size defaults to the same size as that of the primary thread of the process. The stack is allocated automatically in the memory space of the process and it is freed when the thread terminates. Note that the stack size grows, if necessary.
+CreateThread tries to commit the number of bytes specified by dwStackSize, and fails if the size exceeds available memory.
+
+· lpStartAddress
+The starting address of the new thread. This is typically the address of a function declared with the WINAPI calling convention that accepts a single 32-bit pointer as an argument and returns a 32-bit exit code. Its prototype is:
+DWORD WINAPI ThreadFunc( LPVOID );
+
+· lpParameter
+Specifies a single 32-bit parameter value passed to the thread.
+
+· dwCreationFlags
+Specifies additional flags that control the creation of the thread. If the CREATE_SUSPENDED flag is specified, the thread is created in a suspended state, and will not run until the ResumeThread function is called. If this value is zero, the thread runs immediately after creation. At this time, no other values are supported.
+
+· lpThreadId
+Points to a 32-bit variable that receives the thread identifier.
+[RETURNS]
+If the function succeeds, the return value is a handle to the new thread. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+
+Windows 95: CreateThread succeeds only when it is called in the context of a 32-bit program. A 32-bit DLL cannot create an additional thread when that DLL is being called by a 16-bit program. 
+[EXAMPLES]
+AsyncThread*FE3ACF25A0FA80872B2D730CA474AC4B.html
+[RELATED]
+ExitThread
+threading

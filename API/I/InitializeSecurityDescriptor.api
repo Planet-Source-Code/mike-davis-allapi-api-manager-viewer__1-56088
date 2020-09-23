@@ -1,0 +1,26 @@
+[NAME]
+InitializeSecurityDescriptor
+[DESCRIPTION]
+The InitializeSecurityDescriptor function initializes a new security descriptor.
+[DECLARATION]
+Declare Function InitializeSecurityDescriptor Lib "advapi32.dll" (pSecurityDescriptor As SECURITY_DESCRIPTOR, ByVal dwRevision As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSecurityDescriptor
+[out] Pointer to a SECURITY_DESCRIPTOR structure that the function initializes.
+
+· dwRevision
+[in] Specifies the revision level to assign to the security descriptor. This parameter must be SECURITY_DESCRIPTOR_REVISION.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetSecurityDescriptorDacl

@@ -1,0 +1,27 @@
+[NAME]
+PtInRect
+[DESCRIPTION]
+The PtInRect function determines whether the specified point lies within the specified rectangle. A point is within a rectangle if it lies on the left or top side or is within all four sides. A point on the right or bottom side is considered outside the rectangle.
+[DECLARATION]
+Declare Function PtInRect Lib "user32" (lpRect As RECT, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lprc
+Points to a RECT structure that contains the specified rectangle.
+
+· pt
+Specifies a POINT structure that contains the specified point.
+[RETURNS]
+If the specified point lies within the rectangle, the return value is nonzero. 
+
+If the specified point does not lie within the rectangle, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Point in ...*66150F7BC58BDDB0200DAF320FD6BCFA.html
+[RELATED]
+SetRect
+PtInRegion

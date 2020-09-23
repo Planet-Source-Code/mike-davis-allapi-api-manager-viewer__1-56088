@@ -1,0 +1,56 @@
+[NAME]
+GlobalAlloc
+[DESCRIPTION]
+The GlobalAlloc function allocates the specified number of bytes from the heap. In the linear Win32 API environment, there is no difference between the local heap and the global heap.
+[DECLARATION]
+Declare Function GlobalAlloc Lib "kernel32" Alias "GlobalAlloc" (ByVal wFlags As Long, ByVal dwBytes As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· uFlags
+Specifies how to allocate memory. If zero is specified, the default is GMEM_FIXED. Except for the incompatible combinations that are specifically noted, any combination of the following flags can be used. To indicate whether the function allocates fixed or movable memory, specify one of the first four flags:
+GMEM_FIXED
+ Allocates fixed memory. This flag cannot be combined with the GMEM_MOVEABLE or GMEM_DISCARDABLE flag. The return value is a pointer to the memory block. To access the memory, the calling process simply casts the return value to a pointer.
+GMEM_MOVEABLE
+ Allocates movable memory. This flag cannot be combined with the GMEM_FIXED flag. The return value is the handle of the memory object. The handle is a 32-bit quantity that is private to the calling process. To translate the handle into a pointer, use the GlobalLock function.
+GPTR
+ Combines the GMEM_FIXED and GMEM_ZEROINIT flags.
+GHND
+ Combines the GMEM_MOVEABLE and GMEM_ZEROINIT flags.
+GMEM_DDESHARE
+ Allocates memory to be used by the dynamic data exchange (DDE) functions for a DDE conversation. Unlike Windows version 3. x, this memory is not shared globally. However, this flag is available for compatibility purposes. It may be used by some applications to enhance the performance of DDE operations and should, therefore, be specified if the memory is to be used for DDE.
+ Only processes that use DDE or the clipboard for interprocess communications should specify this flag.
+GMEM_DISCARDABLE
+ Allocates discardable memory. This flag cannot be combined with the GMEM_FIXED flag. Some Win32-based applications may ignore this flag.
+GMEM_LOWER
+ Ignored. This flag is provided only for compatibility with Windows version 3. x.
+GMEM_NOCOMPACT
+ Does not compact or discard memory to satisfy the allocation request.
+GMEM_NODISCARD
+ Does not discard memory to satisfy the allocation request.
+GMEM_NOT_BANKED
+ Ignored. This flag is provided only for compatibility with Windows version 3. x.
+GMEM_NOTIFY
+ Ignored. This flag is provided only for compatibility with Windows version 3. x.
+GMEM_SHARE
+ Same as the GMEM_DDESHARE flag.
+GMEM_ZEROINIT
+ Initializes memory contents to zero.
+
+· dwBytes
+Specifies the number of bytes to allocate. If this parameter is zero and the uFlags parameter specifies the GMEM_MOVEABLE flag, the function returns a handle to a memory object that is marked as discarded.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Crypto*79AD4E0522A0A67A6E196BE52357E60B.html
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+GlobalFree
+GlobalLock

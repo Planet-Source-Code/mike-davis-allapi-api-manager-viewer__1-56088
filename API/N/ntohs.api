@@ -1,0 +1,22 @@
+[NAME]
+ntohs
+[DESCRIPTION]
+The Windows Sockets ntohs function converts a u_short from TCP/IP network byte order to host byte order.
+[DECLARATION]
+Declare Function ntohs Lib "wsock32.dll" (ByVal netshort As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· netshort
+[in] A 16-bit number in TCP/IP network byte order.
+[RETURNS]
+The ntohs function returns the value in host byte order. If the netshort parameter was already in host byte order, then no operation is performed. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+GetTcpTable*3DBD57E6A4F4E35B266FF2A4BB2FE178.html
+[RELATED]
+ntohs

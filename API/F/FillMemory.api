@@ -1,0 +1,28 @@
+[NAME]
+FillMemory
+[DESCRIPTION]
+The FillMemory function fills a block of memory with a specified value.
+[DECLARATION]
+Declare Sub FillMemory Lib "kernel32.dll" Alias "RtlFillMemory" (Destination As Any, ByVal Length As Long, ByVal Fill As Byte)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Destination
+Points to the starting address of the block of memory to fill.
+
+· Length
+Specifies the size, in bytes, of the block of memory to fill.
+
+· Fill
+Specifies the byte value with which to fill the memory block.
+[RETURNS]
+This function has no return value.
+[EXAMPLES]
+Memory Functions*683D4930100D081ACB6D9E62EC93CEF7.html
+[RELATED]
+ZeroMemory
+CopyMemory

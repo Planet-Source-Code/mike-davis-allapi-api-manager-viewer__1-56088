@@ -1,0 +1,33 @@
+[NAME]
+ExtractAssociatedIcon
+[DESCRIPTION]
+The ExtractAssociatedIcon function returns the handle of an indexed icon found in a file or an icon found in an associated executable file.
+[DECLARATION]
+Declare Function ExtractAssociatedIcon Lib "shell32.dll" Alias "ExtractAssociatedIconA" (ByVal hInst As Long, ByVal lpIconPath As String, lpiIcon As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· hInst
+Specifies the instance of the application calling the function.
+
+· lpIconPath
+Points to a string that specifies the full path and filename of the file for which an icon is desired. The function extracts the icon handle from that file, or from an executable file associated with that file.
+If the icon handle is obtained from an executable file, the function stores the full path and filename of that executable in the string pointed to by lpIconPath.
+
+· lpiIcon
+Points to a WORD that specifies the index of the icon whose handle is to be obtained.
+If the icon handle is obtained from an executable file, the function stores the icon’s identifier in the WORD pointed to by lpiIcon.
+[RETURNS]
+If the function succeeds, the return value is an icon handle. If the icon is extracted from an associated executable file, the function stores the full path and filename of the executable file in the string pointed to by lpIconPath, and stores the icon’s identifier in the WORD pointed to by lpiIcon. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Draw Icon*FF470700C6E1A495BA295D6F5D8582C0.html
+[RELATED]
+DrawIcon
+DrawIconEx
+DestroyIcon

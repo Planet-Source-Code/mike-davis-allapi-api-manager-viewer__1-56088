@@ -1,0 +1,35 @@
+[NAME]
+CreateEllipticRgn
+[DESCRIPTION]
+The CreateEllipticRgn function creates an elliptical region.
+[DECLARATION]
+Declare Function CreateEllipticRgn Lib "gdi32" Alias "CreateEllipticRgn" (ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· nLeftRect
+Specifies the x-coordinate of the upper-left corner of the bounding rectangle of the ellipse.
+
+· nTopRect
+Specifies the y-coordinate of the upper-left corner of the bounding rectangle of the ellipse.
+
+· nRightRect
+Specifies the x-coordinate of the lower-right corner of the bounding rectangle of the ellipse.
+
+· nBottomRect
+Specifies the y-coordinate of the lower-right corner of the bounding rectangle of the ellipse.
+[RETURNS]
+If the function succeeds, the return value is the handle to the region. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+Regions*5948F3347EBC02EBC690227C059661E1.html
+[RELATED]
+SetWindowRgn
+Window Region

@@ -1,0 +1,62 @@
+[NAME]
+GetObjectType
+[DESCRIPTION]
+The GetObjectType identifies the type of the specified object.
+[DECLARATION]
+Declare Function GetObjectType Lib "gdi32" Alias "GetObjectType" (ByVal hgdiobj As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+h
+Identifies the object.
+[RETURNS]
+If the function succeeds, the return value identifies the object. This value can be one of the following:
+OBJ_BITMAP 
+ Bitmap 
+ 
+OBJ_BRUSH 
+ Brush 
+ 
+OBJ_FONT 
+ Font 
+ 
+OBJ_PAL 
+ Palette 
+ 
+OBJ_PEN 
+ Pen 
+ 
+OBJ_EXTPEN 
+ Extended pen 
+ 
+OBJ_REGION 
+ Region 
+ 
+OBJ_DC 
+ Device context 
+ 
+OBJ_MEMDC 
+ Memory device context 
+ 
+OBJ_METAFILE 
+ Metafile 
+ 
+OBJ_METADC 
+ Metafile device context 
+ 
+OBJ_ENHMETAFILE 
+ Enhanced metafile 
+ 
+OBJ_ENHMETADC 
+ Enhanced metafile device context 
+ 
+If the function fails, the return value is zero. 
+[EXAMPLES]
+Bitmap Colors*172B5720053F57342F4E6F8706B66B29.html
+[RELATED]
+GetObject
+SelectObject

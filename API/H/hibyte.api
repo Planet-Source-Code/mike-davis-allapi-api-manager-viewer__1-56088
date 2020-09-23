@@ -1,0 +1,23 @@
+[NAME]
+hibyte
+[DESCRIPTION]
+The hibyte function retrieves the high-order byte from the given 16-bit value. 
+[DECLARATION]
+Declare Function HiByte Lib "TLBINF32" Alias "hibyte" (ByVal Word As Integer) As Byte
+[VBNET]
+N/A
+[OS]
+Requires TLBINF32.dll
+[LIBRARY]
+Tlbinf32
+[PARAMETERS]
+· wValue 
+Specifies the value to be converted.
+[RETURNS]
+The return value is the high-order byte of the specified value.
+[EXAMPLES]
+HiLoBytes*13CFC99955DFA17E3097842F866C5A60.html
+[RELATED]
+loword
+hiword
+lobyte

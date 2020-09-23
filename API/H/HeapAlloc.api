@@ -1,0 +1,52 @@
+[NAME]
+HeapAlloc
+[DESCRIPTION]
+The HeapAlloc function allocates a block of memory from a heap. The allocated memory is not movable.
+[DECLARATION]
+Declare Function HeapAlloc Lib "kernel32" Alias "HeapAlloc" (ByVal hHeap As Long, ByVal dwFlags As Long, ByVal dwBytes As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hHeap
+Specifies the heap from which the memory will be allocated. This parameter is a handle returned by the HeapCreate or GetProcessHeap function.
+
+· dwFlags
+Specifies several controllable aspects of heap allocation. Specifying any of these flags will override the corresponding flag specified when the heap was created with HeapCreate. You can specify one or more of the following flags:
+HEAP_GENERATE_EXCEPTIONS
+ Specifies that the operating system will raise an exception to indicate a function failure, such as an out-of-memory condition, instead of returning NULL.
+HEAP_NO_SERIALIZE
+ Specifies that mutual exclusion will not be used while this function is accessing the heap. For more information about HEAP_NO_SERIALIZE, see the Remarks section of HeapCreate.
+HEAP_ZERO_MEMORY
+ Specifies that the allocated memory will be initialized to zero.
+
+· dwBytes
+Specifies the number of bytes to be allocated.
+If the heap specified by the hHeap parameter is a “non-growable” heap, dwBytes must be less than 0x7FFF8. You create a non-growable heap by calling the HeapCreate function with a nonzero value.
+[RETURNS]
+If the function succeeds, the return value is a pointer to the allocated memory block. 
+
+If the function fails and you have not specified HEAP_GENERATE_EXCEPTIONS, the return value is NULL. 
+
+If the function fails and you have specified HEAP_GENERATE_EXCEPTIONS, the function may generate the following exceptions: Value 
+ Meaning 
+ 
+STATUS_NO_MEMORY 
+ The allocation attempt failed because of a lack of available memory or heap corruption. 
+ 
+STATUS_ACCESS_VIOLATION 
+ The allocation attempt failed because of heap corruption or improper function parameters. 
+ 
+
+
+Note that heap corruption can lead to either exception. It depends upon the nature of the heap corruption. 
+
+If the function fails, it does not call SetLastError. An application cannot call GetLastError for extended error information. 
+[EXAMPLES]
+AdapterAddress*705685484CC1F1A3481096476FA9914C.html
+EnumPorts*4C5449FBA3A6E244B92280E2AC76CFB6.html
+[RELATED]
+HeapFree

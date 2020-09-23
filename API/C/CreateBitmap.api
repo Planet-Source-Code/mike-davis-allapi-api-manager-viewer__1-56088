@@ -1,0 +1,40 @@
+[NAME]
+CreateBitmap
+[DESCRIPTION]
+The CreateBitmap function creates a bitmap with the specified width, height, and color format (color planes and bits per pixel).
+[DECLARATION]
+Declare Function CreateBitmap Lib "gdi32" Alias "CreateBitmap" (ByVal nWidth As Long, ByVal nHeight As Long, ByVal nPlanes As Long, ByVal nBitCount As Long, lpBits As Any) As Long
+[VBNET]
+System.Drawing.Bitmap
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· nWidth
+Specifies the bitmap width, in pixels.
+
+· nHeight
+Specifies the bitmap height, in pixels.
+
+· cPlanes
+Specifies the number of color planes used by the device.
+
+· cBitsPerPel
+Specifies the number of bits required to identify the color of a single pixel.
+
+· lpvBits
+Points to an array of color data used to set the colors in a rectangle of pixels. Each scan line in the rectangle must be word aligned (scan lines that are not word aligned must be padded with zeros). If this parameter is NULL, the new bitmap is undefined.
+[RETURNS]
+If the function succeeds, the return value is a handle to a bitmap. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Bitmap Colors*172B5720053F57342F4E6F8706B66B29.html
+Pattern Brush*86931951C45A6EBFC0F88BAE8F1B8FEB.html
+[RELATED]
+CreateCompatibleBitmap
+DeleteObject
+SelectObject
+GetBitmapBits
+SetBitmapBits

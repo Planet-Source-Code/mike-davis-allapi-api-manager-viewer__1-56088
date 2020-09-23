@@ -1,0 +1,31 @@
+[NAME]
+GetPrivateProfileInt
+[DESCRIPTION]
+The GetPrivateProfileInt function retrieves an integer associated with a key in the specified section of an initialization file. Note  This function is provided only for compatibility with 16-bit Windows-based applications. Win32-based applications should store initialization information in the registry.
+[DECLARATION]
+Declare Function GetPrivateProfileInt Lib "kernel32" Alias "GetPrivateProfileIntA" (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal nDefault As Long, ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName
+[in] Pointer to a null-terminated string specifying the name of the section in the initialization file.
+
+· lpKeyName
+[in] Pointer to the null-terminated string specifying the name of the key whose value is to be retrieved. This value is in the form of a string; the GetPrivateProfileInt function converts the string into an integer and returns the integer.
+
+· nDefault
+[in] Specifies the default value to return if the key name cannot be found in the initialization file.
+
+· lpFileName
+[in] Pointer to a null-terminated string that specifies the name of the initialization file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory.
+[RETURNS]
+If the function succeeds, the return value is the integer equivalent of the string following the specified key name in the specified initialization file. If the key is not found, the return value is the specified default value. If the value of the key is less than zero, the return value is zero. 
+[EXAMPLES]
+GetPrivateProfileInt*7BA04E4F0371886BC2DBCF5A83162701.html
+[RELATED]
+WritePrivateProfileString
+GetPrivateProfileString

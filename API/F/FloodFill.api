@@ -1,0 +1,32 @@
+[NAME]
+FloodFill
+[DESCRIPTION]
+The FloodFill function fills an area of the display surface with the current brush. The area is assumed to be bounded as specified by the crFill parameter.
+[DECLARATION]
+Declare Function FloodFill Lib "gdi32" Alias "FloodFill" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal crColor As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· nXStart
+Specifies the logical x-coordinate of the point where filling is to begin.
+
+· nYStart
+Specifies the logical y-coordinate of the point where filling is to begin.
+
+· crFill
+Specifies the color of the boundary or of the area to be filled.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+ExtFloodFill

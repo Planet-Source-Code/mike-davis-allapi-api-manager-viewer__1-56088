@@ -1,0 +1,27 @@
+[NAME]
+gethostbyaddr
+[DESCRIPTION]
+This function retrieves the host data corresponding to a network address.
+[DECLARATION]
+Declare Function gethostbyaddr Lib "wsock32.dll" (haddr As Long, ByVal hnlen As Long, ByVal addrtype As Long) As Long
+[VBNET]
+System.Net.Dns.GetHostByAddress
+[OS]
+Requires Windows Sockets 1.1 or later
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+· addr 
+[in] Pointer to an address in network byte order. 
+
+· len 
+[in] Address length. 
+
+· type 
+[in] Address type.
+[RETURNS]
+A pointer to the HOSTENT structure indicates no error occurred. A NULL pointer indicates failure. To get a specific error value, call the WSAGetLastError function.
+[EXAMPLES]
+Root Servers*6CCD7B9D2E698BA1F19F78A6193C445D.html
+[RELATED]
+gethostbyname

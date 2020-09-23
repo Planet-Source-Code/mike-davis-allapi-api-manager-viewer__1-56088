@@ -1,0 +1,42 @@
+[NAME]
+LZCopy
+[DESCRIPTION]
+The LZCopy function copies a source file to a destination file. If the source file is compressed with the Microsoft File Compression Utility (COMPRESS.EXE), this function creates a decompressed destination file.
+[DECLARATION]
+Declare Function LZCopy Lib "lz32.dll" Alias "LZCopy" (ByVal hfSource As Long, ByVal hfDest As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Lz32
+[PARAMETERS]
+· hfSource
+Identifies the source file.
+
+· hfDest
+Identifies the destination file.
+[RETURNS]
+If the function succeeds, the return value specifies the size, in bytes, of the destination file. 
+
+If the function fails, the return value is an LZERROR_* code. These codes have values less than zero. Note that LZCopy calls neither SetLastError nor SetLastErrorEx; thus, its failure does not affect a thread’s last-error code. 
+
+Here is a list of the LZERROR_* codes that LZCopy can return upon failure:
+LZERROR_BADINHANDLE 
+ The handle identifying the source file is not valid. The file cannot be read. 
+ 
+LZERROR_BADOUTHANDLE 
+ The handle identifying the destination file is not valid. The file cannot be written. 
+ 
+LZERROR_GLOBALLOC 
+ The maximum number of open compressed files has been exceeded or local memory cannot be allocated. 
+ 
+LZERROR_GLOBLOCK 
+ The LZ file handle cannot be locked down. 
+ 
+LZERROR_READ 
+ The source file format is not valid. 
+[EXAMPLES]
+LZDecompress*5D1511F5671125E884499D3F117565EE.html
+[RELATED]
+LZOpenFile

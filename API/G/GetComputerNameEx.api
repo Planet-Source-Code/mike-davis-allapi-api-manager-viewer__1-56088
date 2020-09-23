@@ -1,0 +1,51 @@
+[NAME]
+GetComputerNameEx
+[DESCRIPTION]
+The GetComputerNameEx function retrieves a NetBIOS or DNS name associated with the local computer. The names are established at system startup, when the system reads them from the registry.
+[DECLARATION]
+Declare Function GetComputerNameEx Lib "kernel32.dll" Alias "GetComputerNameExA" (ByVal NameType As COMPUTER_NAME_FORMAT, ByVal lpBuffer As String, ByRef nSize As Long) As Long
+[VBNET]
+System.Windows.Forms.SystemInformation.ComputerName
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· NameType 
+[in] A value from the COMPUTER_NAME_FORMAT enumeration type that specifies the type of name to retrieve. 
+
+This parameter can be one of the following values from the COMPUTER_NAME_FORMAT enumeration type that specifies the type of name to retrieve.
+ComputerNameNetBIOS 
+ The NetBIOS name of the local computer. If the local computer is a node in a cluster, lpBuffer receives the NetBIOS name of the cluster.  
+ComputerNameDnsHostname 
+ The DNS host name of the local computer. If the local computer is a node in a cluster, lpBuffer receives the DNS host name of the cluster.  
+ComputerNameDnsDomain 
+ The name of the DNS domain assigned to the local computer. If the local computer is a node in a cluster, lpBuffer receives the DNS domain name of the cluster.  
+ComputerNameDnsFullyQualified 
+ The fully qualified DNS name that uniquely identifies the local computer. This name is a combination of the DNS host name and the DNS domain name, using the form HostName.DomainName. If the local computer is a node in a cluster, lpBuffer receives the fully qualified DNS name of the cluster.  
+ComputerNamePhysicalNetBIOS 
+ The NetBIOS name of the local computer. If the local computer is a node in a cluster, lpBuffer receives the NetBIOS name of the local computer, not the name of the cluster.  
+ComputerNamePhysicalDnsHostname 
+ The DNS host name of the local computer. If the local computer is a node in a cluster, lpBuffer receives the DNS host name of the local computer, not the name of the cluster.  
+ComputerNamePhysicalDnsDomain 
+ The name of the DNS domain assigned to the local computer. If the local computer is a node in a cluster, lpBuffer receives the DNS domain name of the local computer, not the name of the cluster.  
+ComputerNamePhysicalDnsFullyQualified 
+ The fully qualified DNS name that uniquely identifies the computer. If the local computer is a node in a cluster, lpBuffer receives the fully qualified DNS name of the local computer, not the name of the cluster. 
+The fully qualified DNS name is a combination of the DNS host name and the DNS domain name, using the form HostName.DomainName. 
+ 
+· lpBuffer 
+[out] Pointer to a buffer that receives a null-terminated string containing the computer name. 
+The length of the name may be greater than MAX_COMPUTERNAME_LENGTH characters because DNS allows longer names. 
+
+· lpnSize 
+[in/out] On input, specifies the size, in TCHARs, of the buffer. On output, receives the number of TCHARs copied to the destination buffer, not including the terminating null character. 
+If the buffer is too small, the function fails and GetLastError returns ERROR_MORE_DATA. The lpnSize parameter specifies the size of the buffer required, including the terminating null character. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+GetComputerNameEx*C18CBCF1714ADF4A31B4D47E8C1FD9F1.html
+[RELATED]
+GetComputerName
+SetComputerName

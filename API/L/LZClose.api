@@ -1,0 +1,21 @@
+[NAME]
+LZClose
+[DESCRIPTION]
+The LZClose function closes a file that was opened by using the LZOpenFile function.
+[DECLARATION]
+Declare Sub LZClose Lib "lz32.dll" Alias "LZClose" (ByVal hfFile As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Lz32
+[PARAMETERS]
+· hFile
+Identifies the source file to be closed.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+LZDecompress*5D1511F5671125E884499D3F117565EE.html
+[RELATED]
+LZOpenFile

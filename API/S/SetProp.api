@@ -1,0 +1,32 @@
+[NAME]
+SetProp
+[DESCRIPTION]
+The SetProp function adds a new entry or changes an existing entry in the property list of the specified window. The function adds a new entry to the list if the specified character string does not exist already in the list. The new entry contains the string and the handle. Otherwise, the function replaces the string’s current handle with the specified handle.
+[DECLARATION]
+Declare Function SetProp Lib "user32" Alias "SetPropA" (ByVal hwnd As Long, ByVal lpString As String, ByVal hData As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose property list receives the new entry.
+
+· lpString
+Points to a null-terminated string or contains an atom that identifies a string. If this parameter is an atom, it must be a global atom created by a previous call to the GlobalAddAtom function. The atom, a 16-bit value, must be placed in the low-order word of lpString; the high-order word must be zero.
+
+· hData
+Identifies data to be copied to the property list. The data handle can identify any value useful to the application.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Properties*9FC2D28C05ED9EB1D75BA4465ABF15A9.html
+AllowSetForegroundWindow*B7C44612023F283F9F4815D6C2252FD0.html
+EnumPropsEx*6C729C211996374B0856051301084BA6.html
+[RELATED]
+GetProp
+RemoveProp

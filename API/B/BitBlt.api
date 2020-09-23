@@ -1,0 +1,81 @@
+[NAME]
+BitBlt
+[DESCRIPTION]
+The BitBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context.
+[DECLARATION]
+Declare Function BitBlt Lib "gdi32" Alias "BitBlt" (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawImage
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdcDest
+Identifies the destination device context.
+
+· nXDest
+Specifies the logical x-coordinate of the upper-left corner of the destination rectangle.
+
+· nYDest
+Specifies the logical y-coordinate of the upper-left corner of the destination rectangle.
+
+· nWidth
+Specifies the logical width of the source and destination rectangles.
+
+· nHeight
+Specifies the logical height of the source and the destination rectangles.
+
+· hdcSrc
+Identifies the source device context.
+
+· nXSrc
+Specifies the logical x-coordinate of the upper-left corner of the source rectangle.
+
+· nYSrc
+Specifies the logical y-coordinate of the upper-left corner of the source rectangle.
+
+· dwRop
+Specifies a raster-operation code. These codes define how the color data for the source rectangle is to be combined with the color data for the destination rectangle to achieve the final color.
+The following list shows some common raster operation codes:
+BLACKNESS
+ Fills the destination rectangle using the color associated with index 0 in the physical palette. (This color is black for the default physical palette.)
+DSTINVERT
+ Inverts the destination rectangle.
+MERGECOPY
+ Merges the colors of the source rectangle with the specified pattern by using the Boolean AND operator.
+MERGEPAINT
+ Merges the colors of the inverted source rectangle with the colors of the destination rectangle by using the Boolean OR operator.
+NOTSRCCOPY
+ Copies the inverted source rectangle to the destination.
+NOTSRCERASE
+ Combines the colors of the source and destination rectangles by using the Boolean OR operator and then inverts the resultant color.
+PATCOPY
+ Copies the specified pattern into the destination bitmap.
+PATINVERT
+ Combines the colors of the specified pattern with the colors of the destination rectangle by using the Boolean XOR operator.
+PATPAINT
+ Combines the colors of the pattern with the colors of the inverted source rectangle by using the Boolean OR operator. The result of this operation is combined with the colors of the destination rectangle by using the Boolean OR operator.
+SRCAND
+ Combines the colors of the source and destination rectangles by using the Boolean AND operator.
+SRCCOPY
+ Copies the source rectangle directly to the destination rectangle.
+SRCERASE
+ Combines the inverted colors of the destination rectangle with the colors of the source rectangle by using the Boolean AND operator.
+SRCINVERT
+ Combines the colors of the source and destination rectangles by using the Boolean XOR operator.
+SRCPAINT
+ Combines the colors of the source and destination rectangles by using the Boolean OR operator.
+WHITENESS
+ Fills the destination rectangle using the color associated with index 1 in the physical palette. (This color is white for the default physical palette.)
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+DIB*AF7BEA96A353CD96C37F664EF9905EE1.html
+[RELATED]
+StretchBlt
+Bitmaps

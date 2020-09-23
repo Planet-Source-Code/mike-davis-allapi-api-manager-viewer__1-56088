@@ -1,0 +1,37 @@
+[NAME]
+GetWindow
+[DESCRIPTION]
+The GetWindow function retrieves the handle of a window that has the specified relationship (Z order or owner) to the specified window.
+[DECLARATION]
+Declare Function GetWindow Lib "user32" Alias "GetWindow" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies a window. The window handle retrieved is relative to this window, based on the value of the uCmd parameter.
+
+· uCmd
+Specifies the relationship between the specified window and the window whose handle is to be retrieved. This parameter can be one of the following values:
+GW_CHILD
+ The retrieved handle identifies the child window at the top of the Z order, if the specified window is a parent window; otherwise, the retrieved handle is NULL. The function examines only child windows of the specified window. It does not examine descendant windows.
+GW_HWNDFIRST
+ The retrieved handle identifies the window of the same type that is highest in the Z order. If the specified window is a topmost window, the handle identifies the topmost window that is highest in the Z order. If the specified window is a top-level window, the handle identifies the top-level window that is highest in the Z order. If the specified window is a child window, the handle identifies the sibling window that is highest in the Z order.
+GW_HWNDLAST
+ The retrieved handle identifies the window of the same type that is lowest in the Z order. If the specified window is a topmost window, the handle identifies the topmost window that is lowest in the Z order. If the specified window is a top-level window, the handle identifies the top-level window that is lowest in the Z order. If the specified window is a child window, the handle identifies the sibling window that is lowest in the Z order.
+GW_HWNDNEXT
+ The retrieved handle identifies the window below the specified window in the Z order. If the specified window is a topmost window, the handle identifies the topmost window below the specified window. If the specified window is a top-level window, the handle identifies the top-level window below the specified window. If the specified window is a child window, the handle identifies the sibling window below the specified window.
+GW_HWNDPREV
+ The retrieved handle identifies the window above the specified window in the Z order. If the specified window is a topmost window, the handle identifies the topmost window above the specified window. If the specified window is a top-level window, the handle identifies the top-level window above the specified window. If the specified window is a child window, the handle identifies the sibling window above the specified window.
+GW_OWNER
+ The retrieved handle identifies the specified window’s owner window, if any.
+[RETURNS]
+If the function succeeds, the return value is a window handle. If no window exists with the specified relationship to the specified window, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Hide Start-button*466A5EE9AD8B74CD93BC5EE21AEA67B5.html
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+[RELATED]
+FindWindow

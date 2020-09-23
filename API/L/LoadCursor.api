@@ -1,0 +1,58 @@
+[NAME]
+LoadCursor
+[DESCRIPTION]
+The LoadCursor function loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
+[DECLARATION]
+Declare Function LoadCursor Lib "user32" Alias "LoadCursorA" (ByVal hInstance As Long, ByVal lpCursorName As String) As Long
+[VBNET]
+System.Drawing.Bitmap
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hInstance
+Identifies an instance of the module whose executable file contains the cursor to be loaded.
+
+· lpCursorName
+Points to a null-terminated string that contains the name of the cursor resource to be loaded. Alternatively, this parameter can consist of the resource identifier in the low-order word and zero in the high-order word. The MAKEINTRESOURCE macro can also be used to create this value.
+To use one of the Win32 predefined cursors, the application must set the hInstance parameter to NULL and the lpCursorName parameter to one the following values:
+IDC_APPSTARTING
+ Standard arrow and small hourglass
+IDC_ARROW
+ Standard arrow
+IDC_CROSS
+ Crosshair
+IDC_IBEAM
+ Text I-beam
+IDC_ICON
+ Obsolete for applications marked version 4.0 or later.
+IDC_NO
+ Slashed circle
+IDC_SIZE
+ Obsolete for applications marked version 4.0 or later. Use IDC_SIZEALL.
+IDC_SIZEALL
+ Four-pointed arrow
+IDC_SIZENESW
+ Double-pointed arrow pointing northeast and southwest
+IDC_SIZENS
+ Double-pointed arrow pointing north and south
+IDC_SIZENWSE
+ Double-pointed arrow pointing northwest and southeast
+IDC_SIZEWE
+ Double-pointed arrow pointing west and east
+IDC_UPARROW
+ Vertical arrow
+IDC_WAIT
+ Hourglass
+[RETURNS]
+If the function succeeds, the return value is the handle of the newly loaded cursor. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Set Cursor Shape*868756AD69DCD3314B7982806E4F6BA4.html
+Classical*2091523979DBEDCAD728958414922C72.html
+SetSystemCursor*DD3EA625EB7670BAB8E76C9FDA6F6F9B.html
+[RELATED]
+LoadCursorFromFile
+Bitmaps

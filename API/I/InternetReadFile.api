@@ -1,0 +1,30 @@
+[NAME]
+InternetReadFile
+[DESCRIPTION]
+Reads data from a handle opened by the InternetOpenUrl, FtpOpenFile, GopherOpenFile, or HttpOpenRequest function.
+[DECLARATION]
+Declare Function InternetReadFile Lib "wininet" (ByVal hFile As Long, ByVal sBuffer As String, ByVal lNumBytesToRead As Long, lNumberOfBytesRead As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hFile
+Valid handle returned from a previous call to InternetOpenUrl, FtpOpenFile, GopherOpenFile, or HttpOpenRequest.
+
+· lpBuffer
+Address of a buffer that receives the data read.
+
+· dwNumberOfBytesToRead
+Number of bytes to read.
+
+· lpNumberOfBytesRead
+Address of a variable that receives the number of bytes read. The InternetReadFile function sets this value to zero before doing any work or error checking.
+[RETURNS]
+Returns TRUE if successful or FALSE otherwise. To get extended error information, call GetLastError. An application can also use InternetGetLastResponseInfo when necessary. 
+[EXAMPLES]
+WinInet*C7A439CF5009BB20E10CA4C6D73F19D9.html
+[RELATED]
+InternetOpenUrl

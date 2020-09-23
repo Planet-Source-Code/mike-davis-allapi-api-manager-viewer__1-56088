@@ -1,0 +1,42 @@
+[NAME]
+OleCreatePictureIndirect
+[DESCRIPTION]
+Creates a new picture object initialized according to a PICTDESC structure.
+[DECLARATION]
+Declare Function OleCreatePictureIndirect Lib "olepro32.dll" (PicDesc As PicBmp, RefIID As GUID, ByVal fPictureOwnsHandle As Long, IPic As IPicture) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Olepro32
+[PARAMETERS]
+· pPictDesc
+[in] Pointer to a caller-allocated structure containing the initial state of the picture.
+
+· riid
+[in] Reference to the identifier of the interface describing the type of interface pointer to return in ppvObj.
+
+· fOwn
+[in] If TRUE, the picture object is to destroy its picture when the object is destroyed. If FALSE, the caller is responsible for destroying the picture.
+
+· ppvObj
+[out] Indirect pointer to the initial interface pointer on the new object. If the call is successful, the caller is responsible for calling Release through this interface pointer when the new object is no longer needed. If the call fails, the value of ppvObj is set to NULL.
+[RETURNS]
+This function supports the standard return values E_INVALIDARG, E_OUTOFMEMORY, and E_UNEXPECTED, as well as the following: 
+
+S_OK 
+
+The new picture object was created successfully. 
+
+E_NOINTERFACE 
+
+The object does not support the interface specified in riid. 
+
+E_POINTER 
+
+The address in pPictDesc or ppvObj is not valid. For example, it may be NULL. 
+[EXAMPLES]
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+[RELATED]
+OleLoadPicturePath

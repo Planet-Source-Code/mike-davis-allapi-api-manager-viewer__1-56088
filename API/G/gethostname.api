@@ -1,0 +1,27 @@
+[NAME]
+gethostname
+[DESCRIPTION]
+The Windows Sockets gethostname function returns the standard host name for the local machine.
+[DECLARATION]
+Declare Function gethostname Lib "WSOCK32" (ByVal szHost As String, ByVal dwHostLen As Long) As Long
+[VBNET]
+System.Net.Dns.GetHostName
+[OS]
+Requires Windows Sockets 1.1 or later
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+· name
+[out] A pointer to a buffer that receives the local host name.
+
+· namelen
+[in] The length of the buffer.
+[RETURNS]
+If no error occurs, gethostname returns zero. Otherwise, it returns SOCKET_ERROR and a specific error code can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+GetIP*07CCCC8728276405F3111B9A7262DDF2.html
+[RELATED]
+WSAStartup
+WSACleanup
+WSAGetLastError
+gethostbyname

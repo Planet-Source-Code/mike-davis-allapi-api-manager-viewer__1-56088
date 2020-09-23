@@ -1,0 +1,33 @@
+[NAME]
+WinHelp
+[DESCRIPTION]
+The WinHelp function starts Windows Help (WINHELP.EXE) and passes additional data indicating the nature of the help requested by the application.
+[DECLARATION]
+Declare Function WinHelp Lib "user32" Alias "WinHelpA" (ByVal hwnd As Long, ByVal lpHelpFile As String, ByVal wCommand As Long, ByVal dwData As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWndMain
+Identifies the window requesting Help. The WinHelp function uses this handle to keep track of which applications have requested Help. If the uCommand parameter specifies HELP_CONTEXTMENU or HELP_WM_HELP, hWndMain identifies the control requesting Help.
+
+· lpszHelp
+Address of a null-terminated string containing the path, if necessary, and the name of the help file that WinHelp is to display.
+The filename may be followed by an angle bracket (&gt;) and the name of a secondary window if the topic is to be displayed in a secondary window rather than in the primary window. The name of the secondary window must have been defined in the [WINDOWS] section of the Help project (.HPJ) file.
+
+· uCommand
+Specifies the type of help requested. For a list of possible values and how they affect the value to place in the dwData parameter, see the Remarks section.
+
+· dwData
+Specifies additional data. The value used depends on the value of the uCommand parameter. For a list of possible values, see the Remarks section.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+WinHelp*DF3FAA7D1BE7DB3932A88D305A2E6AF0.html
+[RELATED]
+

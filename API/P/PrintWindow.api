@@ -1,0 +1,32 @@
+[NAME]
+PrintWindow
+[DESCRIPTION]
+The PrintWindow function copies a visual window into the specified device context (DC), typically a printer DC.
+[DECLARATION]
+Declare Function PrintWindow Lib "user32" (ByVal hWnd As Long, ByVal hdcBlt As Long, ByVal nFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd
+Handle to the window that will be copied.
+
+· hdcBlt
+Handle to the device context.
+
+· nFlags
+Specifies the drawing options. It can be one of the following values.
+
+PW_CLIENTONLY
+ Only the client area of the window is copied to hdcBlt. By default, the entire window is copied.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+PrintWindow*5474182B9FF59F9FC97856E69B9E9442.html
+[RELATED]
+PaintDesktop

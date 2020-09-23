@@ -1,0 +1,30 @@
+[NAME]
+waveOutPrepareHeader
+[DESCRIPTION]
+The waveOutPrepareHeader function prepares a waveform-audio data block for playback.
+[DECLARATION]
+Declare Function waveOutPrepareHeader Lib "winmm.dll" Alias "waveOutPrepareHeader" (ByVal hWaveOut As Long, lpWaveOutHdr As WAVEHDR, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwo
+Handle of the waveform-audio output device.
+
+· pwh
+Address of a WAVEHDR structure that identifies the data block to be prepared.
+
+· cbwh
+Size, in bytes, of the WAVEHDR structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+waveOutOpen

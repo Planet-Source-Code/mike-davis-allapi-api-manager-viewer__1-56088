@@ -1,0 +1,22 @@
+[NAME]
+GetEnvironmentStrings
+[DESCRIPTION]
+The GetEnvironmentStrings function returns the address of the environment block for the current process. This function replaces the GetDOSEnvironment function.
+[DECLARATION]
+Declare Function GetEnvironmentStrings Lib "kernel32" Alias "GetEnvironmentStringsA" () As Long
+[VBNET]
+System.Environment.GetEnvironmentVariables
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is a pointer to an environment block for the current process.
+[EXAMPLES]
+Environment Strings*076A3CCE224D4C542A5A6EA33DF1B996.html
+[RELATED]
+FreeEnvironmentStrings
+GetEnvironmentVariable
+SetEnvironmentVariable

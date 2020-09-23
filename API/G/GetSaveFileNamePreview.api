@@ -1,0 +1,21 @@
+[NAME]
+GetSaveFileNamePreview
+[DESCRIPTION]
+The GetSaveFileNamePreview function selects a file by using the Save As dialog box. The dialog box also allows the user to preview the currently specified file. This function augments the capability found in the GetSaveFileName function.
+[DECLARATION]
+Declare Function GetSaveFileNamePreview Lib "msvfw32.dll" Alias "GetSaveFileNamePreviewA" (ByRef lpofn As OPENFILENAME) As Long
+[VBNET]
+System.Windows.Forms.SaveFileDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Msvfw32
+[PARAMETERS]
+· lpofn
+Pointer to an OPENFILENAME structure used to initialize the dialog box. On return, the structure contains information about the user's file selection.
+[RETURNS]
+Returns a handle to the selected file.
+[EXAMPLES]
+GetFilePreview*4F5AD6AB980C6F5AA9968080BFD40865.html
+[RELATED]
+GetOpenFileNamePreview

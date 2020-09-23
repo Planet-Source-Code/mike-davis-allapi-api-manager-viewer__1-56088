@@ -1,0 +1,41 @@
+[NAME]
+Connect
+[DESCRIPTION]
+The Windows Sockets connect function establishes a connection to a specifed socket.
+[DECLARATION]
+Declare Function Connect Lib "wsock32.dll" Alias "connect" (ByVal s As Long, addr As sockaddr, ByVal namelen As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket.Connect
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· s
+[in] A descriptor identifying an unconnected socket.
+
+· name
+[in] The name of the socket to connect to.
+
+· namelen
+[in] The length of the name parameter.
+[RETURNS]
+If no error occurs, connect returns zero. Otherwise, it returns SOCKET_ERROR, and a specific error code can be retrieved by calling WSAGetLastError. 
+
+On a blocking socket, the return value indicates success or failure of the connection attempt. 
+
+With a nonblocking socket, the connection attempt cannot be completed immediately. In this case, connect will return SOCKET_ERROR, and WSAGetLastError will return WSAEWOULDBLOCK. In this case, there are three different steps you can take: 
+
+1. Use the select function to determine the completion of the connection request by checking to see if the socket is writeable. 
+
+2. If the application is using WSAAsyncSelect to indicate interest in connection events, then the application will receive an FD_CONNECT notification indicating that the connect operation is complete. 
+
+3. If the application is using WSAEventSelect to indicate interest in connection events, then the associated event object will be signaled indicating that the connect operation is complete. 
+
+Until the connection attempt completes on a nonblocking socket, all subsequent calls to connect on the same socket will fail with the error code WSAEALREADY. 
+
+If the error code returned indicates the connection attempt failed (that is, WSAECONNREFUSED, WSAENETUNREACH, WSAETIMEDOUT) the application can call connect again for the same socket.
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+socket

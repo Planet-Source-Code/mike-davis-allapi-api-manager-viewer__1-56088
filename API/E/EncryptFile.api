@@ -1,0 +1,24 @@
+[NAME]
+EncryptFile
+[DESCRIPTION]
+The EncryptFile function encrypts a file or directory. All data streams in a file are encrypted. All new files created in an encrypted directory are encrypted.
+[DECLARATION]
+Declare Function EncryptFile Lib "ADVAPI32" Alias "EncryptFileA" (ByVal lpFileName As String) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpFileName
+[in] Pointer to a null-terminated string that specifies the name of the file or directory to encrypt.
+The caller must have FILE_READ_DATA, FILE_WRITE_DATA, FILE_READ_ATTRIBUTES, FILE_WRITE_ATTRIBUTES, and SYNCHRONIZE access to the file.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EncryptFile*9A6661D868D5EED1D1D22DD3DC48028D.html
+[RELATED]
+DecryptFile

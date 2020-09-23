@@ -1,0 +1,26 @@
+[NAME]
+PathFindOnPath
+[DESCRIPTION]
+Searches for a file.
+[DECLARATION]
+Declare Function PathFindOnPath Lib "shlwapi.dll" Alias "PathFindOnPathA" (ByVal pszPath As String, ByVal ppszOtherDirs As String) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszFile
+File name for which to search. If the search is successful, this parameter is used to return the fully qualified path name.
+
+· ppszOtherDirs
+Optional null-terminated array of directories to be searched first.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (3)*F530C21468F2969BB718618F65A13B71.html
+[RELATED]
+PathFileExists
+PathGetCharType
+PathGetDriveNumber

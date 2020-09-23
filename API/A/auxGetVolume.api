@@ -1,0 +1,27 @@
+[NAME]
+auxGetVolume
+[DESCRIPTION]
+The auxGetVolume function retrieves the current volume setting of the specified auxiliary output device.
+[DECLARATION]
+Declare Function auxGetVolume Lib "winmm.dll" Alias "auxGetVolume" (ByVal uDeviceID As Long, lpdwVolume As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the auxiliary output device to be queried.
+
+· lpdwVolume
+Address of a variable to be filled with the current volume setting. The low-order word of this location contains the left channel volume setting, and the high-order word contains the right channel setting. A value of 0xFFFF represents full volume, and a value of 0x0000 is silence.
+If a device does not support both left and right volume control, the low-order word of the specified location contains the volume level.
+The full 16-bit setting(s) set with the auxSetVolume function are returned, regardless of whether the device supports the full 16 bits of volume-level control.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following: MMSYSERR_BADDEVICEID 
+ Specified device identifier is out of range. 
+[EXAMPLES]
+auxVolume*D2AF4827063131971B7C2A4043DCDFEE.html
+[RELATED]
+auxSetVolume

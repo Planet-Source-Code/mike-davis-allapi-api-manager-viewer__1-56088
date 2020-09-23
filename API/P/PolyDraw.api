@@ -1,0 +1,51 @@
+[NAME]
+PolyDraw
+[DESCRIPTION]
+The PolyDraw function draws a set of line segments and Bézier curves.
+[DECLARATION]
+Declare Function PolyDraw Lib "gdi32" Alias "PolyDraw" (ByVal hdc As Long, lppt As POINTAPI, lpbTypes As Byte, ByVal cCount As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawLines
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· lppt
+Points to an array of POINT structures that contains the endpoints for each line segment and the endpoints and control points for each Bézier curve.
+
+· flpbTypes
+Points to an array that specifies how each point in the lppt array is used. Types can be one of the following:
+PT_MOVETO
+ Specifies that this point starts a disjoint figure. This point becomes the new current position.
+PT_LINETO
+ Specifies that a line is to be drawn from the current position to this point, which then becomes the new current position.
+PT_BEZIERTO
+ Specifies that this point is a control point or ending point for a Bézier curve.
+ PT_BEZIERTO types always occur in sets of three. The current position defines the starting point for the Bézier curve. The first two PT_BEZIERTO points are the control points, and the third PT_BEZIERTO point is the ending point. The ending point becomes the new current position. If there are not three consecutive PT_BEZIERTO points, an error results.
+
+A PT_LINETO or PT_BEZIERTO type can be combined with the following value by using the bitwise operator OR to indicate that the corresponding point is the last point in a figure and the figure is closed:
+PT_CLOSEFIGURE
+ Specifies that the figure is automatically closed after the PT_LINETO or PT_BEZIERTO type for this point is done. A line is drawn from this point to the most recent PT_MOVETO or MoveToEx point.
+ This value is combined with the PT_LINETO type for a line, or with the PT_BEZIERTO type of the ending point for a Bézier curve, by using the bitwise operator OR.
+ The current position is set to the ending point of the closing line.
+
+· cCount
+Specifies the total number of points in the lppt array, the same as the number of bytes in the lpbTypes array.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+PrintLine*A9598B51B969935335C537D163F055AF.html
+[RELATED]
+PolyBezier
+PolyBezierTo
+Polygon
+Polyline
+PolylineTo
+PolyPolygon
+PolyPolyline

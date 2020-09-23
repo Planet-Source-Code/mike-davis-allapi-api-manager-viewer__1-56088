@@ -1,0 +1,26 @@
+[NAME]
+SHGetPathFromIDList
+[DESCRIPTION]
+Converts an item identifier list to a file system path.
+[DECLARATION]
+Declare Function SHGetPathFromIDList Lib "shell32" (ByVal pidList As Long, ByVal lpBuffer As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· pidl
+Pointer to an item identifier list that specifies a file or directory location relative to the root of the name space (the desktop).
+
+· pszPath
+Pointer to a buffer that receives the file system path. The size of this buffer is assumed to be MAX_PATH bytes.
+[RETURNS]
+Returns TRUE if successful or FALSE if an error occurs ¾ for example, if the location specified by the pidl parameter is not part of the file system. 
+[EXAMPLES]
+Browse For Folder*774F8232380EA83E4CF374E8F31ED355.html
+Special Folder*30DE6DE860FE9B2CAC3E63F7063A28CD.html
+[RELATED]
+SHFileOperation
+SHBrowseForFolder

@@ -1,0 +1,36 @@
+[NAME]
+ReadConsole
+[DESCRIPTION]
+The ReadConsole function reads character input from the console input buffer and removes it from the buffer.
+[DECLARATION]
+Declare Function ReadConsole Lib "kernel32" Alias "ReadConsoleA" (ByVal hConsoleInput As Long, ByVal lpBuffer As String, ByVal nNumberOfCharsToRead As Long, lpNumberOfCharsRead As Long, lpReserved As Any) As Long
+[VBNET]
+System.Console.Read
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hConsoleInput 
+[in] Handle to the console input buffer. The handle must have GENERIC_READ access. 
+
+· lpBuffer 
+[out] Pointer to a buffer that receives the data read from the console input buffer. 
+
+· nNumberOfCharsToRead 
+[in] Specifies the number of TCHARs to read. Because the function can read either Unicode or ANSI characters, the size of the buffer pointed to by the lpBuffer parameter should be at least nNumberOfCharsToRead * sizeof(TCHAR) bytes. 
+
+· lpNumberOfCharsRead 
+[out] Pointer to a variable that receives the number of TCHARs actually read. 
+
+· lpReserved 
+[in] Reserved; must be NULL. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Console Application*CB98A9754FC4D5AAEC9DB6EFBEBD4132.html
+Console Application III*B269C4D332F6B9094E9B5B64EF7E3E6D.html
+[RELATED]
+WriteConsole

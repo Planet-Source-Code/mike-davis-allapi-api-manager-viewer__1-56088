@@ -1,0 +1,37 @@
+[NAME]
+URLDownloadToFile
+[DESCRIPTION]
+Downloads bits from the Internet and saves them to a file.
+[DECLARATION]
+Declare Function URLDownloadToFile Lib "urlmon" Alias "URLDownloadToFileA" (ByVal pCaller As Long, ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, ByVal lpfnCB As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Urlmon
+[PARAMETERS]
+· pCaller
+Address of the controlling IUnknown interface of the calling Microsoft® ActiveX® component (if the caller is an ActiveX component). If the calling application is not an ActiveX component, this value can be set to NULL. Otherwise, the caller is a Component Object Model (COM) object that is contained in another component (such as an ActiveX control within the context of an HTML page). This parameter represents the outermost IUnknown of the calling component. The function attempts the download within the context of the ActiveX client framework and allows the caller's container to receive callbacks on the progress of the download. 
+
+· szURL
+Address of a string value containing the URL to be downloaded. Cannot be set to NULL. 
+
+· szFileName
+Address of a string value containing the name of the file to create for bits that come from the download. 
+
+· dwReserved
+Reserved. Must be zero. 
+
+· lpfnCB
+Address of the caller's IBindStatusCallback interface. URLDownloadToFile calls this interface's IBindStatusCallback::OnProgress method on a connection activity, including the arrival of data. IBindStatusCallback::OnDataAvailable is never called. Implementing IBindStatusCallback::OnProgress allows a caller to implement a user interface or other progress monitoring functionality. It also allows the download operation to be canceled by returning E_ABORT from the IBindStatusCallback::OnProgress call. This can be set to NULL. 
+[RETURNS]
+Returns one of the following values:
+E_OUTOFMEMORY
+ The buffer length is invalid or there was insufficient memory to complete the operation. 
+S_OK
+ The operation succeeded. 
+[EXAMPLES]
+URL Download*FBDAEDE9A7F92EC98ADBFD61A6E318EB.html
+[RELATED]
+InternetReadFile

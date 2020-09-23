@@ -1,0 +1,40 @@
+[NAME]
+MoveWindow
+[DESCRIPTION]
+The MoveWindow function changes the position and dimensions of the specified window. For a top-level window, the position and dimensions are relative to the upper-left corner of the screen. For a child window, they are relative to the upper-left corner of the parent window’s client area.
+[DECLARATION]
+Declare Function MoveWindow Lib "user32" Alias "MoveWindow" (ByVal hwnd As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.DesktopLocation;System.Windows.Forms.Form.Size
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window.
+
+· X
+Specifies the new position of the left side of the window.
+
+· Y
+Specifies the new position of the top of the window.
+
+· nWidth
+Specifies the new width of the window.
+
+· nHeight
+Specifies the new height of the window.
+
+· bRepaint
+Specifies whether the window is to be repainted. If this parameter is TRUE, the window receives a WM_PAINT message. If the parameter is FALSE, no repainting of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent window uncovered as a result of moving a child window. If this parameter is FALSE, the application must explicitly invalidate or redraw any parts of the window and parent window that need redrawing.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Move Window*E006C5AAF20F14BD392F3D28B5247D8D.html
+AdjustWindowRectEx*6849A9DF9623C8140C8116D91CE97403.html
+[RELATED]
+DestroyWindow
+IsWindowEnabled

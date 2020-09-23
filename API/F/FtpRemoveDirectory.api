@@ -1,0 +1,24 @@
+[NAME]
+FtpRemoveDirectory
+[DESCRIPTION]
+Removes the specified directory on the FTP server.
+[DECLARATION]
+Declare Function FtpRemoveDirectory Lib "wininet.dll" Alias "FtpRemoveDirectoryA" (ByVal hFtpSession As Long, ByVal lpszDirectory As String) As Boolean
+[VBNET]
+Not implemented
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hConnect
+[in] Valid HINTERNET handle to an FTP session.
+
+· lpszDirectory
+[in] Address of a null-terminated string that contains the name of the directory to remove on the remote system. This can be either a fully qualified path or a name relative to the current directory.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get the specific error code, call GetLastError. If the error code indicates that the FTP server denied the request to remove a directory, use InternetGetLastResponseInfo to determine why.
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+FtpCreateDirectory

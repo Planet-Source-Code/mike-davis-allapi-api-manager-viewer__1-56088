@@ -1,0 +1,27 @@
+[NAME]
+ClearEventLog
+[DESCRIPTION]
+The ClearEventLog function clears the specified event log, and optionally saves the current copy of the logfile to a backup file.
+[DECLARATION]
+Declare Function ClearEventLog Lib "advapi32.dll" Alias "ClearEventLogA" (ByVal hEventLog As Long, ByVal lpBackupFileName As String) As Long
+[VBNET]
+System.Diagnostics.EventLog.Clear
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hEventLog
+[in] Handle to the event log to be cleared. This handle is returned by the OpenEventLog function.
+
+· lpBackupFileName
+[in] Pointer to the null-terminated string specifying the name of a file in which a current copy of the event logfile will be placed. If this file already exists, the function fails.
+If the lpBackupFileName parameter is NULL, the current event logfile is not backed up.
+[RETURNS]
+If the function succeeds, the return value is nonzero. The specified event log has been backed up (if lpBackupFileName is not NULL) and then cleared. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EventLog*FFA44FA214A7EA318DB17E175869588C.html
+[RELATED]
+OpenEventLog

@@ -1,0 +1,27 @@
+[NAME]
+GetWindowDC
+[DESCRIPTION]
+The GetWindowDC function retrieves the device context (DC) for the entire window, including title bar, menus, and scroll bars. A window device context permits painting anywhere in a window, because the origin of the device context is the upper-left corner of the window instead of the client area.
+[DECLARATION]
+Declare Function GetWindowDC Lib "user32" Alias "GetWindowDC" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.CreateGraphics.GetHdc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window with a device context that is to be retrieved.
+[RETURNS]
+If the function succeeds, the return value is the handle of a device context for the specified window. 
+
+If the function fails, the return value is NULL, indicating an error or an invalid hWnd parameter. 
+[EXAMPLES]
+Draw On Screen*D59CF4A10025F5E92D3016FD6AA2FE92.html
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+Using Small Fonts*EA102B119E10A73164A17DA6869BB0FB.html
+Invert Desktop*CFF5BEC796ADB55521F609BFF0A46AAC.html
+[RELATED]
+GetDC
+WindowFromDC

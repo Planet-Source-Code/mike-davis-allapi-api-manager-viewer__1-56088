@@ -1,0 +1,23 @@
+[NAME]
+IsValidSid
+[DESCRIPTION]
+The IsValidSid function validates a security identifier (SID) by verifying that the revision number is within a known range, and that the number of subauthorities is less than the maximum.
+[DECLARATION]
+Declare Function IsValidSid Lib "Advapi32" (ByVal pSid As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSid 
+[in] Pointer to the SID structure to validate. This parameter cannot be NULL. 
+[RETURNS]
+If the SID structure is valid, the return value is nonzero.
+
+If the SID structure is not valid, the return value is zero. There is no extended error information for this function; do not call GetLastError.
+[EXAMPLES]
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+AllocateAndInitializeSid

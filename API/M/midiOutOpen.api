@@ -1,0 +1,58 @@
+[NAME]
+midiOutOpen
+[DESCRIPTION]
+The midiOutOpen function opens a MIDI output device for playback.
+[DECLARATION]
+Declare Function midiOutOpen Lib "winmm.dll" (lphMidiOut As Long, ByVal uDeviceID As Long, ByVal dwCallback As Long, ByVal dwInstance As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· lphmo
+Address of an HMIDIOUT handle. This location is filled with a handle identifying the opened MIDI output device. The handle is used to identify the device in calls to other MIDI output functions.
+
+· uDeviceID
+Identifier of the MIDI output device that is to be opened.
+
+· dwCallback
+Address of a callback function, an event handle, a thread identifier, or a handle of a window or thread called during MIDI playback to process messages related to the progress of the playback. If no callback is desired, specify NULL for this parameter. For more information on the callback function, see MidiOutProc.
+
+· dwCallbackInstance
+User instance data passed to the callback. This parameter is not used with window callbacks or threads.
+
+· dwFlags
+Callback flag for opening the device. It can be the following values:
+CALLBACK_EVENT
+The dwCallback parameter is an event handle. This callback mechanism is for output only.
+CALLBACK_FUNCTION
+The dwCallback parameter is a callback function address.
+CALLBACK_NULL
+There is no callback mechanism. This value is the default setting.
+CALLBACK_THREAD
+The dwCallback parameter is a thread identifier.
+CALLBACK_WINDOW
+The dwCallback parameter is a window handle.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MIDIERR_NODEVICE 
+ No MIDI port was found. This error occurs only when the mapper is opened. 
+ 
+MMSYSERR_ALLOCATED 
+ The specified resource is already allocated. 
+ 
+MMSYSERR_BADDEVICEID 
+ The specified device identifier is out of range. 
+ 
+MMSYSERR_INVALPARAM 
+ The specified pointer or structure is invalid. 
+ 
+MMSYSERR_NOMEM 
+ The system is unable to allocate or lock memory. 
+[EXAMPLES]
+Play Note*771DDE24C93370B83D11FF0423949FCD.html
+[RELATED]
+midiOutClose
+midiOutShortMsg

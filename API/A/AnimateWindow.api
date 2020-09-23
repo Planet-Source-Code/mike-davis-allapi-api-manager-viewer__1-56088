@@ -1,0 +1,53 @@
+[NAME]
+AnimateWindow
+[DESCRIPTION]
+The AnimateWindow function enables you to produce special effects when showing or hiding windows. There are three types of animation: roll, slide, and alpha-blended fade.
+[DECLARATION]
+Declare Function AnimateWindow Lib "user32" (ByVal hwnd As Long, ByVal dwTime As Long, ByVal dwFlags As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd
+[in] Handle to the window to animate. The calling thread must own this window.
+
+· dwTime
+[in] Specifies how long it takes to play the animation, in milliseconds. Typically, an animation takes 200 milliseconds to play.
+
+· dwFlags
+[in] Specifies the type of animation. This parameter can be one or more of the following values.
+AW_SLIDE
+ Uses slide animation. By default, roll animation is used. This flag is ignored when used with AW_CENTER.
+AW_ACTIVATE
+ Activates the window. Do not use this value with AW_HIDE.
+AW_BLEND
+ Uses a fade effect. This flag can be used only if hwnd is a top-level window.
+AW_HIDE
+ Hides the window. By default, the window is shown.
+AW_CENTER
+ Makes the window appear to collapse inward if AW_HIDE is used or expand outward if the AW_HIDE is not used.
+AW_HOR_POSITIVE
+ Animates the window from left to right. This flag can be used with roll or slide animation. It is ignored when used with AW_CENTER or AW_BLEND.
+AW_HOR_NEGATIVE
+ Animates the window from right to left. This flag can be used with roll or slide animation. It is ignored when used with AW_CENTER or AW_BLEND.
+AW_VER_POSITIVE
+ Animates the window from top to bottom. This flag can be used with roll or slide animation. It is ignored when used with AW_CENTER or AW_BLEND.
+AW_VER_NEGATIVE
+ Animates the window from bottom to top. This flag can be used with roll or slide animation. It is ignored when used with AW_CENTER or AW_BLEND.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. The function will fail in the following situations: 
+
+The window uses the window region. 
+The window is already visible and you are trying to show the window. 
+The window is already hidden and you are trying to hide the window. 
+To get extended error information, call the GetLastError function. 
+[EXAMPLES]
+AnimateWindow*758C81375883BF7D46F6C5FB5FC22205.html
+[RELATED]
+FlashWindow
+FlashWindowEx

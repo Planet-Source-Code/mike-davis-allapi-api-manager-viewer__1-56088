@@ -1,0 +1,27 @@
+[NAME]
+VirtualUnlock
+[DESCRIPTION]
+The VirtualUnlock function unlocks a specified range of pages in the virtual address space of a process, enabling the system to swap the pages out to the paging file if necessary.
+[DECLARATION]
+Declare Function VirtualUnlock Lib "kernel32" (ByVal lpAddress As Long, ByVal dwSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAddress 
+[in] Pointer to the base address of the region of pages to be unlocked. 
+
+· dwSize 
+[in] Specifies the size, in bytes, of the region being unlocked. The region of affected pages includes all pages containing one or more bytes in the range from the lpAddress parameter to (lpAddress+dwSize). This means that a 2-byte range straddling a page boundary causes both pages to be unlocked. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+VirtualLock
+GlobalUnlock

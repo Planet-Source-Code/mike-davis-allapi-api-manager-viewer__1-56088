@@ -1,0 +1,50 @@
+[NAME]
+ReadFile
+[DESCRIPTION]
+The ReadFile function reads data from a file, starting at the position indicated by the file pointer.
+[DECLARATION]
+Declare Function ReadFile Lib "kernel32" Alias "ReadFile" (ByVal hFile As Long, lpBuffer As Any, ByVal nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, lpOverlapped As OVERLAPPED) As Long
+[VBNET]
+System.IO.Stream
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Identifies the file to be read. The file handle must have been created with GENERIC_READ access to the file.
+Windows NT
+For asynchronous read operations, hFile can be any handle opened with the FILE_FLAG_OVERLAPPED flag by the CreateFile function, or a socket handle returned by the socket or accept functions.
+Windows 95
+For asynchronous read operations, hFile can be a communications resource, mailslot, or named pipe handle opened with the FILE_FLAG_OVERLAPPED flag by CreateFile, or a socket handle returned by the socket or accept functions. Windows 95 does not support asynchronous read operations on disk files.
+
+· lpBuffer
+Points to the buffer that receives the data read from the file.
+
+· nNumberOfBytesToRead
+Specifies the number of bytes to be read from the file.
+
+· lpNumberOfBytesRead
+Points to the number of bytes read. ReadFile sets this value to zero before doing any work or error checking. If this parameter is zero when ReadFile returns TRUE on a named pipe, the other end of the message-mode pipe called the WriteFile function with nNumberOfBytesToWrite set to zero.
+If lpOverlapped is NULL, lpNumberOfBytesRead cannot be NULL.
+If lpOverlapped is not NULL, lpNumberOfBytesRead can be NULL. If this is an overlapped read operation, you can get the number of bytes read by calling GetOverlappedResult. If hFile is associated with an I/O completion port, you can get the number of bytes read by calling GetQueuedCompletionStatus.
+
+· lpOverlapped
+Points to an OVERLAPPED structure. This structure is required if hFile was created with FILE_FLAG_OVERLAPPED.
+If hFile was opened with FILE_FLAG_OVERLAPPED, the lpOverlapped parameter must not be NULL. It must point to a valid OVERLAPPED structure. If hFile was created with FILE_FLAG_OVERLAPPED and lpOverlapped is NULL, the function can incorrectly report that the read operation is complete.
+If hFile was opened with FILE_FLAG_OVERLAPPED and lpOverlapped is not NULL, the read operation starts at the offset specified in the OVERLAPPED structure and ReadFile may return before the read operation has been completed. In this case, ReadFile returns FALSE and the GetLastError function returns ERROR_IO_PENDING. This allows the calling process to continue while the read operation finishes. The event specified in the OVERLAPPED structure is set to the signaled state upon completion of the read operation.
+If hFile was not opened with FILE_FLAG_OVERLAPPED and lpOverlapped is NULL, the read operation starts at the current file position and ReadFile does not return until the operation has been completed.
+If hFile is not opened with FILE_FLAG_OVERLAPPED and lpOverlapped is not NULL, the read operation starts at the offset specified in the OVERLAPPED structure. ReadFile does not return until the read operation has been completed.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the return value is nonzero and the number of bytes read is zero, the file pointer was beyond the current end of the file at the time of the read operation. However, if the file was opened with FILE_FLAG_OVERLAPPED and lpOverlapped is not NULL, the return value is FALSE and GetLastError returns ERROR_HANDLE_EOF when the file pointer goes beyond the current end of file. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+Redirect Output*DBE61037E261CDE165E2120438BB65CE.html
+[RELATED]
+WriteFile
+readfile

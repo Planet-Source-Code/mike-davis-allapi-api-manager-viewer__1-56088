@@ -1,0 +1,28 @@
+[NAME]
+GetProfilesDirectory
+[DESCRIPTION]
+The GetProfilesDirectory function retrieves the path to the root directory where all user profiles are stored.
+[DECLARATION]
+Declare Function GetProfilesDirectory Lib "userenv.dll" Alias "GetProfilesDirectoryA" (ByVal lpProfileDir As String, lpcchSize As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Userenv
+[PARAMETERS]
+· lpProfilesDir
+[out] Pointer to the buffer that receives the path to the profiles directory.
+
+· lpcchSize
+[in/out] Specifies the size of the lpProfilesDir buffer, in TCHARs.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+User Directories*C15713B41CB5D206910AF83B45EF618B.html
+[RELATED]
+GetAllUsersProfileDirectory
+GetDefaultUserProfileDirectory
+GetUserProfileDirectory

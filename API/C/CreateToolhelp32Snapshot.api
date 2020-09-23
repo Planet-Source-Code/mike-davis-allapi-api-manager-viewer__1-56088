@@ -1,0 +1,39 @@
+[NAME]
+CreateToolhelp32Snapshot
+[DESCRIPTION]
+Takes a snapshot of the processes and the heaps, modules, and threads used by the processes.
+[DECLARATION]
+Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal lFlags As Long, ByVal lProcessID As Long) As Long
+[VBNET]
+System.Diagnostics.Process
+[OS]
+Requires Windows 2000 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwFlags
+Flags specifying portions of the system to include in the snapshot. These values are defined: TH32CS_INHERIT
+ Indicates that the snapshot handle is to be inheritable.
+TH32CS_SNAPALL
+ Equivalent to specifying the TH32CS_SNAPHEAPLIST, TH32CS_SNAPMODULE, TH32CS_SNAPPROCESS, and TH32CS_SNAPTHREAD values.
+TH32CS_SNAPHEAPLIST
+ Includes the heap list of the specified process in the snapshot.
+TH32CS_SNAPMODULE
+ Includes the module list of the specified process in the snapshot.
+TH32CS_SNAPPROCESS
+ Includes the Win32 process list in the snapshot.
+TH32CS_SNAPTHREAD
+ Includes the Win32 thread list in the snapshot.
+
+· th32ProcessID
+Process identifier. This parameter can be zero to indicate the current process. This parameter is used when the TH32CS_SNAPHEAPLIST or TH32CS_SNAPMODULE value is specified. Otherwise, it is ignored.
+[RETURNS]
+Returns an open handle to the specified snapshot if successful or - 1 otherwise. 
+[EXAMPLES]
+EnumProcesses*0DE03FF0C317A9A5FC33A4FCAC220023.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+Enum Modules*E6AB94D232549AD1B4B448C5500EED21.html
+[RELATED]
+Process32First
+Process32Next
+Enum Processes

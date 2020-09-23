@@ -1,0 +1,54 @@
+[NAME]
+AllocateAndInitializeSid
+[DESCRIPTION]
+The AllocateAndInitializeSid function allocates and initializes a security identifier (SID) with up to eight subauthorities.
+[DECLARATION]
+Declare Function AllocateAndInitializeSid Lib "Advapi32" (pIdentifierAuthority As SID_IDENTIFIER_AUTHORITY, ByVal nSubAuthorityCount As Byte, ByVal nSubAuthority0 As Long, ByVal nSubAuthority1 As Long, ByVal nSubAuthority2 As Long, ByVal nSubAuthority3 As Long, ByVal nSubAuthority4 As Long, ByVal nSubAuthority5 As Long, ByVal nSubAuthority6 As Long, ByVal nSubAuthority7 As Long, lpPSid As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pIdentifierAuthority 
+[in] Pointer to a SID_IDENTIFIER_AUTHORITY structure, giving the top-level identifier authority value to set in the SID. 
+
+· nSubAuthorityCount 
+[in] Specifies the number of subauthorities to place in the SID. This parameter also identifies how many of the subauthority parameters have meaningful values. This parameter must contain a value from 1 to 8. 
+For example, a value of 3 indicates that the subauthority values specified by the dwSubAuthority0, dwSubAuthority1, and dwSubAuthority2 parameters have meaningful values and to ignore the remainder. 
+
+· dwSubAuthority0 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority1 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority2 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority3 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority4 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority5 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority6 
+[in] Subauthority value to place in the SID. 
+
+· dwSubAuthority7 
+[in] Subauthority value to place in the SID. 
+
+· pSid 
+[out] Pointer to a variable that receives the pointer to the allocated and initialized SID structure.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+FreeSid

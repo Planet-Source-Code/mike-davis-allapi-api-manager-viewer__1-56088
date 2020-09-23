@@ -1,0 +1,31 @@
+[NAME]
+GetEnvironmentVariable
+[DESCRIPTION]
+The GetEnvironmentVariable function retrieves the value of the specified variable from the environment block of the calling process. The value is in the form of a null-terminated string of characters.
+[DECLARATION]
+Declare Function GetEnvironmentVariable Lib "kernel32" Alias "GetEnvironmentVariableA" (ByVal lpName As String, ByVal lpBuffer As String, ByVal nSize As Long) As Long
+[VBNET]
+System.Environment.GetEnvironmentVariable
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpName
+[in] Pointer to a null-terminated string that specifies the environment variable.
+
+· lpBuffer
+[out] Pointer to a buffer to receive the value of the specified environment variable.
+
+· nSize
+[in] Specifies the size, in TCHARs, of the buffer pointed to by the lpBuffer parameter.
+[RETURNS]
+If the function succeeds, the return value is the number of characters stored into the buffer pointed to by lpBuffer, not including the terminating null character. 
+
+If the specified environment variable name was not found in the environment block for the current process, the return value is zero. 
+
+If the buffer pointed to by lpBuffer is not large enough, the return value is the buffer size, in characters, required to hold the value string and its terminating null character. 
+[EXAMPLES]
+GetEnvironmentVariable*1400D7ACE0115A2DFABA6F9E7EE62D3B.html
+[RELATED]
+SetEnvironmentVariable

@@ -1,0 +1,30 @@
+[NAME]
+WSAAsyncSelect
+[DESCRIPTION]
+The Windows Sockets WSAAsyncSelect function requests Windows message-based notification of network events for a socket.
+[DECLARATION]
+Declare Function WSAAsyncSelect Lib "wsock32.dll" (ByVal s As Long, ByVal hwnd As Long, ByVal wMsg As Long, ByVal lEvent As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket.Select
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· s
+[in] A descriptor identifying the socket for which event notification is required.
+
+· hWnd
+[in] A handle identifying the window that should receive a message when a network event occurs.
+
+· wMsg
+[in] The message to be received when a network event occurs.
+
+· lEvent
+[in] A bitmask that specifies a combination of network events in which the application is interested.
+[RETURNS]
+The return value is zero if the application's declaration of interest in the network event set was successful. Otherwise, the value SOCKET_ERROR is returned, and a specific error number can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+Connect

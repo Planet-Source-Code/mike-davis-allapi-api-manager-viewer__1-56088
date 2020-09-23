@@ -1,0 +1,31 @@
+[NAME]
+GetWindowRect
+[DESCRIPTION]
+The GetWindowRect function retrieves the dimensions of the bounding rectangle of the specified window. The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
+[DECLARATION]
+Declare Function GetWindowRect Lib "user32" Alias "GetWindowRect" (ByVal hwnd As Long, lpRect As RECT) As Long
+[VBNET]
+System.Windows.Forms.Form.DesktopLocation;System.Windows.Forms.Form.Size
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window.
+
+· lpRect
+Points to a RECT structure that receives the screen coordinates of the upper-left and lower-right corners of the window.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Flat Button*1A4BADF4A37061033CDBCF7982126427.html
+New Start-button*0E0BB026AA35C26821E74100E98127E3.html
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+CopyRect*0F7A6D79CC69F996A3035AA53E74A6F8.html
+Enum Monitors*10B6D40C610184A77A0F255EF0CEE768.html
+[RELATED]
+SetWindowPos
+MoveWindow

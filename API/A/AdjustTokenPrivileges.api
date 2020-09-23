@@ -1,0 +1,47 @@
+[NAME]
+AdjustTokenPrivileges
+[DESCRIPTION]
+The AdjustTokenPrivileges function enables or disables privileges in the specified access token. Enabling or disabling privileges in an access token requires TOKEN_ADJUST_PRIVILEGES access.
+[DECLARATION]
+Declare Function AdjustTokenPrivileges Lib "advapi32.dll" Alias "AdjustTokenPrivileges" (ByVal TokenHandle As Long, ByVal DisableAllPrivileges As Long, NewState As TOKEN_PRIVILEGES, ByVal BufferLength As Long, PreviousState As TOKEN_PRIVILEGES, ReturnLength As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· TokenHandle
+Identifies the access token that contains the privileges to be modified.
+
+· DisableAllPrivileges
+Specifies whether the function disables all of the token’s privileges. If this value is TRUE, the function disables all privileges and ignores the NewState parameter. If it is FALSE, the function modifies privileges based on the information pointed to by the NewState parameter.
+
+· NewState
+Pointer to a TOKEN_PRIVILEGES structure that specifies an array of privileges and their attributes. If the DisableAllPrivileges parameter is FALSE, AdjustTokenPrivileges enables or disables these privileges for the token. If you set the SE_PRIVILEGE_ENABLED attribute for a privilege, the function enables that privilege; otherwise, it disables the privilege.
+If DisableAllPrivileges is TRUE, the function ignores this parameter.
+
+· BufferLength
+Specifies the size, in bytes, of the buffer pointed to by the PreviousState parameter. This parameter can be NULL if the PreviousState parameter is NULL.
+
+· PreviousState
+Pointer to a buffer that the function fills with a TOKEN_PRIVILEGES structure containing the previous state of any privileges the function modifies. The token must be open for TOKEN_QUERY access to use this parameter. This parameter can be NULL.
+If you specify a buffer that is too small to receive the complete list of modified privileges, the function fails and does not adjust any privileges. In this case, the function sets the variable pointed to by the ReturnLength parameter to the number of bytes required to hold the complete list of modified privileges.
+
+· ReturnLength
+Pointer to a variable that receives the required size, in bytes, of the buffer pointed to by the PreviousState parameter. This parameter can be NULL if PreviousState is NULL.
+[RETURNS]
+If the function succeeds, the return value is nonzero. To determine whether the function adjusted all of the specified privileges, call GetLastError, which returns one of the following values when the function succeeds:
+ERROR_SUCCESS 
+ The function adjusted all specified privileges. 
+ 
+ERROR_NOT_ALL_ASSIGNED 
+ The token does not have one or more of the privileges specified in the NewState parameter. The function may succeed with this error value even if no privileges were adjusted. The PreviousState parameter indicates the privileges that were adjusted. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ExitWindowsX - NT*8E8F701BA4F21ECAA4CC63ACF1AEE1A3.html
+System Shutdown*24891B9AD182321F4B92786FB2ECA2AB.html
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+[RELATED]
+OpenProcessToken

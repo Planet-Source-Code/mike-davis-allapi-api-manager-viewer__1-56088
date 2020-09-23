@@ -1,0 +1,25 @@
+[NAME]
+PathIsURL
+[DESCRIPTION]
+Tests a given string to determine if it conforms to a valid URL format.
+[DECLARATION]
+Declare Function PathIsURL Lib "shlwapi.dll" Alias "PathIsURLA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+[in] Address of the URL path to validate.
+[RETURNS]
+Returns TRUE if pszPath has a valid URL format, or FALSE otherwise
+[EXAMPLES]
+Path Functions (5)*3C8CF3591E287C7FF73FEF775E8A315A.html
+[RELATED]
+PathIsSameRoot
+PathIsUNC
+PathIsUNCServer
+PathIsUNCServerShare
+IsValidURL

@@ -1,0 +1,37 @@
+[NAME]
+RegCreateKey
+[DESCRIPTION]
+The RegCreateKey function creates the specified key. If the key already exists in the registry, the function opens it. This function is provided for compatibility with Windows version 3.1. Win32-based applications should use the RegCreateKeyEx function.
+[DECLARATION]
+Declare Function RegCreateKey Lib "advapi32.dll" Alias "RegCreateKeyA" (ByVal hKey As Long, ByVal lpSubKey As String, phkResult As Long) As Long
+[VBNET]
+Microsoft.Win32.RegistryKey.CreateSubKey
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+The key opened or created by this function is a subkey of the key identified by hKey.
+
+· lpSubKey
+Points to a null-terminated string specifying the name of a key that this function opens or creates. This key must be a subkey of the key identified by the hKey parameter.
+If hKey is one of the predefined keys, lpSubKey may be NULL. In that case, the handle returned by using phkResult is the same hKey handle passed in to the function.
+
+· phkResult
+Points to a variable that receives the handle of the opened or created key.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Registry*4E1AB36884B253CE24768DA1C4080A14.html
+[RELATED]
+RegCloseKey
+RegOpenKey
+registrygetset

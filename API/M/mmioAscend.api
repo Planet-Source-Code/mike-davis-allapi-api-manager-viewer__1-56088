@@ -1,0 +1,32 @@
+[NAME]
+mmioAscend
+[DESCRIPTION]
+The mmioAscend function ascends out of a chunk in a RIFF file descended into with the mmioDescend function or created with the mmioCreateChunk function.
+[DECLARATION]
+Declare Function mmioAscend Lib "winmm.dll" Alias "mmioAscend" (ByVal hmmio As Long, lpck As MMCKINFO, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmmio
+File handle of an open RIFF file.
+
+· lpck
+Address of an application-defined MMCKINFO structure previously filled by the mmioDescend or mmioCreateChunk function.
+
+· wFlags
+Reserved; must be zero.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MMIOERR_CANNOTSEEK 
+ There was an error while seeking to the end of the chunk. 
+ 
+MMIOERR_CANNOTWRITE 
+ The contents of the buffer could not be written to disk. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+mmioDescend

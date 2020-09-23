@@ -1,0 +1,38 @@
+[NAME]
+FtpFindFirstFile
+[DESCRIPTION]
+Searches the specified directory of the given FTP session. File and directory entries are returned to the application in the WIN32_FIND_DATA  structure.
+[DECLARATION]
+Declare Function FtpFindFirstFile Lib "wininet.dll" Alias "FtpFindFirstFileA" (ByVal hFtpSession As Long, ByVal lpszSearchFile As String, lpFindFileData As WIN32_FIND_DATA, ByVal dwFlags As Long, ByVal dwContent As Long) As Long
+[VBNET]
+Not implemented
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hConnect
+[in] Valid handle to an FTP session returned from InternetConnect.
+
+· lpszSearchFile
+[in] Address of a null-terminated string that specifies a valid directory path or file name for the FTP server's file system. The string can contain wildcards, but no blank spaces are allowed. If the value of lpszSearchFile is NULL or if it is an empty string, it will find the first file in the current directory on the server.
+
+· lpFindFileData
+[out] Address of a WIN32_FIND_DATA structure that receives information about the found file or directory.
+
+· dwFlags
+[in] Unsigned long integer value that contains the flags that control the behavior of this function. This can be a combination of the following values:
+INTERNET_FLAG_HYPERLINK
+INTERNET_FLAG_NEED_FILE
+INTERNET_FLAG_NO_CACHE_WRITE
+INTERNET_FLAG_RELOAD
+INTERNET_FLAG_RESYNCHRONIZE
+
+· dwContext
+[in] Address of an unsigned long integer value that contains the application-defined value that associates this search with any application data. This parameter is used only if the application has already called InternetSetStatusCallback to set up a status callback function.
+[RETURNS]
+Returns a valid handle for the request if the directory enumeration was started successfully; otherwise, returns NULL. To get a specific error code, call GetLastError. If the function finds no matching files, GetLastError returns ERROR_NO_MORE_FILES. 
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+InternetFindNextFile

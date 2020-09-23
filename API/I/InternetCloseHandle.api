@@ -1,0 +1,25 @@
+[NAME]
+InternetCloseHandle
+[DESCRIPTION]
+Closes a single Internet handle or a subtree of Internet handles.
+[DECLARATION]
+Declare Function InternetCloseHandle Lib "wininet" (ByRef hInet As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hInet
+Valid Internet handle to be closed.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+WinInet*C7A439CF5009BB20E10CA4C6D73F19D9.html
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+InternetOpenUrl
+InternetOpen

@@ -1,0 +1,26 @@
+[NAME]
+NetApiBufferFree
+[DESCRIPTION]
+The NetApiBufferFree function frees the memory that NetApiBufferAllocate allocates. Use this function to free the memory that other Net functions return.
+[DECLARATION]
+Declare Function NetApiBufferFree Lib "netapi32" (ByVal Buffer As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· Buffer
+[in] Pointer to a buffer returned previously by another network management function.
+[RETURNS]
+If the function succeeds, the return value is NERR_Success. 
+
+If the function fails, the return value is a Win32 API error code. For a list of error codes, see Error Codes. 
+[EXAMPLES]
+NetUserGetInfo*8B646FA0BE83EFB83E3C22C0F1D28B68.html
+NetShareGetInfo*647D901BF0469F6B8990DAD3B80FD14B.html
+Time Server*F2E1DAF4EC9F9A82CF2995D39E44F959.html
+[RELATED]
+NetUserGetInfo
+NetWkstaGetInfo

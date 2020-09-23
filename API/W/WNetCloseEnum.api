@@ -1,0 +1,36 @@
+[NAME]
+WNetCloseEnum
+[DESCRIPTION]
+The WNetCloseEnum function ends a network resource enumeration started by the WNetOpenEnum function.
+[DECLARATION]
+Declare Function WNetCloseEnum Lib "mpr.dll" Alias "WNetCloseEnum" (ByVal hEnum As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Mpr
+[PARAMETERS]
+· hEnum
+Identifies an enumeration instance. This handle must be returned by the WNetOpenEnum function.
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is an error code. To get extended error information, call GetLastError. GetLastError may return one of the following error codes:
+ERROR_NO_NETWORK 
+ A network is not present. This condition is tested before the handle specified in the hEnum parameter is tested for validity. 
+ 
+ERROR_INVALID_HANDLE 
+ hEnum is not a valid handle. 
+ 
+ERROR_EXTENDED_ERROR 
+ A network-specific error occurred. To get a description of the error, use the WNetGetLastError function. 
+ 
+
+
+The function returns error codes for compatibility with Windows version 3.1. For compatibility with Windows NT, the function also sets the error code value returned by GetLastError. 
+[EXAMPLES]
+LetterToUNC*EF420A3B7566A165446D2B160F52C983.html
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+[RELATED]
+WNetOpenEnum

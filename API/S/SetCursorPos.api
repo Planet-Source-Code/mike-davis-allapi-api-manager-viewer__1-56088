@@ -1,0 +1,27 @@
+[NAME]
+SetCursorPos
+[DESCRIPTION]
+The SetCursorPos function moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent ClipCursor function, Windows automatically adjusts the coordinates so that the cursor stays within the rectangle.
+[DECLARATION]
+Declare Function SetCursorPos Lib "user32" Alias "SetCursorPos" (ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+System.Windows.Forms.Cursor.Current.Position
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· X
+Specifies the new x-coordinate, in screen coordinates, of the cursor.
+
+· Y
+Specifies the new y-coordinate, in screen coordinates, of the cursor.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Flat Button*1A4BADF4A37061033CDBCF7982126427.html
+Draw On Screen*D59CF4A10025F5E92D3016FD6AA2FE92.html
+[RELATED]
+GetCursorPos

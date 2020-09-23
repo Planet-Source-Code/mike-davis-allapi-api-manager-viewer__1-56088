@@ -1,0 +1,31 @@
+[NAME]
+FindNextUrlCacheEntry
+[DESCRIPTION]
+Retrieves the next entry in the Internet cache.
+[DECLARATION]
+Declare Function FindNextUrlCacheEntry Lib "wininet.dll" Alias "FindNextUrlCacheEntryA" (ByVal hEnumHandle As Long, ByVal lpNextCacheEntryInfo As Long, ByRef lpdwNextCacheEntryInfoBufferSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Internet Explorer 3.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hEnumHandle
+[in] Enumeration handle obtained from a previous call to FindFirstUrlCacheEntry.
+
+· lpNextCacheEntryInfo
+[out] Pointer to an INTERNET_CACHE_ENTRY_INFO structure that receives information about the cache entry.
+
+· lpdwNextCacheEntryInfoBufferSize
+[in, out] Pointer to an unsigned long integer variable that specifies the size of the lpNextCacheEntryInfo buffer, in TCHARs. When the function returns, the variable contains the number of TCHARs copied to the buffer, or the size of the buffer (in bytes) required to retrieve the cache entry.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get extended error information, call GetLastError. Possible error values include:
+ERROR_INSUFFICIENT_BUFFER 
+ The size of lpNextCacheEntryInfo as specified by lpdwNextCacheEntryInfoBufferSize is not sufficient to contain all the information. The value returned in lpdwNextCacheEntryInfoBufferSize indicates the buffer size necessary to contain all the information. 
+ERROR_NO_MORE_ITEMS 
+ The enumeration completed. 
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+FindFirstUrlCacheEntry

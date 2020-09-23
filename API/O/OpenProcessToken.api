@@ -1,0 +1,57 @@
+[NAME]
+OpenProcessToken
+[DESCRIPTION]
+The OpenProcessToken function opens the access token associated with a process.
+[DECLARATION]
+Declare Function OpenProcessToken Lib "advapi32.dll" Alias "OpenProcessToken" (ByVal ProcessHandle As Long, ByVal DesiredAccess As Long, TokenHandle As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· ProcessHandle
+Identifies the process whose access token is opened.
+
+· DesiredAccess
+Specifies an access mask that specifies the requested types of access to the access token. These requested access types are compared with the token’s discretionary access-control list (ACL) to determine which accesses are granted or denied. The following access rights have been defined for access tokens.
+TOKEN_ADJUST_DEFAULT
+ Required to change the default ACL, primary group, or owner of an access token.
+TOKEN_ADJUST_GROUPS
+ Required to change the groups specified in an access token.
+TOKEN_ADJUST_PRIVILEGES
+ Required to change the privileges specified in an access token.
+TOKEN_ALL_ACCESS
+ Combines the STANDARD_RIGHTS_REQUIRED standard access rights and all individual access rights for tokens.
+TOKEN_ASSIGN_PRIMARY
+ Required to attach a primary token to a process in addition to the SE_CREATE_TOKEN_NAME privilege.
+TOKEN_DUPLICATE
+ Required to duplicate an access token.
+TOKEN_EXECUTE
+ Combines the STANDARD_RIGHTS_EXECUTE standard access rights and the TOKEN_IMPERSONATE access right.
+TOKEN_IMPERSONATE
+ Required to attach an impersonation access token to a process.
+TOKEN_QUERY
+ Required to query the contents of an access token.
+TOKEN_QUERY_SOURCE
+ Required to query the source of an access token.
+TOKEN_READ
+ Combines the STANDARD_RIGHTS_READ standard access rights and the TOKEN_QUERY access right.
+TOKEN_WRITE
+ Combines the STANDARD_RIGHTS_WRITE standard access rights and the TOKEN_ADJUST_PRIVILEGES, TOKEN_ADJUST_GROUPS, and TOKEN_ADJUST_DEFAULT access rights.
+
+· TokenHandle
+Points to a handle identifying the newly-opened access token when the function returns.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ExitWindowsX - NT*8E8F701BA4F21ECAA4CC63ACF1AEE1A3.html
+System Shutdown*24891B9AD182321F4B92786FB2ECA2AB.html
+User Directories*C15713B41CB5D206910AF83B45EF618B.html
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+AdjustTokenPrivileges

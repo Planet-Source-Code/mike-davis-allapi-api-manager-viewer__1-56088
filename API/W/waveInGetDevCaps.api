@@ -1,0 +1,30 @@
+[NAME]
+waveInGetDevCaps
+[DESCRIPTION]
+The waveInGetDevCaps function retrieves the capabilities of a given waveform-audio input device.
+[DECLARATION]
+Declare Function waveInGetDevCaps Lib "winmm.dll" Alias "waveInGetDevCapsA" (ByVal uDeviceID As Long, lpCaps As WAVEINCAPS, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the waveform-audio output device. It can be either a device identifier or a handle of an open waveform-audio input device.
+
+· pwic
+Address of a WAVEINCAPS structure to be filled with information about the capabilities of the device.
+
+· cbwic
+Size, in bytes, of the WAVEINCAPS structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_BADDEVICEID Specified device identifier is out of range. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+waveInOpen

@@ -1,0 +1,23 @@
+[NAME]
+lobyte
+[DESCRIPTION]
+The lobyte function retrieves the low-order byte from the given 16-bit value. 
+[DECLARATION]
+Declare Function LoByte Lib "TLBINF32" Alias "lobyte" (ByVal Word As Integer) As Byte
+[VBNET]
+N/A
+[OS]
+Requires TLBINF32.dll
+[LIBRARY]
+Tlbinf32
+[PARAMETERS]
+· wValue 
+Specifies the value to be converted.
+[RETURNS]
+The return value is the low-order byte of the specified value. 
+[EXAMPLES]
+HiLoBytes*13CFC99955DFA17E3097842F866C5A60.html
+[RELATED]
+hibyte
+loword
+hiword

@@ -1,0 +1,23 @@
+[NAME]
+GetStretchBltMode
+[DESCRIPTION]
+The GetStretchBltMode function retrieves the current stretching mode. The stretching mode defines how color data is added to or removed from bitmaps that are stretched or compressed when the StretchBlt function is called.
+[DECLARATION]
+Declare Function GetStretchBltMode Lib "gdi32" Alias "GetStretchBltMode" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+[RETURNS]
+If the function succeeds, the return value is the current stretching mode. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+ColorAdjustment*CCF635CFE4B221D627087F594B3C1D26.html
+[RELATED]
+SetStretchBltMode

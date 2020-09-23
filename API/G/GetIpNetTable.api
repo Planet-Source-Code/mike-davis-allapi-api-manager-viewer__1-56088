@@ -1,0 +1,32 @@
+[NAME]
+GetIpNetTable
+[DESCRIPTION]
+The GetIpNetTable function retrieves the IP-to-physical address mapping table.
+[DECLARATION]
+Declare Function GetIpNetTable Lib "Iphlpapi" (pIpNetTable As Byte, pdwSize As Long, ByVal bOrder As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows NT 4.0 SP4 or later; Windows 98 or later
+[LIBRARY]
+Iphlpapi
+[PARAMETERS]
+· pIpNetTable 
+[out] Pointer to a buffer that receives the IP-to-physical address mapping table as a MIB_IPNETTABLE structure. 
+
+· pdwSize 
+[in, out] On input, specifies the size of the buffer pointed to by the pIpNetTable parameter. 
+On output, if the buffer is not large enough to hold the returned mapping table, the function sets this parameter equal to the required buffer size. 
+
+· bOrder 
+[in] Specifies whether the returned mapping table should be sorted in ascending order by IP address. If this parameter is TRUE, the table is sorted. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR.
+
+If the function fails, use FormatMessage to obtain the message string for the returned error.
+[EXAMPLES]
+Address Mapping Table*518618F234DF9E03F50BAD5A77F7DCB4.html
+[RELATED]
+GetTcpStatistics
+GetIpStatistics
+GetIpAddrTable

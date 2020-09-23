@@ -1,0 +1,63 @@
+[NAME]
+FlatSB_GetScrollProp
+[DESCRIPTION]
+Retrieves the properties for a flat scroll bar. This function can also be used to determine if InitializeFlatSB has been called for this window.
+[DECLARATION]
+Declare Function FlatSB_GetScrollProp Lib "comctl32" (ByVal hWnd As Long, ByVal index As Long, pValue As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· index
+Parameter that determines what pValue represents and which property is being retrieved. It can be one of the following values: WSB_PROP_CXHSCROLL  pValue is an address of an INT value that receives the width, in pixels, of the direction buttons in a horizontal scroll bar.
+WSB_PROP_CXHTHUMB
+ pValue is an address of an INT value that receives the width, in pixels, of the thumb in a horizontal scroll bar.
+WSB_PROP_CXVSCROLL
+ pValue is an address of an INT value that receives the width, in pixels, of a vertical scroll bar.
+WSB_PROP_CYHSCROLL
+ pValue is an address of an INT value that receives the height, in pixels, of a horizontal scroll bar.
+WSB_PROP_CYVSCROLL
+ pValue is an address of an INT value that receives the height, in pixels, of the direction buttons in a vertical scroll bar.
+WSB_PROP_CYVTHUMB
+ pValue is an address of an INT value that receives the height, in pixels, of the thumb in a vertical scroll bar.
+WSB_PROP_HBKGCOLOR
+ pValue is an address of a COLORREF value that receives the background color in a horizontal scroll bar.
+WSB_PROP_HSTYLE
+ pValue is an address of an INT value that receives one of the following visual effects for the horizontal scroll bar.
+  FSB_ENCARTA_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar is displayed in 3-D.
+  FSB_FLAT_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar is displayed in inverted colors.
+  FSB_REGULAR_MODE
+   A normal, nonflat scroll bar is displayed. No special visual effects are applied.
+WSB_PROP_PALETTE
+ pValue is an address of an HPALETTE value that receives the palette that a scroll bar uses when drawing.
+WSB_PROP_VBKGCOLOR
+ pValue is an address of a COLORREF value that receives the background color in a vertical scroll bar.
+WSB_PROP_VSTYLE
+ pValue is an address of an INT value that receives one of the following visual effects for the vertical scroll bar.
+  FSB_ENCARTA_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar is displayed in 3-D.
+  FSB_FLAT_MODE
+   A standard flat scroll bar is displayed. When the mouse moves over a direction button or the thumb, that portion of the scroll bar is displayed in inverted colors.
+  FSB_REGULAR_MODE
+   A normal, nonflat scroll bar is displayed. No special visual effects are applied.
+WSB_PROP_WINSTYLE
+ pValue is an address of an INT value that receives the WS_HSCROLL and WS_VSCROLL style bits contained by the current window.
+
+· pValue
+Address that receives the requested data. This parameter depends on the flag passed in index.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_SetScrollProp

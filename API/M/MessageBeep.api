@@ -1,0 +1,35 @@
+[NAME]
+MessageBeep
+[DESCRIPTION]
+The MessageBeep function plays a waveform sound. The waveform sound for each sound type is identified by an entry in the [sounds] section of the registry.
+[DECLARATION]
+Declare Function MessageBeep Lib "user32" Alias "MessageBeep" (ByVal wType As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· uType
+Specifies the sound type, as identified by an entry in the [sounds] section of the registry. This parameter can be one of the following values:
+0xFFFFFFFF
+ Standard beep using the computer speaker
+MB_ICONASTERISK
+ SystemAsterisk
+MB_ICONEXCLAMATION
+ SystemExclamation
+MB_ICONHAND
+ SystemHand
+MB_ICONQUESTION
+ SystemQuestion
+MB_OK
+ SystemDefault
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Beep*4E5E247C20AB935EB6DCDA8A4176176E.html
+[RELATED]
+

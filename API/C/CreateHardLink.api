@@ -1,0 +1,32 @@
+[NAME]
+CreateHardLink
+[DESCRIPTION]
+The CreateHardLink function establishes an NTFS hard link between an existing file and a new file. An NTFS hard link is similar to a POSIX hard link.
+[DECLARATION]
+Declare Function CreateHardLink Lib "kernel32.dll" Alias "CreateHardLinkA" (ByVal lpFileName As String, ByVal lpExistingFileName As String, ByRef lpSecurityAttributes As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+[in] Pointer to the name of the new directory entry to be created.
+
+· lpExistingFileName
+[in] Pointer to the name of the existing file to which the new link will point.
+
+· lpSecurityAttributes
+[in] Pointer to a SECURITY_ATTRIBUTES structure that specifies a security descriptor for the new file.
+If this parameter is NULL, it leaves the file's existing security descriptor unmodified.
+
+If this parameter is not NULL, it modifies the file's security descriptor.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Hard Link*450656E7EF6484A37514BD581B78F3E8.html
+[RELATED]
+CreateFile

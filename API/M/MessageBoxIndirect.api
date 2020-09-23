@@ -1,0 +1,48 @@
+[NAME]
+MessageBoxIndirect
+[DESCRIPTION]
+The MessageBoxIndirect function creates, displays, and operates a message box. The message box contains application-defined message text and title, any icon, and any combination of predefined push buttons.
+[DECLARATION]
+Declare Function MessageBoxIndirect Lib "user32" Alias "MessageBoxIndirectA" (lpMsgBoxParams As MSGBOXPARAMS) As Long
+[VBNET]
+System.Windows.Forms.MessageBox
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpMsgBoxParams
+Pointer to a MSGBOXPARAMS structure that contains information used to display the message box.
+[RETURNS]
+The return value is zero if there is not enough memory to create the message box. 
+
+If the function succeeds, the return value is one of the following menu-item values returned by the dialog box:
+IDABORT 
+ Abort button was selected. 
+ 
+IDCANCEL 
+ Cancel button was selected. 
+ 
+IDIGNORE 
+ Ignore button was selected. 
+ 
+IDNO 
+ No button was selected. 
+ 
+IDOK 
+ OK button was selected. 
+ 
+IDRETRY 
+ Retry button was selected. 
+ 
+IDYES 
+ Yes button was selected. 
+ 
+
+
+If a message box has a Cancel button, the function returns the IDCANCEL value if either the ESC key is pressed or the Cancel button is selected. If the message box has no Cancel button, pressing ESC has no effect. 
+[EXAMPLES]
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+[RELATED]
+MessageBox
+MessageBoxEx

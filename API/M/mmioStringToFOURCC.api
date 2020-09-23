@@ -1,0 +1,26 @@
+[NAME]
+mmioStringToFOURCC
+[DESCRIPTION]
+The mmioStringToFOURCC function converts a null-terminated string to a four-character code.
+[DECLARATION]
+Declare Function mmioStringToFOURCC Lib "winmm.dll" Alias "mmioStringToFOURCCA" (ByVal sz As String, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· sz
+Address of a null-terminated string to convert to a four-character code.
+
+· wFlags
+Flags for the conversion. The following value is defined:
+MMIO_TOUPPER
+Converts all characters to uppercase.
+[RETURNS]
+Returns the four-character code created from the given string. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+

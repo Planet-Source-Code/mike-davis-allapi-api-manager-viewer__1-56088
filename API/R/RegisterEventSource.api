@@ -1,0 +1,31 @@
+[NAME]
+RegisterEventSource
+[DESCRIPTION]
+The RegisterEventSource function retrieves a registered handle to an event log.
+[DECLARATION]
+Declare Function RegisterEventSource Lib "advapi32" Alias "RegisterEventSourceA" (ByVal lpUNCServerName As String, ByVal lpSourceName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpUNCServerName 
+[in] Pointer to a null-terminated string that specifies the Universal Naming Convention (UNC) name of the server on which this operation is to be performed. If this parameter is NULL, the operation is performed on the local computer. 
+
+· lpSourceName 
+[in] Pointer to a null-terminated string that specifies the name of the source referenced by the returned handle. The source name must be a subkey of a logfile entry under the EventLog key in the registry. For example, WinApp is a valid source name if the registry has the following key: 
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Event
+Log\Application\WinApp 
+
+For more information, see Event Sources. 
+[RETURNS]
+If the function succeeds, the return value is a handle that can be used with the ReportEvent function.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ReportEvent*3E333A9BA6779769EB5D9723FB7FCAA7.html
+[RELATED]
+ReportEvent
+DeregisterEventSource

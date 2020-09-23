@@ -1,0 +1,25 @@
+[NAME]
+WindowFromPoint
+[DESCRIPTION]
+The WindowFromPoint function retrieves the handle of the window that contains the specified point.
+[DECLARATION]
+Declare Function WindowFromPoint Lib "user32" Alias "WindowFromPoint" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· Point
+Specifies a POINT structure that defines the point to be checked.
+[RETURNS]
+If the function succeeds, the return value is the handle of the window that contains the point. If no window exists at the given point, the return value is NULL. 
+[EXAMPLES]
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+[RELATED]
+GetWindowDC
+GetDC
+FindWindow
+FindWindowEx
+DestroyWindow

@@ -1,0 +1,60 @@
+[NAME]
+GetStockObject
+[DESCRIPTION]
+The GetStockObject function retrieves a handle to one of the predefined stock pens, brushes, fonts, or palettes.
+[DECLARATION]
+Declare Function GetStockObject Lib "gdi32" Alias "GetStockObject" (ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· fnObject
+Specifies the type of stock object. This parameter can be any one of the following values:
+BLACK_BRUSH
+ Black brush.
+DKGRAY_BRUSH
+ Dark gray brush.
+GRAY_BRUSH
+ Gray brush.
+HOLLOW_BRUSH
+ Hollow brush (equivalent to NULL_BRUSH).
+LTGRAY_BRUSH
+ Light gray brush.
+NULL_BRUSH
+ Null brush (equivalent to HOLLOW_BRUSH).
+WHITE_BRUSH
+ White brush.
+BLACK_PEN
+ Black pen.
+NULL_PEN
+ Null pen.
+WHITE_PEN
+ White pen.
+ANSI_FIXED_FONT
+ Windows fixed-pitch (monospace) system font.
+ANSI_VAR_FONT
+ Windows variable-pitch (proportional space) system font.
+DEVICE_DEFAULT_FONT
+ Windows NT only: Device-dependent font.
+DEFAULT_GUI_FONT
+ Windows 95 only: Default font for user interface objects such as menus and dialog boxes.
+OEM_FIXED_FONT
+ Original equipment manufacturer (OEM) dependent fixed-pitch (monospace) font.
+SYSTEM_FONT
+ System font. By default, Windows uses the system font to draw menus, dialog box controls, and text. In Windows versions 3.0 and later, the system font is a proportionally spaced font; earlier versions of Windows used a monospace system font.
+SYSTEM_FIXED_FONT
+ Fixed-pitch (monospace) system font used in Windows versions earlier than 3.0. This stock object is provided for compatibility with earlier versions of Windows.
+DEFAULT_PALETTE
+ Default palette. This palette consists of the static colors in the system palette.
+[RETURNS]
+If the function succeeds, the return value identifies the logical object requested. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Polygons*A7A7E14B2A005870BA134E6C92BB7B51.html
+[RELATED]
+DeleteObject
+SelectObject

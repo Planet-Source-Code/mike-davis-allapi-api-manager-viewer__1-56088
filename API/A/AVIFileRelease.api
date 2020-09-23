@@ -1,0 +1,21 @@
+[NAME]
+AVIFileRelease
+[DESCRIPTION]
+The AVIFileRelease function decrements the reference count of an AVI file interface handle and closes the file if the count reaches zero.
+[DECLARATION]
+Declare Function AVIFileRelease Lib "avifil32" (ByVal pfile As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Avifil32
+[PARAMETERS]
+· pfile 
+Handle of an open AVI file. 
+[RETURNS]
+Returns the reference count of the file. This return value should be used only for debugging purposes. 
+[EXAMPLES]
+AVI Info*284827ED26B36C1C0A36DFDCF51A6C79.html
+[RELATED]
+AVIFileOpen

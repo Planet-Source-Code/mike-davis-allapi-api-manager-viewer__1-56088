@@ -1,0 +1,27 @@
+[NAME]
+socket
+[DESCRIPTION]
+The Windows Sockets socket function creates a socket that is bound to a specific service provider.
+[DECLARATION]
+Declare Function socket Lib "wsock32.dll" (ByVal af As Long, ByVal s_type As Long, ByVal protocol As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· af
+[in] An address family specification.
+
+· type
+[in] A type specification for the new socket.
+
+· protocol
+[in] A particular protocol to be used with the socket that is specific to the indicated address family.
+[RETURNS]
+If no error occurs, socket returns a descriptor referencing the new socket. Otherwise, a value of INVALID_SOCKET is returned, and a specific error code can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+Connect

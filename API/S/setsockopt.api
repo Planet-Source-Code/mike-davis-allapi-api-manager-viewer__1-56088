@@ -1,0 +1,33 @@
+[NAME]
+setsockopt
+[DESCRIPTION]
+The Windows Sockets setsockopt function sets a socket option.
+[DECLARATION]
+Declare Function setsockopt Lib "wsock32.dll" (ByVal s As Long, ByVal Level As Long, ByVal optname As Long, optval As Any, ByVal optlen As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket.SetSocketOption
+[OS]
+Requires Windows Sockets 2.0
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· s
+[in] A descriptor identifying a socket.
+
+· level
+[in] The level at which the option is defined; the supported levels include SOL_SOCKET and IPPROTO_TCP. See Protocol-specific Annex (a separate document included with the Win32 SDK) for more information on protocol-specific levels.
+
+· optname
+[in] The socket option for which the value is to be set.
+
+· optval
+[in] A pointer to the buffer in which the value for the requested option is supplied.
+
+· optlen
+[in] The size of the optval buffer.
+[RETURNS]
+If no error occurs, setsockopt returns zero. Otherwise, a value of SOCKET_ERROR is returned, and a specific error code can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+getsockopt

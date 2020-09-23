@@ -1,0 +1,23 @@
+[NAME]
+PostQuitMessage
+[DESCRIPTION]
+The PostQuitMessage function indicates to Windows that a thread has made a request to terminate (quit). It is typically used in response to a WM_DESTROY message.
+[DECLARATION]
+Declare Sub PostQuitMessage Lib "user32" Alias "PostQuitMessage" (ByVal nExitCode As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· nExitCode
+Specifies an application exit code. This value is used as the wParam parameter of the WM_QUIT message.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+PostMessage
+SendMessage

@@ -1,0 +1,31 @@
+[NAME]
+GetUserNameEx
+[DESCRIPTION]
+The GetUserNameEx function retrieves the name of the user or other security principal associated with the calling thread. You can specify the format of the returned name.
+[DECLARATION]
+Declare Function GetUserNameEx Lib "secur32.dll" Alias "GetUserNameExA" (ByVal NameFormat As EXTENDED_NAME_FORMAT, ByVal lpNameBuffer As String, ByRef nSize As Long) As Long
+[VBNET]
+System.Security.Principal.WindowsIdentity.GetCurrent.Name
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Secur32
+[PARAMETERS]
+· NameFormat 
+[in] Value from the EXTENDED_NAME_FORMAT enumeration type indicating the desired name format. This value cannot be NameUnknown. 
+
+· lpNameBuffer 
+[out] Pointer to a buffer that receives the name in the specified format. 
+
+· nSize 
+[in/out] On input, specifies the size, in TCHARs, of the lpNameBuffer buffer. On output, receives the size of the returned string, including the terminating null character. 
+If the lpNameBuffer buffer is too small, the function fails GetLastError returns ERROR_MORE_DATA. The nSize parameter receives the required buffer size. 
+[RETURNS]
+If the function succeeds, the return value is a nonzero value.
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+If the user name is not available in the specified format, the error is ERROR_NONE_MAPPED. If the domain controller is not available to perform the lookup, the error is ERROR_NO_SUCH_DOMAIN. 
+[EXAMPLES]
+UsernameEx*5E7174951E00F0D9AE7099C53C147AE9.html
+[RELATED]
+GetUserName
+currentuser

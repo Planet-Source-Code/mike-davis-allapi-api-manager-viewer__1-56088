@@ -1,0 +1,45 @@
+[NAME]
+CloseHandle
+[DESCRIPTION]
+The CloseHandle function closes an open object handle.
+[DECLARATION]
+Declare Function CloseHandle Lib "kernel32" Alias "CloseHandle" (ByVal hObject As Long) As Long
+[VBNET]
+N/A; Usually ClassName.Close()
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hObject
+Identifies an open object handle.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+File Date*CDE78FEE845B0BA16C94DF22B9299100.html
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+LZDecompress*5D1511F5671125E884499D3F117565EE.html
+Decompress*6D2861192FDF4370BCF95C099BE0F2F0.html
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+AsyncThread*FE3ACF25A0FA80872B2D730CA474AC4B.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+EnumProcesses*0DE03FF0C317A9A5FC33A4FCAC220023.html
+GetFileSizeEx*D85F7D5EAEF74832410F8A8245BCA265.html
+GetFilePreview*4F5AD6AB980C6F5AA9968080BFD40865.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+File Information By Handle*F843140335623EA020B6033D8F65DF40.html
+Redirect Output*DBE61037E261CDE165E2120438BB65CE.html
+Eject CD*EADB2D153F01C2CE33A2FD85A009E5EF.html
+Advanced PrevInstance*C5632AFDFAE653D3E4B960A3CD1C380C.html
+Console Application*CB98A9754FC4D5AAEC9DB6EFBEBD4132.html
+Console Application II*BDA18107A74914618446F4548DE6EEC8.html
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+End Of file*EEE812D41301556E9385F49FBB834736.html
+Process Memory*F307CAA2589BD8227FE5D6D4A27F5BDA.html
+[RELATED]
+CreateFile
+CreateThread
+CreateMutex
+readfile

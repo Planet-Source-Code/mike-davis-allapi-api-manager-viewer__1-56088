@@ -1,0 +1,20 @@
+[NAME]
+midiOutGetNumDevs
+[DESCRIPTION]
+The midiOutGetNumDevs function retrieves the number of MIDI output devices present in the system.
+[DECLARATION]
+Declare Function midiOutGetNumDevs Lib "winmm" Alias "midiOutGetNumDevs" () As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Returns the number of MIDI output devices. A return value of zero means that there are no devices (not that there is no error). 
+[EXAMPLES]
+midiOut*8733809FDC417FB4B3D88E76BD9E90D7.html
+[RELATED]
+midiOutGetDevCaps
