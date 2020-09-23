@@ -1,0 +1,20 @@
+[NAME]
+GetCommandLine
+[DESCRIPTION]
+The GetCommandLine function returns a pointer to the command-line string for the current process.
+[DECLARATION]
+Declare Function GetCommandLine Lib "kernel32" Alias "GetCommandLineA" () As Long
+[VBNET]
+System.Environment.CommandLine
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is a pointer to the command-line string for the current process. 
+[EXAMPLES]
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+[RELATED]
+commandline

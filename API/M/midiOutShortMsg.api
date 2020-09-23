@@ -1,0 +1,43 @@
+[NAME]
+midiOutShortMsg
+[DESCRIPTION]
+The midiOutShortMsg function sends a short MIDI message to the specified MIDI output device.
+[DECLARATION]
+Declare Function midiOutShortMsg Lib "winmm.dll" (ByVal hMidiOut As Long, ByVal dwMsg As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmo
+Handle of the MIDI output device. This parameter can also be the handle of a MIDI stream cast to HMIDIOUT.
+
+· dwMsg
+MIDI message. The message is packed into a doubleword value with the first byte of the message in the low-order byte. The message is packed into this parameter as follows:
+High word    High-order byte   Not used.
+             Low-order byte    Contains a second byte of MIDI data (when needed).
+Low word     High-order byte   Contains the first byte of MIDI data (when needed).
+             Low-order byte    Contains the MIDI status.
+
+The two MIDI data bytes are optional, depending on the MIDI status byte. When a series of messages have the same status byte, the status byte can be omitted from messages after the first one in the series, creating a running status. Pack a message for running status as follows:
+High word    High-order byte   Not used.
+             Low-order byte    Not used.
+Low word     High-order byte   Contains a second byte of MIDI data (when needed).
+             Low-order byte    Contains the first byte of MIDI data.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MIDIERR_BADOPENMODE 
+ The application sent a message without a status byte to a stream handle. 
+ 
+MIDIERR_NOTREADY 
+ The hardware is busy with other data. 
+ 
+MMSYSERR_INVALHANDLE 
+ The specified device handle is invalid. 
+[EXAMPLES]
+Play Note*771DDE24C93370B83D11FF0423949FCD.html
+[RELATED]
+midiOutClose
+midiOutOpen

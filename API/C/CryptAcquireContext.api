@@ -1,0 +1,112 @@
+[NAME]
+CryptAcquireContext
+[DESCRIPTION]
+The CryptAcquireContext function is used to acquire a handle to a particular key container within a particular CSP. This returned handle can then be used to make calls to the selected CSP.
+[DECLARATION]
+Declare Function CryptAcquireContext Lib "advapi32.dll" Alias "CryptAcquireContextA" (phProv As Long, pszContainer As String, pszProvider As String, ByVal dwProvType As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+System.Security.Cryptography.*
+[OS]
+Windows NT 4.0 or later; Windows 95 OSR2 or later (or Windows 95 with Internet Explorer 3.02 or later)
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· phProv
+[out] The address to which the function copies a handle to the CSP.
+
+· pszContainer
+[in] The key container name. This is a zero-terminated string that identifies the key container to the CSP. This name is independent of the method used to store the keys. Some CSPs will store their key containers internally (in hardware), some will use the system Registry, and others will use the file system.
+If this parameter is NULL, then a default key container name will be used. For example, if the Microsoft RSA Base Provider is being used, then the current user’s logon name will be used as the name of the key container. Other CSPs may also have default key containers that can be acquired in this way.
+An application can obtain the name of the acquired key container at a later time by reading the PP_CONTAINER parameter from the CryptGetProvParam function.
+
+· pszProvider
+[in] The provider name. This is a zero-terminated string that specifies the CSP to be used.
+If this parameter is NULL then the user default provider is used. This situation is discussed in detail in the section Interfacing with a Cryptographic Service Provider (CSP).
+An application can obtain the name of the acquired CSP at a later time by reading the PP_NAME parameter from the CryptGetProvParam function.
+
+· dwProvType
+[in] The type of provider to acquire. The following provider types are predefined. These are discussed in detail in the section Interfacing with a Cryptographic Service Provider (CSP).
+ ·  PROV_RSA_FULL
+ ·  PROV_RSA_SIG
+ ·  PROV_DSS
+ ·  PROV_FORTEZZA
+ ·  PROV_MS_MAIL
+
+· dwFlags
+[in] The flag values. This parameter is normally set to zero, but some applications will set one (and only one) of the following flags:
+CRYPT_VERIFYCONTEXT
+If this flag is set, then the application will have no access to the key container’s private keys. In fact, if pszContainer is NULL and no default key container is present, the application will have no access to a key container at all.
+This option is intended to be used by applications whose only cryptographic need is to verify digital signatures. The only operations normally needed in this case are public key import, hashing, and signature verification.
+When CryptAcquireContext is called, many CSPs will require input from the owning user before granting access to the private keys in the key container. For example, the private keys may be encrypted, requiring a password from the user before they can be used. However, if the CRYPT_VERIFYCONTEXT flag is specified, access to the private keys is not required and the user interface can be bypassed.
+
+CRYPT_NEWKEYSET
+If this flag is set, then a new key container will be created with the name specified by pszContainer. If pszContainer is NULL, then a key container with the default name will be created.
+Note That when key containers are created, most CSPs will not automatically create any public/private key pairs. These keys must be created as a separate step with the CryptGenKey function.
+Important This flag should only be set by administrative applications. Normal applications should not create key containers.
+
+CRYPT_DELETEKEYSET
+If this flag is set, then the key container specified by pszContainer is deleted. If pszContainer is NULL, then the key container with the default name is deleted. All key pairs in the key container are also destroyed.
+When the CRYPT_DELETEKEYSET flag is set, the value returned in phProv is undefined and, thus, the CryptReleaseContext function need not be called afterwards.
+Important This flag should only be set by administrative applications. Normal applications should not destroy key containers.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the function fails, the return value is zero. To retrieve extended error information, use the GetLastError function. 
+
+The following table lists the error codes most commonly returned by the GetLastError function.
+ERROR_INVALID_PARAMETER 
+ One of the parameters contains an invalid value. This is most often an illegal pointer. 
+ 
+ERROR_NOT_ENOUGH_MEMORY 
+ The operating system ran out of memory during the operation. 
+ 
+NTE_BAD_FLAGS 
+ The dwFlags parameter has an illegal value. 
+ 
+NTE_BAD_KEYSET 
+ The Registry entry for the key container could not be opened and may not exist. 
+ 
+NTE_BAD_KEYSET_PARAM 
+ The pszContainer or pszProvider parameter is set to an illegal value. 
+ 
+NTE_BAD_PROV_TYPE 
+ The value of the dwProvType parameter is out of range. All provider types must be from 1 to 999, inclusive. 
+ 
+NTE_BAD_SIGNATURE 
+ The provider DLL signature did not verify correctly. Either the DLL or the digital signature has been tampered with. 
+ 
+NTE_EXISTS 
+ The dwFlags parameter is CRYPT_NEWKEYSET, but the key container already exists. 
+ 
+NTE_KEYSET_ENTRY_BAD 
+ The Registry entry for the pszContainer key container was found (in the HKEY_CURRENT_USER window), but is corrupt. See the section System Administration for details about CryptoAPI’s Registry usage. 
+ 
+NTE_KEYSET_NOT_DEF 
+ No Registry entry exists in the HKEY_CURRENT_USER window for the key container specified by pszContainer. 
+ 
+NTE_NO_MEMORY 
+ The CSP ran out of memory during the operation. 
+ 
+NTE_PROV_DLL_NOT_FOUND 
+ The provider DLL file does not exist or is not on the current path. 
+ 
+NTE_PROV_TYPE_ENTRY_BAD 
+ The Registry entry for the provider type specified by dwProvType is corrupt. This error may relate to either the user default CSP list or the machine default CSP list. See the section System Administration for details about CryptoAPI’s Registry usage. 
+ 
+NTE_PROV_TYPE_NO_MATCH 
+ The provider type specified by dwProvType does not match the provider type found in the Registry. Note that this error can only occur when pszProvider specifies an actual CSP name. 
+ 
+NTE_PROV_TYPE_NOT_DEF 
+ No Registry entry exists for the provider type specified by dwProvType. 
+ 
+NTE_PROVIDER_DLL_FAIL 
+ The provider DLL file could not be loaded, and may not exist. If it exists, then the file is not a valid DLL. 
+ 
+NTE_SIGNATURE_FILE_BAD 
+ An error occurred while loading the DLL file image, prior to verifying its signature. 
+[EXAMPLES]
+Crypto*79AD4E0522A0A67A6E196BE52357E60B.html
+[RELATED]
+CryptGenKey
+CryptGetProvParam
+CryptReleaseContext

@@ -1,0 +1,29 @@
+[NAME]
+EnumDesktops
+[DESCRIPTION]
+The EnumDesktops function enumerates all desktops in the window station assigned to the calling process. The function does so by passing the name of each desktop, in turn, to an application-defined callback function.
+[DECLARATION]
+Declare Function EnumDesktops Lib "user32" Alias "EnumDesktopsA" (ByVal hwinsta As Long, ByVal lpEnumFunc As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Win9x/ME: Not supported
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwinsta
+Specifies the handle to the window station whose desktops are to be enumerated. The CreateWindowStation, GetProcessWindowStation, and OpenWindowStation functions return a window station handle.
+
+· lpEnumFunc
+Points to an application-defined EnumDesktopProc callback function.
+
+· dwDesiredAccess
+Specifies a 32-bit application-defined value to be passed to the callback function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumDesktops*61D8353D4B6B7827D7F7BE22007AC256.html
+[RELATED]
+GetProcessWindowStation

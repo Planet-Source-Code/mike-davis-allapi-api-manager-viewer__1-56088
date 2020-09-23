@@ -1,0 +1,36 @@
+[NAME]
+sndPlaySound
+[DESCRIPTION]
+The sndPlaySound function plays a waveform sound specified either by a filename or by an entry in the registry or the WIN.INI file. This function offers a subset of the functionality of the PlaySound function; sndPlaySound is being maintained for backward compatibility.
+[DECLARATION]
+Declare Function sndPlaySound Lib "winmm.dll" Alias "sndPlaySoundA" (ByVal lpszSoundName As String, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· lpszSound
+A string that specifies the sound to play. This parameter can be either an entry in the registry or in WIN.INI that identifies a system sound, or it can be the name of a waveform-audio file. (If the function does not find the entry, the parameter is treated as a filename.) If this parameter is NULL, any currently playing sound is stopped.
+
+· fuSound
+Flags for playing the sound. The following values are defined:
+SND_ASYNC
+The sound is played asynchronously and the function returns immediately after beginning the sound. To terminate an asynchronously played sound, call sndPlaySound with lpszSoundName set to NULL.
+SND_LOOP
+The sound plays repeatedly until sndPlaySound is called again with the lpszSoundName parameter set to NULL. You must also specify the SND_ASYNC flag to loop sounds.
+SND_MEMORY
+The parameter specified by lpszSoundName points to an image of a waveform sound in memory.
+SND_NODEFAULT
+If the sound cannot be found, the function returns silently without playing the default sound.
+SND_NOSTOP
+If a sound is currently playing, the function immediately returns FALSE, without playing the requested sound.
+SND_SYNC
+The sound is played synchronously and the function does not return until the sound ends.
+[RETURNS]
+Returns TRUE if successful or FALSE otherwise.
+[EXAMPLES]
+Play Sound*A1D3D9552823DC14A6AE08F05812AD0F.html
+[RELATED]
+waveOutGetNumDevs

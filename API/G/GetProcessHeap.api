@@ -1,0 +1,24 @@
+[NAME]
+GetProcessHeap
+[DESCRIPTION]
+The GetProcessHeap function obtains a handle to the heap of the calling process. This handle can then be used in calls to the HeapAlloc, HeapReAlloc, HeapFree, and HeapSize functions.
+[DECLARATION]
+Declare Function GetProcessHeap Lib "kernel32" Alias "GetProcessHeap" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is a handle to the calling process’s heap. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+AdapterAddress*705685484CC1F1A3481096476FA9914C.html
+EnumPorts*4C5449FBA3A6E244B92280E2AC76CFB6.html
+[RELATED]
+HeapAlloc
+HeapFree

@@ -1,0 +1,27 @@
+[NAME]
+GetMenu
+[DESCRIPTION]
+The GetMenu function retrieves the handle of the menu assigned to the given window.
+[DECLARATION]
+Declare Function GetMenu Lib "user32" Alias "GetMenu" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Menu
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose menu handle is retrieved.
+[RETURNS]
+If the function succeeds, the return value is the handle of the menu. If the given window has no menu, the return value is NULL. If the window is a child window, the return value is undefined. 
+[EXAMPLES]
+Bitmap Menu*1EC5CC4476C4AA834EAA48DBF68CE788.html
+SetMenuItemBitmaps*A6D78F8EDEAC42B7423248EACB398F6A.html
+MenuItemInfo*9B9D963EC62084BA4EF4B55EC54A46BF.html
+Auto Click Menu*807DB77F1F69ADA353C26A64D80FD3DD.html
+Radio Menu Item*96EA01F40B88471DBB956C033A65D94F.html
+[RELATED]
+GetSubMenu
+GetMenuItemID
+ModifyMenu

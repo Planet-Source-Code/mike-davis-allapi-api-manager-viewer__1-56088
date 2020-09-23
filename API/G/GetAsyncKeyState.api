@@ -1,0 +1,25 @@
+[NAME]
+GetAsyncKeyState
+[DESCRIPTION]
+The GetAsyncKeyState function determines whether a key is up or down at the time the function is called, and whether the key was pressed after a previous call to GetAsyncKeyState.
+[DECLARATION]
+Declare Function GetAsyncKeyState Lib "user32" Alias "GetAsyncKeyState" (ByVal vKey As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· vKey
+Specifies one of 256 possible virtual-key codes.
+Windows NT: You can use left- and right-distinguishing constants to specify certain keys. See the Remarks section for further information.
+Windows 95: Windows 95 does not support the left- and right-distinguishing constants available on Windows NT.
+[RETURNS]
+If the function succeeds, the return value specifies whether the key was pressed since the last call to GetAsyncKeyState, and whether the key is currently up or down. If the most significant bit is set, the key is down, and if the least significant bit is set, the key was pressed after the previous call to GetAsyncKeyState. The return value is zero if a window in another thread or process currently has the keyboard focus. 
+
+Windows 95: Windows 95 does not support the left- and right-distinguishing constants. If you call GetAsyncKeyState on the Windows 95 platform with these constants, the return value is zero. 
+[EXAMPLES]
+Key Spy*64BED1F862145FDD4477424686646320.html
+[RELATED]
+GetKeyState

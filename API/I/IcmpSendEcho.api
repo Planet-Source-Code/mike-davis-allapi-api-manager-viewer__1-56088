@@ -1,0 +1,43 @@
+[NAME]
+IcmpSendEcho
+[DESCRIPTION]
+This function sends an Internet Control Message Protocol (ICMP) echo request, and returns one or more replies.
+[DECLARATION]
+Private Declare Function IcmpSendEcho Lib "ICMP" (ByVal IcmpHandle As Long, ByVal DestAddress As Long, ByVal RequestData As String, ByVal RequestSize As Integer, RequestOptns As IP_OPTION_INFORMATION, ReplyBuffer As IP_ECHO_REPLY, ByVal ReplySize As Long, ByVal TimeOut As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 2.0
+[LIBRARY]
+Icmp
+[PARAMETERS]
+· IcmpHandle
+[in] ICMP handle opened by IcmpCreateFile.
+
+· DestinationAddress
+[in] Specifies the destination of the echo request.
+
+· RequestData
+[in] Buffer that contains the data to be sent in the request.
+
+· RequestSize
+[in] Number of bytes in the RequestData buffer.
+
+· RequestOptions
+[in] Pointer to the IP header options for the request; may be NULL.
+
+· ReplyBuffer
+[out] Buffer to hold any replies to the request. When the function returns, the buffer will contain one or more ICMP_ECHO_REPLY structures, followed by options and data.
+
+· ReplySize
+[out] Size, in bytes, of the reply buffer. The buffer must be large enough to accommodate at least one ICMP_ECHO_REPLY structure plus eight additional bytes (the size of an ICMP error message).
+
+· Timeout
+[in] Time, in milliseconds, to wait for replies.
+[RETURNS]
+The number of replies received and stored in the reply buffer indicates success. Zero indicates failure. Extended error information is available through GetLastError.
+[EXAMPLES]
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+[RELATED]
+IcmpCreateFile
+IcmpCloseHandle

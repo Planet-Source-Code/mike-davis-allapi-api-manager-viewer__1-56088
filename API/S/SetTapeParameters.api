@@ -1,0 +1,78 @@
+[NAME]
+SetTapeParameters
+[DESCRIPTION]
+The SetTapeParameters function either specifies the block size of a tape or configures the tape device.
+[DECLARATION]
+Declare Function SetTapeParameters Lib "kernel32" Alias "SetTapeParameters" (ByVal hDevice As Long, ByVal dwOperation As Long, lpTapeInformation As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hDevice
+Identifies the device for which to set configuration information. This handle is created by using the CreateFile function.
+
+· dwOperation
+Specifies the type of information to set. This parameter must be one of the following values:
+SET_TAPE_MEDIA_INFORMATION
+ Sets the tape-specific information specified by the lpTapeInformation parameter.
+SET_TAPE_DRIVE_INFORMATION
+ Sets the device-specific information specified by lpTapeInformation.
+
+· lpTapeInformation
+Points to a structure that contains the information to set. If the dwOperation parameter is SET_TAPE_MEDIA_INFORMATION, lpTapeInformation points to a TAPE_SET_MEDIA_PARAMETERS structure.
+If dwOperation is SET_TAPE_DRIVE_INFORMATION, lpTapeInformation points to a TAPE_SET_DRIVE_PARAMETERS structure.
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is one of the following error codes:
+ERROR_BEGINNING_OF_MEDIA 
+ An attempt to access data before the beginning-of-medium marker failed. 
+ 
+ERROR_BUS_RESET 
+ A reset condition was detected on the bus. 
+ 
+ERROR_END_OF_MEDIA 
+ The end-of-tape marker was reached during an operation. 
+ 
+ERROR_FILEMARK_DETECTED 
+ A filemark was reached during an operation. 
+ 
+ERROR_SETMARK_DETECTED 
+ A setmark was reached during an operation. 
+ 
+ERROR_NO_DATA_DETECTED 
+ The end-of-data marker was reached during an operation. 
+ 
+ERROR_PARTITION_FAILURE 
+ The tape could not be partitioned. 
+ 
+ERROR_INVALID_BLOCK_LENGTH 
+ The block size is incorrect on a new tape in a multivolume partition. 
+ 
+ERROR_DEVICE_NOT_PARTITIONED 
+ The partition information could not be found when a tape was being loaded. 
+ 
+ERROR_MEDIA_CHANGED 
+ The tape that was in the drive has been replaced or removed. 
+ 
+ERROR_NO_MEDIA_IN_DRIVE 
+ There is no media in the drive. 
+ 
+ERROR_NOT_SUPPORTED 
+ The tape driver does not support a requested function. 
+ 
+ERROR_UNABLE_TO_LOCK_MEDIA 
+ An attempt to lock the ejection mechanism failed. 
+ 
+ERROR_UNABLE_TO_UNLOAD_MEDIA 
+ An attempt to unload the tape failed. 
+ 
+ERROR_WRITE_PROTECT 
+ The media is write protected. 
+[EXAMPLES]
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+[RELATED]
+GetTapeParameters

@@ -1,0 +1,56 @@
+[NAME]
+OpenProcess
+[DESCRIPTION]
+The OpenProcess function opens an existing process object.
+[DECLARATION]
+Declare Function OpenProcess Lib "Kernel32.dll" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+[VBNET]
+System.Diagnostics.Process.GetProcessById
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwDesiredAccess
+[in] Specifies the access to the process object. For operating systems that support security checking, this access is checked against any security descriptor for the target process. This parameter can be STANDARD_RIGHTS_REQUIRED or one or more of the following values.
+PROCESS_ALL_ACCESS
+ Specifies all possible access flags for the process object.
+PROCESS_CREATE_PROCESS
+ Used internally.
+PROCESS_CREATE_THREAD
+ Enables using the process handle in the CreateRemoteThread function to create a thread in the process.
+PROCESS_DUP_HANDLE
+ Enables using the process handle as either the source or target process in the DuplicateHandle function to duplicate a handle.
+PROCESS_QUERY_INFORMATION
+ Enables using the process handle in the GetExitCodeProcess and GetPriorityClass functions to read information from the process object.
+PROCESS_SET_QUOTA
+ Enables using the process handle in the AssignProcessToJobObject and SetProcessWorkingSetSize functions to set memory limits.
+PROCESS_SET_INFORMATION
+ Enables using the process handle in the SetPriorityClass function to set the priority class of the process.
+PROCESS_TERMINATE
+ Enables using the process handle in the TerminateProcess function to terminate the process.
+PROCESS_VM_OPERATION
+ Enables using the process handle in the VirtualProtectEx and WriteProcessMemory functions to modify the virtual memory of the process.
+PROCESS_VM_READ
+ Enables using the process handle in the ReadProcessMemory function to read from the virtual memory of the process.
+PROCESS_VM_WRITE
+ Enables using the process handle in the WriteProcessMemory function to write to the virtual memory of the process.
+SYNCHRONIZE
+ Windows NT/2000: Enables using the process handle in any of the wait functions to wait for the process to terminate.
+
+· bInheritHandle
+[in] Specifies whether the returned handle can be inherited by a new process created by the current process. If TRUE, the handle is inheritable.
+
+· dwProcessId
+[in] Specifies the identifier of the process to open.
+[RETURNS]
+If the function succeeds, the return value is an open handle of the specified process. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+Process Memory*F307CAA2589BD8227FE5D6D4A27F5BDA.html
+[RELATED]
+CloseHandle
+CreateProcess
+EnumProcesses

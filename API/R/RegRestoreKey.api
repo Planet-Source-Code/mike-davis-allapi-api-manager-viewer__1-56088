@@ -1,0 +1,36 @@
+[NAME]
+RegRestoreKey
+[DESCRIPTION]
+The RegRestoreKey function reads the registry information in a specified file and copies it over the specified key. This registry information may be in the form of a key and multiple levels of subkeys.
+[DECLARATION]
+Declare Function RegRestoreKey Lib "advapi32.dll" Alias "RegRestoreKeyA" (ByVal hKey As Long, ByVal lpFile As String, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+Any information contained in this key and its descendent keys is overwritten by the information in the file pointed to by the lpFile parameter.
+
+· lpFile
+Points to a null-terminated string containing the name of the file with registry information. This file is typically created by using the RegSaveKey function. Under the file allocation table (FAT) file system, the filename may not have an extension.
+
+· dwFlags
+Specifies a flag indicating whether the key is volatile. (A volatile key is valid only until the next time the system is started.) This parameter is optional; if no value is specified, the key is not volatile.
+This parameter can be the REG_WHOLE_HIVE_VOLATILE flag set. Instead of restoring the given key, this flag causes a new, volatile (memory only) set of registry information to be created. (A hive is a large set of registry information, typically containing all of the pertinent information for part of the system. For example, HKEY_LOCAL_MACHINE\Hardware is a volatile hive.)
+If REG_WHOLE_HIVE_VOLATILE is specified, the key identified by the hKey parameter must be either the HKEY_USERS or HKEY_LOCAL_MACHINE value.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+[RELATED]
+RegSaveKey

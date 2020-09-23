@@ -1,0 +1,33 @@
+[NAME]
+PathCompactPathEx
+[DESCRIPTION]
+Truncates a path to fit within a certain number of characters by replacing path components with ellipses.
+[DECLARATION]
+Declare Function PathCompactPathEx Lib "shlwapi.dll" Alias "PathCompactPathExA" (ByVal pszOut As String, ByVal pszSrc As String, ByVal cchMax As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszOut
+[out] Address of the string that has been altered.
+
+· pszSrc
+[in] Address of the string to be altered.
+
+· cchMax
+[in] Maximum number of characters to be contained in the new string, including the terminating NULL character. For example, if cchMax = 8, the resulting string can contain a maximum of 7 characters plus the NULL terminator.
+
+· dwFlags
+Reserved.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise
+[EXAMPLES]
+Path Functions (2)*D31FFFFF9AECF2ADDF1992FAC3F318C1.html
+[RELATED]
+PathCombine
+PathCommonPrefix
+PathCompactPath
+PathCreateFromUrl

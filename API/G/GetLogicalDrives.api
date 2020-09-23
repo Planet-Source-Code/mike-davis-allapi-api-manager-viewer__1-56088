@@ -1,0 +1,22 @@
+[NAME]
+GetLogicalDrives
+[DESCRIPTION]
+The GetLogicalDrives function returns a bitmask representing the currently available disk drives.
+[DECLARATION]
+Declare Function GetLogicalDrives Lib "kernel32" Alias "GetLogicalDrives" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is a bitmask representing the currently available disk drives. Bit position 0 (the least-significant bit) is drive A, bit position 1 is drive B, bit position 2 is drive C, and so on. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+[RELATED]
+GetLogicalDriveStrings

@@ -1,0 +1,63 @@
+[NAME]
+mixerGetID
+[DESCRIPTION]
+The mixerGetID function retrieves the device identifier for a mixer device associated with a specified device handle.
+[DECLARATION]
+Declare Function mixerGetID Lib "winmm.dll" Alias "mixerGetID" (ByVal hmxobj As Long, pumxID As Long, ByVal fdwId As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmxobj
+Handle of the audio mixer object to map to a mixer device identifier.
+
+· puMxId
+Address of a variable that receives the mixer device identifier. If no mixer device is available for the hmxobj object, the value - 1 is placed in this location and the MMSYSERR_NODRIVER error value is returned.
+
+· fdwId
+Flags for mapping the mixer object hmxobj. The following values are defined:
+MIXER_OBJECTF_AUX
+The hmxobj parameter is an auxiliary device identifier in the range of zero to one less than the number of devices returned by the auxGetNumDevs function.
+MIXER_OBJECTF_HMIDIIN
+The hmxobj parameter is the handle of a MIDI input device. This handle must have been returned by the midiInOpen function.
+MIXER_OBJECTF_HMIDIOUT
+The hmxobj parameter is the handle of a MIDI output device. This handle must have been returned by the midiOutOpen function.
+MIXER_OBJECTF_HMIXER
+The hmxobj parameter is a mixer device handle returned by the mixerOpen function. This flag is optional.
+MIXER_OBJECTF_HWAVEIN
+The hmxobj parameter is a waveform-audio input handle returned by the waveInOpen function.
+MIXER_OBJECTF_HWAVEOUT
+The hmxobj parameter is a waveform-audio output handle returned by the waveOutOpen function.
+MIXER_OBJECTF_MIDIIN
+The hmxobj parameter is the identifier of a MIDI input device. This identifier must be in the range of zero to one less than the number of devices returned by the midiInGetNumDevs function.
+MIXER_OBJECTF_MIDIOUT
+The hmxobj parameter is the identifier of a MIDI output device. This identifier must be in the range of zero to one less than the number of devices returned by the midiOutGetNumDevs function.
+MIXER_OBJECTF_MIXER
+The hmxobj parameter is the identifier of a mixer device in the range of zero to one less than the number of devices returned by the mixerGetNumDevs function. This flag is optional.
+MIXER_OBJECTF_WAVEIN
+The hmxobj parameter is the identifier of a waveform-audio input device in the range of zero to one less than the number of devices returned by the waveInGetNumDevs function.
+MIXER_OBJECTF_WAVEOUT
+The hmxobj parameter is the identifier of a waveform-audio output device in the range of zero to one less than the number of devices returned by the waveOutGetNumDevs function.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MMSYSERR_BADDEVICEID 
+ The hmxobj parameter specifies an invalid device identifier. 
+ 
+MMSYSERR_INVALFLAG 
+ One or more flags are invalid. 
+ 
+MMSYSERR_INVALHANDLE 
+ The hmxobj parameter specifies an invalid handle. 
+ 
+MMSYSERR_INVALPARAM 
+ One or more parameters are invalid. 
+ 
+MMSYSERR_NODRIVER 
+ No audio mixer device is available for the object specified by hmxobj. The location referenced by puMxId also contains the value -1. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+mixerOpen

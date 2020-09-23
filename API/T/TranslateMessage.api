@@ -1,0 +1,26 @@
+[NAME]
+TranslateMessage
+[DESCRIPTION]
+The TranslateMessage function translates virtual-key messages into character messages. The character messages are posted to the calling thread’s message queue, to be read the next time the thread calls the GetMessage or PeekMessage function.
+[DECLARATION]
+Declare Function TranslateMessage Lib "user32" Alias "TranslateMessage" (lpMsg As MSG) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpMsg
+Points to an MSG structure that contains message information retrieved from the calling thread’s message queue by using the GetMessage or PeekMessage function.
+[RETURNS]
+If the message is translated (that is, a character message is posted to the thread’s message queue), the return value is nonzero. 
+
+If the message is not translated (that is, a character message is not posted to the thread’s message queue), the return value is zero. 
+
+Windows NT: The TranslateMessage function returns a nonzero value for function and arrow keys as well as for character and digit keys. 
+[EXAMPLES]
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+GetMessage
+DispatchMessage

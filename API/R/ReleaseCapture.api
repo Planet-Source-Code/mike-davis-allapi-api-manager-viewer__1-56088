@@ -1,0 +1,23 @@
+[NAME]
+ReleaseCapture
+[DESCRIPTION]
+The ReleaseCapture function releases the mouse capture from a window in the current thread and restores normal mouse input processing.
+[DECLARATION]
+Declare Function ReleaseCapture Lib "user32" Alias "ReleaseCapture" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Drag Form*9C957F312C79F2F6F91B5D6FE4898AB9.html
+Mouse Capture*D3BC22113C988A4C5A099C36BB8C2089.html
+[RELATED]
+SetCapture

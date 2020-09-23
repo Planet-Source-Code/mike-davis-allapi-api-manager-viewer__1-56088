@@ -1,0 +1,24 @@
+[NAME]
+GetLastError
+[DESCRIPTION]
+The GetLastError function returns the calling thread’s last-error code value. The last-error code is maintained on a per-thread basis. Multiple threads do not overwrite each other’s last-error code.
+[DECLARATION]
+Declare Function GetLastError Lib "kernel32" Alias "GetLastError" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is the calling thread’s last-error code value. Functions set this value by calling the SetLastError function. The Return Value section of each reference page notes the conditions under which the function sets the last-error code. 
+[EXAMPLES]
+Format Message*E50807F37770F79D234F3E6B9F525172.html
+Crypto*79AD4E0522A0A67A6E196BE52357E60B.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+System Shutdown*24891B9AD182321F4B92786FB2ECA2AB.html
+[RELATED]
+SetLastError
+FormatMessage

@@ -1,0 +1,27 @@
+[NAME]
+PathMakePretty
+[DESCRIPTION]
+Converts a path to all lowercase characters to give the path a consistent appearance.
+[DECLARATION]
+Declare Function PathMakePretty Lib "shlwapi.dll" Alias "PathMakePrettyA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpPath
+Address of the path to be converted.
+[RETURNS]
+Returns TRUE if the path has been converted, or FALSE otherwise. 
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathQuoteSpaces
+PathUnquoteSpaces
+PathStripPath
+PathStripToRoot
+PathMatchSpec
+PathMakeSystemFolder
+PathIsSystemFolder

@@ -1,0 +1,21 @@
+[NAME]
+GetNativeSystemInfo
+[DESCRIPTION]
+The GetNativeSystemInfo function retrieves information about the current system to an application running under WOW64. If the function is called from a 64-bit application, it is equivalent to the GetSystemInfo function.
+[DECLARATION]
+Declare Sub GetNativeSystemInfo Lib "kernel32" (lpSystemInfo As SYSTEM_INFO)
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpSystemInfo 
+[out] Pointer to a SYSTEM_INFO structure that receives the information. 
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+WOW64 Process*204681CC993005C53238F78B48EA9F58.html
+[RELATED]
+GetSystemInfo

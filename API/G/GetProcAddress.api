@@ -1,0 +1,27 @@
+[NAME]
+GetProcAddress
+[DESCRIPTION]
+The GetProcAddress function returns the address of the specified exported dynamic-link library (DLL) function.
+[DECLARATION]
+Declare Function GetProcAddress Lib "kernel32" Alias "GetProcAddress" (ByVal hModule As Long, ByVal lpProcName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hModule
+Identifies the DLL module that contains the function. The LoadLibrary or GetModuleHandle function returns this handle.
+
+· lpProcName
+Points to a null-terminated string containing the function name, or specifies the function’s ordinal value. If this parameter is an ordinal value, it must be in the low-order word; the high-order word must be zero.
+[RETURNS]
+If the function succeeds, the return value is the address of the DLL’s exported function. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Call Procedure*BFE74A1901430F2637D60129E2B3C775.html
+Register Server (2)*27D7E88041923D22A3F0BF14F852A36A.html
+[RELATED]
+CallWindowProc

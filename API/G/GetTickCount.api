@@ -1,0 +1,22 @@
+[NAME]
+GetTickCount
+[DESCRIPTION]
+The GetTickCount function retrieves the number of milliseconds that have elapsed since Windows was started.
+[DECLARATION]
+Declare Function GetTickCount Lib "kernel32" Alias "GetTickCount" () As Long
+[VBNET]
+System.Environment.TickCount
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is the number of milliseconds that have elapsed since Windows was started. 
+[EXAMPLES]
+Tick Count*F4A394F32B375DD24D16EF47B25F617A.html
+CopyMemory*78B7EB3292227F68525AD8372D7F8D47.html
+ScrollDC*B5E684592EBC7270DDCFE1C072E99F75.html
+[RELATED]
+tickcount

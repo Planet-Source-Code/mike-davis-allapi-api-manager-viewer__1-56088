@@ -1,0 +1,31 @@
+[NAME]
+CreateDirectory
+[DESCRIPTION]
+The CreateDirectory function creates a new directory. If the underlying file system supports security on files and directories, the function applies a specified security descriptor to the new directory. Note that CreateDirectory does not have a template parameter, while CreateDirectoryEx does.
+[DECLARATION]
+Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As SECURITY_ATTRIBUTES) As Long
+[VBNET]
+System.IO.Directory.CreateDirectory
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpPathName
+Points to a null-terminated string that specifies the path of the directory to be created.
+There is a default string size limit for paths of MAX_PATH characters. This limit is related to how the CreateDirectory function parses paths.
+Windows NT: An application can transcend this limit and send in paths longer than MAX_PATH characters by calling the wide (W) version of CreateDirectory and prepending “\\?\” to the path. The “\\?\” tells the function to turn off path parsing; it lets paths longer than MAX_PATH be used with CreateDirectoryW. This also works with UNC names. The “\\?\” is ignored as part of the path. For example, “\\?\C:\myworld\private” is seen as “C:\myworld\private”, and “\\?\UNC\bill_g_1\hotstuff\coolapps” is seen as “\\bill_g_1\hotstuff\coolapps”.
+
+· lpSecurityAttributes
+Pointer to a SECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If lpSecurityAttributes is NULL, the handle cannot be inherited.
+Windows NT: The lpSecurityDescriptor member of the structure specifies a security descriptor for the new directory. If lpSecurityAttributes is NULL, the directory gets a default security descriptor. The target file system must support security on files and directories for this parameter to have an effect.
+Windows 95: The lpSecurityDescriptor member of the structure is ignored.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+CreateDirectory*9D6DD5A5D10F3CE4345DEDDD81DC164F.html
+[RELATED]
+SHFileOperation
+directories

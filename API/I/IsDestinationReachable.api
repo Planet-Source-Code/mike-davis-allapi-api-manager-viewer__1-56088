@@ -1,0 +1,27 @@
+[NAME]
+IsDestinationReachable
+[DESCRIPTION]
+Determines if the specified destination can be reached and provides Quality of Connection (QOC) information for the destination.
+[DECLARATION]
+Declare Function IsDestinationReachable Lib "SENSAPI.DLL" Alias "IsDestinationReachableA" (ByVal lpszDestination As String, ByRef lpQOCInfo As QOCINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 5 or later); Requires Windows 95 or later (with Internet Explorer 5 or later)
+[LIBRARY]
+Sensapi
+[PARAMETERS]
+· lpszDestination 
+Pointer to a string that specifies the destination. The destination can be an IP address, a UNC name, or an URL. 
+
+· lpQOCInfo 
+Pointer to the QOCINFO structure that receives the Quality of Connection (QOC) information. You can supply a NULL pointer if the QOC information is not desired. 
+[RETURNS]
+TRUE 
+ The destination can be reached. 
+FALSE 
+ Call GetLastError to determine the reason why the destination cannot be reached. 
+[EXAMPLES]
+IsDestinationReachable*B3AD8321980845B42DE94A1B8D5A124C.html
+[RELATED]
+IsNetworkAlive

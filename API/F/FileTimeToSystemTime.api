@@ -1,0 +1,29 @@
+[NAME]
+FileTimeToSystemTime
+[DESCRIPTION]
+The FileTimeToSystemTime function converts a 64-bit file time to system time format.
+[DECLARATION]
+Declare Function FileTimeToSystemTime Lib "kernel32" Alias "FileTimeToSystemTime" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileTime
+Pointer to a FILETIME structure containing the file time to convert to system date and time format.
+The FileTimeToSystemTime function only works with FILETIME values that are less than 0x8000000000000000. The function fails with values equal to or greater than that.
+
+· lpSystemTime
+Pointer to a SYSTEMTIME structure to receive the converted file time.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+ProcessTimes*A0EAE11E2E5ACB3441FD8B778CFB4E14.html
+Thread Times*8D6FC9841DDA1100AC290DBEDF787EA5.html
+[RELATED]
+FileTimeToLocalFileTime

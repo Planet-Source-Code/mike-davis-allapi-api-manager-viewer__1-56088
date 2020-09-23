@@ -1,0 +1,22 @@
+[NAME]
+ExitProcess
+[DESCRIPTION]
+The ExitProcess function ends a process and all its threads.
+[DECLARATION]
+Declare Sub ExitProcess Lib "kernel32" Alias "ExitProcess" (ByVal uExitCode As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· uExitCode
+Specifies the exit code for the process, and for all threads that are terminated as a result of this call. Use the GetExitCodeProcess function to retrieve the process’s exit value. Use the GetExitCodeThread function to retrieve a thread’s exit value.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+ExitProcess*369C402B8A5D413EA013414CC6F92B78.html
+[RELATED]
+GetExitCodeProcess
+GetCurrentProcess

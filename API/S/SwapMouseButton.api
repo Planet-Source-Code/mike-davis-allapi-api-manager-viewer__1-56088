@@ -1,0 +1,23 @@
+[NAME]
+SwapMouseButton
+[DESCRIPTION]
+The SwapMouseButton function reverses or restores the meaning of the left and right mouse buttons.
+[DECLARATION]
+Declare Function SwapMouseButton Lib "user32" Alias "SwapMouseButton" (ByVal bSwap As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· fSwap
+Specifies whether the mouse button meanings are reversed or restored. If this parameter is TRUE, the left button generates right-button messages and the right button generates left-button messages. If this parameter is FALSE, the buttons are restored to their original meanings.
+[RETURNS]
+If the meaning of the mouse buttons was reversed previously, before the function was called, the return value is nonzero. 
+
+If the meaning of the mouse buttons was not reversed, the return value is zero. 
+[EXAMPLES]
+Swap Mouse Buttons*46983E724884C1624197702AADA859A8.html
+[RELATED]
+

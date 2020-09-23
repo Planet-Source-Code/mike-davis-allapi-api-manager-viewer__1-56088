@@ -1,0 +1,27 @@
+[NAME]
+GetConsoleDisplayMode
+[DESCRIPTION]
+The GetConsoleDisplayMode function retrieves the display mode of the current console.
+[DECLARATION]
+Declare Function GetConsoleDisplayMode Lib "kernel32" (lpModeFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpModeFlags 
+[out] Display mode of the console. This parameter can be one or more of the following values.
+CONSOLE_FULLSCREEN 
+ Full-screen console. The console is in this mode as soon as the window is maximized. At this point, the transition to full-screen mode can still fail. 
+CONSOLE_FULLSCREEN_HARDWARE 
+ Full-screen console communicating directly with the video hardware. This mode is set after the console is in CONSOLE_FULLSCREEN mode to indicate that the transition to full-screen mode has completed. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Console Application II*BDA18107A74914618446F4548DE6EEC8.html
+[RELATED]
+GetConsoleFontSize

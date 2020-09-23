@@ -1,0 +1,42 @@
+[NAME]
+SHAutoComplete
+[DESCRIPTION]
+Instructs system edit controls to use AutoComplete to help complete URLs or file system paths.
+[DECLARATION]
+Private Declare Sub SHAutoComplete Lib "shlwapi.dll" (ByVal hwndEdit As Long, ByVal dwFlags As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 5.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 5.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· hwndEdit 
+[in] Window handle of a system edit control. Typically, this parameter is the handle of an edit control or the edit control embedded in a comboboxex control. 
+
+· dwFlags 
+[in] Flags to control the operation of SHAutoComplete. The first four flags are used to override the Microsoft® Internet Explorer registry settings. The user can change these settings manually by launching the Internet Options property sheet from the Tools menu and clicking the Advanced tab. SHACF_AUTOAPPEND_FORCE_OFF Ignore the registry default and force the autoappend feature off. This flag must be used in combination with one or more of the SHACF_FILESYSXXX or SHACF_URLXXX flags. 
+SHACF_AUTOAPPEND_FORCE_ON 
+ Ignore the registry value and force the autoappend feature on. The completed string will be displayed in the edit box with the added characters highlighted. This flag must be used in combination with one or more of the SHACF_FILESYSXXX or SHACF_URLXXX flags. 
+SHACF_AUTOSUGGEST_FORCE_OFF  
+ Ignore the registry default and force the autosuggest feature off. This flag must be used in combination with one or more of the SHACF_FILESYSXXX or SHACF_URLXXX flags. 
+SHACF_AUTOSUGGEST_FORCE_ON  
+ Ignore the registry value and force the autosuggest feature on. A selection of possible completed strings will be displayed as a drop-down list, below the edit box. This flag must be used in combination with one or more of the SHACF_FILESYSXXX or SHACF_URLXXX flags. 
+SHACF_DEFAULT 
+ The default setting, equivalent to SHACF_FILESYSTEM | SHACF_URLALL. SHACF_DEFAULT cannot be combined with any other flags. 
+SHACF_FILESYSTEM 
+ Include the file system. 
+SHACF_URLALL 
+ Include the URLs in the users History and Recently Used lists. Equivalent to SHACF_URLHISTORY | SHACF_URLMRU. 
+SHACF_URLHISTORY  
+ Include the URLs in the user's History list. 
+SHACF_URLMRU 
+ Include the URLs in the user's Recently Used list. 
+SHACF_USETAB 
+ Allow the user to select from the autosuggest list by pressing the TAB key. If this flag is not set, pressing the TAB key will shift focus to the next control and close the autosuggest list. If SHACF_USETAB is set, pressing the TAB key will select the first item in the list. Pressing TAB again will select the next item in the list, and so on. When the user reaches the end of the list, the next TAB key press will cycle the focus back to the edit control. This flag must be used in combination with one or more of the SHACF_FILESYSXXX or SHACF_URLXXX flags. 
+[RETURNS]
+Returns S_OK if successful, or a standard OLE error value otherwise.
+[EXAMPLES]
+AutoComplete*A5B073D2349CD7DD3CE14DF3216B0E81.html
+[RELATED]
+

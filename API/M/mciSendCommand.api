@@ -1,0 +1,32 @@
+[NAME]
+mciSendCommand
+[DESCRIPTION]
+The mciSendCommand function sends a command message to the specified MCI device.
+[DECLARATION]
+Declare Function mciSendCommand Lib "winmm.dll" Alias "mciSendCommandA" (ByVal wDeviceID As Long, ByVal uMessage As Long, ByVal dwParam1 As Long, ByRef dwParam2 As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· IDDevice 
+Device identifier of the MCI device that is to receive the command message. This parameter is not used with the MCI_OPEN command message. 
+
+· uMsg 
+Command message. For information about command messages, see Command Messages. 
+
+· fdwCommand 
+Flags for the command message. 
+
+· dwParam 
+Address of a structure that contains parameters for the command message. 
+[RETURNS]
+Returns zero if successful or an error otherwise. The low-order word of the returned doubleword value contains the error return value. If the error is device-specific, the high-order word of the return value is the driver identifier; otherwise, the high-order word is zero. For a list of possible return values, see Constants: MCIERR Return Values. 
+
+To retrieve a text description of mciSendCommand return values, pass the return value to the mciGetErrorString function. 
+[EXAMPLES]
+mciSendCommand*0A7B74FDAE39E1281F12FB93F367030F.html
+[RELATED]
+mciGetErrorString

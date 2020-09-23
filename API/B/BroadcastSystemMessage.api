@@ -1,0 +1,70 @@
+[NAME]
+BroadcastSystemMessage
+[DESCRIPTION]
+The BroadcastSystemMessage function sends a message to the specified recipients. The recipients can be applications, installable drivers, Windows-based network drivers, system-level device drivers, or any combination of these system components.
+[DECLARATION]
+Declare Function BroadcastSystemMessage Lib "user32" Alias "BroadcastSystemMessage" (ByVal dw As Long, pdw As Long, ByVal un As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· dwFlags
+Option flags. Can be a combination of the following values:
+BSF_FLUSHDISK
+ Flush the disk after each recipient processes the message.
+BSF_FORCEIFHUNG
+ Continue to broadcast the message, even if the time-out period elapses or one of the recipients is hung..
+BSF_IGNORECURRENTTASK
+ Do not send the message to windows that belong to the current task. This prevents an application from receiving its own message.
+BSF_NOHANG
+ Force a hung application to time out. If one of the recipients times out, do not continue broadcasting the message.
+BSF_NOTIMEOUTIFNOTHUNG
+ Wait for a response to the message, as long as the recipient is not hung. Do not time out.
+BSF_POSTMESSAGE
+ Post the message. Do not use in combination with BSF_QUERY.
+BSF_QUERY
+ Send the message to one recipient at a time, sending to a subsequent recipient only if the current recipient returns TRUE.
+
+· lpdwRecipients
+Pointer to a variable that contains and receives information about the recipients of the message. The variable can be a combination of the following values:
+BSM_ALLCOMPONENTS
+ Broadcast to all system components.
+BSM_ALLDESKTOPS
+ Windows NT only: Broadcast to all desktops. Requires the SE_TCB_NAME privilege.
+BSM_APPLICATIONS
+ Broadcast to applications.
+BSM_INSTALLABLEDRIVERS
+ Windows 95: Broadcast to installable drivers.
+ Windows NT: This value is not meaningful.
+BSM_NETDRIVER
+ Windows 95: Broadcast to Windows-based network drivers.
+ Windows NT: This value is not meaningful.
+BSM_VXDS
+ Windows 95: Broadcast to all system-level device drivers.
+ Windows NT: This value is not meaningful.
+
+When the function returns, this variable receives a combination of these values identifying which recipients actually received the message.
+If this parameter is NULL, the function broadcasts to all components.
+
+· uiMessage
+Identifier of the system message.
+
+· wParam
+32-bit message-specific value.
+
+· lParam
+32-bit message-specific value.
+[RETURNS]
+If the function succeeds, the return value is a positive value. 
+
+If the function is unable to broadcast the message, the return value is -1. 
+
+If the dwFlags parameter is BSF_QUERY and at least one recipient returned BROADCAST_QUERY_DENY to the corresponding message, the return value is zero. 
+[EXAMPLES]
+Broadcast Message*D65DDDCEDC94A75D2FACCDCAAD0F60A9.html
+[RELATED]
+PostMessage
+SendMessage

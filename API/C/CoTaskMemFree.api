@@ -1,0 +1,25 @@
+[NAME]
+CoTaskMemFree
+[DESCRIPTION]
+Frees a block of task memory previously allocated through a call to the CoTaskMemAlloc or CoTaskMemRealloc function.
+[DECLARATION]
+Declare Sub CoTaskMemFree Lib "ole32.dll" (ByVal hMem As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Ole32
+[PARAMETERS]
+· pv
+[in] Pointer to the memory block to be freed.
+[RETURNS]
+The CoTaskMemFree function, using the default OLE allocator, frees a block of memory previously allocated through a call to the CoTaskMemAlloc or CoTaskMemRealloc function. 
+
+The number of bytes freed equals the number of bytes that were originally allocated or reallocated. After the call, the memory block pointed to by pv is invalid and can no longer be used. 
+
+Note The pv parameter can be NULL, in which case this method has no effect. 
+[EXAMPLES]
+Browse For Folder*774F8232380EA83E4CF374E8F31ED355.html
+[RELATED]
+

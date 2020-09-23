@@ -1,0 +1,30 @@
+[NAME]
+DefMDIChildProc
+[DESCRIPTION]
+The DefMDIChildProc function provides default processing for any window message that the window procedure of a multiple document interface (MDI) child window does not process. A window message not processed by the window procedure must be passed to the DefMDIChildProc function, not to the DefWindowProc function.
+[DECLARATION]
+Declare Function DefMDIChildProc Lib "user32" Alias "DefMDIChildProcA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the MDI child window.
+
+· uMsg
+Specifies the message to be processed.
+
+· wParam
+Specifies additional message-specific information.
+
+· lParam
+Specifies additional message-specific information.
+[RETURNS]
+The return value specifies the result of the message processing and depends on the message.
+[EXAMPLES]
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+DefWindowProc

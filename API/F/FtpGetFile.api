@@ -1,0 +1,60 @@
+[NAME]
+FtpGetFile
+[DESCRIPTION]
+Retrieves a file from the FTP server and stores it under the specified file name, creating a new local file in the process.
+[DECLARATION]
+Declare Function FtpGetFile Lib "wininet.dll" Alias "FtpGetFileA" (ByVal hConnect As Long, ByVal lpszRemoteFile As String, ByVal lpszNewFile As String, ByVal fFailIfExists As Long, ByVal dwFlagsAndAttributes As Long, ByVal dwFlags As Long, ByRef dwContext As Long) As Boolean
+[VBNET]
+Not implemented
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hConnect
+[in] Valid handle to an FTP session.
+
+· lpszRemoteFile
+[in] Address of a null-terminated string that contains the name of the file to retrieve from the remote system.
+
+· lpszNewFile
+[in] Address of a null-terminated string that contains the name of the file to create on the local system.
+
+· fFailIfExists
+[in] BOOL that indicates whether the function should proceed if a local file of the specified name already exists. If fFailIfExists is TRUE and the local file exists, FtpGetFile fails.
+
+· dwFlagsAndAttributes
+[in] Unsigned long integer value that contains the file attributes for the new file. This can be any combination of the FILE_ATTRIBUTE_* flags used by the CreateFile  function. For more information on FILE_ATTRIBUTE_* attributes, see CreateFile in the Platform SDK.
+
+· dwFlags
+[in] Unsigned long integer value that contains the flags that control how the function will handle the file download. The first set of flag values indicates the conditions under which the transfer occurs. These transfer type flags can be used in combination with the second set of flags that control caching.
+The application can select one of these transfer type values:
+FTP_TRANSFER_TYPE_ASCII
+ Transfers the file using FTP's ASCII (Type A) transfer method. Control and formatting information is converted to local equivalents.
+FTP_TRANSFER_TYPE_BINARY
+ Transfers the file using FTP's Image (Type I) transfer method. The file is transferred exactly as it exists with no changes. This is the default transfer method.
+FTP_TRANSFER_TYPE_UNKNOWN
+ Defaults to FTP_TRANSFER_TYPE_BINARY.
+INTERNET_FLAG_TRANSFER_ASCII
+ Transfers the file as ASCII.
+INTERNET_FLAG_TRANSFER_BINARY
+ Transfers the file as binary.
+The following flags determine how the caching of this file will be done. Any combination of the following flags can be used with the transfer type flag. The possible values are:
+
+INTERNET_FLAG_HYPERLINK
+ Forces a reload if there was no Expires time and no LastModified time returned from the server when determining whether to reload the item from the network.
+INTERNET_FLAG_NEED_FILE
+ Causes a temporary file to be created if the file cannot be cached.
+INTERNET_FLAG_RELOAD
+ Forces a download of the requested file, object, or directory listing from the origin server, not from the cache.
+INTERNET_FLAG_RESYNCHRONIZE
+ Reloads HTTP resources if the resource has been modified since the last time it was downloaded. All FTP and Gopher resources are reloaded.
+
+· dwContext
+[in] Address of an unsigned long integer value that contains the application-defined value that associates this search with any application data. This is used only if the application has already called InternetSetStatusCallback to set up a status callback function.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get a specific error code, call GetLastError. 
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+FtpPutFile

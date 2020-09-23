@@ -1,0 +1,27 @@
+[NAME]
+GetProfileInt
+[DESCRIPTION]
+The GetProfileInt function retrieves an integer from a key in the specified section of the Win.ini file. <br><br>Note  This function is provided only for compatibility with 16-bit Windows-based applications. Applications should store initialization information in the registry.
+[DECLARATION]
+Declare Function GetProfileInt Lib "kernel32" Alias "GetProfileIntA" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal nDefault As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName 
+[in] Pointer to a null-terminated string that specifies the name of the section containing the key name. 
+
+· lpKeyName 
+[in] Pointer to the null-terminated string specifying the name of the key whose value is to be retrieved. This value is in the form of a string; the GetProfileInt function converts the string into an integer and returns the integer. 
+
+· nDefault 
+[in] Specifies the default value to return if the key name cannot be found in the initialization file. 
+[RETURNS]
+The return value is the integer equivalent of the string following the key name in Win.ini. If the function cannot find the key, the return value is the default value. If the value of the key is less than zero, the return value is zero.
+[EXAMPLES]
+Profile String/Int*290543C1ED1FC8ACFCE1C1B21D77DCED.html
+[RELATED]
+WriteProfileString

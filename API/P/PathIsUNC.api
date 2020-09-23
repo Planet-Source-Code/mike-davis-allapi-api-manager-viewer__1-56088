@@ -1,0 +1,24 @@
+[NAME]
+PathIsUNC
+[DESCRIPTION]
+Determines if the string is a valid UNC (universal naming convention) for a server and share path.
+[DECLARATION]
+Declare Function PathIsUNC Lib "shlwapi.dll" Alias "PathIsUNCA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+Address of the path to validate.
+[RETURNS]
+Returns TRUE if the string is a valid UNC path, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (5)*3C8CF3591E287C7FF73FEF775E8A315A.html
+[RELATED]
+PathIsSameRoot
+PathIsUNCServer
+PathIsUNCServerShare
+PathIsURL

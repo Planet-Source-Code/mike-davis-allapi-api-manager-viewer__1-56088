@@ -1,0 +1,21 @@
+[NAME]
+GetFreeResources
+[DESCRIPTION]
+The GetFreeResources function retrieves information about the free system resources.
+[DECLARATION]
+Declare Function GetFreeResources Lib "RSRC32" Alias "_MyGetFreeSystemResources32@4" (ByVal lWhat As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires RSRC32.DLL
+[LIBRARY]
+Rsrc32
+[PARAMETERS]
+· lWhat
+specifies what information to return
+[RETURNS]
+Returns the free resources.
+[EXAMPLES]
+Free Resources*DC1B759BC84CCDC5C9383D4BB6D0ACB9.html
+[RELATED]
+

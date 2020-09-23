@@ -1,0 +1,26 @@
+[NAME]
+DdeFreeStringHandle
+[DESCRIPTION]
+The DdeFreeStringHandle function frees a string handle in the calling application.
+[DECLARATION]
+Declare Function DdeFreeStringHandle Lib "user32" Alias "DdeFreeStringHandle" (ByVal idInst As Long, ByVal hsz As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· idInst
+Specifies the application instance identifier obtained by a previous call to the DdeInitialize function.
+
+· hsz
+Identifies the string handle to be freed. This handle must have been created by a previous call to the DdeCreateStringHandle function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+DDE Conversation*AB78B6427AE71B26FBD5BD1F43551BA1.html
+[RELATED]
+DdeCreateStringHandle

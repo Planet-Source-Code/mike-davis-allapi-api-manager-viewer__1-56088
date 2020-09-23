@@ -1,0 +1,26 @@
+[NAME]
+SetColorAdjustment
+[DESCRIPTION]
+The SetColorAdjustment function sets the color adjustment values for a device context (DC) using the specified values.
+[DECLARATION]
+Declare Function SetColorAdjustment Lib "gdi32" Alias "SetColorAdjustment" (ByVal hdc As Long, lpca As COLORADJUSTMENT) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lpca
+Points to a COLORADJUSTMENT structure containing the color adjustment values.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ColorAdjustment*CCF635CFE4B221D627087F594B3C1D26.html
+[RELATED]
+GetColorAdjustment

@@ -1,0 +1,69 @@
+[NAME]
+EnumResourceNames
+[DESCRIPTION]
+The EnumResourceNames function searches a module for each resource of the specified type and passes the name of each resource it locates to an application-defined callback function.
+[DECLARATION]
+Declare Function EnumResourceNames Lib "kernel32" Alias "EnumResourceNamesA" (ByVal HModule As Long, ByVal lpType As resType, ByVal lpEnumFunc As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hModule 
+Identifies the module whose executable file contains the resources for which the names are to be enumerated. If this parameter is NULL, the function enumerates the resource names in the module used to create the current process. 
+
+· lpszType 
+Points to a null-terminated string specifying the type name of the resource for which the name is being enumerated. For standard resource types, this parameter can be one of the following values:
+RT_ACCELERATOR 
+ Accelerator table 
+RT_ANICURSOR 
+ Animated cursor 
+RT_ANIICON 
+ Animated icon 
+RT_BITMAP 
+ Bitmap resource 
+RT_CURSOR 
+ Hardware-dependent cursor resource 
+RT_DIALOG 
+ Dialog box 
+RT_FONT 
+ Font resource 
+RT_FONTDIR 
+ Font directory resource 
+RT_GROUP_CURSOR 
+ Hardware-independent cursor resource 
+RT_GROUP_ICON 
+ Hardware-independent icon resource 
+RT_ICON 
+ Hardware-dependent icon resource 
+RT_MENU 
+ Menu resource 
+RT_MESSAGETABLE 
+ Message-table entry 
+RT_PLUGPLAY 
+ Plug and play resource 
+RT_RCDATA 
+ Application-defined resource (raw data) 
+RT_STRING 
+ String-table entry 
+RT_VERSION 
+ Version resource 
+RT_VXD 
+ VXD 
+ 
+· lpEnumFunc 
+Points to the callback function to be called for each enumerated resource name. For more information, see the EnumResNameProc function. 
+
+· lParam 
+Specifies an application-defined value passed to the callback function. This parameter can be used in error checking. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumResources*7ECF27320393EB56B2A2F1406BA51BC9.html
+[RELATED]
+LoadLibrary
+LoadLibraryEx

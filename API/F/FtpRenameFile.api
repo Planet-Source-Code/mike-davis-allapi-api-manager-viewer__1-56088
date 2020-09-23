@@ -1,0 +1,27 @@
+[NAME]
+FtpRenameFile
+[DESCRIPTION]
+Renames a file stored on the FTP server.
+[DECLARATION]
+Declare Function FtpRenameFile Lib "wininet.dll" Alias "FtpRenameFileA" (ByVal hFtpSession As Long, ByVal lpszExisting As String, ByVal lpszNew As String) As Boolean
+[VBNET]
+Not implemented
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hConnect
+[in] Valid HINTERNET handle to an FTP session.
+
+· lpszExisting
+[in] Address of a null-terminated string that contains the name of the file that will have its name changed on the remote FTP server.
+
+· lpszNew
+[in] Address of a null-terminated string that contains the new name for the remote file.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get a specific error code, call GetLastError.
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+FtpPutFile

@@ -1,0 +1,80 @@
+[NAME]
+NetShareGetInfo
+[DESCRIPTION]
+The NetShareGetInfo function retrieves information about a particular shared resource on a server.
+[DECLARATION]
+Declare Function NetShareGetInfo Lib "Netapi32.dll" (strServerName As Any, strNetName As Any, ByVal nLevel As Long, pBuffer As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· servername
+[in] Pointer to a Unicode (Windows NT/2000) or ANSI (Windows 95/98) string specifying the name of the remote server on which the function is to execute. The string must begin with \\. If this parameter is NULL, the local computer is used.
+
+· netname
+[in] Pointer to a Unicode (Windows NT/2000) or ANSI (Windows 95/98) string specifying the name of the share for which to return information.
+
+· level
+[in] Specifies the information level of the data. This parameter can be one of the following values.
+0
+ Return the share name.
+Windows NT/2000: The bufptr parameter points to a SHARE_INFO_0 structure.
+Windows 95/98: The pbBuffer parameter points to a share_info_0 structure.
+
+1
+ Return information about the shared resource, including the name and type of the resource, and a comment associated with the resource.
+Windows NT/2000: The bufptr parameter points to a SHARE_INFO_1 structure.
+Windows 95/98: The pbBuffer parameter points to a share_info_1 structure.
+
+2
+ Return information about the shared resource, including name of the resource, type and permissions, password, and number of connections.
+Windows NT/2000: The bufptr parameter points to a SHARE_INFO_2 structure.
+Windows 95/98: The pbBuffer parameter points to a share_info_2 structure.
+
+50
+ Windows 95/98: Return information about the shared resource, including the name and type of the resource, a comment associated with the resource, and passwords. The pbBuffer parameter points to a share_info_50 structure.
+
+501
+ Windows NT/2000: Return the name and type of the resource, and a comment associated with the resource. The bufptr parameter points to a SHARE_INFO_501 structure.
+
+502
+ Windows NT/2000: Return information about the shared resource, including name of the resource, type and permissions, number of connections, and other pertinent information. The bufptr parameter points to a SHARE_INFO_502 structure.
+
+1005
+ Windows NT/2000: Return a value that indicates whether the share is the root volume in a Dfs tree structure. The bufptr parameter points to a SHARE_INFO_1005 structure.
+
+· bufptr
+[out] Pointer to the buffer that receives the data. The format of this data depends on the value of the level parameter.
+Windows NT/2000: This buffer is allocated by the system and must be freed using the NetApiBufferFree function. Note that you must free the buffer even if the function fails with ERROR_MORE_DATA.
+Windows 95/98: The caller must allocate and deallocate this buffer.
+[RETURNS]
+If the function returns account information, the return value is NERR_Success. 
+
+If the function fails, the return value is one of the following error codes.
+ERROR_ACCESS_DENIED 
+ The user does not have access to the requested information. 
+ 
+ERROR_INVALID_LEVEL 
+ The value specified for the Level parameter is invalid. 
+ 
+ERROR_INVALID_PARAMETER 
+ The specified parameter is invalid. 
+ 
+ERROR_MORE_DATA 
+ More entries are available with subsequent calls. 
+ 
+ERROR_NOT_ENOUGH_MEMORY 
+ Insufficient memory is available. 
+ 
+NERR_BufTooSmall 
+ The supplied buffer is too small. 
+ 
+NERR_NetNameNotFound 
+ The sharename does not exist. 
+[EXAMPLES]
+NetShareGetInfo*647D901BF0469F6B8990DAD3B80FD14B.html
+[RELATED]
+NetApiBufferFree

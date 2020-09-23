@@ -1,0 +1,61 @@
+[NAME]
+SetDIBitsToDevice
+[DESCRIPTION]
+The SetDIBitsToDevice function sets the pixels in the specified rectangle on the device that is associated with the destination device context using color data from a device-independent bitmap (DIB).
+[DECLARATION]
+Declare Function SetDIBitsToDevice Lib "gdi32" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal dx As Long, ByVal dy As Long, ByVal SrcX As Long, ByVal SrcY As Long, ByVal Scan As Long, ByVal NumScans As Long, Bits As Any, BitsInfo As BITMAPINFO, ByVal wUsage As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawImage
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· XDest
+Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· YDest
+Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+
+· dwWidth
+Specifies the width, in logical units, of the DIB.
+
+· dwHeight
+Specifies the height, in logical units, of the DIB.
+
+· XSrc
+Specifies the x-coordinate, in logical units, of the lower-left corner of the DIB.
+
+· YSrc
+Specifies the y-coordinate, in logical units, of the lower-left corner of the DIB.
+
+· uStartScan
+Specifies the starting scan line in the DIB.
+
+· cScanLines
+Specifies the number of DIB scan lines contained in the array pointed to by the lpvBits parameter.
+
+· lpvBits
+Points to DIB color data stored as an array of bytes.
+
+· lpbmi
+Points to a BITMAPINFO structure that contains information about the DIB.
+
+· fuColorUse
+Specifies whether the bmiColors member of the BITMAPINFO structure contains explicit red, green, blue (RGB) values or indices into a palette. The fuColorUse parameter must be one of the following values:
+DIB_PAL_COLORS
+ The color table consists of an array of 16-bit indices into the currently selected logical palette.
+DIB_RGB_COLORS
+ The color table contains literal RGB values.
+[RETURNS]
+If the function succeeds, the return value is the number of scan lines set. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+DIB*AF7BEA96A353CD96C37F664EF9905EE1.html
+[RELATED]
+GetDIBits
+Bitmaps

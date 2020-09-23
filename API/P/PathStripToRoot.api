@@ -1,0 +1,27 @@
+[NAME]
+PathStripToRoot
+[DESCRIPTION]
+Removes all parts of the path except for the root information.
+[DECLARATION]
+Declare Function PathStripToRoot Lib "shlwapi.dll" Alias "PathStripToRootA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· szRoot
+Address of the path to be converted.
+[RETURNS]
+Returns TRUE if a valid drive letter was found in the path, or FALSE otherwise
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathQuoteSpaces
+PathUnquoteSpaces
+PathStripPath
+PathMatchSpec
+PathMakeSystemFolder
+PathIsSystemFolder

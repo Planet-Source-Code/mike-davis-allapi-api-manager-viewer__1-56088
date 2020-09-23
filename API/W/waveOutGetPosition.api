@@ -1,0 +1,30 @@
+[NAME]
+waveOutGetPosition
+[DESCRIPTION]
+The waveOutGetPosition function retrieves the current playback position of the given waveform-audio output device.
+[DECLARATION]
+Declare Function waveOutGetPosition Lib "winmm.dll" Alias "waveOutGetPosition" (ByVal hWaveOut As Long, lpInfo As MMTIME, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwo
+Handle of the waveform-audio output device.
+
+· pmmt
+Address of an MMTIME structure.
+
+· cbmmt
+Size, in bytes, of the MMTIME structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+waveOutOpen

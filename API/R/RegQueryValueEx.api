@@ -1,0 +1,70 @@
+[NAME]
+RegQueryValueEx
+[DESCRIPTION]
+The RegQueryValueEx function retrieves the type and data for a specified value name associated with an open registry key.
+[DECLARATION]
+Declare Function RegQueryValueEx Lib "advapi32.dll" Alias "RegQueryValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, lpData As Any, lpcbData As Long) As Long         ' Note that if you declare the lpData parameter as String, you must pass it By Value. 
+[VBNET]
+Microsoft.Win32.RegistryKey.GetValue
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+
+· lpValueName
+Points to a null-terminated string containing the name of the value to be queried.
+
+· lpReserved
+Reserved; must be NULL.
+
+· lpType
+Points to a variable that receives the key’s value type. The value returned through this parameter will be one of the following:
+REG_BINARY
+ Binary data in any form.
+REG_DWORD
+ A 32-bit number.
+REG_DWORD_LITTLE_ENDIAN
+ A 32-bit number in little-endian format (same as REG_DWORD). In little-endian format, the most significant byte of a word is the high-order byte. This is the most common format for computers running Windows NT and Windows 95.
+REG_DWORD_BIG_ENDIAN
+ A 32-bit number in big-endian format. In big-endian format, the most significant byte of a word is the low-order byte.
+REG_EXPAND_SZ
+ A null-terminated string that contains unexpanded references to environment variables (for example, “%PATH%”). It will be a Unicode or ANSI string depending on whether you use the Unicode or ANSI functions.
+REG_LINK
+ A Unicode symbolic link.
+REG_MULTI_SZ
+ An array of null-terminated strings, terminated by two null characters.
+REG_NONE
+ No defined value type.
+REG_RESOURCE_LIST
+ A device-driver resource list.
+REG_SZ
+ A null-terminated string. It will be a Unicode or ANSI string depending on whether you use the Unicode or ANSI functions.
+
+The lpType parameter can be NULL if the type is not required.
+
+· lpData
+Points to a buffer that receives the value’s data. This parameter can be NULL if the data is not required.
+
+· lpcbData
+Points to a variable that specifies the size, in bytes, of the buffer pointed to by the lpData parameter. When the function returns, this variable contains the size of the data copied to lpData.
+If the buffer specified by lpData parameter is not large enough to hold the data, the function returns the value ERROR_MORE_DATA, and stores the required buffer size, in bytes, into the variable pointed to by lpcbData.
+If lpData is NULL, and lpcbData is non-NULL, the function returns ERROR_SUCCESS, and stores the size of the data, in bytes, in the variable pointed to by lpcbData. This lets an application determine the best way to allocate a buffer for the value key’s data.
+If the data has the REG_SZ, REG_MULTI_SZ or REG_EXPAND_SZ type, then lpData will also include the size of the terminating null character.
+The lpcbData parameter can be NULL only if lpData is NULL.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Registry*4E1AB36884B253CE24768DA1C4080A14.html
+[RELATED]
+RegDeleteValue
+RegSetValueEx
+registrygetvalue

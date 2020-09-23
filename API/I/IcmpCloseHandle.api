@@ -1,0 +1,22 @@
+[NAME]
+IcmpCloseHandle
+[DESCRIPTION]
+This function closes an Internet Control Message Protocol (ICMP) handle opened by IcmpCreateFile.
+[DECLARATION]
+Declare Function IcmpCloseHandle Lib "icmp.dll" (ByVal HANDLE As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 2.0
+[LIBRARY]
+Icmp
+[PARAMETERS]
+· IcmpHandle
+[in] ICMP handle opened by IcmpCreateFile.
+[RETURNS]
+TRUE indicates success. FALSE indicates failure.
+[EXAMPLES]
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+[RELATED]
+IcmpCreateFile
+IcmpSendEcho

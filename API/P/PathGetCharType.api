@@ -1,0 +1,28 @@
+[NAME]
+PathGetCharType
+[DESCRIPTION]
+Determines the type of character with respect to a path.
+[DECLARATION]
+Declare Function PathGetCharType Lib "shlwapi.dll" Alias "PathGetCharTypeA" (ByVal ch As Byte) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· ch
+Character for which to determine the type.
+[RETURNS]
+Returns one or more of the following values that define the type of character:
+GCT_INVALID  The character is not valid in a path.
+GCT_LFNCHAR  The character is valid in a long file name.  
+GCT_SEPARATOR  The character is a path separator.  
+GCT_SHORTCHAR  The character is valid in a short (8.3) file name.  
+GCT_WILD  The character is a wildcard character.  
+[EXAMPLES]
+Path Functions (3)*F530C21468F2969BB718618F65A13B71.html
+[RELATED]
+PathFileExists
+PathFindOnPath
+PathGetDriveNumber

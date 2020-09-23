@@ -1,0 +1,77 @@
+[NAME]
+mixerOpen
+[DESCRIPTION]
+The mixerOpen function opens a specified mixer device and ensures that the device will not be removed until the application closes the handle.
+[DECLARATION]
+Declare Function mixerOpen Lib "winmm.dll" Alias "mixerOpen" (phmx As Long, ByVal uMxId As Long, ByVal dwCallback As Long, ByVal dwInstance As Long, ByVal fdwOpen As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· phmx
+Address of a variable that will receive a handle identifying the opened mixer device. Use this handle to identify the device when calling other audio mixer functions. This parameter cannot be NULL.
+
+· uMxId
+Identifier of the mixer device to open. Use a valid device identifier or any HMIXEROBJ (see the mixerGetID function for a description of mixer object handles). A “mapper” for audio mixer devices does not currently exist, so a mixer device identifier of - 1 is not valid.
+
+· dwCallback
+Handle of a window called when the state of an audio line and/or control associated with the device being opened is changed. Specify zero for this parameter if no callback mechanism is to be used.
+
+· dwInstance
+User instance data passed to the callback function. This parameter is not used with window callback functions.
+
+· fdwOpen
+Flags for opening the device. The following values are defined:
+CALLBACK_WINDOW
+The dwCallback parameter is assumed to be a window handle.
+MIXER_OBJECTF_AUX
+The uMxId parameter is an auxiliary device identifier in the range of zero to one less than the number of devices returned by the auxGetNumDevs function.
+MIXER_OBJECTF_HMIDIIN
+The uMxId parameter is the handle of a MIDI input device. This handle must have been returned by the midiInOpen function.
+MIXER_OBJECTF_HMIDIOUT
+The uMxId parameter is the handle of a MIDI output device. This handle must have been returned by the midiOutOpen function.
+MIXER_OBJECTF_HMIXER
+The uMxId parameter is a mixer device handle returned by the mixerOpen function. This flag is optional.
+MIXER_OBJECTF_HWAVEIN
+The uMxId parameter is a waveform-audio input handle returned by the waveInOpen function.
+MIXER_OBJECTF_HWAVEOUT
+The uMxId parameter is a waveform-audio output handle returned by the waveOutOpen function.
+MIXER_OBJECTF_MIDIIN
+The uMxId parameter is the identifier of a MIDI input device. This identifier must be in the range of zero to one less than the number of devices returned by the midiInGetNumDevs function.
+MIXER_OBJECTF_MIDIOUT
+The uMxId parameter is the identifier of a MIDI output device. This identifier must be in the range of zero to one less than the number of devices returned by the midiOutGetNumDevs function.
+MIXER_OBJECTF_MIXER
+The uMxId parameter is a mixer device identifier in the range of zero to one less than the number of devices returned by the mixerGetNumDevs function. This flag is optional.
+MIXER_OBJECTF_WAVEIN
+The uMxId parameter is the identifier of a waveform-audio input device in the range of zero to one less than the number of devices returned by the waveInGetNumDevs function.
+MIXER_OBJECTF_WAVEOUT
+The uMxId parameter is the identifier of a waveform-audio output device in the range of zero to one less than the number of devices returned by the waveOutGetNumDevs function.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MMSYSERR_ALLOCATED 
+ The specified resource is already allocated by the maximum number of clients possible. 
+ 
+MMSYSERR_BADDEVICEID 
+ The uMxId parameter specifies an invalid device identifier. 
+ 
+MMSYSERR_INVALFLAG 
+ One or more flags are invalid. 
+ 
+MMSYSERR_INVALHANDLE 
+ The uMxId parameter specifies an invalid handle. 
+ 
+MMSYSERR_INVALPARAM 
+ One or more parameters are invalid. 
+ 
+MMSYSERR_NODRIVER 
+ No mixer device is available for the object specified by uMxId. Note that the location referenced by uMxId will also contain the value - 1. 
+ 
+MMSYSERR_NOMEM 
+ Unable to allocate resources. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+mixerClose

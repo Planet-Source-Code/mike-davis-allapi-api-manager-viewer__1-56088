@@ -1,0 +1,23 @@
+[NAME]
+InitializeFlatSB
+[DESCRIPTION]
+Initializes flat scroll bars for a particular window.
+[DECLARATION]
+Declare Function InitializeFlatSB Lib "comctl32" (ByVal hWnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that will receive flat scroll bars.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+UninitializeFlatSB

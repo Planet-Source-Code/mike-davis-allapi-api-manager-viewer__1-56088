@@ -1,0 +1,29 @@
+[NAME]
+GetCurrentConsoleFont
+[DESCRIPTION]
+The GetCurrentConsoleFont function retrieves information about the current console font.
+[DECLARATION]
+Declare Function GetCurrentConsoleFont Lib "kernel32" (ByVal hConsoleOutput As Long, ByVal bMaximumWindow As Long, lpConsoleCurrentFont As CONSOLE_FONT_INFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hConsoleOutput 
+[in] Handle to a console screen buffer. The handle must have GENERIC_READ access. 
+
+· bMaximumWindow 
+[in] If this parameter is TRUE, font information is retrieved for the maximum window size. If this parameter is FALSE, font information is retrieved for the current window size. 
+
+· lpConsoleCurrentFont 
+[out] Pointer to a CONSOLE_FONT_INFO structure that receives the requested font information.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Console Application II*BDA18107A74914618446F4548DE6EEC8.html
+[RELATED]
+GetConsoleFontSize

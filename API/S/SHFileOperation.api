@@ -1,0 +1,23 @@
+[NAME]
+SHFileOperation
+[DESCRIPTION]
+Performs a copy, move, rename, or delete operation on a file system object.
+[DECLARATION]
+Declare Function SHFileOperation Lib "shell32.dll" Alias "SHFileOperationA" (lpFileOp As SHFILEOPSTRUCT) As Long
+[VBNET]
+System.IO.File
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· lpFileOp
+Pointer to an SHFILEOPSTRUCT structure that contains information the function needs to carry out the operation.
+[RETURNS]
+Returns zero if successful or nonzero if an error occurs.
+[EXAMPLES]
+Delete To Recycling Bin*8DE0C391DE9A1D9283154F96C3CCA079.html
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+[RELATED]
+SHBrowseForFolder
+copy

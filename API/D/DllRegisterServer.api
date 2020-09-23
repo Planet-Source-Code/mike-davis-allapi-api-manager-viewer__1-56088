@@ -1,0 +1,33 @@
+[NAME]
+DllRegisterServer
+[DESCRIPTION]
+The DllRegisterServer function adds entries associated with a Cluster Administrator extension DLL to the system registry. Client-side registration must be done on each machine on which the Cluster Administrator program is executed.
+[DECLARATION]
+Declare Function DllRegisterServer Lib "ComCtl32.OCX" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Comctl32.ocx
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+This function supports the standard return values E_OUTOFMEMORY and E_UNEXPECTED, as well as the following: 
+
+S_OK 
+
+The registry entries were created successfully. 
+
+SELFREG_E_TYPELIB 
+
+The server was unable to complete the registration of all the type libraries used by its classes. 
+
+SELFREG_E_CLASS 
+
+The server was unable to complete the registration of all the object classes. 
+[EXAMPLES]
+Register Server*26E12D6B87EDAB805881A290E2E57CA8.html
+Register Server (2)*27D7E88041923D22A3F0BF14F852A36A.html
+[RELATED]
+DllUnregisterServer

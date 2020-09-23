@@ -1,0 +1,31 @@
+[NAME]
+GetWindowText
+[DESCRIPTION]
+The GetWindowText function copies the text of the specified window’s title bar (if it has one) into a buffer. If the specified window is a control, the text of the control is copied.
+[DECLARATION]
+Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Text
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window or control containing the text.
+
+· lpString
+Points to the buffer that will receive the text.
+
+· nMaxCount
+Specifies the maximum number of characters to copy to the buffer, including the NULL character. If the text exceeds this limit, it is truncated.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the copied string, not including the terminating null character. If the window has no title bar or text, if the title bar is empty, or if the window or control handle is invalid, the return value is zero. To get extended error information, call GetLastError. 
+
+This function cannot retrieve the text of an edit control in another application. 
+[EXAMPLES]
+Window Text*73F8C5794FE9812F05FE5E7FF8D490E1.html
+GetWindowText*2AB05FBEF5EDDF2027D7F05BDEAC283D.html
+[RELATED]
+SetWindowText
+drawline

@@ -1,0 +1,24 @@
+[NAME]
+GetBkColor
+[DESCRIPTION]
+The GetBkColor function returns the current background color for the specified device context.
+[DECLARATION]
+Declare Function GetBkColor Lib "gdi32" Alias "GetBkColor" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context whose background color is to be returned.
+[RETURNS]
+If the function succeeds, the return value is a COLORREF value for the current background color. 
+
+If the function fails, the return value is CLR_INVALID. 
+[EXAMPLES]
+Get Back Color*19714188C68DF9FBCC99F6FF3DAF4D62.html
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+[RELATED]
+SetBkMode

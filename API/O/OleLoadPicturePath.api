@@ -1,0 +1,42 @@
+[NAME]
+OleLoadPicturePath
+[DESCRIPTION]
+Creates a new picture object and initializes it from the contents of a stream.
+[DECLARATION]
+Declare Function OleLoadPicturePath Lib "oleaut32.dll" (ByVal szURLorPath As Long, ByVal punkCaller As Long, ByVal dwReserved As Long, ByVal clrReserved As OLE_COLOR, ByRef riid As TGUID, ByRef ppvRet As IPicture) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Oleaut32
+[PARAMETERS]
+· szURLorPath 
+[in] The path or url to the file you want to open. 
+
+· punkCaller 
+[in] Points to IUnknown for COM aggregation. 
+
+· dwReserved 
+[in] Reserved. 
+
+· clrReserved 
+[in] The color you want to reserve to be transparent. 
+
+· riid 
+[in] Reference to the identifier of the interface describing the type of interface pointer to return in ppvRet. 
+
+· ppvRet 
+[out] Address of pointer variable that receives the interface pointer requested in riid. Upon successful return, *ppvRet contains the requested interface pointer on the storage of the object identified by the moniker. If *ppvRet is non-NULL, this function calls IUnknown::AddRef on the interface; it is the caller's responsibility to call IUnknown::Release. If an error occurs, *ppvRet is set to NULL. 
+[RETURNS]
+This function supports the standard return values E_OUTOFMEMORY and E_UNEXPECTED, as well as the following:
+S_OK 
+ The picture was created successfully.  
+E_POINTER 
+ The address in ppvRet is NULL.  
+E_NOINTERFACE 
+ The object does not support the interface specified in riid.  
+[EXAMPLES]
+Load Picture from URL*A9157204909015547863E48E3E348BE6.html
+[RELATED]
+OleCreatePictureIndirect

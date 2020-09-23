@@ -1,0 +1,44 @@
+[NAME]
+WinExec
+[DESCRIPTION]
+The WinExec function runs the specified application.
+[DECLARATION]
+Declare Function WinExec Lib "kernel32" Alias "WinExec" (ByVal lpCmdLine As String, ByVal nCmdShow As Long) As Long
+[VBNET]
+System.Diagnostics.Process
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpCmdLine
+Points to a null-terminated character string that contains the command line (filename plus optional parameters) for the application to be executed. If the name of the executable file in the lpCmdLine parameter does not contain a directory path, Windows searches for the executable file in this sequence:
+1. The directory from which the application loaded.
+2. The current directory.
+3. The Windows system directory. The GetSystemDirectory function retrieves the path of this directory.
+4. The Windows directory. The GetWindowsDirectory function retrieves the path of this directory.
+5. The directories listed in the PATH environment variable.
+
+· uCmdShow
+Specifies how a Windows-based application window is to be shown and is used to supply the wShowWindow member of the STARTUPINFO parameter to the CreateProcess function. For a list of the acceptable values, see the description of the nCmdShow parameter of the ShowWindow function. For a non-Windows - based application, the PIF file, if any, for the application determines the window state.
+[RETURNS]
+If the function succeeds, the return value is greater than 31. 
+
+If the function fails, the return value is one of the following error values:
+0 
+ The system is out of memory or resources. 
+ 
+ERROR_BAD_FORMAT 
+ The .EXE file is invalid (non-Win32 .EXE or error in .EXE image). 
+ 
+ERROR_FILE_NOT_FOUND 
+ The specified file was not found. 
+ 
+ERROR_PATH_NOT_FOUND 
+ The specified path was not found. 
+[EXAMPLES]
+WinExec*8A2231F935A427E6E23C537BA56BD623.html
+[RELATED]
+CreateProcess
+ShellExecute
+Shell

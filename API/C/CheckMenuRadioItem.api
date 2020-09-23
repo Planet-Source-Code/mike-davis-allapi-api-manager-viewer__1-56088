@@ -1,0 +1,35 @@
+[NAME]
+CheckMenuRadioItem
+[DESCRIPTION]
+The CheckMenuRadioItem function checks a specified menu item and makes it a radio item. At the same time, the function clears all other menu items in the associated group and clears the radio-item type flag for those items.
+[DECLARATION]
+Declare Function CheckMenuRadioItem Lib "user32" (ByVal hMenu As Long, ByVal un1 As Long, ByVal un2 As Long, ByVal un3 As Long, ByVal un4 As Long) As Long
+[VBNET]
+System.Windows.Forms.MenuItem.RadioCheck
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hmenu 
+[in] Handle to the menu that contains the group of menu items. 
+
+· idFirst 
+[in] Identifier or position of the first menu item in the group. 
+
+· idLast 
+[in] Identifier or position of the last menu item in the group. 
+
+· idCheck 
+[in] Identifier or position of the menu item to check. 
+
+· uFlags 
+[in] Value specifying the meaning of idFirst, idLast, and idCheck. If this parameter is MF_BYCOMMAND, the other parameters specify menu item identifiers. If it is MF_BYPOSITION, the other parameters specify the menu item positions. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, use the GetLastError function.
+[EXAMPLES]
+Radio Menu Item*96EA01F40B88471DBB956C033A65D94F.html
+[RELATED]
+ModifyMenu

@@ -1,0 +1,31 @@
+[NAME]
+CallNextHookEx
+[DESCRIPTION]
+The CallNextHookEx function passes the hook information to the next hook procedure in the current hook chain. A hook procedure can call this function either before or after processing the hook information.
+[DECLARATION]
+Declare Function CallNextHookEx Lib "user32" Alias "CallNextHookEx" (ByVal hHook As Long, ByVal ncode As Long, ByVal wParam As Long, lParam As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hhk
+Identifies the current hook. An application receives this handle as a result of a previous call to the SetWindowsHookEx function.
+
+· nCode
+Specifies the hook code passed to the current hook procedure. The next hook procedure uses this code to determine how to process the hook information.
+
+· wParam
+Specifies the wParam value passed to the current hook procedure. The meaning of this parameter depends on the type of hook associated with the current hook chain.
+
+· lParam
+Specifies the lParam value passed to the current hook procedure. The meaning of this parameter depends on the type of hook associated with the current hook chain.
+[RETURNS]
+If the function succeeds, the return value is the value returned by the next hook procedure in the chain. The current hook procedure must also return this value. The meaning of the return value depends on the hook type. For more information, see the descriptions of the individual hook procedures. 
+[EXAMPLES]
+Hooks*35AD48797A780091740CBCF14EBC094D.html
+[RELATED]
+SetWindowsHookEx
+UnhookWindowsHookEx

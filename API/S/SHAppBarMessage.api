@@ -1,0 +1,43 @@
+[NAME]
+SHAppBarMessage
+[DESCRIPTION]
+Sends an appbar message to the system.
+[DECLARATION]
+Declare Function SHAppBarMessage Lib "shell32.dll" Alias "SHAppBarMessage" (ByVal dwMessage As Long, pData As APPBARDATA) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· dwMessage
+Identifier of the appbar message to send. This parameter can be one of the following values: ABM_ACTIVATE
+ Notifies the system that an appbar has been activated.
+ABM_GETAUTOHIDEBAR
+ Retrieves the handle of the autohide appbar associated with a particular edge of the screen.
+ABM_GETSTATE
+ Retrieves the autohide and always-on-top states of the Windows taskbar.
+ABM_GETTASKBARPOS
+ Retrieves the bounding rectangle of the Windows taskbar.
+ABM_NEW
+ Registers a new appbar and specifies the message identifier that the system should use to send notification messages to the appbar.
+ABM_QUERYPOS
+ Requests a size and screen position for an appbar.
+ABM_REMOVE
+ Unregisters an appbar, removing bar from the system’s internal list.
+ABM_SETAUTOHIDEBAR
+ Registers or unregisters an autohide appbar for an edge of the screen.
+ABM_SETPOS
+ Sets the size and screen position of an appbar.
+ABM_WINDOWPOSCHANGED
+ Notifies the system when an appbar’s position has changed.
+
+· pData
+Pointer to an APPBARDATA structure. The content of the structure depends on the value of dwMessage.
+[RETURNS]
+Returns a message-dependent value. For more information, see the documentation for the individual appbar messages. 
+[EXAMPLES]
+AppBar*ECBC2443BB0EB34C660D76A40A4A7210.html
+[RELATED]
+

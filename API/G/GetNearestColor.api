@@ -1,0 +1,26 @@
+[NAME]
+GetNearestColor
+[DESCRIPTION]
+The GetNearestColor function returns a color value identifying a color from the system palette that will be displayed when the specified color value is used.
+[DECLARATION]
+Declare Function GetNearestColor Lib "gdi32" Alias "GetNearestColor" (ByVal hdc As Long, ByVal crColor As Long) As Long
+[VBNET]
+System.Drawing.Graphics.GetNearestColor
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· crColor
+Specifies a color value that identifies a requested color.
+[RETURNS]
+If the function succeeds, the return value identifies a color from the system palette that corresponds to the given color value. 
+
+If the function fails, the return value is CLR_INVALID. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Bitmap Colors*172B5720053F57342F4E6F8706B66B29.html
+[RELATED]
+GetDeviceCaps

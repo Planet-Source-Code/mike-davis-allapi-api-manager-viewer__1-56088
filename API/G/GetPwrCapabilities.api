@@ -1,0 +1,23 @@
+[NAME]
+GetPwrCapabilities
+[DESCRIPTION]
+The GetPwrCapabilities function retrieves information about the system power capabilities.
+[DECLARATION]
+Declare Function GetPwrCapabilities Lib "Powrprof" (lpSystemPowerCapabilities As SYSTEM_POWER_CAPABILITIES) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+Powrprof
+[PARAMETERS]
+· lpSystemPowerCapabilities 
+[out] Pointer to a SYSTEM_POWER_CAPABILITIES structure that receives the information.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Power Capabilities*931153D6755E2BDB684950962CDD57E1.html
+[RELATED]
+SetSystemPowerState

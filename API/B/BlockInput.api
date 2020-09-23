@@ -1,0 +1,23 @@
+[NAME]
+BlockInput
+[DESCRIPTION]
+The BlockInput function blocks keyboard and mouse input events from reaching applications.
+[DECLARATION]
+Private Declare Function BlockInput Lib "user32" (ByVal fBlock As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· fBlock
+[in] Specifies the function's purpose. If this parameter is TRUE, keyboard and mouse input events are blocked. If this parameter is FALSE, keyboard and mouse events are unblocked. Note that only the thread that blocked input can successfully unblock input.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If input is already blocked, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+BlockInput*1B463387B31CF691556B7458C7FE1D68.html
+[RELATED]
+

@@ -1,0 +1,41 @@
+[NAME]
+CreateHatchBrush
+[DESCRIPTION]
+The CreateHatchBrush function creates a logical brush that has the specified hatch pattern and color.
+[DECLARATION]
+Declare Function CreateHatchBrush Lib "gdi32" Alias "CreateHatchBrush" (ByVal nIndex As Long, ByVal crColor As Long) As Long
+[VBNET]
+System.Drawing.Brush
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· fnStyle
+Specifies the hatch style of the brush. This parameter can be any one of the following values:
+HS_BDIAGONAL
+ 45-degree downward left-to-right hatch
+HS_CROSS
+ Horizontal and vertical crosshatch
+HS_DIAGCROSS
+ 45-degree crosshatch
+HS_FDIAGONAL
+ 45-degree upward left-to-right hatch
+HS_HORIZONTAL
+ Horizontal hatch
+HS_VERTICAL
+ Vertical hatch
+
+· clrref
+Specifies the foreground color of the brush that is used for the hatches.
+[RETURNS]
+If the function succeeds, the return value identifies a logical brush. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+CreateSolidBrush
+CreatePen
+CreatePenIndirect
+brushes

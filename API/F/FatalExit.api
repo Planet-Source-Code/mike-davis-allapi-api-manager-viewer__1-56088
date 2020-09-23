@@ -1,0 +1,21 @@
+[NAME]
+FatalExit
+[DESCRIPTION]
+The FatalExit function transfers execution control to the debugger. The behavior of the debugger thereafter is specific to the type of debugger used.
+[DECLARATION]
+Declare Sub FatalExit Lib "kernel32" Alias "FatalExit" (ByVal code As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· ExitCode
+Specifies the error code associated with the exit.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+FatalExit*EF082DEC212C9FB7B398C2331D4FFD20.html
+[RELATED]
+FatalAppExit

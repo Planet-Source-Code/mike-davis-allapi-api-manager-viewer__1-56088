@@ -1,0 +1,79 @@
+[NAME]
+VirtualAlloc
+[DESCRIPTION]
+The VirtualAlloc function reserves or commits a region of pages in the virtual address space of the calling process. Memory allocated by this function is automatically initialized to zero, unless MEM_RESET is specified.
+[DECLARATION]
+Declare Function VirtualAlloc Lib "kernel32" (ByVal lpAddress As Long, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAddress 
+[in] Specifies the desired starting address of the region to allocate. If the memory is being reserved, the specified address is rounded down to the next 64-kilobyte boundary. If the memory is already reserved and is being committed, the address is rounded down to the next page boundary. To determine the size of a page on the host computer, use the GetSystemInfo function. If this parameter is NULL, the system determines where to allocate the region. 
+
+· dwSize 
+[in] Specifies the size, in bytes, of the region. If the lpAddress parameter is NULL, this value is rounded up to the next page boundary. Otherwise, the allocated pages include all pages containing one or more bytes in the range from lpAddress to (lpAddress+dwSize). This means that a 2-byte range straddling a page boundary causes both pages to be included in the allocated region. 
+
+· flAllocationType 
+[in] Specifies the type of allocation. This parameter must contain one of the following values: MEM_COMMIT, MEM_RESET, or MEM_RESERVE. All other values can be used as indicated in the following table.
+MEM_COMMIT 
+Allocates physical storage in memory or in the paging file on disk for the specified region of memory pages. The function initializes the memory to zero. 
+An attempt to commit a memory page that is already committed does not cause the function to fail. This means that you can commit a range of pages without determining the current commitment state of each page.
+If a memory page is not yet reserved, setting this value causes the function to both reserve and commit the memory page.
+ 
+MEM_PHYSICAL 
+Allocates physical memory with read-write access. This value is solely for use with Address Windowing Extensions (AWE) memory. 
+This value must be used with MEM_RESERVE and no other values. 
+ 
+MEM_RESERVE 
+Reserves a range of the process's virtual address space without allocating any actual physical storage in memory or in the paging file on disk. 
+Other memory allocation functions such as malloc and LocalAlloc, cannot use a reserved range of memory until it is released. 
+You can commit reserved memory pages in subsequent calls to the VirtualAlloc function.
+ 
+MEM_RESET 
+Windows NT/2000/XP: Specifies that the data in the memory range specified by lpAddress and dwSize is no longer of interest. The pages should not be read from or written to the paging file. However, the memory block will be used again later, so it should not be decommitted. This value cannot be used with any other value. 
+Using this value does not guarantee that the range operated on with MEM_RESET will contain zeroes. If you want the range to contain zeroes, decommit the memory and then recommit it.
+When you specify MEM_RESET, the VirtualAlloc function ignores the value of fProtect. However, you must still set fProtect to a valid protection value, such as PAGE_NOACCESS.
+VirtualAlloc returns an error if you use MEM_RESET and the range of memory is mapped to a file. A shared view is only acceptable if it is mapped to a paging file. 
+ 
+MEM_TOP_DOWN 
+Windows NT/2000/XP: Allocates memory at the highest possible address. 
+
+MEM_WRITE_WATCH 
+Windows 98/Me: Causes the system to track pages that are written to in the allocated region. If you specify this value, you must also specify MEM_RESERVE. 
+To retrieve the addresses of the pages that have been written to since the region was allocated or the write-tracking state was reset, call the GetWriteWatch function. To reset the write-tracking state, call GetWriteWatch or ResetWriteWatch. The write-tracking feature remains enabled for the memory region until the region is freed.
+ 
+· flProtect 
+[in] Specifies the type of access protection. If the pages are being committed, you can specify any one of the following value, along with PAGE_GUARD and PAGE_NOCACHE as needed. 
+PAGE_READONLY 
+ Enables read access to the committed region of pages. An attempt to write to the committed region results in an access violation. If the system differentiates between read-only access and execute access, an attempt to execute code in the committed region results in an access violation. 
+PAGE_READWRITE 
+ Enables both read and write access to the committed region of pages. 
+PAGE_EXECUTE 
+ Enables execute access to the committed region of pages. An attempt to read or write to the committed region results in an access violation. 
+PAGE_EXECUTE_READ 
+ Enables execute and read access to the committed region of pages. An attempt to write to the committed region results in an access violation. 
+PAGE_EXECUTE_READWRITE 
+ Enables execute, read, and write access to the committed region of pages. 
+PAGE_GUARD 
+ Windows NT/2000/XP: Pages in the region become guard pages. Any attempt to read from or write to a guard page causes the system to raise a STATUS_GUARD_PAGE exception and turn off the guard page status. Guard pages thus act as a one-shot access alarm. 
+ PAGE_GUARD is a page protection modifier. An application uses it with one of the other page protection modifiers, with one exception: it cannot be used with PAGE_NOACCESS. When an access attempt leads the system to turn off guard page status, the underlying page protection takes over.
+ If a guard page exception occurs during a system service, the service typically returns a failure status indicator.
+ Windows 95/98/Me: To simulate this behavior, use PAGE_NOACCESS. 
+PAGE_NOACCESS 
+ Disables all access to the committed region of pages. An attempt to read from, write to, or execute in the committed region results in an access violation exception, called a general protection (GP) fault. 
+PAGE_NOCACHE 
+ Allows no caching of the committed regions of pages. The hardware attributes for the physical memory should be specified as "no cache." This is not recommended for general usage. It is useful for device drivers; for example, mapping a video frame buffer with no caching. This value is a page protection modifier, and it is only valid when used with one of the page protections other than PAGE_NOACCESS. 
+[RETURNS]
+If the function succeeds, the return value is the base address of the allocated region of pages.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+VirtualFree
+VirtualLock
+GlobalAlloc

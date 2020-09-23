@@ -1,0 +1,21 @@
+[NAME]
+timeKillEvent
+[DESCRIPTION]
+The timeKillEvent function cancels a specified timer event.
+[DECLARATION]
+Declare Function timeKillEvent Lib "winmm.dll" (ByVal uID As Long) As Long
+[VBNET]
+System.Threading.Timer.Dispose
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uTimerID 
+Identifier of the timer event to cancel. This identifier was returned by the timeSetEvent function when the timer event was set up. 
+[RETURNS]
+Returns TIMERR_NOERROR if successful or MMSYSERR_INVALPARAM if the specified timer event does not exist.
+[EXAMPLES]
+High Performance Timers*6346BF3D6590BE078539D515FD62FFE4.html
+[RELATED]
+timeSetEvent

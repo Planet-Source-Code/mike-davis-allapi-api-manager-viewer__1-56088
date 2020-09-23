@@ -1,0 +1,35 @@
+[NAME]
+Escape
+[DESCRIPTION]
+The Escape function allows applications to access capabilities of a particular device not directly available through GDI. Escape calls made by an application are translated and sent to the driver.
+[DECLARATION]
+Declare Function Escape Lib "gdi32" Alias "Escape" (ByVal hdc As Long, ByVal nEscape As Long, ByVal nCount As Long, ByVal lpInData As String, lpOutData As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nEscape
+Specifies the escape function to be performed. This parameter must be one of the predefined escape values. Use the ExtEscape function if your application defines a private escape value.
+
+· cbInput
+Specifies the number of bytes of data pointed to by the lpvInData parameter.
+
+· lpvInData
+Points to the input structure required for the specified escape.
+
+· lpvOutData
+Points to the structure that receives output from this escape. This parameter should be NULL if no data is returned.
+[RETURNS]
+If the function succeeds, the return value is greater than zero, except with the QUERYESCSUPPORT printer escape, which checks for implementation only. If the escape is not implemented, the return value is zero. 
+
+If the function fails, the return value is an error. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Print Graphic*C06CED3AA5931E92AB1EE89F9FA2EFEA.html
+[RELATED]
+

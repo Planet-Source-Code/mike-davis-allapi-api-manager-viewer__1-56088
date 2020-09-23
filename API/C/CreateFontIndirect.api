@@ -1,0 +1,25 @@
+[NAME]
+CreateFontIndirect
+[DESCRIPTION]
+The CreateFontIndirect function creates a logical font that has the characteristics specified in the specified structure. The font can subsequently be selected as the current font for any device context.
+[DECLARATION]
+Declare Function CreateFontIndirect Lib "gdi32" Alias "CreateFontIndirectA" (lpLogFont As LOGFONT) As Long
+[VBNET]
+System.Drawing.Font
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lplf
+Points to a LOGFONT structure that defines the characteristics of the logical font.
+[RETURNS]
+If the function succeeds, the return value is a handle to a logical font. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Rotate Font*F8A8564FF0F12F4A8C2D63A55E6ED189.html
+[RELATED]
+CreateFont
+SelectObject
+drawtext

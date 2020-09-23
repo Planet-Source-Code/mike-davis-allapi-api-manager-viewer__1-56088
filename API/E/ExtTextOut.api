@@ -1,0 +1,57 @@
+[NAME]
+ExtTextOut
+[DESCRIPTION]
+The ExtTextOut function draws a character string by using the currently selected font. An optional rectangle may be provided, to be used for clipping, opaquing, or both.
+[DECLARATION]
+Declare Function ExtTextOut Lib "gdi32" Alias "ExtTextOutA" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal wOptions As Long, lpRect As Rect, ByVal lpString As String, ByVal nCount As Long, lpDx As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawString
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· X
+Specifies the logical x-coordinate of the reference point used to position the string.
+
+· Y
+Specifies the logical y-coordinate of the reference point used to position the string.
+
+· fuOptions
+Specifies how to use the application-defined rectangle. This parameter can be a combination of the following values:
+ETO_CLIPPED
+ The text will be clipped to the rectangle.
+ETO_GLYPH_INDEX
+ Windows 95 only: The lpString array refers to an array returned from GetCharacterPlacement and should be parsed directly by GDI as no further language-specific processing is required. Glyph indexing only applies to TrueType fonts, but the flag can be used for Windows bitmap and vector fonts to indicate no further language processing is necessary and GDI should process the string directly. Note that all glyph indices are 16-bit values even though the string is assumed to be an array of 8-bit values for raster fonts.
+ETO_OPAQUE
+ The current background color should be used to fill the rectangle.
+ETO_RTLREADING
+ Windows 95 only: If this value is specified and a Hebrew or Arabic font is selected into the device context, the string is output using right-to-left reading order. If this value is not specified, the string is output in left- to-right order. The same effect can be achieved by setting the TA_RTLREADING value in SetTextAlign. This value is preserved for backward compatability.
+
+The ETO_GLYPH_INDEX and ETO_RTLREADING values cannot be used together. Because ETO_GLYPH_INDEX implies that all language processing has been completed, the function ignores the ETO_RTLREADING flag if also specified.
+
+· lprc
+Points to an optional RECT structure that specifies the dimensions of a rectangle that is used for clipping, opaquing, or both.
+
+· lpString
+Points to the character string to be drawn. The string does not need to be zero-terminated, since cbCount specifies the length of the string.
+
+· cbCount
+Specifies the number of characters in the string.
+
+· lpDx
+Points to an optional array of values that indicate the distance between origins of adjacent character cells. For example, lpDx[i] logical units separate the origins of character cell i and character cell i + 1.
+[RETURNS]
+If the string is drawn, the return value is nonzero. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ExtTextOut*40820EEAD71305A6BD6D35A5D6740E7B.html
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+[RELATED]
+TextOut
+DrawText
+drawtext

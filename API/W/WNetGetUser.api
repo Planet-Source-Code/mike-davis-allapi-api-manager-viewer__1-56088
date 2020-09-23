@@ -1,0 +1,48 @@
+[NAME]
+WNetGetUser
+[DESCRIPTION]
+The WNetGetUser-function retrieves the Network user name.
+[DECLARATION]
+Declare Function WNetGetUser Lib "mpr.dll" Alias "WNetGetUserA" (ByVal lpName As String, ByVal lpUserName As String, lpnLength As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Mpr
+[PARAMETERS]
+· lpName
+Points to a null-terminated string that specifies either the name of the local device that has been redirected to a network resource, or the remote name of a network resource to which a connection has been made.
+If this parameter is NULL, Windows returns the name of the current user for the process.
+
+· lpUserName
+Points to a buffer that receives the null-terminated user name.
+
+· lpnLength
+Points to a variable that specifies the size, in characters, of the buffer pointed to by lpUserName. If the call fails because the buffer is not big enough, this variable contains the required buffer size.
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR. 
+
+If the function fails, the return value is an error code. To get extended error information, call GetLastError. GetLastError may return one of the following error codes:
+ERROR_NOT_CONNECTED 
+ The device specified by lpName is not a redirected device or a connected network name. 
+ 
+ERROR_MORE_DATA 
+ More entries are available with subsequent calls. 
+ 
+ERROR_NO_NETWORK 
+ No network is present. 
+ 
+ERROR_EXTENDED_ERROR 
+ A network-specific error occurred. To get a description of the error, use the WNetGetLastError function. 
+ 
+ERROR_NO_NET_OR_BAD_PATH 
+ None of the providers recognized this local name as having a connection. However, the network is not available for at least one provider to whom the connection may belong. 
+ 
+
+
+The function returns error codes for compatibility with Windows version 3.1. For compatibility with the Win32 API, the function also sets the error code value returned by GetLastError. 
+[EXAMPLES]
+Get Net User*2487979B9D2F17B09E0D10F744945C21.html
+[RELATED]
+

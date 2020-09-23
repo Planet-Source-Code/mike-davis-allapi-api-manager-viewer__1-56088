@@ -1,0 +1,39 @@
+[NAME]
+ExtFloodFill
+[DESCRIPTION]
+The ExtFloodFill function fills an area of the display surface with the current brush.
+[DECLARATION]
+Declare Function ExtFloodFill Lib "gdi32" Alias "ExtFloodFill" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal crColor As Long, ByVal wFillType As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· nXStart
+Specifies the logical x-coordinate of the point where filling is to begin.
+
+· nYStart
+Specifies the logical y-coordinate of the point where filling is to begin.
+
+· crColor
+Specifies the color of the boundary or of the area to be filled. The interpretation of crColor depends on the value of the fuFillType parameter.
+
+· fuFillType
+Specifies the type of fill operation to be performed. It must be one of the following values:
+FLOODFILLBORDER
+ The fill area is bounded by the color specified by the crColor parameter. This style is identical to the filling performed by the FloodFill function.
+FLOODFILLSURFACE
+ The fill area is defined by the color that is specified by crColor. Filling continues outward in all directions as long as the color is encountered. This style is useful for filling areas with multicolored boundaries.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+FloodFill*87A1C3C5015E671A91F7947FFB19D20B.html
+[RELATED]
+FloodFill

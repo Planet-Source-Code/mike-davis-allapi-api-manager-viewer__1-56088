@@ -1,0 +1,23 @@
+[NAME]
+GetLayout
+[DESCRIPTION]
+The GetLayout function returns the layout of a device context (DC).
+[DECLARATION]
+Declare Function GetLayout Lib "gdi32" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+[in] Handle to the device context.
+[RETURNS]
+If the function succeeds, it returns the layout flags for the current device context.
+
+If the function fails, it returns GDI_ERROR. For extended error information, call GetLastError.
+[EXAMPLES]
+Layout*EBD9BEC4D70ABC789D439C1F136B0538.html
+[RELATED]
+SetLayout

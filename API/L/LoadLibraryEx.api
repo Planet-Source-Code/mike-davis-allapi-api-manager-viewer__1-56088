@@ -1,0 +1,47 @@
+[NAME]
+LoadLibraryEx
+[DESCRIPTION]
+The LoadLibraryEx function maps a specified executable module into the address space of the calling process. The executable module can be a .DLL or an .EXE file. The specified module may cause other modules to be mapped into the address space.
+[DECLARATION]
+Declare Function LoadLibraryEx Lib "kernel32" Alias "LoadLibraryExA" (ByVal lpLibFileName As String, ByVal hFile As Long, ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpLibFileName 
+Points to a null-terminated string that names a Win32 executable module (either a .DLL or an .EXE file). The name specified is the filename of the executable module. This name is not related to the name stored in a library module itself, as specified by the LIBRARY keyword in the module-definition (.DEF) file. 
+If the string specifies a path, but the file does not exist in the specified directory, the function fails. When specifying a path, be sure to use backslashes (\), not forward slashes (/). 
+If the string does not specify a path, and the filename extension is omitted, the function appends the default library extension .DLL to the filename. However, the filename string can include a trailing point character (.) to indicate that the module name has no extension. 
+If the string does not specify a path, the function uses a standard search strategy to find the file. See the Remarks for more information. 
+If mapping the specified module into the address space causes the operating system to map in other, associated executable modules, the function can use either the standard search strategy or an alternate search strategy to find those modules. See the Remarks for more information. 
+Once the function obtains a fully qualified path to a library module file, the path is compared (in a case-independent manner) to the full paths of library modules that are currently loaded into the calling process. That set of libraries includes those that were loaded when the process was starting up, as well as those previously loaded by calls to LoadLibrary or LoadLibraryEx but not yet unloaded by calls to FreeLibrary. If the path matches the path of an already loaded module, the function just increments the reference count for the module, and returns the module handle for that library. 
+
+· hFile 
+This parameter is reserved for future use. It must be NULL. 
+
+· dwFlags 
+Specifies the action to take when loading the module. This parameter can be one of the following values:
+DONT_RESOLVE_DLL_REFERENCES 
+ Windows NT only: 
+If this value is given, and the executable module is a dynamic-link library (DLL), the operating system does not call the DllEntryPoint function for process and thread initialization and termination. Also, the system does not load additional executable modules that are referenced by the specified module. 
+If this value is not given, and the executable module is a DLL, the operating system calls the DllEntryPoint function for process and thread initialization and termination. The system loads additional executable modules that are referenced by the specified module. The behavior of the function is then identical to that of LoadLibrary in this regard. 
+ 
+LOAD_LIBRARY_AS_DATAFILE 
+ If this value is given, the function does a simple mapping of the file into the address space. Nothing is done relative to executing or preparing to execute the code in the mapped file. The function loads the module as if it were a data file. You can use the module handle that the function returns in this case with the Win32 functions that operate on resources. Use this flag when you want to load a DLL in order to extract messages or resources from it, and have no intention of executing its code. 
+If this value is not given, the function maps the file into the address space in the manner that is normal for an executable module. The behavior of the function is then identical to that of LoadLibrary in this regard. 
+ 
+LOAD_WITH_ALTERED_SEARCH_PATH 
+ If this value is given, and lpLibFileName specifies a path, the function uses the alternate file search strategy discussed in the Remarks section following to find associated executable modules that the specified module causes to be loaded. 
+If this value is not given, or if lpLibFileName does not specify a path, the function uses the standard search strategy discussed in the Remarks section following to find associated executable modules that the specified module causes to be loaded. The behavior of the function is then identical to that of LoadLibrary in this regard. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumResources*7ECF27320393EB56B2A2F1406BA51BC9.html
+[RELATED]
+LoadLibrary
+FreeLibrary

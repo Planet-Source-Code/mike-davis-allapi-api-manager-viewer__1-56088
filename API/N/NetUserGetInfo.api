@@ -1,0 +1,54 @@
+[NAME]
+NetUserGetInfo
+[DESCRIPTION]
+The NetUserGetInfo function retrieves information about a particular user account on a server.
+[DECLARATION]
+Declare Function NetUserGetInfo Lib "netapi32" (ByVal servername As String, ByVal username As String, ByVal level As Long, bufptr As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· servername
+[in] Pointer to a constant Unicode string specifying the name of the remote server on which the function is to execute. The string must begin with \\. If this parameter is NULL, the local computer is used.
+
+· username
+[in] Pointer to a constant Unicode string containing the name of the user account for which to return information.
+
+· level
+[in] Specifies the information level of the data. This parameter can be one of the following values.
+0
+ Return the user account name. The bufptr parameter points to a USER_INFO_0 structure.
+1
+ Return detailed information about the user account. The bufptr parameter points to a USER_INFO_1 structure.
+2
+ Return level one information and additional attributes about the user account. The bufptr parameter points to a USER_INFO_2 structure.
+3
+ Return level two information and additional attributes about the user account. This level is valid only on Windows NT/Windows 2000 servers. The bufptr parameter points to a USER_INFO_3 structure.
+10
+ Return user and account names and comments. The bufptr parameter points to a USER_INFO_10 structure.
+11
+ Return detailed information about the user account. The bufptr parameter points to a USER_INFO_11 structure.
+20
+ Return the user's name and identifier and various account attributes. The bufptr parameter points to a USER_INFO_20 structure.
+
+· bufptr
+[out] Pointer to the buffer that receives the data. The format of this data depends on the value of the level parameter. This buffer is allocated by the system and must be freed using the NetApiBufferFree function.
+[RETURNS]
+If the function is successful, it returns NERR_SUCCESS. 
+
+If the function fails, the return value is one of the following error codes.
+ERROR_ACCESS_DENIED 
+ The user does not have access to the requested information. 
+ 
+NERR_InvalidComputer 
+ The computer name is invalid. 
+ 
+NERR_UserNotFound 
+ The user name could not be found. 
+[EXAMPLES]
+NetUserGetInfo*8B646FA0BE83EFB83E3C22C0F1D28B68.html
+[RELATED]
+NetApiBufferFree

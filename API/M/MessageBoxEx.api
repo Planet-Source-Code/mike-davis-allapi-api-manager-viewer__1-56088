@@ -1,0 +1,131 @@
+[NAME]
+MessageBoxEx
+[DESCRIPTION]
+The MessageBoxEx function creates, displays, and operates a message box. The message box contains an application-defined message and title, plus any combination of predefined icons and push buttons.
+[DECLARATION]
+Declare Function MessageBoxEx Lib "user32" Alias "MessageBoxExA" (ByVal hwnd As Long, ByVal lpText As String, ByVal lpCaption As String, ByVal uType As Long, ByVal wLanguageId As Long) As Long
+[VBNET]
+System.Windows.Forms.MessageBox
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the owner window of the message box to be created. If this parameter is NULL, the message box has no owner window.
+
+· lpCaption
+Points to a null-terminated string containing the message to be displayed.
+
+· lpszTitle
+Points to a null-terminated string used for the dialog box title. If this parameter is NULL, the default title Error is used.
+
+· uType
+Specifies a set of bit flags that determine the contents and behavior of the dialog box. This parameter can be a combination of flags from the following groups of flags.
+Specify one of the following flags to indicate the buttons contained in the message box:
+MB_ABORTRETRYIGNORE
+ The message box contains three push buttons: Abort, Retry, and Ignore.
+MB_OK
+ The message box contains one push button: OK. This is the default.
+MB_OKCANCEL
+ The message box contains two push buttons: OK and Cancel.
+MB_RETRYCANCEL
+ The message box contains two push buttons: Retry and Cancel.
+MB_YESNO
+ The message box contains two push buttons: Yes and No.
+MB_YESNOCANCEL
+ The message box contains three push buttons: Yes, No, and Cancel.
+
+Specify one of the following flags to display an icon in the message box:
+MB_ICONEXCLAMATION,
+MB_ICONWARNING
+ An exclamation-point icon appears in the message box.
+MB_ICONINFORMATION, MB_ICONASTERISK
+ An icon consisting of a lowercase letter i in a circle appears in the message box.
+MB_ICONQUESTION
+ A question-mark icon appears in the message box.
+MB_ICONSTOP,
+MB_ICONERROR,
+MB_ICONHAND
+ A stop-sign icon appears in the message box.
+
+Specify one of the following flags to indicate the default button:
+MB_DEFBUTTON1
+ The first button is the default button.
+MB_DEFBUTTON1 is the default unless MB_DEFBUTTON2, MB_DEFBUTTON3, or MB_DEFBUTTON4 is specified.
+MB_DEFBUTTON2
+ The second button is the default button.
+MB_DEFBUTTON3
+ The third button is the default button.
+MB_DEFBUTTON4
+ The fourth button is the default button.
+
+Specify one of the following flags to indicate the modality of the dialog box:
+MB_APPLMODAL
+ The user must respond to the message box before continuing work in the window identified by the hWnd parameter. However, the user can move to the windows of other applications and work in those windows.
+ Depending on the hierarchy of windows in the application, the user may be able to move to other windows within the application. All child windows of the parent of the message box are automatically disabled, but popup windows are not.
+MB_APPLMODAL is the default if neither MB_SYSTEMMODAL nor MB_TASKMODAL is specified.
+MB_SYSTEMMODAL
+ Same as MB_APPLMODAL except that the message box has the WS_EX_TOPMOST style. Use system-modal message boxes to notify the user of serious, potentially damaging errors that require immediate attention (for example, running out of memory). This flag has no effect on the user's ability to interact with windows other than those associated with hWnd.
+MB_TASKMODAL
+ Same as MB_APPLMODAL except that all the top-level windows belonging to the current task are disabled if the hWnd parameter is NULL. Use this flag when the calling application or library does not have a window handle available but still needs to prevent input to other windows in the current application without suspending other applications.
+
+In addition, you can specify the following flags:
+MB_DEFAULT_DESKTOP_ONLY
+The desktop currently receiving input must be a default desktop; otherwise, the function fails. A default desktop is one an application runs on after the user has logged on.
+MB_HELP
+Adds a Help button to the message box. Choosing the Help button or pressing F1 generates a Help event.
+MB_RIGHT
+The text is right-justified.
+MB_RTLREADING
+Displays message and caption text using right-to-left reading order on Hebrew and Arabic systems.
+MB_SETFOREGROUND
+The message box becomes the foreground window. Internally, Windows calls the SetForegroundWindow function for the message box.
+MB_TOPMOST
+The message box is created with the WS_EX_TOPMOST window style.
+MB_SERVICE_NOTIFICATION
+Windows NT only: The caller is a service notifying the user of an event. The function displays a message box on the current active desktop, even if there is no user logged on to the computer.
+If this flag is set, the hWnd parameter must be NULL. This is so the message box can appear on a desktop other than the desktop corresponding to the hWnd.
+For Windows NT version 4.0, the value of MB_SERVICE_NOTIFICATION has changed. See WINUSER.H for the old and new values. Windows NT 4.0 provides backward compatibility for pre-existing services by mapping the old value to the new value in the implementation of MessageBox and MessageBoxEx. This mapping is only done for executables that have a version number, as set by the linker, less than 4.0.
+To build a service that uses MB_SERVICE_NOTIFICATION, and can run on both Windows NT 3.x and Windows NT 4.0, you have two choices.
+1. At link-time, specify a version number less than 4.0; or
+2. At link-time, specify version 4.0. At run-time, use the GetVersionEx function to check the system version. Then when running on Windows NT 3.x, use MB_SERVICE_NOTIFICATION_NT3X; and on Windows NT 4.0, use MB_SERVICE_NOTIFICATION.
+MB_SERVICE_NOTIFICATION_NT3X
+Windows NT only: This value corresponds to the value defined for MB_SERVICE_NOTIFICATION for Windows NT version 3.51.
+
+· wLanguageId
+Specifies the language in which to display the text contained in the predefined push buttons. This value must be in the form returned by the MAKELANGID macro.
+For a list of the language identifiers supported by Win32, see Language Identifiers. Note that each localized release of Windows typically contains resources only for a limited set of languages. Thus, for example, the U.S. version offers LANG_ENGLISH, the French version offers LANG_FRENCH, the German version offers LANG_GERMAN, and the Japanese version offers LANG_JAPANESE. Each version offers LANG_NEUTRAL. This limits the set of values that can be used with the wLanguageId parameter. Before specifying a language identifier, you should enumerate the locales that are installed on a system.
+[RETURNS]
+If the function succeeds, the return value is a nonzero menu-item value returned by the dialog box.
+IDABORT 
+ Abort button was selected. 
+ 
+IDCANCEL 
+ Cancel button was selected. 
+ 
+IDIGNORE 
+ Ignore button was selected. 
+ 
+IDNO 
+ No button was selected. 
+ 
+IDOK 
+ OK button was selected. 
+ 
+IDRETRY 
+ Retry button was selected. 
+ 
+IDYES 
+ Yes button was selected. 
+ 
+
+
+If a message box has a Cancel button, the function returns the IDCANCEL value when either the ESC key or Cancel button is pressed. If the message box has no Cancel button, pressing the ESC key has no effect. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+[RELATED]
+MessageBox
+MessageBoxIndirect

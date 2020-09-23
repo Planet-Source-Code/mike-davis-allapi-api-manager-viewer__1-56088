@@ -1,0 +1,30 @@
+[NAME]
+auxGetDevCaps
+[DESCRIPTION]
+The auxGetDevCaps function retrieves the capabilities of a given auxiliary output device.
+[DECLARATION]
+Declare Function auxGetDevCaps Lib "winmm.dll" Alias "auxGetDevCapsA" (ByVal uDeviceID As Long, lpCaps As AUXCAPS, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the auxiliary output device to be queried. Specify a valid device identifier (see the following comments section), or use the following constant:
+AUX_MAPPER
+Auxiliary audio mapper. The function returns an error if no auxiliary audio mapper is installed.
+
+· lpCaps
+Address of an AUXCAPS structure to be filled with information about the capabilities of the device.
+
+· cbCaps
+Size, in bytes, of the AUXCAPS structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following: MMSYSERR_BADDEVICEID 
+ Specified device identifier is out of range. 
+[EXAMPLES]
+auxVolume*D2AF4827063131971B7C2A4043DCDFEE.html
+[RELATED]
+auxGetNumDevs

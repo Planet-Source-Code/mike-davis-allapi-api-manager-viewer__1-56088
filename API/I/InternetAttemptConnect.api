@@ -1,0 +1,21 @@
+[NAME]
+InternetAttemptConnect
+[DESCRIPTION]
+Attempts to make a connection to the Internet. This function allows an application to first attempt to connect before issuing any requests. If the connection fails, the application can enter off-line mode.
+[DECLARATION]
+Declare Function InternetAttemptConnect Lib "wininet" (ByVal dwReserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· dwReserved
+Reserved; must be zero.
+[RETURNS]
+Returns ERROR_SUCCESS if successful, or a Win32 error value otherwise. 
+[EXAMPLES]
+CanConnect*17E00EC16843902017C7498D4DF3E705.html
+[RELATED]
+InternetOpen

@@ -1,0 +1,88 @@
+[NAME]
+TrackPopupMenu
+[DESCRIPTION]
+The TrackPopupMenu function displays a shortcut menu at the specified location and tracks the selection of items on the menu.
+[DECLARATION]
+Declare Function TrackPopupMenu Lib "user32" Alias "TrackPopupMenu" (ByVal hMenu As Long, ByVal wFlags As Long, ByVal x As Long, ByVal y As Long, ByVal nReserved As Long, ByVal hwnd As Long, lprc As Rect) As Long
+[VBNET]
+System.Windows.Forms.ContextMenu.Show
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMenu
+Identifies the shortcut menu to be displayed. The handle can be obtained by calling CreatePopupMenu to create a new shortcut menu, or by calling GetSubMenu to retrieve the handle of a submenu associated with an existing menu item.
+
+· uFlags
+A set of bit flags that specify function options.
+Use one of the following bit flag constants to specify how the function positions the shortcut menu horizontally.
+TPM_CENTERALIGN
+ If this flag is set, the function centers the shortcut menu horizontally relative to the coordinate specified by the x parameter.
+TPM_LEFTALIGN
+ If this flag is set, the function positions the shortcut menu so that its left side is aligned with the coordinate specified by the x parameter.
+TPM_RIGHTALIGN
+ Positions the shortcut menu so that its right side is aligned with the coordinate specified by the x parameter.
+
+Use one of the following bit flag constants to specify how the function positions the shortcut menu vertically.
+TPM_BOTTOMALIGN
+ If this flag is set, the function positions the shortcut menu so that its bottom side is aligned with the coordinate specified by the y parameter.
+TPM_TOPALIGN
+ If this flag is set, the function positions the shortcut menu so that its top side is aligned with the coordinate specified by the y parameter.
+TPM_VCENTERALIGN
+ If this flag is set, the function centers the shortcut menu vertically relative to the coordinate specified by the y parameter.
+
+Use the following bit flag constants to determine the user selection without having to set up a parent window for the menu.
+TPM_NONOTIFY
+ If this flag is set, the function does not send notification messages when the user clicks on a menu item.
+TPM_RETURNCMD
+ If this flag is set, the function returns the menu item identifier of the user's selection in the return value.
+
+Use one of the following bit flag constants to specify which mouse button the shortcut menu tracks.
+TPM_LEFTBUTTON
+ If this flag is set, the shortcut menu tracks the left mouse button.
+TPM_RIGHTBUTTON
+ If this flag is set, the shortcut menu tracks the right mouse button
+
+Windows 98/Me, Windows 2000 or later: Use any reasonable combination of the following flags to modify the animation of a menu. For example, by selecting a horizontal and a vertical flag you can achieve diagonal animation.
+TPM_HORNEGANIMATION 
+ Animates the menu from right to left. 
+TPM_HORPOSANIMATION 
+ Animates the menu from left to right. 
+TPM_NOANIMATION 
+ Displays menu without animation. 
+TPM_VERNEGANIMATION 
+ Animates the menu from bottom to top. 
+TPM_VERPOSANIMATION 
+ Animates the menu from top to bottom. 
+
+· x
+Specifies the horizontal location of the shortcut menu, in screen coordinates.
+
+· y
+Specifies the vertical location of the shortcut menu, in screen coordinates.
+
+· nReserved
+Reserved; must be zero.
+
+· hWnd
+Identifies the window that owns the shortcut menu. This window receives all messages from the menu. The window does not receive a WM_COMMAND message from the menu until the function returns.
+If you specify TPM_NONOTIFY in the uFlags parameter, the function does not send messages to the window identified by hWnd. However, you must still pass a window handle in hWnd. It can be any window handle from your application.
+
+· prcRect
+Points to a RECT structure that specifies the portion of the screen in which the user can select without dismissing the shortcut menu. If this parameter is NULL, the shortcut menu is dismissed if the user clicks outside the shortcut menu.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+
+If you specify TPM_RETURNCMD in the uFlags parameter, the return value is the menu-item identifier of the item selected. If no item is selected, the return value is zero. 
+[EXAMPLES]
+TrackPopupMenu*F18C007AEBF3B72E64843219796BE01C.html
+[RELATED]
+CreatePopupMenu
+GetSystemMenu
+AppendMenu
+DestroyMenu
+EndMenu
+TrackPopupMenuEx

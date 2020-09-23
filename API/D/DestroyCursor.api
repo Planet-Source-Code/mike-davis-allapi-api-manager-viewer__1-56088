@@ -1,0 +1,26 @@
+[NAME]
+DestroyCursor
+[DESCRIPTION]
+The DestroyCursor function destroys a cursor created by the CreateCursor function and frees any memory the cursor occupied. Do not use this function to destroy a cursor that was not created with the CreateCursor function.
+[DECLARATION]
+Declare Function DestroyCursor Lib "user32" Alias "DestroyCursor" (ByVal hCursor As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hCursor
+Identifies the cursor to be destroyed. The cursor must not be in use.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Set Cursor Shape*868756AD69DCD3314B7982806E4F6BA4.html
+CreateCursor*A9B78B38399F85150C731A1B12FEEF16.html
+SetSystemCursor*DD3EA625EB7670BAB8E76C9FDA6F6F9B.html
+[RELATED]
+LoadCursor
+LoadCursorFromFile

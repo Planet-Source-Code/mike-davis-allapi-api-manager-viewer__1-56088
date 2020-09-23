@@ -1,0 +1,44 @@
+[NAME]
+AddFontResource
+[DESCRIPTION]
+The AddFontResource function adds the font resource from the specified file to the system font table. The font can subsequently be used for text output by any Win32-based application.
+[DECLARATION]
+Declare Function AddFontResource Lib "gdi32" Alias "AddFontResourceA" (ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lpszFilename
+[in] Pointer to a null-terminated character string that contains a valid font file name. This parameter can specify any of the following files.
+.fon
+ Font resource file.
+.fnt
+ Raw bitmap font file.
+.ttf
+ Raw TrueType file.
+.ttc
+ Windows 95/98 East Asian and Windows NT: TrueType font collection.
+.fot
+ TrueType resource file.
+.otf
+ PostScript OpenType font.
+.mmm
+ multiple master Type1 font resource file. It must be used with .pfm and .pfb files.
+.pfb
+ Type 1 font bits file. It is used with a .pfm file.
+.pfm
+ Type 1 font metrics file. It is used with a .pfb file.
+
+Windows 2000: To add a font whose information comes from several resource files, have lpszFileName point to a string with the file names separated by a | --for example, abcxxxxx.pfm | abcxxxxx.pfb.
+[RETURNS]
+If the function succeeds, the return value specifies the number of fonts added. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+FontResource*6B5ADB0FB7D79A23DE24A048C9E5E310.html
+AddFontResource*6DA75DAC29F25179DB3CE0F0583B791C.html
+[RELATED]
+RemoveFontResource

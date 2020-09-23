@@ -1,0 +1,37 @@
+[NAME]
+FlatSB_GetScrollInfo
+[DESCRIPTION]
+Retrieves the information for a flat scroll bar. If flat scroll bars are not initialized for the window, this function calls the standard GetScrollInfo API.
+[DECLARATION]
+Declare Function FlatSB_GetScrollInfo Lib "comctl32" (ByVal hWnd As Long, ByVal fnBar As Long, lpsi As SCROLLINFO) As Boolean
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· fnBar
+Parameter that specifies the scroll bar type. It can be one of the following values:
+SB_HORZ
+ Retrieves the information for the horizontal scroll bar.
+SB_VERT
+ Retrieves the information for the vertical scroll bar.
+
+· lpsi
+Address of a SCROLLINFO structure that will receive the information for the specified scroll bar. The cbSize and fMask members of the structure must be filled out prior to calling FlatSB_GetScrollInfo. The fMask member specifies which properties should be retrieved and can be any combination of the following values: SIF_PAGE  Retrieves the page information for the flat scroll bar. This will be placed in the nPage member of the SCROLLINFO structure.
+SIF_POS
+ Retrieves the position information for the flat scroll bar. This will be placed in the nPos member of the SCROLLINFO structure.
+SIF_RANGE
+ Retrieves the range information for the flat scroll bar. This will be placed in the nMin and nMax members of the SCROLLINFO structure.
+SIF_ALL
+ A combination of SIF_PAGE, SIF_POS, and SIF_RANGE.
+[RETURNS]
+Returns nonzero if successful, or zero otherwise.
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_SetScrollInfo

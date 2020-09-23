@@ -1,0 +1,29 @@
+[NAME]
+GetPrivateProfileSectionNames
+[DESCRIPTION]
+The GetPrivateProfileSectionNames function retrieves the names of all sections in an initialization file. <br><br>Note  This function is provided only for compatibility with 16-bit Windows-based applications. Applications should store initialization information in the registry.
+[DECLARATION]
+Declare Function GetPrivateProfileSectionNames Lib "kernel32.dll" Alias "GetPrivateProfileSectionNamesA" (ByVal lpszReturnBuffer As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpszReturnBuffer 
+[out] Pointer to a buffer that receives the section names associated with the named file. The buffer is filled with one or more null-terminated strings; the last string is followed by a second null character. 
+
+· nSize 
+[in] Specifies the size, in TCHARs, of the buffer pointed to by the lpszReturnBuffer parameter. 
+
+· lpFileName 
+[in] Pointer to a null-terminated string that specifies the name of the initialization file. If this parameter is NULL, the function searches the Win.ini file. If this parameter does not contain a full path to the file, the system searches for the file in the Windows directory. 
+[RETURNS]
+The return value specifies the number of characters copied to the specified buffer, not including the terminating null character. If the buffer is not large enough to contain all the section names associated with the specified initialization file, the return value is equal to the length specified by nSize minus two.
+[EXAMPLES]
+Private Profile Section Enum*EBEF298B9A9A06B86DB84C2525E1C25D.html
+Get Profile Section Names*3760A999B066E2CF22C8C0C8C7FEAE03.html
+[RELATED]
+GetPrivateProfileSection
+WritePrivateProfileSection

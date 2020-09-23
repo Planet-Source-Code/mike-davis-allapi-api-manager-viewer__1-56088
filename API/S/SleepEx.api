@@ -1,0 +1,27 @@
+[NAME]
+SleepEx
+[DESCRIPTION]
+The SleepEx function causes the current thread to enter a wait state until one of the following occurs:· An I/O completion callback function is called· An asynchronous procedure call (APC) is queued to the thread.· The time-out interval elapses
+[DECLARATION]
+Declare Function SleepEx Lib "kernel32" Alias "SleepEx" (ByVal dwMilliseconds As Long, ByVal bAlertable As Long) As Long
+[VBNET]
+System.Threading.Thread.Sleep
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwMilliseconds
+Specifies the time, in milliseconds, that the delay is to occur. A value of zero causes the function to return immediately. A value of INFINITE causes an infinite delay.
+
+· bAlertable
+Specifies whether the function may terminate early due to an I/O completion callback function or an APC. If bAlertable is FALSE, the function does not return until the time-out period has elapsed. If an I/O completion callback occurs, the function does not return and the I/O completion function is not executed. If an APC is queued to the thread, the function does not return and the APC function is not executed.
+If bAlertable is TRUE and the thread that called this function is the same thread that called the extended I/O function (ReadFileEx or WriteFileEx), the function returns when either the time-out period has elapsed or when an I/O completion callback function occurs. If an I/O completion callback occurs, the I/O completion function is called. If an APC is queued to the thread (QueueUserAPC), the function returns when either the timer-out period has elapsed or when the APC function is called.
+[RETURNS]
+The return value is zero if the specified time interval expired. 
+
+The return value is WAIT_IO_COMPLETION if the function returned due to one or more I/O completion callback functions. This can happen only if bAlertable is TRUE, and if the thread that called the SleepEx function is the same thread that called the extended I/O function. 
+[EXAMPLES]
+ZZZZzzzzz....*AF74E96AAFCD9FCE3B028ABB7D97AE19.html
+[RELATED]
+Sleep

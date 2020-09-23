@@ -1,0 +1,27 @@
+[NAME]
+gethostbyname
+[DESCRIPTION]
+The Windows Sockets gethostbyname function retrieves host information corresponding to a host name from a host database.
+[DECLARATION]
+Declare Function gethostbyname Lib "WSOCK32" (ByVal szHost As String) As Long
+[VBNET]
+System.Net.Dns.GetHostByName
+[OS]
+Requires Windows Sockets 1.1 or later
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+· name
+[out] A pointer to the null-terminated name of the host to resolve.
+[RETURNS]
+If no error occurs, gethostbyname returns a pointer to the HOSTENT structure described above. Otherwise, it returns a NULL pointer and a specific error number can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+GetIP*07CCCC8728276405F3111B9A7262DDF2.html
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+WSAStartup
+WSACleanup
+WSAGetLastError
+gethostname
+gethostbyaddr

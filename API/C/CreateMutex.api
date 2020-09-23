@@ -1,0 +1,35 @@
+[NAME]
+CreateMutex
+[DESCRIPTION]
+The CreateMutex function creates a named or unnamed mutex object.
+[DECLARATION]
+Declare Function CreateMutex Lib "kernel32" Alias "CreateMutexA" (lpMutexAttributes As SECURITY_ATTRIBUTES, ByVal bInitialOwner As Long, ByVal lpName As String) As Long
+[VBNET]
+System.Threading.Mutex
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpMutexAttributes
+Pointer to a SECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If lpMutexAttributes is NULL, the handle cannot be inherited.
+Windows NT: The lpSecurityDescriptor member of the structure specifies a security descriptor for the new mutex. If lpMutexAttributes is NULL, the mutex gets a default security descriptor.
+Windows 95: The lpSecurityDescriptor member of the structure is ignored.
+
+· bInitialOwner
+Specifies the initial owner of the mutex object. If TRUE, the calling thread requests immediate ownership of the mutex object. Otherwise, the mutex is not owned.
+
+· lpName
+Points to a null-terminated string specifying the name of the mutex object. The name is limited to MAX_PATH characters and can contain any character except the backslash path-separator character (\). Name comparison is case sensitive.
+If lpName matches the name of an existing named mutex object, this function requests MUTEX_ALL_ACCESS access to the existing object. In this case, the bInitialOwner parameter is ignored because it has already been set by the creating process. If the lpMutexAttributes parameter is not NULL, it determines whether the handle can be inherited, but its security-descriptor member is ignored.
+If lpName is NULL, the mutex object is created without a name.
+If lpName matches the name of an existing event, semaphore, or file-mapping object, the function fails and the GetLastError function returns ERROR_INVALID_HANDLE. This occurs because event, mutex, semaphore, and file-mapping objects share the same name space.
+[RETURNS]
+If the function succeeds, the return value is a handle to the mutex object. If the named mutex object existed before the function call, the GetLastError function returns ERROR_ALREADY_EXISTS. Otherwise, GetLastError returns zero. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Advanced PrevInstance*C5632AFDFAE653D3E4B960A3CD1C380C.html
+[RELATED]
+CloseHandle
+ReleaseMutex

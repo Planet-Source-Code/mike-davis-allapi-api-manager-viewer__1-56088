@@ -1,0 +1,68 @@
+[NAME]
+GetTokenInformation
+[DESCRIPTION]
+The GetTokenInformation function retrieves a specified type of information about an access token. The calling process must have appropriate access rights to obtain the information. <br>To determine if a user is a member of a specific group, use the CheckTokenMembership function. 
+[DECLARATION]
+Declare Function GetTokenInformation Lib "Advapi32" (ByVal TokenHandle As Long, TokenInformationClass As Integer, TokenInformation As Any, ByVal TokenInformationLength As Long, ReturnLength As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· TokenHandle 
+[in] Handle to an access token from which information is retrieved. If TokenInformationClass specifies TokenSource, the handle must have TOKEN_QUERY_SOURCE access. For all other TokenInformationClass values, the handle must have TOKEN_QUERY access. 
+
+· TokenInformationClass 
+[in] Specifies a value from the TOKEN_INFORMATION_CLASS enumerated type to identify the type of information the function retrieves. 
+
+· TokenInformation 
+[out] Pointer to a buffer the function fills with the requested information. The structure put into this buffer depends upon the type of information specified by the TokenInformationClass parameter, as shown in the following table. 
+NULL 
+ The function returns the required buffer size. No data is stored in the buffer. 
+TokenDefaultDacl 
+ The buffer receives a TOKEN_DEFAULT_DACL structure containing the default DACL for newly created objects.  
+TokenGroups 
+ The buffer receives a TOKEN_GROUPS structure containing the group accounts associated with the token. 
+TokenGroupsAndPrivileges 
+ The buffer receives a TOKEN_GROUPS_AND_PRIVILEGES structure containing the user SID, the group accounts, the restricted SIDs, and the authentication ID associated with the token. 
+TokenImpersonationLevel 
+ The buffer receives a SECURITY_IMPERSONATION_LEVEL value indicating the impersonation level of the token. If the access token is not an impersonation token, the function fails. 
+TokenOwner 
+ The buffer receives a TOKEN_OWNER structure containing the default owner SID for newly created objects. 
+TokenPrimaryGroup 
+ The buffer receives a TOKEN_PRIMARY_GROUP structure containing the default primary group SID for newly created objects.  
+TokenPrivileges 
+ The buffer receives a TOKEN_PRIVILEGES structure containing the token's privileges. 
+TokenRestrictedSids 
+ The buffer receives a TOKEN_GROUPS structure containing the list of restricting SIDs in a restricted token. 
+TokenSandBoxInert 
+ The buffer receives a DWORD value that is nonzero if the token includes the SANDBOX_INERT flag. 
+TokenSessionId 
+ The buffer receives a DWORD value that indicates the Terminal Services session identifier associated with the token. If the token is associated with the Terminal Server console session, the session identifier is zero. A nonzero session identifier indicates a Terminal Services client session. In a non-Terminal Services environment, the session identifier is zero. 
+TokenSource 
+ The buffer receives a TOKEN_SOURCE structure containing the source of the token. TOKEN_QUERY_SOURCE access is needed to retrieve this information. 
+TokenStatistics 
+ The buffer receives a TOKEN_STATISTICS structure containing various token statistics. 
+TokenType 
+ The buffer receives a TOKEN_TYPE value indicating whether the token is a primary or impersonation token.  
+TokenUser 
+ The buffer receives a TOKEN_USER structure containing the token's user account.  
+
+· TokenInformationLength 
+[in] Specifies the size, in bytes, of the buffer pointed to by the TokenInformation parameter. If TokenInformation is NULL, this parameter must be zero. 
+
+· ReturnLength 
+[out] Pointer to a variable that receives the number of bytes needed for the buffer pointed to by the TokenInformation parameter. If this value is larger than the value specified in the TokenInformationLength parameter, the function fails and stores no data in the buffer. 
+If the value of the TokenInformationClass parameter is TokenDefaultDacl and the token has no default DACL, the function sets the variable pointed to by ReturnLength to sizeof(TOKEN_DEFAULT_DACL) and sets the DefaultDacl member of the TOKEN_DEFAULT_DACL structure to NULL. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+AdjustTokenPrivileges
+OpenThreadToken
+OpenProcessToken

@@ -1,0 +1,27 @@
+[NAME]
+GetFileVersionInfoSize
+[DESCRIPTION]
+The GetFileVersionInfoSize function determines whether the operating system can obtain version information about a specified file. If version information is available, GetFileVersionInfoSize returns the size in bytes of that information.
+[DECLARATION]
+Declare Function GetFileVersionInfoSize Lib "version.dll" Alias "GetFileVersionInfoSizeA" (ByVal lptstrFilename As String, lpdwHandle As Long) As Long
+[VBNET]
+System.Diagnostics.FileVersionInfo
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Version
+[PARAMETERS]
+· lptstrFilename
+Pointer to a null-terminated filename string that specifies the file of interest.
+
+· lpdwHandle
+Pointer to a variable that the function sets to zero.
+[RETURNS]
+If the function succeeds, the return value is the size in bytes of the file’s version information. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+FileInfo*C8787F620B85FE0EFC06CD359F8AEDF5.html
+[RELATED]
+GetFileVersionInfo
+Ver Info

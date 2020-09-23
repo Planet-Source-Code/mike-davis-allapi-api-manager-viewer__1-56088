@@ -1,0 +1,29 @@
+[NAME]
+SetUnhandledExceptionFilter
+[DESCRIPTION]
+The SetUnhandledExceptionFilter function enables an application to supersede the top-level exception handler of each thread and process.<br>After calling this function, if an exception occurs in a process that is not being debugged, and the exception makes it to the unhandled exception filter, that filter will call the exception filter function specified by the lpTopLevelExceptionFilter parameter. 
+[DECLARATION]
+Declare Function SetUnhandledExceptionFilter Lib "kernel32" (ByVal lpTopLevelExceptionFilter As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpTopLevelExceptionFilter 
+[in] Pointer to a top-level exception filter function that will be called whenever the UnhandledExceptionFilter function gets control, and the process is not being debugged. A value of NULL for this parameter specifies default handling within UnhandledExceptionFilter. 
+The filter function has syntax similar to that of UnhandledExceptionFilter: It takes a single parameter of type LPEXCEPTION_POINTERS, and returns a value of type LONG. The filter function should return one of the following values.
+EXCEPTION_EXECUTE_HANDLER 
+ Return from UnhandledExceptionFilter and execute the associated exception handler. This usually results in process termination. 
+EXCEPTION_CONTINUE_EXECUTION 
+ Return from UnhandledExceptionFilter and continue execution from the point of the exception. Note that the filter function is free to modify the continuation state by modifying the exception information supplied through its LPEXCEPTION_POINTERS parameter. 
+EXCEPTION_CONTINUE_SEARCH 
+ Proceed with normal execution of UnhandledExceptionFilter. That means obeying the SetErrorMode flags, or invoking the Application Error pop-up message box. 
+[RETURNS]
+The SetUnhandledExceptionFilter function returns the address of the previous exception filter established with the function. A NULL return value means that there is no current top-level exception handler.
+[EXAMPLES]
+Unhandled Exception*93C6E1CFEE5BF24DE51EC599B1720D4F.html
+[RELATED]
+RaiseException
+ReportFault

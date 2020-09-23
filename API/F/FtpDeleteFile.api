@@ -1,0 +1,24 @@
+[NAME]
+FtpDeleteFile
+[DESCRIPTION]
+Deletes a file stored on the FTP server.
+[DECLARATION]
+Declare Function FtpDeleteFile Lib "wininet.dll" Alias "FtpDeleteFileA" (ByVal hFtpSession As Long, ByVal lpszFileName As String) As Boolean
+[VBNET]
+Not implemented
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hConnect
+[in] Valid HINTERNET handle returned by a previous call to InternetConnect using INTERNET_SERVICE_FTP.
+
+· lpszFileName
+[in] Address of a null-terminated string that contains the name of the file to delete on the remote system.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get a specific error code, call GetLastError.
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+FtpPutFile

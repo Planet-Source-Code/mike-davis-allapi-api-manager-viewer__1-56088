@@ -1,0 +1,24 @@
+[NAME]
+IsWindowVisible
+[DESCRIPTION]
+The IsWindowVisible function retrieves the visibility state of the specified window.
+[DECLARATION]
+Declare Function IsWindowVisible Lib "user32" Alias "IsWindowVisible" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Visible
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window.
+[RETURNS]
+If the specified window and its parent window have the WS_VISIBLE style, the return value is nonzero. 
+
+If the specified window and its parent window do not have the WS_VISIBLE style, the return value is zero. Because the return value specifies whether the window has the WS_VISIBLE style, it may be nonzero even if the window is totally obscured by other windows.
+[EXAMPLES]
+IsWindowVisible*384B8696394020C2371BAD5FDB1BD53B.html
+[RELATED]
+IsWindowEnabled
+IsIconic

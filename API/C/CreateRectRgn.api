@@ -1,0 +1,35 @@
+[NAME]
+CreateRectRgn
+[DESCRIPTION]
+The CreateRectRgn function creates a rectangular region.
+[DECLARATION]
+Declare Function CreateRectRgn Lib "gdi32" Alias "CreateRectRgn" (ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+[VBNET]
+System.Drawing.Region
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· nLeftRect
+Specifies the x-coordinate of the upper-left corner of the region.
+
+· nTopRect
+Specifies the y-coordinate of the upper-left corner of the region.
+
+· nRightRect
+Specifies the x-coordinate of the lower-right corner of the region.
+
+· nBottomRect
+Specifies the y-coordinate of the lower-right corner of the region.
+[RETURNS]
+If the function succeeds, the return value is the handle to the region. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Rectangles*D3F3719BBC36D7E57F628A99BB3D6672.html
+[RELATED]
+CreateRectRgnIndirect
+CreateEllipticRgn
+CreateRoundRectRgn
+Window Region

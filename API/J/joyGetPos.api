@@ -1,0 +1,32 @@
+[NAME]
+joyGetPos
+[DESCRIPTION]
+The joyGetPos function queries a joystick for its position and button status.
+[DECLARATION]
+Declare Function joyGetPos Lib "winmm.dll" Alias "joyGetPos" (ByVal uJoyID As Long, pji As JOYINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uJoyID
+Identifier of the joystick (JOYSTICKID1 or JOYSTICKID2) to be queried.
+
+· pji
+Address of a JOYINFO structure that contains the position and button status of the joystick.
+[RETURNS]
+Returns JOYERR_NOERROR if successful or one of the following error values:
+MMSYSERR_NODRIVER 
+ The joystick driver is not present. 
+MMSYSERR_INVALPARAM 
+ An invalid parameter was passed. 
+ 
+JOYERR_UNPLUGGED 
+ The specified joystick is not connected to the system. 
+[EXAMPLES]
+JoyStick*19F21F546E23F1C5992A133E1482DB7C.html
+[RELATED]
+joyGetDevCaps
+joyGetNumDevs

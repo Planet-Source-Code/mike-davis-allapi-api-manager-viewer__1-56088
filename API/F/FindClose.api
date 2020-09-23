@@ -1,0 +1,25 @@
+[NAME]
+FindClose
+[DESCRIPTION]
+The FindClose function closes the specified search handle.
+[DECLARATION]
+Declare Function FindClose Lib "kernel32" Alias "FindClose" (ByVal hFindFile As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFindFile
+Identifies the search handle. This handle must have been previously opened by the FindFirstFile function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Find Files*DAD43CF20ED09D1897B0ECAAF0BF86EE.html
+[RELATED]
+FindFirstFile
+FindNextFile
+GetFileAttributes

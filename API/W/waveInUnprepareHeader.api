@@ -1,0 +1,32 @@
+[NAME]
+waveInUnprepareHeader
+[DESCRIPTION]
+The waveInUnprepareHeader function cleans up the preparation performed by the waveInPrepareHeader function. This function must be called after the device driver fills a buffer and returns it to the application. You must call this function before freeing the buffer.
+[DECLARATION]
+Declare Function waveInUnprepareHeader Lib "winmm.dll" Alias "waveInUnprepareHeader" (ByVal hWaveIn As Long, lpWaveInHdr As WAVEHDR, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwi
+Handle of the waveform-audio input device.
+
+· pwh
+Address of a WAVEHDR structure identifying the buffer to be cleaned up.
+
+· cbwh
+Size, in bytes, of the WAVEHDR structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+WAVERR_STILLPLAYING The buffer pointed to by the pwh parameter is still in the queue. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+waveInOpen
+waveInPrepareHeader

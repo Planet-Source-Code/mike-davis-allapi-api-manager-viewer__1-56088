@@ -1,0 +1,24 @@
+[NAME]
+GlobalUnlock
+[DESCRIPTION]
+The GlobalUnlock function decrements the lock count associated with a memory object that was allocated with the GMEM_MOVEABLE flag.
+[DECLARATION]
+Declare Function GlobalUnlock Lib "kernel32" Alias "GlobalUnlock" (ByVal hMem As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hMem
+Identifies the global memory object. This handle is returned by either the GlobalAlloc or GlobalReAlloc function.
+[RETURNS]
+If the memory object is still locked after decrementing the lock count, the return value is a nonzero value. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. If GetLastError returns NO_ERROR, the memory object is unlocked. 
+[EXAMPLES]
+Crypto*79AD4E0522A0A67A6E196BE52357E60B.html
+[RELATED]
+GlobalAlloc
+GlobalLock

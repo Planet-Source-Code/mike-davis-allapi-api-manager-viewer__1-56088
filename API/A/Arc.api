@@ -1,0 +1,53 @@
+[NAME]
+Arc
+[DESCRIPTION]
+The Arc function draws an elliptical arc.
+[DECLARATION]
+Declare Function Arc Lib "gdi32" Alias "Arc" (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As Long, ByVal Y3 As Long, ByVal X4 As Long, ByVal Y4 As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawArc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context where drawing takes place.
+
+· nLeftRect
+Specifies the logical x-coordinate of the upper-left corner of the bounding rectangle.
+Windows 95: The sum of nLeftRect plus nRightRect must be less than 32768.
+
+· nTopRect
+Specifies the logical y-coordinate of the upper-left corner of the bounding rectangle.
+Windows 95: The sum of nTopRect plus nBottomRect must be less than 32768.
+
+· nRightRect
+Specifies the logical x-coordinate of the lower-right corner of the bounding rectangle.
+Windows 95: The sum of nLeftRect plus nRightRect must be less than 32768.
+
+· nBottomRect
+Specifies the logical y-coordinate of the lower-right corner of the bounding rectangle.
+Windows 95: The sum of nTopRect plus nBottomRect must be less than 32768.
+
+· nXStartArc
+Specifies the logical x-coordinate of the ending point of the radial line defining the starting point of the arc.
+
+· nYStartArc
+Specifies the logical y-coordinate of the ending point of the radial line defining the starting point of the arc.
+
+· nXEndArc
+Specifies the logical x-coordinate of the ending point of the radial line defining the ending point of the arc.
+
+· nYEndArc
+Specifies the logical y-coordinate of the ending point of the radial line defining the ending point of the arc.
+[RETURNS]
+If the arc is drawn, the return value is nonzero. 
+
+If the arc is not drawn, the return value is zero. 
+[EXAMPLES]
+Arc*2B73F91683611C489560A1D163E37902.html
+[RELATED]
+MoveToEx
+LineTo
+drawarc

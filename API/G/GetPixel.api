@@ -1,0 +1,29 @@
+[NAME]
+GetPixel
+[DESCRIPTION]
+The GetPixel function retrieves the red, green, blue (RGB) color value of the pixel at the specified coordinates.
+[DECLARATION]
+Declare Function GetPixel Lib "gdi32" Alias "GetPixel" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+System.Drawing.Bitmap.GetPixel
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nXPos
+Specifies the logical x-coordinate of the pixel to be examined.
+
+· nYPos
+Specifies the logical y-coordinate of the pixel to be examined.
+[RETURNS]
+If the function succeeds, the return value is an RGB value. If the pixel is outside of the current clipping region, the return value is CLR_INVALID. 
+[EXAMPLES]
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+FloodFill*87A1C3C5015E671A91F7947FFB19D20B.html
+GradientFillTriangle*CEE3FB3E4C796A2EFBC21148A541E808.html
+[RELATED]
+SetPixel

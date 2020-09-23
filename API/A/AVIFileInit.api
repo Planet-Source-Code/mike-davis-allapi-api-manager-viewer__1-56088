@@ -1,0 +1,20 @@
+[NAME]
+AVIFileInit
+[DESCRIPTION]
+The AVIFileInit function initializes the AVIFile library. <br>The AVIFile library maintains a count of the number of times it is initialized, but not the number of times it was released. Use the AVIFileExit function to release the AVIFile library and decrement the reference count. Call AVIFileInit before using any other AVIFile functions.
+[DECLARATION]
+Declare Sub AVIFileInit Lib "avifil32" ()
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Avifil32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+AVI Info*284827ED26B36C1C0A36DFDCF51A6C79.html
+[RELATED]
+AVIFileExit

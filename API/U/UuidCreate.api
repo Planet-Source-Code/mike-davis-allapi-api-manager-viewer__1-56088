@@ -1,0 +1,27 @@
+[NAME]
+UuidCreate
+[DESCRIPTION]
+The UuidCreate function creates a new UUID.
+[DECLARATION]
+Declare Function UuidCreate Lib "rpcrt4" (lpUUID As UUID) As Long
+[VBNET]
+System.Guid
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rpcrt4
+[PARAMETERS]
+· Uuid
+Returns a pointer to the created UUID.
+[RETURNS]
+RPC_S_OK 
+ Success 
+ 
+RPC_S_UUID_NO_ADDRESS 
+ Cannot get Ethernet or token-ring hardware address for this computer 
+[EXAMPLES]
+UUID*5A54D9AD87F7C4C1C70C8F05B9515D5A.html
+[RELATED]
+UuidToString
+CoCreateGuid
+guid

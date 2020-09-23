@@ -1,0 +1,24 @@
+[NAME]
+GetCurrentProcessId
+[DESCRIPTION]
+The GetCurrentProcessId function returns the process identifier of the calling process.
+[DECLARATION]
+Declare Function GetCurrentProcessId Lib "kernel32" Alias "GetCurrentProcessId" () As Long
+[VBNET]
+System.Diagnostics.Process.GetCurrentProcess.Id
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is the process identifier of the calling process.
+[EXAMPLES]
+Hide from CTRL-ALT-DEL-List*35F2BE6F1E677B012EA233691D5400BE.html
+ProcessTimes*A0EAE11E2E5ACB3441FD8B778CFB4E14.html
+AllowSetForegroundWindow*B7C44612023F283F9F4815D6C2252FD0.html
+Enum Modules*E6AB94D232549AD1B4B448C5500EED21.html
+GUI Thread Info*5CD4357EF455DFF45109553077C31000.html
+[RELATED]
+CreateProcess

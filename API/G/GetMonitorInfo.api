@@ -1,0 +1,31 @@
+[NAME]
+GetMonitorInfo
+[DESCRIPTION]
+The GetMonitorInfo function retrieves information about a display monitor.
+[DECLARATION]
+Declare Function GetMonitorInfo Lib "user32.dll" Alias "GetMonitorInfoA" (ByVal hMonitor As Long, ByRef lpmi As MONITORINFO) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMonitor
+[in] Handle to the display monitor of interest.
+
+· lpmi
+[out] Pointer to a MONITORINFO or MONITORINFOEX structure that receives information about the specified display monitor.
+You must set the cbSize member of the structure to sizeof(MONITORINFO) or sizeof(MONITORINFOEX) before calling the GetMonitorInfo function. Doing so lets the function determine the type of structure you are passing to it.
+
+The MONITORINFOEX structure is a superset of the MONITORINFO structure. It has one additional member: a string that contains a name for the display monitor. Most applications have no use for a display monitor name, and so can save some bytes by using a MONITORINFO structure.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. 
+
+Windows NT/2000: To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum Monitors*10B6D40C610184A77A0F255EF0CEE768.html
+[RELATED]
+EnumDisplayMonitors

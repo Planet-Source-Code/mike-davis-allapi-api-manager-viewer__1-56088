@@ -1,0 +1,21 @@
+[NAME]
+DoFileDownload
+[DESCRIPTION]
+The DoFileDownload function opens a download dialog.
+[DECLARATION]
+Declare Function DoFileDownload Lib "shdocvw.dll" (ByVal lpszFile As String) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shdocvw
+[PARAMETERS]
+· lpszFile
+File to download
+[RETURNS]
+Undocumented
+[EXAMPLES]
+DoDownload*84AF591744E4D53ABB37AAA9925BA279.html
+[RELATED]
+

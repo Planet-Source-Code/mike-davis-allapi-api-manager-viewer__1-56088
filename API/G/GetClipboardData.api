@@ -1,0 +1,25 @@
+[NAME]
+GetClipboardData
+[DESCRIPTION]
+The GetClipboardData function retrieves data from the clipboard in a specified format. The clipboard must have been opened previously.
+[DECLARATION]
+Declare Function GetClipboardData Lib "user32" (ByVal wFormat As Long) As Long
+[VBNET]
+System.Windows.Forms.Clipboard
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· uFormat 
+Specifies a clipboard format. For a description of the clipboard formats, see the SetClipboardData function. 
+[RETURNS]
+If the function succeeds, the return value is the handle of a clipboard object in the specified format.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Get Clipboard Data*2C393D36BE4872F8B7E4DD0DB4275F0D.html
+[RELATED]
+SetClipboardData
+OpenClipboard
+Clipboard

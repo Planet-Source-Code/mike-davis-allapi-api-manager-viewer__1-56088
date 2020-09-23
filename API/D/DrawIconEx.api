@@ -1,0 +1,60 @@
+[NAME]
+DrawIconEx
+[DESCRIPTION]
+The DrawIconEx function draws an icon or cursor in the client area of the window of the specified device context, performing the specified raster operations, and stretching or compressing the icon or cursor as specified.
+[DECLARATION]
+Declare Function DrawIconEx Lib "user32" Alias "DrawIconEx" (ByVal hdc As Long, ByVal xLeft As Long, ByVal yTop As Long, ByVal hIcon As Long, ByVal cxWidth As Long, ByVal cyWidth As Long, ByVal istepIfAniCur As Long, ByVal hbrFlickerFreeDraw As Long, ByVal diFlags As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawIcon
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hdc
+Identifies the device context for a window.
+
+· xLeft
+Specifies the logical x-coordinate of the upper-left corner of the icon or cursor.
+
+· yTop
+Specifies the logical y-coordinate of the upper-left corner of the icon or cursor.
+
+· hIcon
+Identifies the icon or cursor to be drawn. This parameter can identify an animated cursor. The icon or cursor resource must have been previously loaded by using the LoadImage function.
+
+· cxWidth
+Specifies the logical width of the icon or cursor. If this parameter is zero and the diFlags parameter is DI_DEFAULTSIZE, the function uses the SM_CXICON or SM_CXCURSOR system metric value to set the width. If this parameter is zero and DI_DEFAULTSIZE is not used, the function uses the actual resource width.
+
+· cyWidth
+Specifies the logical height of the icon or cursor. If this parameter is zero and the diFlags parameter is DI_DEFAULTSIZE, the function uses the SM_CYICON or SM_CYCURSOR system metric value to set the width. If this parameter is zero and DI_DEFAULTSIZE is not used, the function uses the actual resource height.
+
+· istepIfAniCur
+Specifies the index of the frame to draw, if hIcon identifies an animated cursor. This parameter is ignored if hIcon does not identify an animated cursor.
+
+· hbrFlickerFreeDraw
+Identifies a brush that the system uses for flicker-free drawing. If hbrBkgnd is a valid brush handle, the system creates an offscreen bitmap using the specified brush for the background color, draws the icon or cursor into the bitmap, and then copies the bitmap into the device context identified by hdc. If hbrBkgnd is NULL, the system draws the icon or cursor directly into the device context.
+
+· diFlags
+Specifies the drawing flags. This parameter can be one of the following values:
+DI_COMPAT
+ Draws the icon or cursor using the system default image rather than the user-specified image.
+DI_DEFAULTSIZE
+ Draws the icon or cursor using the width and height specified by the system metric values for cursors or icons, if the cxWidth and cyWidth parameters are set to zero. If this flag is not specified and cxWidth and cyWidth are set to zero, the function uses the actual resource size.
+DI_IMAGE
+ Draws the icon or cursor using the image.
+DI_MASK
+ Draws the icon or cursor using the mask.
+DI_NORMAL
+ Combination of DI_IMAGE and DI_MASK.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Draw Icon*FF470700C6E1A495BA295D6F5D8582C0.html
+[RELATED]
+DrawIcon
+DestroyIcon
+ExtractAssociatedIcon
+drawicon

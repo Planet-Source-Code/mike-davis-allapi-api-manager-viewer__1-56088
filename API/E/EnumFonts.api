@@ -1,0 +1,31 @@
+[NAME]
+EnumFonts
+[DESCRIPTION]
+The EnumFonts function enumerates the fonts available on a specified device. For each font with the specified typeface name, the EnumFonts function retrieves information about that font and passes it to the application-defined callback function. This callback function can process the font information as desired. Enumeration continues until there are no more fonts or the callback function returns zero.
+[DECLARATION]
+Declare Function EnumFonts Lib "gdi32" Alias "EnumFontsA" (ByVal hDC As Long, ByVal lpsz As String, ByVal lpFontEnumProc As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lpFaceName
+Points to a null-terminated character string that specifies the typeface name of the desired fonts. If lpFaceName is NULL, EnumFonts randomly selects and enumerates one font of each available typeface.
+
+· lpFontFunc
+Points to the application-defined callback function. For more information about the callback function, see the EnumFontsProc function.
+
+· lParam
+Points to any application-defined data. The data is passed to the callback function along with the font information.
+[RETURNS]
+If the function succeeds, the return value is the last value returned by the callback function. Its meaning is defined by the application. 
+[EXAMPLES]
+Enum Fonts*287C72333936CA5A15A4F5FAA476BD11.html
+[RELATED]
+EnumFontFamilies
+EnumFontFamiliesEx

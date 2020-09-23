@@ -1,0 +1,21 @@
+[NAME]
+lstrlenW
+[DESCRIPTION]
+The lstrlen function returns the length in bytes (ANSI version) or characters (Unicode version) of the specified string (not including the terminating null character).
+[DECLARATION]
+Declare Function lstrlenW Lib "kernel32" (lpString As Any) As Long
+[VBNET]
+System.String.Length
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString
+Points to a null-terminated string.
+[RETURNS]
+If the function succeeds, the return value specifies the length of the string in bytes (ANSI version) or characters (Unicode version). 
+[EXAMPLES]
+NetUserGetInfo*8B646FA0BE83EFB83E3C22C0F1D28B68.html
+[RELATED]
+lstrlen

@@ -1,0 +1,30 @@
+[NAME]
+waveOutGetDevCaps
+[DESCRIPTION]
+The waveOutGetDevCaps function retrieves the capabilities of a given waveform-audio output device.
+[DECLARATION]
+Declare Function waveOutGetDevCaps Lib "winmm.dll" Alias "waveOutGetDevCapsA" (ByVal uDeviceID As Long, lpCaps As WAVEOUTCAPS, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the waveform-audio output device. It can be either a device identifier or a handle of an open waveform-audio output device.
+
+· pwoc
+Address of a WAVEOUTCAPS structure to be filled with information about the capabilities of the device.
+
+· cbwoc
+Size, in bytes, of the WAVEOUTCAPS structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_BADDEVICEID Specified device identifier is out of range. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+waveOutOpen

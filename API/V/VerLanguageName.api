@@ -1,0 +1,32 @@
+[NAME]
+VerLanguageName
+[DESCRIPTION]
+The VerLanguageName function retrieves a description string for the language associated with a specified binary Microsoft language identifier.
+[DECLARATION]
+Declare Function VerLanguageName Lib "kernel32" Alias "VerLanguageNameA" (ByVal wLang As Long, ByVal szLang As String, ByVal nSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· wLang
+Specifies the binary Microsoft language identifier. For a complete list of the language identifiers supported by Win32, see Language Identifiers.
+For example, the description string associated with the language identifier 0x040A is “Spanish (Traditional Sort)”. If the identifier is unknown, the szLang parameter points to a default string (“Language Neutral”).
+
+· szLang
+Points to the buffer to receive the null-terminated string representing the language specified by the wLang parameter.
+
+· nSize
+Indicates the size of the buffer, in characters, pointed to by szLang.
+[RETURNS]
+If the return value is less than or equal to the buffer size, the return value is the size, in characters, of the string returned in the buffer. This value does not include the terminating null character. 
+
+If the return value is greater than the buffer size, the return value is the size of the buffer required to hold the entire string. The string is truncated to the length of the existing buffer. 
+
+If an error occurs, the return value is zero. Unknown language identifiers do not produce errors. 
+[EXAMPLES]
+VerLanguageName*A4052763723A1119B23FEAFA8B11DA21.html
+[RELATED]
+

@@ -1,0 +1,22 @@
+[NAME]
+GetInputState
+[DESCRIPTION]
+The GetInputState function determines whether there are mouse-button or keyboard messages in the calling thread's message queue.
+[DECLARATION]
+Declare Function GetInputState Lib "user32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the queue contains one or more new mouse-button or keyboard messages, the return value is nonzero. 
+
+If the there are no new mouse-button or keyboard messages in the queue, the return value is zero. 
+[EXAMPLES]
+GetInputState*DC322555C7AFCEB93365FE78164C4D40.html
+[RELATED]
+GetQueueStatus

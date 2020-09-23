@@ -1,0 +1,35 @@
+[NAME]
+mixerGetDevCaps
+[DESCRIPTION]
+The mixerGetDevCaps function queries a specified mixer device to determine its capabilities.
+[DECLARATION]
+Declare Function mixerGetDevCaps Lib "winmm.dll" Alias "mixerGetDevCapsA" (ByVal uMxId As Long, ByVal pmxcaps As MIXERCAPS, ByVal cbmxcaps As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uMxId
+Identifier or handle of an open mixer device.
+
+· pmxcaps
+Address of a MIXERCAPS structure that receives information about the capabilities of the device.
+
+· cbmxcaps
+Size, in bytes, of the MIXERCAPS structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MMSYSERR_BADDEVICEID 
+ The specified device identifier is out of range. 
+ 
+MMSYSERR_INVALHANDLE 
+ The mixer device handle is invalid. 
+ 
+MMSYSERR_INVALPARAM 
+ One or more parameters are invalid. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+mixerOpen

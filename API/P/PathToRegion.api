@@ -1,0 +1,30 @@
+[NAME]
+PathToRegion
+[DESCRIPTION]
+The PathToRegion function creates a region from the path that is selected into the specified device context.
+[DECLARATION]
+Declare Function PathToRegion Lib "gdi32" Alias "PathToRegion" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context that contains a closed path.
+[RETURNS]
+If the function succeeds, the return value identifies a valid region. 
+
+If the function fails, the return value is zero. 
+
+Windows NT/2000: To get extended error information, call GetLastError. GetLastError may return one of the following error codes: 
+
+ERROR_CAN_NOT_COMPLETE
+ERROR_INVALID_PARAMETER
+ERROR_NOT_ENOUGH_MEMORY
+[EXAMPLES]
+Path2Region*CAE2714E3B7A80BD1386EB848DFE32B4.html
+[RELATED]
+BeginPath
+EndPath

@@ -1,0 +1,28 @@
+[NAME]
+MulDiv
+[DESCRIPTION]
+The MulDiv function multiplies two 32-bit values and then divides the 64-bit result by a third 32-bit value. The return value is rounded up or down to the nearest integer.
+[DECLARATION]
+Declare Function MulDiv Lib "kernel32" Alias "MulDiv" (ByVal nNumber As Long, ByVal nNumerator As Long, ByVal nDenominator As Long) As Long
+[VBNET]
+Use Int64's
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· nNumber
+Specifies the multiplicand.
+
+· nNumerator
+Specifies the multiplier.
+
+· nDenominator
+Specifies the number by which the result of the multiplication (nNumber * nNumerator) is to be divided.
+[RETURNS]
+If the function succeeds, the return value is the result of the multiplication and division. If either an overflow occurred or nDenominator was 0, the return value is -1. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+MulDiv*BA66170090E3AFC8DAC7B6AF6B62578F.html
+[RELATED]
+CreateFont

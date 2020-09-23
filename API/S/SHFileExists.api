@@ -1,0 +1,20 @@
+[NAME]
+SHFileExists
+[DESCRIPTION]
+This is an undocumented function! Returns non-zero if szPath is valid absolute UNC path. Accepts file, folder or network paths. Returns True for a relative path only if it exists in the current directory. (the name actually fits...)
+[DECLARATION]
+Declare Function SHFileExists Lib "shell32" Alias "#45" (ByVal szPath As String) As Long
+[VBNET]
+System.IO.File.Exists
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHFileExists*446D91D4C97C867F7A042FB89758E936.html
+[RELATED]
+fileexists

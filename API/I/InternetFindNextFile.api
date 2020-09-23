@@ -1,0 +1,24 @@
+[NAME]
+InternetFindNextFile
+[DESCRIPTION]
+Continues a file search started as a result of a previous call to FtpFindFirstFile or GopherFindFirstFile.
+[DECLARATION]
+Declare Function InternetFindNextFile Lib "wininet.dll" Alias "InternetFindNextFileA" (ByVal hFind As Long, lpvFindData As WIN32_FIND_DATA) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hFind
+[in] Valid HINTERNET handle returned from either FtpFindFirstFile or GopherFindFirstFile, or from InternetOpenUrl (directories only).
+
+· lpvFindData
+[out] Address of the buffer that receives information about the found file or directory. The format of the information placed in the buffer depends on the protocol in use. The FTP protocol returns a WIN32_FIND_DATA  structure, and the Gopher protocol returns a GOPHER_FIND_DATA structure.
+[RETURNS]
+Returns TRUE if the function succeeds, or FALSE otherwise. To get extended error information, call GetLastError. If the function finds no matching files, GetLastError returns ERROR_NO_MORE_FILES. 
+[EXAMPLES]
+FTP Functions*6C326855F1AD75EEB82A4D3B16373E9F.html
+[RELATED]
+FtpFindFirstFile

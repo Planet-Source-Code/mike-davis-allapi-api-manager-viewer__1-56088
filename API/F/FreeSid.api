@@ -1,0 +1,21 @@
+[NAME]
+FreeSid
+[DESCRIPTION]
+The FreeSid function frees a security identifier (SID) previously allocated by using the AllocateAndInitializeSid function.
+[DECLARATION]
+Declare Sub FreeSid Lib "Advapi32" (pSid As Any)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSid 
+[in] Pointer to the SID structure to free. 
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+AllocateAndInitializeSid

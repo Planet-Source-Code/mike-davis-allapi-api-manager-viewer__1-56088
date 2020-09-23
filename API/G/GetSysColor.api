@@ -1,0 +1,75 @@
+[NAME]
+GetSysColor
+[DESCRIPTION]
+The GetSysColor function retrieves the current color of the specified display element. Display elements are the parts of a window and the Windows display that appear on the system display screen.
+[DECLARATION]
+Declare Function GetSysColor Lib "user32" Alias "GetSysColor" (ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· nIndex
+Specifies the display element whose color is to be retrieved. This parameter must be one of the following values:
+COLOR_3DDKSHADOW
+ Dark shadow for three-dimensional display elements.
+COLOR_3DFACE,
+COLOR_BTNFACE
+ Face color for three-dimensional display elements.
+COLOR_3DHILIGHT, COLOR_3DHIGHLIGHT, COLOR_BTNHILIGHT, COLOR_BTNHIGHLIGHT
+ Highlight color for three-dimensional display elements (for edges facing the light source.)
+COLOR_3DLIGHT
+ Light color for three-dimensional display elements (for edges facing the light source.)
+COLOR_3DSHADOW, COLOR_BTNSHADOW
+ Shadow color for three-dimensional display elements (for edges facing away from the light source).
+COLOR_ACTIVEBORDER
+ Active window border.
+COLOR_ACTIVECAPTION
+ Active window caption.
+COLOR_APPWORKSPACE
+ Background color of multiple document interface (MDI) applications.
+COLOR_BACKGROUND, COLOR_DESKTOP
+ Desktop.
+COLOR_BTNTEXT
+ Text on push buttons.
+COLOR_CAPTIONTEXT
+ Text in caption, size box, and scroll bar arrow box.
+COLOR_GRAYTEXT
+ Grayed (disabled) text. This color is set to 0 if the current display driver does not support a solid gray color.
+COLOR_HIGHLIGHT
+ Item(s) selected in a control.
+COLOR_HIGHLIGHTTEXT
+ Text of item(s) selected in a control.
+COLOR_INACTIVEBORDER
+ Inactive window border.
+COLOR_INACTIVECAPTION
+ Inactive window caption.
+COLOR_INACTIVECAPTIONTEXT
+ Color of text in an inactive caption.
+COLOR_INFOBK
+ Background color for tooltip controls.
+COLOR_INFOTEXT
+ Text color for tooltip controls.
+COLOR_MENU
+ Menu background.
+COLOR_MENUTEXT
+ Text in menus.
+COLOR_SCROLLBAR
+ Scroll bar gray area.
+COLOR_WINDOW
+ Window background.
+COLOR_WINDOWFRAME
+ Window frame.
+COLOR_WINDOWTEXT
+ Text in windows.
+[RETURNS]
+If the function succeeds, the return value is the red, green, blue (RGB) color value that specifies the color of the given element. 
+[EXAMPLES]
+System Colors*DBAD9050BB4332698CCC832F4BA83FED.html
+Sys Colors*7E1C81BF49B40C73F9F8EA0541200643.html
+Class Info*55E0A20BADBCE81E1BFB5FF2057F6EA1.html
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+SetSysColors

@@ -1,0 +1,21 @@
+[NAME]
+GetFocus
+[DESCRIPTION]
+The GetFocus function retrieves the handle of the window that has the keyboard focus, if the window is associated with the calling thread’s message queue.
+[DECLARATION]
+Declare Function GetFocus Lib "user32" Alias "GetFocus" () As Long
+[VBNET]
+System.Windows.Forms.Form.ActiveForm
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is the handle of the window with the keyboard focus. If the calling thread’s message queue does not have an associated window with the keyboard focus, the return value is NULL. 
+[EXAMPLES]
+Cursorshape*8C8317344695154EA58A79E9FB93A0C8.html
+[RELATED]
+GetActiveWindow
+GetForegroundWindow

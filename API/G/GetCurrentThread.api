@@ -1,0 +1,25 @@
+[NAME]
+GetCurrentThread
+[DESCRIPTION]
+The GetCurrentThread function returns a pseudohandle for the current thread.
+[DECLARATION]
+Declare Function GetCurrentThread Lib "kernel32" Alias "GetCurrentThread" () As Long
+[VBNET]
+System.Threading.Thread.CurrentThread
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is a pseudohandle for the current thread.
+[EXAMPLES]
+ExitThread*3A085577712A6D10C70AE2DFE3ACB076.html
+Application Priority*5D850E0D6D3350A8CB040C0648E7233E.html
+Thread Times*8D6FC9841DDA1100AC290DBEDF787EA5.html
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+ExitThread
+GetExitCodeThread
+GetCurrentThreadId

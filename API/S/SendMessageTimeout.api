@@ -1,0 +1,51 @@
+[NAME]
+SendMessageTimeout
+[DESCRIPTION]
+The SendMessageTimeout function sends the specified message to a window or windows. The function calls the window procedure for the specified window and, if the specified window belongs to a different thread, does not return until the window procedure has processed the message or the specified time-out period has elapsed. If the window receiving the message belongs to the same queue as the current thread, the window procedure is called directly the time-out value is ignored.
+[DECLARATION]
+Declare Function SendMessageTimeout Lib "user32" Alias "SendMessageTimeoutA" (ByVal hwnd As Long, ByVal msg As Long, ByVal wParam As Long, ByVal lParam As String, ByVal fuFlags As Long, ByVal uTimeout As Long, lpdwResult As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd 
+[in] Handle to the window whose window procedure will receive the message. 
+If this parameter is HWND_BROADCAST, the message is sent to all top-level windows in the system, including disabled or invisible unowned windows. The function does not return until each window has timed out. Therefore, the total wait time can be up to uTimeout times the number of top-level windows. 
+
+· Msg 
+[in] Specifies the message to be sent. 
+
+· wParam 
+[in] Specifies additional message-specific information. 
+
+· lParam 
+[in] Specifies additional message-specific information. 
+
+· fuFlags 
+[in] Specifies how to send the message. This parameter can be one or more of the following values.
+SMTO_ABORTIFHUNG 
+ Returns without waiting for the time-out period to elapse if the receiving process appears to be in a "hung" state. 
+SMTO_BLOCK 
+ Prevents the calling thread from processing any other requests until the function returns. 
+SMTO_NORMAL 
+ The calling thread is not prevented from processing other requests while waiting for the function to return. 
+SMTO_NOTIMEOUTIFNOTHUNG 
+ Windows 2000/XP: Does not return when the time-out period elapses if the receiving thread is not hung.  
+
+· uTimeout 
+[in] Specifies the duration, in milliseconds, of the time-out period. If the message is a broadcast message, each window can us the full time-out period. For example, if you specify a 5 second time-out period and there are three top-level windows that fail to process the message, you could have up to a 15 second delay. 
+
+· lpdwResult 
+[in] Receives the result of the message processing. This value depends on the message sent. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails or time out, the return value is zero. To get extended error information, call GetLastError. If GetLastError returns zero, then the function timed out. SendMessageTimeout does not provide information about individual windows timing out if HWND_BROADCAST is used.
+[EXAMPLES]
+Environment Variables*B24F9455F35DDEE269073BD635BD9216.html
+[RELATED]
+SendMessage
+PostMessage

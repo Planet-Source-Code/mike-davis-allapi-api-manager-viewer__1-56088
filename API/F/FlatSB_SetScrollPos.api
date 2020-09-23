@@ -1,0 +1,34 @@
+[NAME]
+FlatSB_SetScrollPos
+[DESCRIPTION]
+Sets the current position of the thumb in a flat scroll bar. If flat scroll bars are not initialized for the window, this function calls the standard SetScrollPos API.
+[DECLARATION]
+Declare Function FlatSB_SetScrollPos Lib "comctl32" (ByVal hWnd As Long, ByVal code As Long, ByVal nPos As Long, ByVal fRedraw As Boolean) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· code
+Parameter that specifies the scroll bar type. It can be one of the following values:
+SB_HORZ
+ Sets the thumb position of the horizontal scroll bar.
+SB_VERT
+ Sets the thumb position of the vertical scroll bar.
+
+· nPos
+Parameter that specifies the new thumb position.
+
+· fRedraw
+Parameter that specifies whether the scroll bar should be redrawn immediately to reflect the change. If this parameter is TRUE, the scroll bar is redrawn; if it is FALSE, the scroll bar is not redrawn.
+[RETURNS]
+Returns the previous position of the thumb in the specified flat scroll bar. 
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_GetScrollPos

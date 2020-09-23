@@ -1,0 +1,26 @@
+[NAME]
+GetTextMetrics
+[DESCRIPTION]
+The GetTextMetrics function fills the specified buffer with the metrics for the currently selected font.
+[DECLARATION]
+Declare Function GetTextMetrics Lib "gdi32" Alias "GetTextMetricsA" (ByVal hdc As Long, lpMetrics As TEXTMETRIC) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lptm
+Points to the TEXTMETRIC structure that is to receive the metrics.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Using Small Fonts*EA102B119E10A73164A17DA6869BB0FB.html
+[RELATED]
+GetTextExtentPoint32

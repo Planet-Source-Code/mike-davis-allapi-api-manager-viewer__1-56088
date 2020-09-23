@@ -1,0 +1,28 @@
+[NAME]
+mmioClose
+[DESCRIPTION]
+The mmioClose function closes a file that was opened by using the mmioOpen function.
+[DECLARATION]
+Declare Function mmioClose Lib "winmm.dll" Alias "mmioClose" (ByVal hmmio As Long, ByVal uFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmmio
+File handle of the file to close.
+
+· wFlags
+Flags for the close operation. The following value is defined:
+MMIO_FHOPEN
+If the file was opened by passing a file handle whose type is not HMMIO, using this flag tells the mmioClose function to close the multimedia file handle, but not the standard file handle.
+[RETURNS]
+Returns zero if successful or an error otherwise. The error value can originate from the mmioFlush function or from the I/O procedure. Possible error values include the following:
+MMIOERR_CANNOTWRITE 
+ The contents of the buffer could not be written to disk. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+mmioOpen

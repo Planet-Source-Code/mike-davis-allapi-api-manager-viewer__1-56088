@@ -1,0 +1,27 @@
+[NAME]
+PathMakeSystemFolder
+[DESCRIPTION]
+Gives an existing folder the proper attributes to become a system folder.
+[DECLARATION]
+Declare Function PathMakeSystemFolder Lib "shlwapi.dll" Alias "PathMakeSystemFolderA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+Address of a character buffer that contains the name of an existing folder that will be made into a system folder.
+[RETURNS]
+Returns nonzero if successful, or zero otherwise.
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathQuoteSpaces
+PathUnquoteSpaces
+PathStripPath
+PathStripToRoot
+PathMatchSpec
+PathIsSystemFolder

@@ -1,0 +1,66 @@
+[NAME]
+EnumPrinters
+[DESCRIPTION]
+The EnumPrinters function enumerates available printers, print servers, domains, or print providers.
+[DECLARATION]
+Declare Function EnumPrinters Lib "winspool.drv" Alias "EnumPrintersA" (ByVal flags As Long, ByVal name As String, ByVal Level As Long, pPrinterEnum As Byte, ByVal cdBuf As Long, pcbNeeded As Long, pcReturned As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winspool.drv
+[PARAMETERS]
+· Flags
+Specifies the types of print objects that the function should enumerate. This value can be a combination of the following constants:
+PRINTER_ENUM_LOCAL
+ The function ignores the Name parameter, and enumerates the locally installed printers.
+ Windows 95: The function will also enumerate network printers because they are handled by the local print provider.
+PRINTER_ENUM_NAME
+ The function enumerates the printer identified by Name. This can be a server, a domain, or a print provider. If Name is NULL, the function enumerates available print providers.
+PRINTER_ENUM_SHARED
+ The function enumerates printers that have the shared attribute. Cannot be used in isolation; use an OR operation to combine with another PRINTER_ENUM type.
+PRINTER_ENUM_DEFAULT
+ Windows 95 only: The function returns information about the default printer.
+PRINTER_ENUM_CONNECTIONS
+ Windows NT only: The function enumerates the list of printers to which the user has made previous connections.
+PRINTER_ENUM_NETWORK
+ Windows NT only: The function enumerates network printers in the computer’s domain. This value is valid only if Level is 1.
+PRINTER_ENUM_REMOTE
+ Windows NT only: The function enumerates network printers and print servers in the computer’s domain. This value is valid only if Level is 1.
+
+If Level is 4, you can only use the PRINTER_ENUM_CONNECTIONS and PRINTER_ENUM_LOCAL constants.
+
+· Name
+If Level is 1, Flags contains PRINTER_ENUM_NAME, and Name is non-NULL, Name points to a null-terminated string that specifies the name of the object to enumerate. This string can be the name of a server, a domain, or a print provider.
+If Level is 1, Flags contains PRINTER_ENUM_NAME, and Name is NULL, the function enumerates the available print providers.
+If Level is 1, Flags contains PRINTER_ENUM_REMOTE, and Name is NULL, the function enumerates the printers in the user’s domain.
+If Level is 2 or 5, Name points to a null-terminated string that specifies the name of a server whose printers are to be enumerated. If this string is NULL, the function enumerates the printers installed on the local machine.
+If Level is 4, Name should be NULL. The function always queries on the local machine.
+When Name is NULL, it enumerates printers that are installed on the local machine. These printers include those that are physically attached to the local machine as well as remote printers to which it has a network connection.
+
+· Level
+Specifies the type of data structures pointed to by pPrinterEnum. Valid values are 1, 2, 4, and 5, which correspond to the PRINTER_INFO_1, PRINTER_INFO_2, PRINTER_INFO_4, and PRINTER_INFO_5 data structures.
+Windows 95: The value can be 1, 2, or 5.
+Windows NT: This value can be 1, 2, 4, or 5.
+
+· pPrinterEnum
+Pointer to a buffer that receives an array of PRINTER_INFO_1, PRINTER_INFO_2, PRINTER_INFO_4, or PRINTER_INFO_5 structures. Each structure contains data that describes an available print object. If Level is 1, the array contains PRINTER_INFO_1 structures. If Level is 2, the array contains PRINTER_INFO_2 structures. If Level is 4, the array contains PRINTER_INFO_4 structures. If Level is 5, the array contains PRINTER_INFO_5 structures.
+Windows 95: The buffer cannot receive PRINTER_INFO_4 structures. It can receive any of the other types.
+
+· cbBuf
+Specifies the size, in bytes, of the array pointed to by pPrinterEnum.
+
+· pcbNeeded
+Pointer to a value that receives the number of bytes copied if the function succeeds or the number of bytes required if cbBuf is too small.
+
+· pcReturned
+Pointer to a value that receives the number of PRINTER_INFO_1, PRINTER_INFO_2, PRINTER_INFO_4, or PRINTER_INFO_5 structures that the function returns in the array to which pPrinterEnum points.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EnumPrinters*07D470F5552B7941146A22E22837C541.html
+[RELATED]
+DeviceCapabilities

@@ -1,0 +1,21 @@
+[NAME]
+GetLengthSid
+[DESCRIPTION]
+The GetLengthSid function returns the length, in bytes, of a valid SID. (A SID is a security identifier.)
+[DECLARATION]
+Declare Function GetLengthSid Lib "advapi32.dll" (pSid As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSid
+[in] Pointer to the SID structure whose length is returned. The structure is assumed to be valid.
+[RETURNS]
+If the function succeeds, the return value is the length, in bytes, of the SID structure. If the SID structure is not valid, the return value is undefined. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+EqualSid

@@ -1,0 +1,31 @@
+[NAME]
+GetFileTitle
+[DESCRIPTION]
+The GetFileTitle function returns the name of the file identified by the lpszFile parameter.
+[DECLARATION]
+Declare Function GetFileTitle Lib "comdlg32.dll" Alias "GetFileTitleA" (ByVal lpszFile As String, ByVal lpszTitle As String, ByVal cbBuf As Integer) As Integer
+[VBNET]
+System.IO.FileInfo.Name
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+· lpszFile
+Pointer to the name and location of a file.
+
+· lpszTitle
+Pointer to a buffer into which the function is to copy the name of the file.
+
+· cbBuf
+Specifies the length, in characters, of the buffer pointed to by the lpszTitle parameter.
+[RETURNS]
+If the function succeeds, the return value is zero. 
+
+If the filename is invalid, the return value is a negative number. 
+
+If the buffer pointed to by the lpszTitle parameter is too small, the return value is a positive integer that specifies the required buffer size, in bytes (ANSI version) or characters (Unicode version). The required buffer size includes the terminating null character. 
+[EXAMPLES]
+FileTitle*9CE64F5B5E9C64DD98C28D36578CDDA9.html
+[RELATED]
+

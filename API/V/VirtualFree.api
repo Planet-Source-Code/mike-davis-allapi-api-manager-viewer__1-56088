@@ -1,0 +1,35 @@
+[NAME]
+VirtualFree
+[DESCRIPTION]
+The VirtualFree function releases, decommits, or releases and decommits a region of pages within the virtual address space of the calling process.
+[DECLARATION]
+Declare Function VirtualFree Lib "kernel32" (ByVal lpAddress As Long, ByVal dwSize As Long, ByVal dwFreeType As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAddress 
+[in] Pointer to the base address of the region of pages to be freed. If the dwFreeType parameter includes MEM_RELEASE, this parameter must be the base address returned by the VirtualAlloc function when the region of pages was reserved. 
+
+· dwSize 
+[in] Specifies the size, in bytes, of the region to be freed. If the dwFreeType parameter includes MEM_RELEASE, this parameter must be zero. Otherwise, the region of affected pages includes all pages containing one or more bytes in the range from the lpAddress parameter to (lpAddress+dwSize). This means that a 2-byte range straddling a page boundary causes both pages to be freed. 
+
+· dwFreeType 
+[in] Specifies the type of free operation. This parameter can be one of the following values.
+MEM_DECOMMIT 
+ Decommits the specified region of committed pages. 
+ An attempt to decommit an uncommitted page will not cause the function to fail. This means that a range of committed or uncommitted pages can be decommitted without having to worry about a failure.
+MEM_RELEASE 
+ Releases the specified region of reserved pages. If this value is specified, the dwSize parameter must be zero, or the function fails. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+VirtualAlloc
+GlobalFree

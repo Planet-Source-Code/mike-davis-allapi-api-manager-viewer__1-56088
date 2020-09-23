@@ -1,0 +1,35 @@
+[NAME]
+SelectClipRgn
+[DESCRIPTION]
+The SelectClipRgn function selects a region as the current clipping region for the specified device context.
+[DECLARATION]
+Declare Function SelectClipRgn Lib "gdi32" Alias "SelectClipRgn" (ByVal hdc As Long, ByVal hRgn As Long) As Long
+[VBNET]
+System.Drawing.Graphics.SetClip
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· hrgn
+Identifies the region to be selected.
+[RETURNS]
+If the function succeeds, the return value specifies the region’s complexity and can be any one of the following values:
+NULLREGION 
+ Region is empty. 
+ 
+SIMPLEREGION 
+ Region is a single rectangle. 
+ 
+COMPLEXREGION 
+ Region is more than one rectangle. 
+ 
+ERROR 
+ An error occurred. (The previous clipping region is unaffected.) 
+[EXAMPLES]
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+[RELATED]
+GetClipRgn

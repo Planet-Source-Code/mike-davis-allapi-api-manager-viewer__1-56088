@@ -1,0 +1,29 @@
+[NAME]
+InflateRect
+[DESCRIPTION]
+The InflateRect function increases or decreases the width and height of the specified rectangle. The InflateRect function adds dx units to the left and right ends of the rectangle and dy units to the top and bottom. The dx and dy parameters are signed values; positive values increase the width and height, and negative values decrease them.
+[DECLARATION]
+Declare Function InflateRect Lib "user32" (lpRect As RECT, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+System.Drawing.Rectangle.Inflate
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lprc 
+Points to the RECT structure that increases or decreases in size. 
+
+· dx 
+Specifies the amount to increase or decrease the rectangle width. This parameter must be negative to decrease the width. 
+
+· dy 
+Specifies the amount to increase or decrease the rectangle height. This parameter must be negative to decrease the height. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+InflateRect*4B9354EEA4B6AD6A8BBCF29BB4D55B64.html
+[RELATED]
+SetRect

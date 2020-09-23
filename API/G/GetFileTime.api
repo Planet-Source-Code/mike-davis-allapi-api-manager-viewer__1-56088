@@ -1,0 +1,40 @@
+[NAME]
+GetFileTime
+[DESCRIPTION]
+The GetFileTime function retrieves the date and time that a file was created, last accessed, and last modified.
+[DECLARATION]
+Declare Function GetFileTime Lib "kernel32" Alias "GetFileTime" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+[VBNET]
+System.IO.File.GetCreationTime
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Identifies the files for which to get dates and times. The file handle must have been created with GENERIC_READ access to the file.
+
+· lpCreationTime
+Points to a FILETIME structure to receive the date and time the file was created. This parameter can be NULL if the application does not require this information.
+
+· lpLastAccessTime
+Points to a FILETIME structure to receive the date and time the file was last accessed. The last access time includes the last time the file was written to, read from, or, in the case of executable files, run. This parameter can be NULL if the application does not require this information.
+
+· lpLastWriteTime
+Points to a FILETIME structure to receive the date and time the file was last written to. This parameter can be NULL if the application does not require this information.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+[RELATED]
+CopyFile
+CreateDirectory
+MoveFile
+CreateFile
+SHFileOperation
+FileTimeToSystemTime
+FileTimeToLocalFileTime
+GetFileInformationByHandle
+filetime

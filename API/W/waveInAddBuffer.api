@@ -1,0 +1,31 @@
+[NAME]
+waveInAddBuffer
+[DESCRIPTION]
+The waveInAddBuffer function sends an input buffer to the given waveform-audio input device. When the buffer is filled, the application is notified.
+[DECLARATION]
+Declare Function waveInAddBuffer Lib "winmm.dll" Alias "waveInAddBuffer" (ByVal hWaveIn As Long, lpWaveInHdr As WAVEHDR, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hwi
+Handle of the waveform-audio input device.
+
+· pwh
+Address of a WAVEHDR structure that identifies the buffer.
+
+· cbwh
+Size, in bytes, of the WAVEHDR structure.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following.
+MMSYSERR_INVALHANDLE Specified device handle is invalid. 
+MMSYSERR_NODRIVER No device driver is present. 
+MMSYSERR_NOMEM Unable to allocate or lock memory. 
+WAVERR_UNPREPARED The buffer pointed to by the pwh parameter hasn't been prepared. 
+[EXAMPLES]
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+waveInOpen

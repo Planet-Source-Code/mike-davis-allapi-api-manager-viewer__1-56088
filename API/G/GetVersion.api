@@ -1,0 +1,46 @@
+[NAME]
+GetVersion
+[DESCRIPTION]
+The GetVersion function returns the current version number of Windows and information about the operating system platform.
+[DECLARATION]
+Declare Function GetVersion Lib "kernel32" Alias "GetVersion" () As Long
+[VBNET]
+System.Environment.OSVersion
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is a DWORD value that contains the major and minor version numbers of Windows in the low order word, and information about the operating system platform in the high order word. 
+
+For all platforms, the low order word contains the version number of Windows. The low-order byte of this word specifies the major version number, in hexadecimal notation. The high-order byte specifies the minor version (revision) number, in hexadecimal notation. 
+
+To distinguish between operating system platforms, use the high order bit and the low order byte, as shown in the following table: Platform 
+ High order bit 
+ Low order byte (major version number) 
+ 
+Windows NT 
+ zero 
+ 3 or 4 
+ 
+Windows 95 
+ 1 
+ 4 
+ 
+Win32s with Windows 3.1 
+ 1 
+ 3 
+ 
+
+
+For Windows NT and Win32s, the remaining bits in the high order word specify the build number. 
+
+For Windows 95 the remaining bits of the high order word are reserved. 
+[EXAMPLES]
+Get Windows Version*E70E768AF21E633841E9EC3064CD0B3D.html
+Eject CD*EADB2D153F01C2CE33A2FD85A009E5EF.html
+[RELATED]
+GetVersionEx
+osversion

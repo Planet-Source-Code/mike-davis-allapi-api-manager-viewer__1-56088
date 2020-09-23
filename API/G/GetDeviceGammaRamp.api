@@ -1,0 +1,24 @@
+[NAME]
+GetDeviceGammaRamp
+[DESCRIPTION]
+The GetDeviceGammaRamp function gets the gamma ramp on direct color display boards whose drivers support downloadable gamma ramps in hardware.
+[DECLARATION]
+Declare Function GetDeviceGammaRamp Lib "gdi32" (ByVal hdc As Long, lpv As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hDC 
+Specifies the device context of the direct color display board in question. 
+
+· lpRamp 
+Points to a buffer where the function can place the current gamma ramp of the color display board. The gamma ramp is specified in three arrays of 256 WORD elements each, which contain the mapping between RGB values in the frame buffer and digital-analog-converter (DAC) values. The sequence of the arrays is red, green, blue. 
+[RETURNS]
+GetDeviceGammaRamp returns TRUE if it succeeds, and FALSE otherwise.
+[EXAMPLES]
+Device Gamma*B03A7F35DCABD71053DE122C26B90021.html
+[RELATED]
+SetDeviceGammaRamp

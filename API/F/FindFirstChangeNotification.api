@@ -1,0 +1,38 @@
+[NAME]
+FindFirstChangeNotification
+[DESCRIPTION]
+The FindFirstChangeNotification function creates a change notification handle and sets up initial change notification filter conditions. A wait on a notification handle succeeds when a change matching the filter conditions occurs in the specified directory or subtree.
+[DECLARATION]
+Declare Function FindFirstChangeNotification Lib "kernel32" Alias "FindFirstChangeNotificationA" (ByVal lpPathName As String, ByVal bWatchSubtree As Long, ByVal dwNotifyFilter As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpPathName
+[in] Pointer to a null-terminated string that specifies the path of the directory to watch.
+Windows NT/2000: In the ANSI version of this function, the name is limited to MAX_PATH characters. To extend this limit to nearly 32,000 wide characters, call the Unicode version of the function and prepend "\\?\" to the path. For more information, see File Name Conventions.
+Windows 95/98: This string must not exceed MAX_PATH characters.
+
+· bWatchSubtree
+[in] Specifies whether the function will monitor the directory or the directory tree. If this parameter is TRUE, the function monitors the directory tree rooted at the specified directory; if it is FALSE, it monitors only the specified directory.
+
+· dwNotifyFilter
+[in] Specifies the filter conditions that satisfy a change notification wait. This parameter can be one or more of the following values. Value Meaning
+FILE_NOTIFY_CHANGE_FILE_NAME Any file name change in the watched directory or subtree causes a change notification wait operation to return. Changes include renaming, creating, or deleting a file name.
+FILE_NOTIFY_CHANGE_DIR_NAME Any directory-name change in the watched directory or subtree causes a change notification wait operation to return. Changes include creating or deleting a directory.
+FILE_NOTIFY_CHANGE_ATTRIBUTES Any attribute change in the watched directory or subtree causes a change notification wait operation to return.
+FILE_NOTIFY_CHANGE_SIZE Any file-size change in the watched directory or subtree causes a change notification wait operation to return. The operating system detects a change in file size only when the file is written to the disk. For operating systems that use extensive caching, detection occurs only when the cache is sufficiently flushed.
+FILE_NOTIFY_CHANGE_LAST_WRITE Any change to the last write-time of files in the watched directory or subtree causes a change notification wait operation to return. The operating system detects a change to the last write-time only when the file is written to the disk. For operating systems that use extensive caching, detection occurs only when the cache is sufficiently flushed.
+FILE_NOTIFY_CHANGE_SECURITY Any security-descriptor change in the watched directory or subtree causes a change notification wait operation to return.
+[RETURNS]
+If the function succeeds, the return value is a handle to a find change notification object. 
+
+If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Change Notification*60D3BC58AADA059FA9A9259E95A5ABDA.html
+[RELATED]
+FindNextChangeNotification
+FindCloseChangeNotification

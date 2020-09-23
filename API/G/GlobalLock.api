@@ -1,0 +1,26 @@
+[NAME]
+GlobalLock
+[DESCRIPTION]
+The GlobalLock function locks a global memory object and returns a pointer to the first byte of the object’s memory block. The memory block associated with a locked memory object cannot be moved or discarded.
+[DECLARATION]
+Declare Function GlobalLock Lib "kernel32" Alias "GlobalLock" (ByVal hMem As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hMem
+Identifies the global memory object. This handle is returned by either the GlobalAlloc or GlobalReAlloc function.
+[RETURNS]
+If the function succeeds, the return value is a pointer to the first byte of the memory block. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Crypto*79AD4E0522A0A67A6E196BE52357E60B.html
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+Audio Input/Output level*F5ECE5DE6EAF09AD7B4DF966CA519A4D.html
+[RELATED]
+GlobalAlloc
+GlobalUnlock

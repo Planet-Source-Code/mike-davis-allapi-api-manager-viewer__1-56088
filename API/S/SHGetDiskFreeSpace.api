@@ -1,0 +1,33 @@
+[NAME]
+SHGetDiskFreeSpace
+[DESCRIPTION]
+Retrieves disk space information for a disk volume.
+[DECLARATION]
+Declare Function SHGetDiskFreeSpace Lib "shell32" Alias "SHGetDiskFreeSpaceA" (ByVal pszVolume As String, pqwFreeCaller As Currency, pqwTot As Currency, pqwFree As Currency) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· pszVolume
+A NULL-terminated string that specifies the volume for which size information will be retrieved. This can be a drive letter, UNC name or the path of a folder. You cannot use NULL to represent the current drive.
+
+· pqwFreeCaller
+Address of a ULARGE_INTEGER value that receives the number of bytes available to the caller on the volume. If the operating system implements per-user quotas, this value may be less than the total number of free bytes on the volume.
+
+· pqwTot
+Address of a ULARGE_INTEGER value that receives the total size of the volume, in bytes.
+
+· pqwFree
+Address of a ULARGE_INTEGER value that receives the number of bytes of free space on the volume.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+SHGetDiskFreeSpace*6BFB77AE2AF8C6AD4F7080527C2309D6.html
+[RELATED]
+GetDiskFreeSpace
+GetDiskFreeSpaceEx

@@ -1,0 +1,55 @@
+[NAME]
+CreateTimerQueueTimer
+[DESCRIPTION]
+The CreateTimerQueueTimer function creates a timer-queue timer. This timer expires at the specified due time, then after every specified period. When the timer expires, the callback function is called.
+[DECLARATION]
+Declare Function CreateTimerQueueTimer Lib "kernel32.dll" (ByRef phNewTimer As Long, ByVal TimerQueue As Long, ByVal Callback As Long, ByVal Parameter As Long, ByVal DueTime As Long, ByVal Period As Long, ByVal Flags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· phNewTimer 
+[out] Pointer to a buffer that receives a handle to the timer-queue timer on return. 
+
+· TimerQueue 
+[in] Handle to a timer queue. This handle is returned by the CreateTimerQueue function. 
+If this parameter is NULL, the timer is associated with the default timer queue. 
+
+· Callback 
+[in] Pointer to the application-defined function of type WAITORTIMERCALLBACK to be executed when the timer expires. For more information, see WaitOrTimerCallback. 
+
+· Parameter 
+[in] Specifies a single parameter value that will be passed to the callback function. 
+
+· DueTime 
+[in] Specifies the amount of time, in milliseconds, to elapse before the timer is to be set to the signaled state for the first time. 
+
+· Period 
+[in] Specifies the period of the timer, in milliseconds. If this parameter is zero, the timer is signaled once. If this parameter is greater than zero, the timer is periodic. A periodic timer automatically reactivates each time the period elapses, until the timer is canceled. 
+
+· Flags 
+[in] This parameter can be one or more of the following values.
+WT_EXECUTEINTIMERTHREAD 
+ The callback function is invoked by the timer thread itself. This flag should be used only for short tasks or it could affect other timer operations.  
+WT_EXECUTEINIOTHREAD 
+ The callback function is queued to an I/O worker thread. This flag should be used if the function should be executed in a thread that waits in an alertable state. 
+ The callback function is queued as an APC. Be sure to address reentrancy issues if the function performs an alertable wait operation. 
+WT_EXECUTEINPERSISTENTTHREAD 
+ The callback function is queued to a thread that never terminates. This flag should be used only for short tasks or it could affect other timer operations. 
+ Note that currently no worker thread is persistent, although no worker thread will terminate if there are any pending I/O requests.
+WT_EXECUTELONGFUNCTION 
+ Specifies that the callback function can perform a long wait. This flag helps the system to decide if it should create a new thread.  
+WT_EXECUTEONLYONCE 
+ The timer will be set to the signaled state only once. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Timer Queue*A826D4F4A8A6753E40BF5C361B55B1E7.html
+[RELATED]
+DeleteTimerQueueTimer
+CreateTimerQueue

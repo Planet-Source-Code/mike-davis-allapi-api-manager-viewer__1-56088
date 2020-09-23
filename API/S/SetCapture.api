@@ -1,0 +1,21 @@
+[NAME]
+SetCapture
+[DESCRIPTION]
+The SetCapture function sets the mouse capture to the specified window belonging to the current thread. Once a window has captured the mouse, all mouse input is directed to that window, regardless of whether the cursor is within the borders of that window. Only one window at a time can capture the mouse.
+[DECLARATION]
+Declare Function SetCapture Lib "user32" Alias "SetCapture" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window in the current thread that is to capture the mouse.
+[RETURNS]
+If the function succeeds, the return value is the handle of the window that had previously captured the mouse. If there is no such window, the return value is NULL.
+[EXAMPLES]
+Mouse Capture*D3BC22113C988A4C5A099C36BB8C2089.html
+[RELATED]
+ReleaseCapture

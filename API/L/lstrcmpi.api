@@ -1,0 +1,28 @@
+[NAME]
+lstrcmpi
+[DESCRIPTION]
+The lstrcmpi function compares two character strings. The comparison is not case sensitive.
+[DECLARATION]
+Declare Function lstrcmpi Lib "kernel32" Alias "lstrcmpiA" (ByVal lpString1 As String, ByVal lpString2 As String) As Long
+[VBNET]
+System.String.Compare
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString1
+Points to the first null-terminated string to be compared.
+
+· lpString2
+Points to the second null-terminated string to be compared.
+[RETURNS]
+If the function succeeds and the string pointed to by lpString1 is less than the string pointed to by lpString2, the return value is negative; if the string pointed to by lpString1 is greater than the string pointed to by lpString2, it is positive. If the strings are equal, the return value is zero.
+[EXAMPLES]
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+[RELATED]
+lstrcat
+lstrcmp
+lstrcpy
+lstrcpyn
+lstrlen

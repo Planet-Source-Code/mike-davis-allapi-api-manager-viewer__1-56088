@@ -1,0 +1,22 @@
+[NAME]
+WindowFromDC
+[DESCRIPTION]
+The WindowFromDC function returns a handle to the window associated with the specified display device context (DC). Output functions that use the specified device context draw into this window.
+[DECLARATION]
+Declare Function WindowFromDC Lib "user32" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hDC 
+[in] Handle to the device context from which a handle for the associated window is to be retrieved. 
+[RETURNS]
+The return value is a handle to the window associated with the specified DC. If no window is associated with the specified DC, the return value is NULL. 
+[EXAMPLES]
+WindowFromDC*EB33DFC08BFA8D32E62C03CACB462CCF.html
+[RELATED]
+GetDC
+GetWindowDC

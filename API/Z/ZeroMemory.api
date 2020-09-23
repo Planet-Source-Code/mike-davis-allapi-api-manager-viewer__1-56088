@@ -1,0 +1,26 @@
+[NAME]
+ZeroMemory
+[DESCRIPTION]
+The ZeroMemory function fills a block of memory with zeros.
+[DECLARATION]
+Declare Sub ZeroMemory Lib "kernel32.dll" Alias "RtlZeroMemory" (Destination As Any, ByVal Length As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Destination
+Points to the starting address of the block of memory to fill with zeros.
+
+· Length
+Specifies the size, in bytes, of the block of memory to fill with zeros.
+[RETURNS]
+This function doesn't return a value.
+[EXAMPLES]
+Memory Functions*683D4930100D081ACB6D9E62EC93CEF7.html
+Dial*8F6C4A7F1AE4ADDF77DF1B39441B4BB4.html
+[RELATED]
+FillMemory
+CopyMemory

@@ -1,0 +1,22 @@
+[NAME]
+DispatchMessage
+[DESCRIPTION]
+The DispatchMessage function dispatches a message to a window procedure. It is typically used to dispatch a message retrieved by the GetMessage function.
+[DECLARATION]
+Declare Function DispatchMessage Lib "user32" Alias "DispatchMessageA" (lpMsg As MSG) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpmsg
+Points to an MSG structure that contains the message.
+[RETURNS]
+The return value specifies the value returned by the window procedure. Although its meaning depends on the message being dispatched, the return value generally is ignored. 
+[EXAMPLES]
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+GetMessage
+TranslateMessage

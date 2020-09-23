@@ -1,0 +1,30 @@
+[NAME]
+WSAStartup
+[DESCRIPTION]
+The Windows Sockets WSAStartup function initiates use of the Windows Sockets DLL by a process.
+[DECLARATION]
+Declare Function WSAStartup Lib "WSOCK32" (ByVal wVersionRequired As Long, lpWSADATA As WSAData) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 2.0
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+· wVersionRequested
+[in] The highest version of Windows Sockets support that the caller can use. The high order byte specifies the minor version (revision) number; the low-order byte specifies the major version number.
+
+· lpWSAData
+[out] A pointer to the WSADATA data structure that is to receive details of the Windows Sockets implementation.
+[RETURNS]
+WSAStartup returns zero if successful. Otherwise, it returns one of the error codes listed below. Note that the normal mechanism whereby the application calls WSAGetLastError to determine the error code cannot be used, since the Windows Sockets DLL may not have established the client data area where the "last error" information is stored. 
+[EXAMPLES]
+GetIP*07CCCC8728276405F3111B9A7262DDF2.html
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+Root Servers*6CCD7B9D2E698BA1F19F78A6193C445D.html
+[RELATED]
+WSACleanup
+WSAGetLastError
+gethostname
+gethostbyname

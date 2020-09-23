@@ -1,0 +1,31 @@
+[NAME]
+GetAce
+[DESCRIPTION]
+The GetAce function obtains a pointer to an ACE in an ACL. An ACE is an access control entry. An ACL is an access control list.
+[DECLARATION]
+Declare Function GetAce Lib "advapi32.dll" (ByVal pAcl As Long, ByVal dwAceIndex As Long, pace As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pAcl
+[in] Pointer to an ACL structure containing the ACE to be retrieved.
+
+· dwAceIndex
+[in] Specifies the ACE to which a pointer is retrieved. A value of 0 corresponds to the first ACE in the ACL, 1 to the second ACE, and so on.
+
+· pAce
+[out] Pointer to a pointer the function sets to the address of the ACE.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+AddAce
+AddAccessAllowedAce
+AddAccessDeniedAce

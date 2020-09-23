@@ -1,0 +1,26 @@
+[NAME]
+GetWindowWord
+[DESCRIPTION]
+The GetWindowWord function retrieves a 16-bit (word) value at the specified offset into the extra window memory for the specified window.
+[DECLARATION]
+Declare Function GetWindowWord Lib "user32" Alias "GetWindowWord" (ByVal hwnd As Long, ByVal nIndex As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window and, indirectly, the class to which the window belongs.
+
+· nIndex
+Specifies the zero-based byte offset of the value to be retrieved. Valid values are in the range zero through the number of bytes of extra window memory, minus two; for example, if you specified 10 or more bytes of extra window memory, a value of 8 would be an index to the fifth 16-bit integer.
+[RETURNS]
+If the function succeeds, the return value is the requested 16-bit value. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ModuleFilename*69D2103B03D18956955B77AE2C449F73.html
+[RELATED]
+GetWindowLong

@@ -1,0 +1,28 @@
+[NAME]
+GetClientRect
+[DESCRIPTION]
+The GetClientRect function retrieves the coordinates of a window’s client area. The client coordinates specify the upper-left and lower-right corners of the client area. Because client coordinates are relative to the upper-left corner of a window’s client area, the coordinates of the upper-left corner are (0,0).
+[DECLARATION]
+Declare Function GetClientRect Lib "user32" Alias "GetClientRect" (ByVal hwnd As Long, lpRect As RECT) As Long
+[VBNET]
+System.Windows.Forms.Form.ClientSize 
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose client coordinates are to be retrieved.
+
+· lpRect
+Points to a RECT structure that receives the client coordinates. The left and top members are zero. The right and bottom members contain the width and height of the window.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Client Rect*EB51E1DD8E466523A9CC5329B22E024F.html
+ClipCursor*BAC8F1CBC20C1739348AEEE776C7ED66.html
+Invert Desktop*CFF5BEC796ADB55521F609BFF0A46AAC.html
+[RELATED]
+GetWindowRect

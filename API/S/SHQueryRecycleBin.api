@@ -1,0 +1,21 @@
+[NAME]
+SHQueryRecycleBin
+[DESCRIPTION]
+SHQueryRecycleBin retrieves information about how many files (or other items) are currently in the Recycle Bin as well as how much disk space they consume.
+[DECLARATION]
+Declare Function SHQueryRecycleBin Lib "shell32.dll" Alias "SHQueryRecycleBinA" (ByVal pszRootPath As String, pSHQueryRBInfo As SHQUERYRBINFO) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+Empty Recycle Bin*CF50E5E11277B90CB13684D62FAF4CF8.html
+[RELATED]
+SHEmptyRecycleBin
+SHUpdateRecycleBinIcon

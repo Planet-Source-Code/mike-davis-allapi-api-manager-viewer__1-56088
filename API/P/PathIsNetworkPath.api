@@ -1,0 +1,26 @@
+[NAME]
+PathIsNetworkPath
+[DESCRIPTION]
+Determines whether a path string represents a network resource.
+[DECLARATION]
+Declare Function PathIsNetworkPath Lib "shlwapi.dll" Alias "PathIsNetworkPathA" (ByVal pszPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszPath
+[in] NULL-terminated string that contains the path.
+[RETURNS]
+Returns TRUE if the string represents a network resource, or FALSE otherwise.
+[EXAMPLES]
+Path Functions (4)*3AC595ADD1B5DC0D9A2A8ACA63DF8BBE.html
+[RELATED]
+PathIsDirectory
+PathIsDirectoryEmpty
+PathIsLFNFileSpec
+PathIsPrefix
+PathIsRelative
+PathIsRoot

@@ -1,0 +1,23 @@
+[NAME]
+RasHangUp
+[DESCRIPTION]
+The RasHangUp function terminates a remote access connection. The connection is specified with a RAS connection handle. The function releases all RASAPI32.DLL resources associated with the handle.
+[DECLARATION]
+Declare Function RasHangUp Lib "rasapi32.dll" Alias "RasHangUpA" (ByVal hRasConn As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· hrasconn
+Identifies the remote access connection to terminate. This is a handle returned from a previous call to RasDial or RasEnumConnections.
+[RETURNS]
+If the function succeeds, the return value is zero. 
+
+If the function fails, the return value is a nonzero error value listed in the RAS header file, or ERROR_INVALID_HANDLE. 
+[EXAMPLES]
+Hang Up*E3A485B0C5110205D8198B8418D2B9DE.html
+[RELATED]
+RasEnumConnections

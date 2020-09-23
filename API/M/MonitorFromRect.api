@@ -1,0 +1,33 @@
+[NAME]
+MonitorFromRect
+[DESCRIPTION]
+The MonitorFromRect function retrieves a handle to the display monitor that has the largest area of intersection with a specified rectangle.
+[DECLARATION]
+Declare Function MonitorFromRect Lib "user32.dll" (ByRef lprc As RECT, ByVal dwFlags As Long) As Long
+[VBNET]
+System.Windows.Forms.Screen.FromRectangle
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lprc
+[in] Pointer to a RECT structure that specifies the rectangle of interest in virtual-screen coordinates.
+
+· dwFlags
+[in] Determines the function's return value if the rectangle does not intersect any display monitor.
+This parameter can be one of the following values.
+MONITOR_DEFAULTTONEAREST
+ Returns a handle to the display monitor that is nearest to the rectangle.
+MONITOR_DEFAULTTONULL
+ Returns NULL.
+MONITOR_DEFAULTTOPRIMARY
+ Returns a handle to the primary display monitor.
+[RETURNS]
+If the rectangle intersects one or more display monitor rectangles, the return value is an HMONITOR handle to the display monitor that has the largest area of intersection with the rectangle.
+
+If the rectangle does not intersect a display monitor, the return value depends on the value of dwFlags. 
+[EXAMPLES]
+Enum Monitors*10B6D40C610184A77A0F255EF0CEE768.html
+[RELATED]
+EnumDisplayMonitors

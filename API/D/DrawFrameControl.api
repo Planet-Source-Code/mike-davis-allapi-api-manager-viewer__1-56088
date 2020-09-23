@@ -1,0 +1,104 @@
+[NAME]
+DrawFrameControl
+[DESCRIPTION]
+The DrawFrameControl function draws a frame control of the specified type and style.
+[DECLARATION]
+Declare Function DrawFrameControl Lib "user32" Alias "DrawFrameControl" (ByVal hDC As Long, lpRect As RECT, ByVal un1 As Long, ByVal un2 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hdc
+Identifies the device context of the window in which to draw the control.
+
+· lprc
+Points to a RECT structure that contains the logical coordinates of the bounding rectangle for frame control.
+
+· uType
+Specifies the type of frame control to draw. This parameter can be one of the following values:
+DFC_BUTTON
+ Standard button
+DFC_CAPTION
+ Title bar
+DCF_MENU
+ Menu
+DFC_SCROLL
+ Scroll bar
+
+· uState
+Specifies the initial state of the frame control. If uType is DFC_BUTTON, uState can be one of the following values:
+DFCS_BUTTON3STATE
+ Three-state button
+DFCS_BUTTONCHECK
+ Check box
+DFCS_BUTTONPUSH
+ Push button
+DFCS_BUTTONRADIO
+ Radio button
+DFCS_BUTTONRADIOIMAGE
+ Image for radio button (nonsquare needs image)
+DFCS_BUTTONRADIOMASK
+ Mask for radio button (nonsquare needs mask)
+
+If uType is DFC_CAPTION, uState can be one of the following values:
+DFCS_CAPTIONCLOSE
+ Close button
+DFCS_CAPTIONHELP
+ Windows 95 only: Help button
+DFCS_CAPTIONMAX
+ Maximize button
+DFCS_CAPTIONMIN
+ Minimize button
+DFCS_CAPTIONRESTORE
+ Restore button
+
+If uType is DFC_MENU, uState can be one of the following values:
+DFCS_MENUARROW
+ Submenu arrow
+DFCS_MENUBULLET
+ Bullet
+DFCS_MENUCHECK
+ Check mark
+
+If uType is DFC_SCROLL, uState can be one of the following values:
+DFCS_SCROLLCOMBOBOX
+ Combo box scroll bar
+DFCS_SCROLLDOWN
+ Down arrow of scroll bar
+DFCS_SCROLLLEFT
+ Left arrow of scroll bar
+DFCS_SCROLLRIGHT
+ Right arrow of scroll bar
+DFCS_SCROLLSIZEGRIP
+ Size grip in bottom-right corner of window
+DFCS_SCROLLUP
+ Up arrow of scroll bar
+
+The following style can be used to adjust the bounding rectangle of the push button:
+DFCS_ADJUSTRECT
+ Bounding rectangle is adjusted to exclude the surrounding edge of the push button.
+
+One or more of the following values can be used to set the state of the control to be drawn:
+DFCS_CHECKED
+ Button is checked.
+DFCS_FLAT
+ Button has a flat border.
+DFCS_INACTIVE
+ Button is inactive (grayed).
+DFCS_MONO
+ Button has a monochrome border.
+DFCS_PUSHED
+ Button is pushed.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+DrawRects*1D2339567A817554D02091160D2F140E.html
+[RELATED]
+DrawEdge
+DrawFocusRect
+DrawCaption

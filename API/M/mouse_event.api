@@ -1,0 +1,55 @@
+[NAME]
+mouse_event
+[DESCRIPTION]
+The mouse_event function synthesizes mouse motion and button clicks.Windows NT only: This function has been superseded. Use MouseEventEx instead.
+[DECLARATION]
+Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal cButtons As Long, ByVal dwExtraInfo As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· dwFlags
+A set of flag bits that specify various aspects of mouse motion and button clicking. The bits in this parameter can be any reasonable combination of the following values:
+MOUSEEVENTF_ABSOLUTE
+ Specifies that the dx and dy parameters contain normalized absolute coordinates. If not set, those parameters contain relative data: the change in position since the last reported position. This flag can be set, or not set, regardless of what kind of mouse or mouse-like device, if any, is connected to the system. For further information about relative mouse motion, see the following Remarks section.
+MOUSEEVENTF_MOVE
+ Specifies that movement occurred.
+MOUSEEVENTF_LEFTDOWN
+ Specifies that the left button changed to down.
+MOUSEEVENTF_LEFTUP
+ Specifies that the left button changed to up.
+MOUSEEVENTF_RIGHTDOWN
+ Specifies that the right button changed to down.
+MOUSEEVENTF_RIGHTUP
+ Specifies that the right button changed to up.
+MOUSEEVENTF_MIDDLEDOWN
+ Specifies that the middle button changed to down.
+MOUSEEVENTF_MIDDLEUP
+ Specifies that the middle button changed to up.
+MOUSEEVENTF_WHEEL
+ Windows NT only: Specifies that the wheel has been moved, if the mouse has a wheel. The amount of movement is given in dwData
+
+The flag bits that specify mouse button status are set to indicate changes in status, not ongoing conditions. For example, if the left mouse button is pressed and held down, MOUSEEVENTF_LEFTDOWN is set when the left button is first pressed, but not for subsequent motions. Similarly, MOUSEEVENTF_LEFTUP is set only when the button is first released.
+
+· dx
+Specifies the mouse’s absolute position along the x-axis or its amount of motion since the last mouse event was generated, depending on the setting of MOUSEEVENTF_ABSOLUTE. Absolute data is given as the mouse’s actual x-coordinate; relative data is given as the number of mickeys moved. A mickey is the amount that a mouse has to move for it to report that it has moved.
+
+· dy
+Specifies the mouse’s absolute position along the y-axis or its amount of motion since the last mouse event was generated, depending on the setting of MOUSEEVENTF_ABSOLUTE. Absolute data is given as the mouse’s actual y-coordinate; relative data is given as the number of mickeys moved.
+
+· dwData
+If dwFlags is MOUSEEVENTF_WHEEL, then dwData specifies the amount of wheel movement. A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user. One wheel click is defined as WHEEL_DELTA, which is 120.
+If dwFlags is not MOUSEEVENTF_WHEEL, then dwData should be zero.
+
+· dwExtraInfo
+Specifies an additional 32-bit value associated with the mouse event. An application calls GetMessageExtraInfo to obtain this extra information.
+[RETURNS]
+This function has no return value.
+[EXAMPLES]
+Mouse Event*5C9553D537D8F9570CD9FD9C42DE3334.html
+Auto Click Menu*807DB77F1F69ADA353C26A64D80FD3DD.html
+[RELATED]
+SystemParametersInfo

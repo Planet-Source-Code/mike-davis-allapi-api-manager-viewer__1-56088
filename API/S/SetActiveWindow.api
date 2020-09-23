@@ -1,0 +1,24 @@
+[NAME]
+SetActiveWindow
+[DESCRIPTION]
+The SetActiveWindow function activates a window. The window must be attached to the calling thread's message queue.
+[DECLARATION]
+Declare Function SetActiveWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd 
+[in] Handle to the top-level window to be activated. 
+[RETURNS]
+If the function succeeds, the return value is the handle to the window that was previously active. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Set Active Window*54F59C374041FBEBB536615BF398662B.html
+[RELATED]
+SetFocus
+SetForegroundWindow

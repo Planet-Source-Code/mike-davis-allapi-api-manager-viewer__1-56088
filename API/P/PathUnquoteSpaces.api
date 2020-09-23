@@ -1,0 +1,27 @@
+[NAME]
+PathUnquoteSpaces
+[DESCRIPTION]
+Removes quotes from the beginning and end of a path.
+[DECLARATION]
+Declare Sub PathUnquoteSpaces Lib "shlwapi.dll" Alias "PathUnquoteSpacesA" (ByVal lpsz As String)
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· lpsz
+Address of the path from which to remove the quotes.
+[RETURNS]
+No return value.
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathQuoteSpaces
+PathStripPath
+PathStripToRoot
+PathMatchSpec
+PathMakeSystemFolder
+PathIsSystemFolder

@@ -1,0 +1,24 @@
+[NAME]
+FatalAppExit
+[DESCRIPTION]
+The FatalAppExit function displays a message box and terminates the application when the message box is closed.
+[DECLARATION]
+Declare Sub FatalAppExit Lib "kernel32" Alias "FatalAppExitA" (ByVal uAction As Long, ByVal lpMessageText As String)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· uAction
+Reserved; must be zero.
+
+· lpMessageText
+Points to a null-terminated string that is displayed in the message box. The message is displayed on a single line. To accommodate low-resolution screens, the string should be no more than 35 characters in length.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+FatalAppExit*504E3ECEDC4A61245AD3667460B49BEC.html
+[RELATED]
+FatalExit

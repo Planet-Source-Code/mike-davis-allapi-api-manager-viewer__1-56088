@@ -1,0 +1,21 @@
+[NAME]
+InetIsOffline
+[DESCRIPTION]
+Determines whether or not the system is connected to the Internet.
+[DECLARATION]
+Declare Function InetIsOffline Lib "url.dll" (ByVal dwFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Url
+[PARAMETERS]
+· dwFlags 
+Input flags for the function. This must be set to zero. 
+[RETURNS]
+Returns TRUE if the local system in not currently connected to the Internet. Returns FALSE if the local system is connected to the Internet or if no attempt has yet been made to connect to the Internet. 
+[EXAMPLES]
+IsOffline*F011BC8E36E724318CD51639FFB7B541.html
+[RELATED]
+InternetAttemptConnect

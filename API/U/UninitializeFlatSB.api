@@ -1,0 +1,23 @@
+[NAME]
+UninitializeFlatSB
+[DESCRIPTION]
+Uninitializes flat scroll bars for a particular window. The specified window will revert to having standard scroll bars.
+[DECLARATION]
+Declare Function UninitializeFlatSB Lib "comctl32" (ByVal hWnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window with the flat scroll bars that will be uninitialized.
+[RETURNS]
+Returns one of the following values: E_FAIL  One of the window's scroll bars is currently in use. The operation cannot be completed at this time.  
+S_FALSE  The window doesn't have flat scroll bars initialized.  
+S_OK  The operation was successful. 
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+InitializeFlatSB

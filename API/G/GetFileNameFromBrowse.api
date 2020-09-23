@@ -1,0 +1,38 @@
+[NAME]
+GetFileNameFromBrowse
+[DESCRIPTION]
+GetFileNameFromBrowse is nothing more than a simplified wrapper around the GetOpenFile-Name function.
+[DECLARATION]
+Declare Function GetFileNameFromBrowse Lib "shell32" Alias "#63" (ByVal hwndOwner As Long, ByVal lpstrFile As String, ByVal nMaxFile As Long, ByVal lpstrInitialDir As String, ByVal lpstrDefExt As String, ByVal lpstrFilter As String, ByVal lpstrTitle As String) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· hwndOwner
+ identifies the window that owns the dialog box.
+
+· lpstrFile
+ points to a buffer that contains a filename used to initialize the edit control. When the function returns, this buffer contains the full path of the selected file.
+
+· nMaxFile
+ specifies the size, in characters, of the buffer pointed to by lpstrFile.
+
+· lpstrInitialDir
+ points to a string that specifies the initial file directory. If lpstrFile contains an initial filename, the lpstrInitialDir is ignored and the path from the filename is used instead.
+
+· lpstrDefExt
+ points to a buffer that contains the default extension.
+
+· lpstrFilter points to a buffer containing pairs of null-terminated filter strings.
+
+· lpstrTitle
+ points to a string to be placed in the title bar of the dialog box.
+[RETURNS]
+Undocumented
+[EXAMPLES]
+GetFileNameFromBrowse*9245C5C666C3D5384EC0ABF383E976C3.html
+[RELATED]
+GetOpenFileName

@@ -1,0 +1,24 @@
+[NAME]
+GetUdpStatistics
+[DESCRIPTION]
+The GetUdpStatistics function retrieves the User Datagram Protocol (UDP) statistics for the local computer.
+[DECLARATION]
+Declare Function GetUdpStatistics Lib "iphlpapi" (pStats As PMIB_UDPSTATS) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 98 or later
+[LIBRARY]
+Iphlpapi
+[PARAMETERS]
+· pStats 
+[out] Pointer to a MIB_UDPSTATS structure that receives the UDP statistics for the local computer. 
+[RETURNS]
+If the function succeeds, the return value is NO_ERROR.
+
+If the function fails, use FormatMessage to obtain the message string for the returned error.
+[EXAMPLES]
+UDP Stats*588DBBEB8FF70554E11F3C5344AB7B65.html
+[RELATED]
+GetTcpStatistics
+GetIcmpStatistics

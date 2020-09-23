@@ -1,0 +1,50 @@
+[NAME]
+WriteFile
+[DESCRIPTION]
+The WriteFile function writes data to a file and is designed for both synchronous and asynchronous operation. The function starts writing data to the file at the position indicated by the file pointer.
+[DECLARATION]
+Declare Function WriteFile Lib "kernel32" Alias "WriteFile" (ByVal hFile As Long, lpBuffer As Any, ByVal nNumberOfBytesToWrite As Long, lpNumberOfBytesWritten As Long, lpOverlapped As OVERLAPPED) As Long
+[VBNET]
+System.IO.File.Stream
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Identifies the file to be written to. The file handle must have been created with GENERIC_WRITE access to the file.
+Windows NT
+For asynchronous write operations, hFile can be any handle opened with the FILE_FLAG_OVERLAPPED flag by the CreateFile function, or a socket handle returned by the socket or accept functions.
+Windows 95
+For asynchronous write operations, hFile can be a communications resource, mailslot, or named pipe handle opened with the FILE_FLAG_OVERLAPPED flag by CreateFile, or a socket handle returned by the socket or accept functions. Windows 95 does not support asynchronous write operations on disk files.
+
+· lpBuffer
+Points to the buffer containing the data to be written to the file.
+
+· nNumberOfBytesToWrite
+Specifies the number of bytes to write to the file.
+Unlike the MS-DOS operating system, Windows NT interprets a value of zero as specifying a null write operation. A null write operation does not write any bytes but does cause the time stamp to change.
+Named pipe write operations across a network are limited to 65535 bytes.
+
+· lpNumberOfBytesWritten
+Points to the number of bytes written by this function call. WriteFile sets this value to zero before doing any work or error checking.
+If lpOverlapped is NULL, lpNumberOfBytesWritten cannot be NULL.
+If lpOverlapped is not NULL, lpNumberOfBytesWritten can be NULL. If this is an overlapped write operation, you can get the number of bytes written by calling GetOverlappedResult. If hFile is associated with an I/O completion port, you can get the number of bytes written by calling GetQueuedCompletionStatus.
+
+· lpOverlapped
+Points to an OVERLAPPED structure. This structure is required if hFile was opened with FILE_FLAG_OVERLAPPED.
+If hFile was opened with FILE_FLAG_OVERLAPPED, the lpOverlapped parameter must not be NULL. It must point to a valid OVERLAPPED structure. If hFile was opened with FILE_FLAG_OVERLAPPED and lpOverlapped is NULL, the function can incorrectly report that the write operation is complete.
+If hFile was opened with FILE_FLAG_OVERLAPPED and lpOverlapped is not NULL, the write operation starts at the offset specified in the OVERLAPPED structure and WriteFile may return before the write operation has been completed. In this case, WriteFile returns FALSE and the GetLastError function returns ERROR_IO_PENDING. This allows the calling process to continue processing while the write operation is being completed. The event specified in the OVERLAPPED structure is set to the signaled state upon completion of the write operation.
+If hFile was not opened with FILE_FLAG_OVERLAPPED and lpOverlapped is NULL, the write operation starts at the current file position and WriteFile does not return until the operation has been completed.
+If hFile was not opened with FILE_FLAG_OVERLAPPED and lpOverlapped is not NULL, the write operation starts at the offset specified in the OVERLAPPED structure and WriteFile does not return until the write operation has been completed.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+End Of file*EEE812D41301556E9385F49FBB834736.html
+[RELATED]
+ReadFile
+writefile

@@ -1,0 +1,32 @@
+[NAME]
+AdjustWindowRectEx
+[DESCRIPTION]
+The AdjustWindowRectEx function calculates the required size of the window rectangle, based on the desired size of the client rectangle. The window rectangle can then be passed to the CreateWindowEx function to create a window whose client area is the desired size.
+[DECLARATION]
+Declare Function AdjustWindowRectEx Lib "user32" Alias "AdjustWindowRectEx" (lpRect As RECT, ByVal dsStyle As Long, ByVal bMenu As Long, ByVal dwEsStyle As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpRect
+Pointer to a RECT structure that contains the coordinates of the top-left and bottom-right corners of the desired client area. When the function returns, the structure contains the coordinates of the top-left and bottom-right corners of the window to accommodate the desired client area.
+
+· dwStyle
+Specifies the window styles of the window whose required size is to be calculated.
+
+· bMenu
+Specifies whether the window has a menu.
+
+· dwExStyle
+Specifies the extended style of the window whose required size is to be calculated.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+AdjustWindowRectEx*6849A9DF9623C8140C8116D91CE97403.html
+[RELATED]
+AdjustWindowRect

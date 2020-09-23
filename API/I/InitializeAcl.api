@@ -1,0 +1,31 @@
+[NAME]
+InitializeAcl
+[DESCRIPTION]
+The InitializeAcl function creates a new ACL structure. An ACL is an access-control list.
+[DECLARATION]
+Declare Function InitializeAcl Lib "advapi32.dll" (pAcl As Byte, ByVal nAclLength As Long, ByVal dwAclRevision As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pAcl
+[out] Pointer to an ACL structure initialized by this function.
+
+· nAclLength
+[in] Specifies the length, in bytes, of the buffer pointed to by the pAcl parameter. This value must be large enough to contain the ACL header and all of the access-control entries (ACEs) to be stored in the ACL. See the following Remarks section for more information about calculating the size of an ACL.
+
+· dwAclRevision
+[in] Specifies the revision level of the ACL being created.
+Windows NT 4.0 and earlier: This value must be ACL_REVISION.
+Windows 2000: This value can be ACL_REVISION or ACL_REVISION_DS. Use ACL_REVISION_DS if the ACL supports object-specific ACEs.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetAclInformation

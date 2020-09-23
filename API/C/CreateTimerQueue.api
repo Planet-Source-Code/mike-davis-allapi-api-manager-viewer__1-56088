@@ -1,0 +1,23 @@
+[NAME]
+CreateTimerQueue
+[DESCRIPTION]
+The CreateTimerQueue function creates a queue for timers. Timer-queue timers are lightweight objects that enable you to specify a callback function to be called at a specified time.
+[DECLARATION]
+Declare Function CreateTimerQueue Lib "kernel32.dll" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is a handle to the timer queue. This handle can be used only in functions that require a handle to a timer queue. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Timer Queue*A826D4F4A8A6753E40BF5C361B55B1E7.html
+[RELATED]
+DeleteTimerQueue
+CreateTimerQueueTimer

@@ -1,0 +1,24 @@
+[NAME]
+DeleteTimerQueue
+[DESCRIPTION]
+The DeleteTimerQueue function deletes a timer queue. Any pending timers in the queue are canceled and deleted.<br>To use a completion event, call the DeleteTimerQueueEx function. 
+[DECLARATION]
+Declare Function DeleteTimerQueue Lib "kernel32.dll" (ByVal TimerQueue As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· TimerQueue 
+ [in] Handle to a timer queue. This handle is returned by the CreateTimerQueue function. 
+ If the timer was created using the default timer queue, this parameter should be NULL. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Timer Queue*A826D4F4A8A6753E40BF5C361B55B1E7.html
+[RELATED]
+CreateTimerQueue

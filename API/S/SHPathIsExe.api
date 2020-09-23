@@ -1,0 +1,20 @@
+[NAME]
+SHPathIsExe
+[DESCRIPTION]
+This is an undocumented function! Returns non-zero if szPath has an executable extension (if last 4 char are either ".exe", ".com", ".bat" or ".pif"). Does not check szPath for validity.
+[DECLARATION]
+Declare Function SHPathIsExe Lib "shell32" Alias "#43" (ByVal szPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Shell32
+[PARAMETERS]
+Unsupported
+[RETURNS]
+Undocumented
+[EXAMPLES]
+SHPathIsExe*5BB255C942F0A214056E8026132BC456.html
+[RELATED]
+

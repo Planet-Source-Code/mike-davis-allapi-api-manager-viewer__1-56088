@@ -1,0 +1,29 @@
+[NAME]
+PrintDialog
+[DESCRIPTION]
+The PrintDialog function displays a Print dialog box or a Print Setup dialog box. The Print dialog box enables the user to specify the properties of a particular print job.
+[DECLARATION]
+Declare Function PrintDialog Lib "comdlg32.dll" Alias "PrintDlgA" (pPrintdlg As PRINTDLG_TYPE) As Long
+[VBNET]
+System.Windows.Forms.PrintDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+· lppd
+Pointer to a PRINTDLG structure that contains information used to initialize the dialog box. When PrintDlg returns, this structure contains information about the user’s selections.
+[RETURNS]
+If the user clicks the OK button, the return value is nonzero. The members of the PRINTDLGstructure pointed to by the lppd parameter indicate the user’s selections. 
+
+If the user cancels or closes the Print or Printer Setup dialog box or an error occurs, the return value is zero. To get extended error information, use the CommDlgExtendedError function, which can return one of the following values:
+CDERR_FINDRESFAILURE, PDERR_CREATEICFAILURE, CDERR_INITIALIZATION, PDERR_DEFAULTDIFFERENT, CDERR_LOADRESFAILURE, PDERR_DNDMMISMATCH, CDERR_LOADSTRFAILURE, PDERR_GETDEVMODEFAIL, CDERR_LOCKRESFAILURE, PDERR_INITFAILURE, CDERR_MEMALLOCFAILURE, PDERR_LOADDRVFAILURE, CDERR_MEMLOCKFAILURE, CDERR_NODEFAULTPRN, CDERR_NOHINSTANCE, PDERR_NODEVICES, CDERR_NOHOOK, PDERR_PARSEFAILURE, CDERR_NOTEMPLATE, PDERR_PRINTERNOTFOUND, CDERR_STRUCTSIZE, PDERR_RETDEFFAILURE
+[EXAMPLES]
+Common Dialogs*1D52C7E03E3782E75B883E436E7B341B.html
+[RELATED]
+PAGESETUPDLG
+CHOOSEFONT
+CHOOSECOLOR
+GetOpenFileName
+GetSaveFileName
+PrinterProperties

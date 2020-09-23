@@ -1,0 +1,32 @@
+[NAME]
+RaiseException
+[DESCRIPTION]
+The RaiseException function raises an exception in the calling thread.
+[DECLARATION]
+Declare Sub RaiseException Lib "kernel32" (ByVal dwExceptionCode As Long, ByVal dwExceptionFlags As Long, ByVal nNumberOfArguments As Long, lpArguments As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwExceptionCode 
+[in] Specifies the application-defined exception code of the exception being raised. The filter expression and exception-handler block of an exception handler can use the GetExceptionCode function to retrieve this value. 
+Note that the system will clear bit 28 of dwExceptionCode before displaying a message This bit is a reserved exception bit, used by the system for its own purposes. 
+
+· dwExceptionFlags 
+[in] Specifies the exception flags. This can be either zero to indicate a continuable exception, or EXCEPTION_NONCONTINUABLE to indicate a noncontinuable exception. Any attempt to continue execution after a noncontinuable exception causes the EXCEPTION_NONCONTINUABLE_EXCEPTION exception. 
+
+· nNumberOfArguments 
+[in] Specifies the number of arguments in the lpArguments array. This value must not exceed EXCEPTION_MAXIMUM_PARAMETERS. This parameter is ignored if lpArguments is NULL. 
+
+· lpArguments 
+[in] Pointer to an array of arguments. This parameter can be NULL. These arguments can contain any application-defined data that needs to be passed to the filter expression of the exception handler. 
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+Unhandled Exception*93C6E1CFEE5BF24DE51EC599B1720D4F.html
+[RELATED]
+ReportFault
+SetUnhandledExceptionFilter

@@ -1,0 +1,26 @@
+[NAME]
+GetTitleBarInfo
+[DESCRIPTION]
+The GetTitleBarInfo function retrieves information about the specified title bar.
+[DECLARATION]
+Declare Function GetTitleBarInfo Lib "user32.dll" (ByVal hwnd As Long, ByRef pti As TITLEBARINFO) As Long
+[VBNET]
+N/A
+[OS]
+Included in Windows NT 4.0 SP6 and later; Included in Windows 98 and later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hwnd 
+[in] Handle to the title bar whose information is to be retrieved. 
+
+· pti 
+[out] Pointer to a TITLEBARINFO structure to receive the information. Note that you must set TITLEBARINFO.cbSize to sizeof(TITLEBARINFO) before calling this function. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Title Info*04BDC7ED9CAC90B538B89F2407898091.html
+[RELATED]
+GetWindowRect

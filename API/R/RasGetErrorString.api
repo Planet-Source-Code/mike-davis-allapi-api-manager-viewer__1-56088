@@ -1,0 +1,34 @@
+[NAME]
+RasGetErrorString
+[DESCRIPTION]
+The RasGetErrorString function obtains an error message string for a specified RAS error value.
+[DECLARATION]
+Declare Function RasGetErrorString Lib "rasapi32.dll" Alias "RasGetErrorStringA" (ByVal uErrorValue As Long, ByVal lpszErrorString As String, ByVal cBufSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· uErrorValue 
+Specifies the error value of interest. These are values returned by one of the RAS functions: those listed in the RAS header file. 
+
+· lpszErrorString 
+Points to a buffer that the function will write the error string to. This parameter must not be NULL. 
+
+· cBufSize 
+Specifies the size, in characters, of the buffer pointed to by lpszErrorString. 
+[RETURNS]
+If the function succeeds, the return value is zero.
+
+If the function fails, the return value is a nonzero error value. This value is ERROR_INVALID_PARAMETER or the GetLastError value returned from the functions GlobalAlloc or LoadString. The function does not set a thread’s last error information; that is, there is no GetLastError information set by the RasGetErrorString function.
+[EXAMPLES]
+RasErrorString*33EF3FBA402F587257E8577FFD93810F.html
+[RELATED]
+RasDial
+RasEnumConnections
+RasEnumEntries
+RasGetConnectionStatistics
+RasGetEntryDialParams
+RasHangUp

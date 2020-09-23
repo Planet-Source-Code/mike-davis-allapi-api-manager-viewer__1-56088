@@ -1,0 +1,30 @@
+[NAME]
+SendInput
+[DESCRIPTION]
+The SendInput function synthesizes keystrokes, mouse motions, and button clicks
+[DECLARATION]
+Declare Function SendInput Lib "user32.dll" (ByVal nInputs As Long, pInputs As GENERALINPUT, ByVal cbSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Windows NT 4.0 SP3 or later; Windows 98
+[LIBRARY]
+User32
+[PARAMETERS]
+· nInputs
+[in] Specifies the number of structures in the pInputs array.
+
+· pInputs
+[in] Pointer to an array of INPUT structures. Each structure represents an event to be inserted into the keyboard or mouse input stream.
+
+· cbSize
+[in] Specifies the size, in bytes, of an INPUT structure. If cbSize is not the size of an INPUT structure, the function will fail.
+[RETURNS]
+The function returns the number of events that it successfully inserted into the keyboard or mouse input stream. If the function returns zero, the input was already blocked by another thread.
+
+To get extended error information, call GetLastError.
+[EXAMPLES]
+SendInput*4B981623F1261B6355ECC0E82C15C5C6.html
+[RELATED]
+keyb_event
+mouse_event

@@ -1,0 +1,41 @@
+[NAME]
+InternetCombineUrl
+[DESCRIPTION]
+Combines a base and relative URL into a single URL. The resultant URL will be canonicalized (see InternetCanonicalizeUrl).
+[DECLARATION]
+Declare Sub InternetCombineUrl Lib "wininet.dll" Alias "InternetCombineUrlA" (ByVal lpszBaseUrl As String, ByVal lpszRelativeUrl As String, ByVal lpszBuffer As String, ByRef lpdwBufferLength As Long, ByVal dwFlags As Long)
+[VBNET]
+N/A
+[OS]
+Requires Internet Explorer 3.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpszBaseUrl 
+Address of the base URL to be combined. 
+
+· lpszRelativeUrl 
+Address of the relative URL to be combined. 
+
+· lpszBuffer 
+Address of a buffer that receives the resulting URL. 
+
+· lpdwBufferLength 
+Size, in bytes, of the lpszBuffer buffer. If the function succeeds, this parameter receives the length, in characters, of the resultant combined URL—the length does not include the null terminator. If the function fails, this parameter receives the length, in bytes, of the required buffer—the length includes the null terminator. 
+
+· dwFlags 
+Flags controlling the operation of the function. Can be one of the following values: ICU_BROWSER_MODE  Does not encode or decode characters after "#" or "?", and does not remove trailing white space after "?". If this value is not specified, the entire URL is encoded and trailing white space is removed. 
+ICU_DECODE  
+ Converts all %XX sequences to characters, including escape sequences, before the URL is parsed. 
+ICU_ENCODE_SPACES_ONLY  
+ Encodes spaces only. 
+ICU_NO_ENCODE  
+ Does not convert unsafe characters to escape sequences. 
+ICU_NO_META  
+ Does not remove meta sequences (such as "." and "..") from the URL. 
+[RETURNS]
+This sub does not return a value.
+[EXAMPLES]
+Combine URL*ADE43FF0A96415D64C7C941A8DB1773F.html
+[RELATED]
+InternetOpenUrl

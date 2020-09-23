@@ -1,0 +1,41 @@
+[NAME]
+CreateCursor
+[DESCRIPTION]
+The CreateCursor function creates a cursor having the specified size, bit patterns, and hot spot.
+[DECLARATION]
+Declare Function CreateCursor Lib "user32" Alias "CreateCursor" (ByVal hInstance As Long, ByVal nXhotspot As Long, ByVal nYhotspot As Long, ByVal nWidth As Long, ByVal nHeight As Long, lpANDbitPlane As Any, lpXORbitPlane As Any) As Long
+[VBNET]
+System.Windows.Forms.Cursor
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hInst
+Identifies the current instance of the application creating the cursor.
+
+· xHotSpot
+Specifies the horizontal position of the cursor’s hot spot.
+
+· yHotSpot
+Specifies the vertical position of the cursor’s hot spot.
+
+· nWidth
+Specifies the width, in pixels, of the cursor.
+
+· nHeight
+Specifies the height, in pixels, of the cursor.
+
+· pvANDplane
+Points to an array of bytes that contains the bit values for the AND bitmask of the cursor, as in a device-dependent monochrome bitmap.
+
+· pvXORplane
+Points to an array of bytes that contains the bit values for the XOR bitmask of the cursor, as in a device-dependent monochrome bitmap.
+[RETURNS]
+If the function succeeds, the return value identifies the cursor. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+CreateCursor*A9B78B38399F85150C731A1B12FEEF16.html
+[RELATED]
+SetCursor

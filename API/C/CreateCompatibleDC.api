@@ -1,0 +1,28 @@
+[NAME]
+CreateCompatibleDC
+[DESCRIPTION]
+The CreateCompatibleDC function creates a memory device context (DC) compatible with the specified device.
+[DECLARATION]
+Declare Function CreateCompatibleDC Lib "gdi32" Alias "CreateCompatibleDC" (ByVal hdc As Long) As Long
+[VBNET]
+System.Drawing.Graphics.FromHdc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context. If this handle is NULL, the function creates a memory device context compatible with the application’s current screen.
+[RETURNS]
+If the function succeeds, the return value is the handle to a memory device context. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Print Graphic*C06CED3AA5931E92AB1EE89F9FA2EFEA.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+Bitmap Colors*172B5720053F57342F4E6F8706B66B29.html
+DIB*AF7BEA96A353CD96C37F664EF9905EE1.html
+[RELATED]
+CreateCompatibleBitmap
+DeleteDC

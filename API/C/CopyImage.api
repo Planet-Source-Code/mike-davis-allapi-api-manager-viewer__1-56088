@@ -1,0 +1,53 @@
+[NAME]
+CopyImage
+[DESCRIPTION]
+The CopyImage function creates a new image (icon, cursor, or bitmap) and copies the attributes of the specified image to the new one. If necessary, the function stretches the bits to fit the desired size of the new image.
+[DECLARATION]
+Declare Function CopyImage Lib "user32" (ByVal handle As Long, ByVal imageType As Long, ByVal newWidth As Long, ByVal newHeight As Long, ByVal lFlags As Long) As Long
+[VBNET]
+System.Drawing.Image.Close
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hinst 
+Identifies an instance of the module that contains the image to be copied. 
+
+· uType 
+Specifies the type of image to be copied. This parameter can be one of the following values:
+IMAGE_BITMAP 
+ Copies a bitmap. 
+IMAGE_CURSOR 
+ Copies a cursor. 
+IMAGE_ICON 
+ Copies an icon. 
+ 
+· cxDesired 
+Specifies the desired width, in pixels, of the image. 
+
+· cyDesired 
+Specifies the desired height, in pixels, of the image. 
+
+· fuFlags 
+Specifies a combination of the following values:
+LR_COPYDELETEORG 
+ Deletes the original image after creating the copy. 
+LR_COPYRETURNORG 
+ Creates an exact copy of the image, ignoring the cxDesired and cyDesired parameters. 
+LR_MONOCHROME 
+ Creates a new monochrome image. 
+LR_COPYFROMRESOURCE 
+ Tries to reload an icon or cursor resource from the original resource file rather than simply copying the current image. This is useful for creating a different-sized copy when the resource file contains multiple sizes of the resource. Without this flag, CopyImage stretches the original image to the new size. If this flag is set, CopyImage uses the size in the resource file closest to the desired size. 
+
+This will succeed only if hImage was loaded by LoadIcon or LoadCursor, or by LoadImage with the LR_SHARED flag. 
+[RETURNS]
+If the function succeeds, the return value is the handle to the newly created image.
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Clipboard Picture*F6A2AF7423E51EB105A8040D0EE9F27C.html
+[RELATED]
+CreateBitmap
+CreateCompatibleBitmap
+CreateDIBSection

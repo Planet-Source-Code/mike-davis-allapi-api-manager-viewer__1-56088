@@ -1,0 +1,35 @@
+[NAME]
+ReadProcessMemory
+[DESCRIPTION]
+The ReadProcessMemory function reads data from an area of memory in a specified process. The entire area to be read must be accessible, or the operation fails.
+[DECLARATION]
+Declare Function ReadProcessMemory Lib "kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hProcess 
+[in] Handle to the process whose memory is being read. The handle must have PROCESS_VM_READ access to the process. 
+
+· lpBaseAddress 
+[in] Pointer to the base address in the specified process from which to read. Before any data transfer occurs, the system verifies that all data in the base address and memory of the specified size is accessible for read access. If this is the case, the function proceeds; otherwise, the function fails. 
+
+· lpBuffer 
+[out] Pointer to a buffer that receives the contents from the address space of the specified process. 
+
+· nSize 
+[in] Specifies the requested number of bytes to read from the specified process. 
+
+· lpNumberOfBytesRead 
+[out] Pointer to a variable that receives the number of bytes transferred into the specified buffer. If lpNumberOfBytesRead is NULL, the parameter is ignored.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+The function fails if the requested read operation crosses into an area of the process that is inaccessible.
+[EXAMPLES]
+Process Memory*F307CAA2589BD8227FE5D6D4A27F5BDA.html
+[RELATED]
+WriteProcessMemory

@@ -1,0 +1,34 @@
+[NAME]
+GetTextExtentPoint32
+[DESCRIPTION]
+The GetTextExtentPoint32 function computes the width and height of the specified string of text. This function supersedes the GetTextExtentPoint function.
+[DECLARATION]
+Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal hdc As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As SIZE) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lpString
+Points to the string of text. The string does not need to be zero-terminated, since cbString specifies the length of the string.
+
+· cbString
+Specifies the number of characters in the string.
+
+· lpSize
+Points to a SIZE structure in which the dimensions of the string are to be returned.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+WindowFromPoint*D23C479F84DBAD6783FC4A1EA094985A.html
+[RELATED]
+TextOut
+ExtTextOut
+DrawText

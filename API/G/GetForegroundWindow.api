@@ -1,0 +1,20 @@
+[NAME]
+GetForegroundWindow
+[DESCRIPTION]
+The GetForegroundWindow function returns the handle of the foreground window (the window with which the user is currently working). The system assigns a slightly higher priority to the thread that creates the foreground window than it does to other threads.
+[DECLARATION]
+Declare Function GetForegroundWindow Lib "user32" Alias "GetForegroundWindow" () As Long
+[VBNET]
+System.Windows.Forms.Form.ActiveForm
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is the handle of the foreground window.
+[EXAMPLES]
+Window Draw*CF66E818E548B0ABE25AD704F73FC55D.html
+[RELATED]
+GetActiveWindow

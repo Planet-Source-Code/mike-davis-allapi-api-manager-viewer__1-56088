@@ -1,0 +1,34 @@
+[NAME]
+SetWindowRgn
+[DESCRIPTION]
+The SetWindowRgn function sets the window region of a window. The window region determines the area within the window where the operating system permits drawing. The operating system does not display any portion of a window that lies outside of the window region.
+[DECLARATION]
+Declare Function SetWindowRgn Lib "user32" Alias "SetWindowRgn" (ByVal hWnd As Long, ByVal hRgn As Long, ByVal bRedraw As Boolean) As Long
+[VBNET]
+System.Windows.Forms.Region
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Handle to the window whose window region is to be set.
+
+· hRgn
+Handle to a region. The function sets the window region of the window to this region.
+If hRgn is NULL, the function sets the window region to NULL.
+
+· bRedraw
+Boolean value that specifies whether the operating system redraws the window after setting the window region. If bRedraw is TRUE, the operating system does so; otherwise, it does not.
+Typically, you set bRedraw to TRUE if the window is visible.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Path2Region*CAE2714E3B7A80BD1386EB848DFE32B4.html
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+[RELATED]
+CreateEllipticRgn
+Window Region

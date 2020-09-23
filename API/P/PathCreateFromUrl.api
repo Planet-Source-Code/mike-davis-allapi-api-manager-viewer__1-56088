@@ -1,0 +1,33 @@
+[NAME]
+PathCreateFromUrl
+[DESCRIPTION]
+Takes a file URL and converts it to a DOS path.
+[DECLARATION]
+Private Declare Sub PathCreateFromUrl Lib "shlwapi.dll" Alias "PathCreateFromUrlA" (ByVal pszUrl As String, ByVal pszPath As String, ByRef pcchPath As Long, ByVal dwFlags As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 5.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 5.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszUrl
+Pointer to the string with the URL.
+
+· pszPath
+Value used to return the DOS path. The size of this buffer should be set to MAX_PATH to ensure that it is large enough to hold the returned string.
+
+· pcchPath
+Length of pszPath.
+
+· dwReserved
+Reserved. Set this parameter to NULL.
+[RETURNS]
+Returns S_OK if successful, or a standard OLE error value otherwise
+[EXAMPLES]
+Path Functions (2)*D31FFFFF9AECF2ADDF1992FAC3F318C1.html
+[RELATED]
+PathCombine
+PathCommonPrefix
+PathCompactPath
+PathCreateFromUrl

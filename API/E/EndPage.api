@@ -1,0 +1,23 @@
+[NAME]
+EndPage
+[DESCRIPTION]
+The EndPage function informs the device that the application has finished writing to a page. This function is typically used to direct the device driver to advance to a new page. This function replaces the NEWFRAME printer escape.
+[DECLARATION]
+Declare Function EndPage Lib "gdi32" Alias "EndPage" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc 
+Identifies the device context for the print job. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+PrintLine*A9598B51B969935335C537D163F055AF.html
+[RELATED]
+StartPage

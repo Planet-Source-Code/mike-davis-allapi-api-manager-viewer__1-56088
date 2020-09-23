@@ -1,0 +1,22 @@
+[NAME]
+GetLocalTime
+[DESCRIPTION]
+The GetLocalTime function retrieves the current local date and time.
+[DECLARATION]
+Declare Sub GetLocalTime Lib "kernel32" Alias "GetLocalTime" (lpSystemTime As SYSTEMTIME)
+[VBNET]
+System.DateTime.Now
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpSystemTime
+Points to a SYSTEMTIME structure to receive the current local date and time.
+[RETURNS]
+This function does not return a value. 
+[EXAMPLES]
+Local Time*24506C73DDDE33CD3D87DD2B0C97C627.html
+Time 2*A94ECD3654BB1A882795721FF76DDE34.html
+[RELATED]
+GetSystemTime

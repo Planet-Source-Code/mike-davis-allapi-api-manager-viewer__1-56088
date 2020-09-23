@@ -1,0 +1,20 @@
+[NAME]
+GetMessageExtraInfo
+[DESCRIPTION]
+The GetMessageExtraInfo function retrieves the extra message information for the current thread. Extra message information is an application- or driver-defined value associated with the current thread's message queue.
+[DECLARATION]
+Declare Function GetMessageExtraInfo Lib "user32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value specifies the extra information. The meaning of the extra information is device specific.
+[EXAMPLES]
+Auto Click Menu*807DB77F1F69ADA353C26A64D80FD3DD.html
+[RELATED]
+

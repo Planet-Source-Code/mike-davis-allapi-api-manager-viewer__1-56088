@@ -1,0 +1,32 @@
+[NAME]
+Beep
+[DESCRIPTION]
+The Beep function generates simple tones on the speaker. The function is synchronous; it does not return control to its caller until the sound finishes.
+[DECLARATION]
+Declare Function Beep Lib "kernel32" Alias "Beep" (ByVal dwFreq As Long, ByVal dwDuration As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwFreq
+Windows NT:
+Specifies the frequency, in hertz, of the sound. This parameter must be in the range 37 through 32,767 (0x25 through 0x7FFF).
+Windows 95:
+The parameter is ignored.
+
+· dwDuration
+Windows NT:
+Specifies the duration, in milliseconds, of the sound.
+Windows 95:
+The parameter is ignored.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Tone*FC32B1DF568445B2C7D0B811FB85EA54.html
+[RELATED]
+MessageBeep

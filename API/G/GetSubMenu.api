@@ -1,0 +1,30 @@
+[NAME]
+GetSubMenu
+[DESCRIPTION]
+The GetSubMenu function retrieves the handle of the drop-down menu or submenu activated by the specified menu item.
+[DECLARATION]
+Declare Function GetSubMenu Lib "user32" Alias "GetSubMenu" (ByVal hMenu As Long, ByVal nPos As Long) As Long
+[VBNET]
+System.Windows.Forms.Menu.MenuItems
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMenu
+Identifies the menu.
+
+· nPos
+Specifies the zero-based relative position in the given menu of an item that activates a drop-down menu or submenu.
+[RETURNS]
+If the function succeeds, the return value is the handle of the drop-down menu or submenu activated by the menu item. If the menu item does not activate a drop-down menu or submenu, the return value is NULL. 
+[EXAMPLES]
+Bitmap Menu*1EC5CC4476C4AA834EAA48DBF68CE788.html
+SetMenuItemBitmaps*A6D78F8EDEAC42B7423248EACB398F6A.html
+MenuItemInfo*9B9D963EC62084BA4EF4B55EC54A46BF.html
+Auto Click Menu*807DB77F1F69ADA353C26A64D80FD3DD.html
+Radio Menu Item*96EA01F40B88471DBB956C033A65D94F.html
+[RELATED]
+GetMenu
+ModifyMenu
+GetMenuItemID

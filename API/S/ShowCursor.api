@@ -1,0 +1,22 @@
+[NAME]
+ShowCursor
+[DESCRIPTION]
+The ShowCursor function displays or hides the cursor.
+[DECLARATION]
+Declare Function ShowCursor Lib "user32" Alias "ShowCursor" (ByVal bShow As Long) As Long
+[VBNET]
+System.Windows.Forms.Cursor.Current.Show;System.Windows.Forms.Cursor.Current.Hide
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· bShow
+Specifies whether the internal display counter is to be incremented or decremented. If bShow is TRUE, the display count is incremented by one. If bShow is FALSE, the display count is decremented by one.
+[RETURNS]
+The return value specifies the new display counter.
+[EXAMPLES]
+ShowCursor*F02A680A4DAFE5F35443FDC5FFF29E92.html
+[RELATED]
+GetCursorPos
+SetCursorPos

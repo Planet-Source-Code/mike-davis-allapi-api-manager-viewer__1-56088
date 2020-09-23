@@ -1,0 +1,24 @@
+[NAME]
+IsNTAdmin
+[DESCRIPTION]
+Checks whether the current user is a member of the Administrator group.
+[DECLARATION]
+Declare Function IsNTAdmin Lib "advpack.dll" (ByVal dwReserved As Long, ByRef lpdwReserved As Long) As Long
+[VBNET]
+N/A
+[OS]
+Undocumented
+[LIBRARY]
+Advpack
+[PARAMETERS]
+· dwReserved
+ Reserved parameter.
+
+· lpdwReserved
+ Reserved parameter.
+[RETURNS]
+Returns a non-zero value if the current user is a member of the Administrator group.
+[EXAMPLES]
+Is Admin*8EB31A87077031E7C1C379AF987298C9.html
+[RELATED]
+

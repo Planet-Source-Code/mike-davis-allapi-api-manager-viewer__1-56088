@@ -1,0 +1,24 @@
+[NAME]
+GetMenuItemCount
+[DESCRIPTION]
+The GetMenuItemCount function determines the number of items in the specified menu.
+[DECLARATION]
+Declare Function GetMenuItemCount Lib "user32" Alias "GetMenuItemCount" (ByVal hMenu As Long) As Long
+[VBNET]
+System.Windows.Forms.Menu.MenuItems.Count
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMenu
+Identifies the handle of the menu to be examined.
+[RETURNS]
+If the function succeeds, the return value specifies the number of items in the menu. 
+
+If the function fails, the return value is -1. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Remove Menu*142D5FF627FD8EAEC36D2B985455BEAE.html
+[RELATED]
+GetSystemMenu
+RemoveMenu

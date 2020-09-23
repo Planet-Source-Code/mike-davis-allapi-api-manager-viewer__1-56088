@@ -1,0 +1,27 @@
+[NAME]
+mmioRead
+[DESCRIPTION]
+The mmioRead function reads a specified number of bytes from a file opened by using the mmioOpen function.
+[DECLARATION]
+Declare Function mmioRead Lib "winmm.dll" Alias "mmioRead" (ByVal hmmio As Long, ByVal pch As String, ByVal cch As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· hmmio
+File handle of the file to be read.
+
+· pch
+Address of a buffer to contain the data read from the file.
+
+· cch
+Number of bytes to read from the file.
+[RETURNS]
+Returns the number of bytes actually read. If the end of the file has been reached and no more bytes can be read, the return value is 0. If there is an error reading from the file, the return value is - 1. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+mmioOpen

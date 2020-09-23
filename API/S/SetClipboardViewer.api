@@ -1,0 +1,21 @@
+[NAME]
+SetClipboardViewer
+[DESCRIPTION]
+The SetClipboardViewer function adds the specified window to the chain of clipboard viewers. Clipboard viewer windows receive a WM_DRAWCLIPBOARD message whenever the content of the clipboard changes.
+[DECLARATION]
+Declare Function SetClipboardViewer Lib "user32" Alias "SetClipboardViewer" (ByVal hwnd As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWndNewViewer
+Identifies the window to be added to the clipboard chain.
+[RETURNS]
+If the function succeeds, the return value identifies the next window in the clipboard viewer chain. If an error occurs or there are no other windows in the clipboard viewer chain, the return value is NULL. To get extended error information, call GetLastError.
+[EXAMPLES]
+Clipboard Viewer*9FE2CF3281A27D4B23955464E2907952.html
+[RELATED]
+

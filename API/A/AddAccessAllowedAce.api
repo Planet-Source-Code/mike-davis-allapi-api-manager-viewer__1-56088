@@ -1,0 +1,36 @@
+[NAME]
+AddAccessAllowedAce
+[DESCRIPTION]
+The AddAccessAllowedAce function adds an access-allowed ACE to an ACL. The access is granted to a specified SID. To control whether the new ACE can be inherited by child objects, use the AddAccessAllowedAceEx function.
+[DECLARATION]
+Declare Function AddAccessAllowedAce Lib "advapi32.dll" (pAcl As Byte, ByVal dwAceRevision As Long, ByVal AccessMask As Long, pSid As Byte) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pAcl
+[in/out] Pointer to an ACL structure. This function adds an access-allowed ACE to the end of this ACL. The ACE is in the form of an ACCESS_ALLOWED_ACE structure.
+
+· dwAceRevision
+[in] Specifies the revision level of the ACL being modified.
+Windows NT 4.0 and earlier: This value must be ACL_REVISION.
+Windows 2000: This value can be ACL_REVISION or ACL_REVISION_DS. Use ACL_REVISION_DS if the ACL contains object-specific ACEs.
+
+· AccessMask
+[in] Specifies the mask of access rights to be granted to the specified SID.
+
+· pSid
+[in] Pointer to the SID structure representing a user, group, or logon account being granted access.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetAce
+AddAce
+AddAccessDeniedAce

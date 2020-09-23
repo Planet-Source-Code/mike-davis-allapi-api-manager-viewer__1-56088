@@ -1,0 +1,29 @@
+[NAME]
+FindExecutable
+[DESCRIPTION]
+The FindExecutable function retrieves the name and handle to the executable (.EXE) file associated with the specified filename.
+[DECLARATION]
+Declare Function FindExecutable Lib "shell32.dll" Alias "FindExecutableA" (ByVal lpFile As String, ByVal lpDirectory As String, ByVal lpResult As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· lpFile
+Pointer to a null-terminated string specifying a filename. This can be a document or executable file.
+
+· lpDirectory
+Pointer to a null-terminated string specifying the default directory.
+
+· lpResult
+Pointer to a buffer to receive the filename when the function returns. This filename is a null-terminated string specifying the executable file started when an “open” association is run on the file specified in the lpFile parameter.
+[RETURNS]
+When FindExecutable returns, the lpResult parameter may contain the path to the DDE server started if no server responds to a request to initiate a DDE conversation. 
+[EXAMPLES]
+FindExecutable*C115EA323755496CD00826CA8D9B7952.html
+[RELATED]
+FindFirstFile
+FindNextFile
+FindClose

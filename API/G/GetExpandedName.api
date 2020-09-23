@@ -1,0 +1,28 @@
+[NAME]
+GetExpandedName
+[DESCRIPTION]
+The GetExpandedName function retrieves the original name of a compressed file, if the file was compressed by using the Microsoft File Compression Utility (COMPRESS.EXE) and the /r option was specified.
+[DECLARATION]
+Declare Function GetExpandedName Lib "lz32.dll" Alias "GetExpandedNameA" (ByVal lpszSource As String, ByVal lpszBuffer As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Lz32
+[PARAMETERS]
+· lpszSource
+Points to a string that specifies the name of a compressed file.
+
+· lpszBuffer
+Points to a buffer that receives the name of the compressed file.
+[RETURNS]
+If the function succeeds, the return value is 1. 
+
+If the function fails, the return value is LZERROR_BADVALUE. 
+
+Note that GetExpandedName calls neither SetLastError nor SetLastErrorEx; thus, its failure does not affect a thread’s last-error code. 
+[EXAMPLES]
+Expanded Name*F36F7F0A371FB3853D3A43FD74FAF62A.html
+[RELATED]
+

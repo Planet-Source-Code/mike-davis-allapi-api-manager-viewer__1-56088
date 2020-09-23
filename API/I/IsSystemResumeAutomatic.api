@@ -1,0 +1,20 @@
+[NAME]
+IsSystemResumeAutomatic
+[DESCRIPTION]
+The IsSystemResumeAutomatic function indicates the current state of the computer.
+[DECLARATION]
+Declare Function IsSystemResumeAutomatic Lib "kernel32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the system was restored to the working state automatically and the user is not active, the function returns TRUE. Otherwise, the function returns FALSE.
+[EXAMPLES]
+System Resume*8CE2CE0956B16161C06843572EE992AB.html
+[RELATED]
+

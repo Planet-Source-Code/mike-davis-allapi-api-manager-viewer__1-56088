@@ -1,0 +1,30 @@
+[NAME]
+SetBkMode
+[DESCRIPTION]
+The SetBkMode function sets the background mix mode of the specified device context. The background mix mode is used with text, hatched brushes, and pen styles that are not solid lines.
+[DECLARATION]
+Declare Function SetBkMode Lib "gdi32" Alias "SetBkMode" (ByVal hdc As Long, ByVal nBkMode As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· iBkMode
+Specifies the background mode. This parameter can be either of the following values:
+OPAQUE
+ Background is filled with the current background color before the text, hatched brush, or pen is drawn.
+TRANSPARENT
+ Background remains untouched.
+[RETURNS]
+If the function succeeds, the return value specifies the previous background mode. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+[RELATED]
+CreateFont

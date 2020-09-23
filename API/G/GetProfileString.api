@@ -1,0 +1,38 @@
+[NAME]
+GetProfileString
+[DESCRIPTION]
+The GetProfileString function retrieves the string associated with a key in the specified section of the Win.ini file.
+[DECLARATION]
+Declare Function GetProfileString Lib "kernel32.dll" Alias "GetProfileStringA" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName 
+[in] Pointer to a null-terminated string that specifies the name of the section containing the key. If this parameter is NULL, the function copies all section names in the file to the supplied buffer. 
+
+· lpKeyName 
+[in] Pointer to a null-terminated string specifying the name of the key whose associated string is to be retrieved. If this parameter is NULL, the function copies all keys in the given section to the supplied buffer. Each string is followed by a null character, and the final string is followed by a second null character. 
+
+· lpDefault 
+[in] Pointer to a null-terminated default string. If the lpKeyName key cannot be found in the initialization file, GetProfileString copies the default string to the lpReturnedString buffer. This parameter cannot be NULL. 
+Avoid specifying a default string with trailing blank characters. The function inserts a null character in the lpReturnedString buffer to strip any trailing blanks. 
+Windows 95/98/Me: Although lpDefault is declared as a constant parameter, the system strips any trailing blanks by inserting a null character into the lpDefault string before copying it to the lpReturnedString buffer. 
+Windows NT/2000/XP: The system does not modify the lpDefault string. This means that if the default string contains trailing blanks, the lpReturnedString and lpDefault strings will not match when compared using the lstrcmp function. 
+
+· lpReturnedString 
+[out] Pointer to a buffer that receives the character string. 
+
+· nSize 
+[in] Specifies the size, in TCHARs, of the buffer pointed to by the lpReturnedString parameter. 
+[RETURNS]
+The return value is the number of characters copied to the buffer, not including the null-terminating character. 
+If neither lpAppName nor lpKeyName is NULL and the supplied destination buffer is too small to hold the requested string, the string is truncated and followed by a null character, and the return value is equal to nSize minus one. 
+If either lpAppName or lpKeyName is NULL and the supplied destination buffer is too small to hold all the strings, the last string is truncated and followed by two null characters. In this case, the return value is equal to nSize minus two. 
+[EXAMPLES]
+GetBackgroundFile*4CA8B6AD71D8F62DF2E708C1086ABF40.html
+[RELATED]
+GetPrivateProfileString

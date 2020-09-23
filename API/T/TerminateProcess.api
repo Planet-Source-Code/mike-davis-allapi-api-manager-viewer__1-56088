@@ -1,0 +1,27 @@
+[NAME]
+TerminateProcess
+[DESCRIPTION]
+The TerminateProcess function terminates the specified process and all of its threads.
+[DECLARATION]
+Declare Function TerminateProcess Lib "kernel32" Alias "TerminateProcess" (ByVal hProcess As Long, ByVal uExitCode As Long) As Long
+[VBNET]
+System.Diagnostics.Process.Kill
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hProcess
+Identifies the process to terminate.
+Windows NT: The handle must have PROCESS_TERMINATE access. For more information, see Process Objects.
+
+· uExitCode
+Specifies the exit code for the process and for all threads terminated as a result of this call. Use the GetExitCodeProcess function to retrieve the process’s exit value. Use the GetExitCodeThread function to retrieve a thread’s exit value.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+[RELATED]
+GetCurrentProcess

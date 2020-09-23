@@ -1,0 +1,34 @@
+[NAME]
+PolyTextOut
+[DESCRIPTION]
+The PolyTextOut function draws several strings using the font and text colors currently selected in the specified device context.
+[DECLARATION]
+Declare Function PolyTextOut Lib "gdi32" Alias "PolyTextOutA" (ByVal hdc As Long, pptxt As POLYTEXT, cStrings As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawString
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· pptxt
+Points to an array of POLYTEXT structures describing the strings to be drawn. The array contains one structure for each string to be drawn.
+
+· cStrings
+Specifies the number of POLYTEXT structures in the pptxt array.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+PolyTextOut*97D6382ACC6D1A138197F7598975503A.html
+[RELATED]
+TextOut
+ExtTextOut
+TabbedTextOut
+DrawText
+DrawTextEx
+drawtext

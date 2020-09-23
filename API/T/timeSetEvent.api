@@ -1,0 +1,45 @@
+[NAME]
+timeSetEvent
+[DESCRIPTION]
+The timeSetEvent function starts a specified timer event. The multimedia timer runs in its own thread. After the event is activated, it calls the specified callback function or sets or pulses the specified event object.
+[DECLARATION]
+Declare Function timeSetEvent Lib "winmm.dll" (ByVal uDelay As Long, ByVal uResolution As Long, ByVal lpFunction As Long, ByVal dwUser As Long, ByVal uFlags As Long) As Long
+[VBNET]
+System.Threading.Timer
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDelay 
+Event delay, in milliseconds. If this value is not in the range of the minimum and maximum event delays supported by the timer, the function returns an error. 
+
+· uResolution 
+Resolution of the timer event, in milliseconds. The resolution increases with smaller values; a resolution of 0 indicates periodic events should occur with the greatest possible accuracy. To reduce system overhead, however, you should use the maximum value appropriate for your application. 
+
+· lpTimeProc 
+Address of a callback function that is called once upon expiration of a single event or periodically upon expiration of periodic events. If fuEvent specifies the TIME_CALLBACK_EVENT_SET or TIME_CALLBACK_EVENT_PULSE flag, then the lpTimeProc parameter is interpreted as a handle to an event object. The event will be set or pulsed upon completion of a single event or periodically upon completion of periodic events. 
+
+· dwUser 
+User-supplied callback data. 
+
+· fuEvent 
+Timer event type. This parameter may include one of the following values.
+TIME_ONESHOT 
+ Event occurs once, after uDelay milliseconds. 
+TIME_PERIODIC 
+ Event occurs every uDelay milliseconds. 
+
+The fuEvent parameter may also include one of the following values: 
+TIME_CALLBACK_FUNCTION 
+ When the timer expires, Windows calls the function pointed to by the lpTimeProc parameter. This is the default.  
+TIME_CALLBACK_EVENT_SET 
+ When the timer expires, Windows calls theSetEvent function to set the event pointed to by the lpTimeProc parameter. The dwUser parameter is ignored.  
+TIME_CALLBACK_EVENT_PULSE 
+ When the timer expires, Windows calls thePulseEvent function to pulse the event pointed to by the lpTimeProc parameter. The dwUser parameter is ignored.  
+[RETURNS]
+Returns an identifier for the timer event if successful or an error otherwise. This function returns NULL if it fails and the timer event was not created. (This identifier is also passed to the callback function.)
+[EXAMPLES]
+High Performance Timers*6346BF3D6590BE078539D515FD62FFE4.html
+[RELATED]
+timeKillEvent

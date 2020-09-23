@@ -1,0 +1,45 @@
+[NAME]
+IntersectClipRect
+[DESCRIPTION]
+The IntersectClipRect function creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+[DECLARATION]
+Declare Function IntersectClipRect Lib "gdi32" Alias "IntersectClipRect" (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+[VBNET]
+System.Drawing.Region.Intersect
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nLeftRect
+Specifies the logical x-coordinate of the upper-left corner of the rectangle.
+
+· nTopRect
+Specifies the logical y-coordinate of the upper-left corner of the rectangle.
+
+· nRightRect
+Specifies the logical x-coordinate of the lower-right corner of the rectangle.
+
+· nBottomRect
+Specifies the logical y-coordinate of the lower-right corner of the rectangle.
+[RETURNS]
+If the function succeeds, the return value specifies the new clipping region’s type and can be any one of the following values:
+NULLREGION 
+ Region is empty. 
+ 
+SIMPLEREGION 
+ Region is a single rectangle. 
+ 
+COMPLEXREGION 
+ Region is more than one rectangle. 
+ 
+ERROR 
+ An error occurred. (The current clipping region is unaffected.) 
+[EXAMPLES]
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+[RELATED]
+GetClipRgn
+SelectClipRgn

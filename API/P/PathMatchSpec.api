@@ -1,0 +1,30 @@
+[NAME]
+PathMatchSpec
+[DESCRIPTION]
+Searches a string using a DOS wild card match type.
+[DECLARATION]
+Declare Function PathMatchSpec Lib "shlwapi.dll" Alias "PathMatchSpecA" (ByVal pszFile As String, ByVal pszSpec As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszFileParam
+Pointer to the string to be searched.
+
+· pszSpec
+Pointer to a NULL-terminated string with the file type for which to search. For example, to test whether or not pszFileParam is a DOC file, pszSpec should be set to "*.doc".
+[RETURNS]
+Returns TRUE if the string matches, or FALSE otherwise
+[EXAMPLES]
+Path Functions (6)*3AD68015A0BA90FA494A3F4A763E63D7.html
+[RELATED]
+PathMakePretty
+PathQuoteSpaces
+PathUnquoteSpaces
+PathStripPath
+PathStripToRoot
+PathMakeSystemFolder
+PathIsSystemFolder

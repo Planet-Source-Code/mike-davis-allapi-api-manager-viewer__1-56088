@@ -1,0 +1,29 @@
+[NAME]
+GetUserName
+[DESCRIPTION]
+The GetUserName function retrieves the user name of the current thread. This is the name of the user currently logged onto the system.
+[DECLARATION]
+Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
+[VBNET]
+System.Security.Principal.WindowsIdentity.GetCurrent.Name
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· lpBuffer
+Points to the buffer to receive the null-terminated string containing the user’s logon name. If this buffer is not large enough to contain the entire user name, the function fails.
+
+· nSize
+Pointer to a DWORD that, on input, specifies the maximum size, in characters, of the buffer specified by the lpBuffer parameter. If this buffer is not large enough to contain the entire user name, the function fails. If the function succeeds, it will place the number of characters copied to the buffer into the DWORD that nSize points to.
+[RETURNS]
+If the function succeeds, the return value is nonzero, and the variable pointed to by nSize contains the number of characters copied to the buffer specified by lpBuffer, including the terminating null character. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Window(s) Information*C93C31150C11452A22AA6D3043899315.html
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+[RELATED]
+GetComputerName
+GetUserNameEx
+currentuser

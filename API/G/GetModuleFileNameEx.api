@@ -1,0 +1,33 @@
+[NAME]
+GetModuleFileNameEx
+[DESCRIPTION]
+The GetModuleFileNameEx function retrieves the fully qualified path for the specified module.
+[DECLARATION]
+Declare Function GetModuleFileNameEx Lib "PSAPI.DLL" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
+[VBNET]
+System.Diagnostics.ProcessModule.FileName
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Psapi
+[PARAMETERS]
+· hProcess
+[in] Handle to the process that contains the module.
+
+· hModule
+[in] Handle to the module.
+
+· lpFilename
+[out] Pointer to the buffer that receives the fully qualified path to the module. If the file name is longer than maximum number of characters specified by the nSize parameter, the file name is truncated.
+
+· nSize
+[in] Specifies the maximum number of characters to copy to the lpFilename buffer.
+[RETURNS]
+If the function succeeds, the return value specifies the length of the string copied to the buffer. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+OpenProcess
+GetModuleFileName

@@ -1,0 +1,38 @@
+[NAME]
+GetFileSize
+[DESCRIPTION]
+The GetFileSize function retrieves the size, in bytes, of the specified file.
+[DECLARATION]
+Declare Function GetFileSize Lib "kernel32" Alias "GetFileSize" (ByVal hFile As Long, lpFileSizeHigh As Long) As Long
+[VBNET]
+System.IO.FileInfo.Length
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hFile
+Specifies an open handle of the file whose size is being returned. The handle must have been created with either GENERIC_READ or GENERIC_WRITE access to the file.
+
+· lpFileSizeHigh
+Points to the variable where the high-order word of the file size is returned. This parameter can be NULL if the application does not require the high-order word.
+[RETURNS]
+If the function succeeds, the return value is the low-order doubleword of the file size, and, if lpFileSizeHigh is non-NULL, the function puts the high-order doubleword of the file size into the variable pointed to by that parameter. 
+
+If the function fails and lpFileSizeHigh is NULL, the return value is 0xFFFFFFFF. To get extended error information, call GetLastError. 
+
+If the function fails and lpFileSizeHigh is non-NULL, the return value is 0xFFFFFFFF and GetLastError will return a value other than NO_ERROR. 
+[EXAMPLES]
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+Get File Size*915091D76BC869F5A0432C14AFE64041.html
+[RELATED]
+CopyFile
+CreateDirectory
+MoveFile
+CreateFile
+SHFileOperation
+OpenFile
+CloseHandle
+GetFileInformationByHandle
+filelength

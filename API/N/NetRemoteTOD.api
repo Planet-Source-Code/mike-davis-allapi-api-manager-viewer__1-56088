@@ -1,0 +1,26 @@
+[NAME]
+NetRemoteTOD
+[DESCRIPTION]
+The NetRemoteTOD function returns the time of day information from a specified server.
+[DECLARATION]
+Declare Function NetRemoteTOD Lib "Netapi32.dll" (yServer As Any, pBuffer As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Netapi32
+[PARAMETERS]
+· UncServerName 
+[in] Pointer to a constant Unicode string specifying the name of the remote server on which the function is to execute. The string must begin with \\. If this parameter is NULL, the local computer is used. 
+
+· BufferPtr 
+[out] Pointer to the address that receives the TIME_OF_DAY_INFO information structure. This buffer is allocated by the system and must be freed using the NetApiBufferFree function. 
+[RETURNS]
+If the function succeeds, the return value is NERR_Success. 
+
+If the function fails, the return value is a system error code.
+[EXAMPLES]
+Time Server*F2E1DAF4EC9F9A82CF2995D39E44F959.html
+[RELATED]
+NetApiBufferFree

@@ -1,0 +1,34 @@
+[NAME]
+SetTimer
+[DESCRIPTION]
+The SetTimer function creates a timer with the specified time-out value.
+[DECLARATION]
+Declare Function SetTimer Lib "user32" Alias "SetTimer" (ByVal hWnd As Long, ByVal nIDEvent As Long, ByVal uElapse As Long, ByVal lpTimerFunc As Long) As Long
+[VBNET]
+System.Threading.Timer
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window to be associated with the timer. This window must be owned by the calling thread. If this parameter is NULL, no window is associated with the timer and the nIDEvent parameter is ignored.
+
+· nIDEvent
+Specifies a nonzero timer identifier. If the hWnd parameter is NULL, this parameter is ignored.
+
+· uElapse
+Specifies the time-out value, in milliseconds.
+
+· lpTimerFunc
+Points to the function to be notified when the time-out value elapses. For more information about the function, see TimerProc.
+If lpTimerFunc is NULL, the system posts a WM_TIMER message to the application queue. The hwnd member of the message’s MSG structure contains the value of the hWnd parameter.
+[RETURNS]
+If the function succeeds, the return value is an integer identifying the new timer. An application can pass this value, or the string identifier, if it exists, to the KillTimer function to destroy the timer. If the function fails to create a timer, the return value is zero.
+[EXAMPLES]
+Key Spy*64BED1F862145FDD4477424686646320.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+KillTimer
+timeSetEvent
+timer

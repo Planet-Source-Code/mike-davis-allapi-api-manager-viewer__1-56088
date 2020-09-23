@@ -1,0 +1,24 @@
+[NAME]
+DuplicateIcon
+[DESCRIPTION]
+The DuplicateIcon function creates a duplicate of a specified icon.
+[DECLARATION]
+Declare Function DuplicateIcon Lib "shell32.dll" (ByVal hInst As Long, ByVal hIcon As Long) As Long
+[VBNET]
+System.Drawing.Icon.Clone
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· hInst 
+[in] This parameter is not used; it can be NULL. 
+
+· hIcon 
+[in] Handle to the icon to be duplicated. 
+[RETURNS]
+If successful, the function returns the handle to the new icon that was created. If unsuccessful, it returns NULL.
+[EXAMPLES]
+Duplicate Icon*D22F36AF763FCC5718DE2C79DC7DD911.html
+[RELATED]
+LoadIcon

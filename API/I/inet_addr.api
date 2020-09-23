@@ -1,0 +1,21 @@
+[NAME]
+inet_addr
+[DESCRIPTION]
+The Windows Sockets inet_addr function converts a string containing an Internet Protocol dotted address into a proper address for the IN_ADDR structure.
+[DECLARATION]
+Declare Function inet_addr Lib "wsock32.dll" (ByVal cp As String) As Long
+[VBNET]
+System.Net.IPAddress.Parse
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· cp
+[in] A null-terminated character string representing a number expressed in the Internet standard ".'' notation.
+[RETURNS]
+If no error occurs, inet_addr returns an unsigned long value containing a suitable binary representation of the Internet address given. If the string in the cp parameter does not contain a legitimate Internet address, for example if a portion of an "a.b.c.d" address exceeds 255, inet_addr returns the value INADDR_NONE. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+

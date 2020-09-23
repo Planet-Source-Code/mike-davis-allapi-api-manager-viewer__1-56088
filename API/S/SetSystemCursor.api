@@ -1,0 +1,56 @@
+[NAME]
+SetSystemCursor
+[DESCRIPTION]
+The SetSystemCursor function replaces the contents of the system cursor specified by id with the contents of the cursor specified by hcur, and then destroys hcur. This function lets an application customize the system cursors.
+[DECLARATION]
+Declare Function SetSystemCursor Lib "user32" (ByVal hcur As Long, ByVal id As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hcur 
+Handle to a cursor. The function replaces the contents of the system cursor specified by id with the contents of the cursor handled by hcur. Then the function destroys hcur by calling DestroyCursor(hCursor). 
+
+· id 
+A system cursor identifier. The function replaces the contents of this system cursor with the contents of the cursor handled by hcur. 
+Following is a list of system cursor identifiers:
+OCR_NORMAL 
+ normal arrow cursor 
+OCR_IBEAM 
+ I-beam cursor 
+OCR_WAIT 
+ larger hourglass cursor 
+OCR_CROSS 
+ crosshair cursor 
+OCR_UP 
+ up arrow cursor 
+OCR_SIZE 
+ size cursor 
+OCR_ICON 
+ icon cursor 
+OCR_SIZENWSE 
+ NW to SE sizing cursor 
+OCR_SIZENESW 
+ NE to SW sizing cursor 
+OCR_SIZEWE 
+ horizontal sizing cursor 
+OCR_SIZENS 
+ vertical sizing cursor 
+OCR_SIZEALL 
+ horizontal and vertical sizing cursor 
+OCR_SIZENO 
+ international no symbol cursor 
+OCR_APPSTARTING 
+ smaller hourglass with arrow cursor 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+SetSystemCursor*DD3EA625EB7670BAB8E76C9FDA6F6F9B.html
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+LoadCursor

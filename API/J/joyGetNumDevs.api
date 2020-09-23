@@ -1,0 +1,21 @@
+[NAME]
+joyGetNumDevs
+[DESCRIPTION]
+The joyGetNumDevs function queries the joystick driver for the number of joysticks it supports.
+[DECLARATION]
+Declare Function joyGetNumDevs Lib "winmm.dll" Alias "joyGetNumDev" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Returns the number of joysticks supported by the joystick driver or zero if no driver is present. 
+[EXAMPLES]
+JoyStick*19F21F546E23F1C5992A133E1482DB7C.html
+[RELATED]
+joyGetDevCaps
+joyGetPos

@@ -1,0 +1,30 @@
+[NAME]
+PathCommonPrefix
+[DESCRIPTION]
+Compares two paths to determine if they share a common prefix. A prefix is one of these types: "C:\\", ".", "..", "..\\".
+[DECLARATION]
+Declare Function PathCommonPrefix Lib "shlwapi.dll" Alias "PathCommonPrefixA" (ByVal pszFile1 As String, ByVal pszFile2 As String, ByVal achPath As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· pszFile1
+[in] Address of the first path name.
+
+· pszFile2
+[in] Address of the second path name.
+
+· pszPath
+[out] Address of a buffer that receives the common prefix. If there is no common prefix, it will be set to NULL.
+[RETURNS]
+Returns the count of common prefix characters in the path. If the output buffer pointer is not NULL, then these characters are copied to the output buffer.
+[EXAMPLES]
+Path Functions (2)*D31FFFFF9AECF2ADDF1992FAC3F318C1.html
+[RELATED]
+PathCombine
+PathCompactPath
+PathCompactPathEx
+PathCreateFromUrl

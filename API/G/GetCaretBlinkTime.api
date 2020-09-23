@@ -1,0 +1,22 @@
+[NAME]
+GetCaretBlinkTime
+[DESCRIPTION]
+The GetCaretBlinkTime function returns the elapsed time, in milliseconds, required to invert the caret's pixels. The user can set this value using the Control Panel.
+[DECLARATION]
+Declare Function GetCaretBlinkTime Lib "user32" Alias "GetCaretBlinkTime" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value is the blink time, in milliseconds. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+BlinkTime*66867022B2EB4F3CDA2C19A4897355A4.html
+[RELATED]
+SetCaretBlinkTime

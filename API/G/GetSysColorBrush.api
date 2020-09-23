@@ -1,0 +1,22 @@
+[NAME]
+GetSysColorBrush
+[DESCRIPTION]
+The GetSysColorBrush function retrieves a handle identifying a logical brush that corresponds to the specified color index.
+[DECLARATION]
+Declare Function GetSysColorBrush Lib "user32" Alias "GetSysColorBrush" (ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· nIndex
+Specifies a color index. This value corresponds to the color used to paint one of the 21 window elements.
+[RETURNS]
+If the function succeeds, the return value identifies a logical brush. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+[RELATED]
+CreateSolidBrush
+DeleteObject

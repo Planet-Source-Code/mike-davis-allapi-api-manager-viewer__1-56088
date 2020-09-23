@@ -1,0 +1,32 @@
+[NAME]
+SetPixel
+[DESCRIPTION]
+The SetPixel function sets the pixel at the specified coordinates to the specified color.
+[DECLARATION]
+Declare Function SetPixel Lib "gdi32" Alias "SetPixel" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal crColor As Long) As Long
+[VBNET]
+System.Drawing.Bitmap.SetPixel
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· X
+Specifies the x-coordinate, in logical units, of the point to be set.
+
+· Y
+Specifies the y-coordinate, in logical units, of the point to be set.
+
+· crColor
+Specifies the color to be used to paint the point.
+[RETURNS]
+If the function succeeds, the return value is the RGB value that the function sets the pixel to. This value may differ from the color specified by crColor; that happens when an exact match for the specified color cannot be found. 
+
+If the function fails, the return value is -1. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+[RELATED]
+GetPixel

@@ -1,0 +1,21 @@
+[NAME]
+VarPtr
+[DESCRIPTION]
+The VarPtr-function retrieves the memory handle of an object.
+[DECLARATION]
+Declare Function VarPtrAny Lib "vb40032.dll" Alias "VarPtr" (lpObject As Any) As Long
+[VBNET]
+N/A
+[OS]
+Visual Basic Runtimes
+[LIBRARY]
+Vb40032
+[PARAMETERS]
+· lpObject
+Handle that identifies the object
+[RETURNS]
+If the function succeeds, the return value is a pointer to the object.
+[EXAMPLES]
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+[RELATED]
+

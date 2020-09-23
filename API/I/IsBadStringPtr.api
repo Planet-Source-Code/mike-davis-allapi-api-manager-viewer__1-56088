@@ -1,0 +1,29 @@
+[NAME]
+IsBadStringPtr
+[DESCRIPTION]
+The IsBadStringPtr function verifies that the calling process has read access to a range of memory pointed to by a string pointer. 
+[DECLARATION]
+Private Declare Function IsBadStringPtr Lib "kernel32" Alias "IsBadStringPtrA" (ByVal lpsz As Long, ByVal ucchMax As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpsz 
+[in] Pointer to a null-terminated string, either Unicode or ASCII. 
+
+· ucchMax 
+[in] Specifies the maximum size, in TCHARs, of the string. The function checks for read access in all bytes up to the string's terminating null character or up to the number of bytes specified by this parameter, whichever is smaller. If this parameter is zero, the return value is zero. 
+[RETURNS]
+If the calling process has read access to all characters up to the string's terminating null character or up to the number of characters specified by ucchMax, the return value is zero.
+If the calling process does not have read access to all characters up to the string's terminating null character or up to the number of characters specified by ucchMax, the return value is nonzero. 
+If the application is compiled as a debugging version, and the process does not have read access to the entire memory range specified, the function causes an assertion and breaks into the debugger. Leaving the debugger, the function continues as usual, and returns a nonzero value This behavior is by design, as a debugging aid. 
+[EXAMPLES]
+Printer Status*453840951C231D0659E91C821365605F.html
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+CopyMemory
+IsBadReadPtr
+IsBadWritePtr

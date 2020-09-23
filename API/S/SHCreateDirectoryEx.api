@@ -1,0 +1,34 @@
+[NAME]
+SHCreateDirectoryEx
+[DESCRIPTION]
+Creates a new file system folder.
+[DECLARATION]
+Declare Function SHCreateDirectoryEx Lib "shell32" Alias "SHCreateDirectoryExA" (ByVal hwnd As Long, ByVal pszPath As String, ByVal psa As Any) As Long
+[VBNET]
+System.IO.Directory.CreateDirectory
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Shell32
+[PARAMETERS]
+· hwnd
+[in] Handle to a parent window. This parameter can be set to NULL if no user interface will be displayed.
+
+· pszPath
+[in] Pointer to a string with the fully qualified path of the directory.
+
+· psa
+[in] Pointer to a SECURITY_ATTRIBUTES structure with the directory's security attribute. Set this parameter to NULL if no security attributes need to be set.
+[RETURNS]
+Returns ERROR_SUCCESS if successful. If the operation fails, one of the following error codes can be returned.
+ERROR_BAD_PATHNAME The pszPath parameter was set to a relative path. 
+ERROR_FILENAME_EXCED_RANGE The path pointed to by pszPath is too long. 
+ERROR_FILE_EXISTS The directory exists. 
+ERROR_ALREADY_EXISTS The directory exists. 
+ERROR_CANCELLED The user canceled the operation.
+[EXAMPLES]
+SHCreateDirectoryEx*7B7DA0FB78AAC6E7E5E694C62430021B.html
+[RELATED]
+CreateDirectory
+CreateDirectoryEx
+directories

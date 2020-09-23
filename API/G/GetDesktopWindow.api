@@ -1,0 +1,25 @@
+[NAME]
+GetDesktopWindow
+[DESCRIPTION]
+The GetDesktopWindow function returns the handle of the Windows desktop window. The desktop window covers the entire screen. The desktop window is the area on top of which all icons and other windows are painted.
+[DECLARATION]
+Declare Function GetDesktopWindow Lib "user32" Alias "GetDesktopWindow" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is the handle of the desktop window.
+[EXAMPLES]
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+Fontsize*40B37A60CA3A9A29DF8E1DF24E8F4E80.html
+Using Small Fonts*EA102B119E10A73164A17DA6869BB0FB.html
+EnumChildWindows*816D9E5801321F149EE19DDA2F7415B6.html
+Show OpenWith Dialog*087FA46CAEEB031A83A21A66FAAD96BA.html
+Invert Desktop*CFF5BEC796ADB55521F609BFF0A46AAC.html
+[RELATED]
+GetWindow

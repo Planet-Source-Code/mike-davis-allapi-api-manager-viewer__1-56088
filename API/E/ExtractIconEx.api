@@ -1,0 +1,34 @@
+[NAME]
+ExtractIconEx
+[DESCRIPTION]
+The ExtractIconEx function retrieves the handle of an icon from the specified executable file, dynamic-link library (DLL), or icon file.
+[DECLARATION]
+Declare Function ExtractIconEx Lib "shell32.dll" Alias "ExtractIconExA" (ByVal lpszFile As String, ByVal nIconIndex As Long, phiconLarge As Long, phiconSmall As Long, ByVal nIcons As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lpszFile
+Pointer to a null-terminated string specifying the name of an executable file, DLL, or icon file.
+
+· nIconIndex
+Specifies the index of the icon to retrieve. If this value is 0, the function returns the handle of the first icon in the specified file. If this value is -1 and phIconLargeand phiconSmall are both NULL, the function returns the total number of icons in the specified file.
+
+· phiconLarge
+Pointer to an array of handles of large icons returned. This parameter can be NULL.
+
+· phiconSmall
+Pointer to an array of handles of small icons returned. This parameter can be NULL.
+
+· nIcons
+Specifies the count of the number of icons to extract.
+[RETURNS]
+If the function succeeds, the return value is the handle to an icon. If the file specified was not an executable file, DLL, or icon file, the return value is 1. If no icons were found in the file, the return value is NULL. 
+[EXAMPLES]
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+[RELATED]
+ExtractIcon
+ExtractAssociatedIcon

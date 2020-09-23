@@ -1,0 +1,33 @@
+[NAME]
+FindWindow
+[DESCRIPTION]
+The FindWindow function retrieves the handle to the top-level window whose class name and window name match the specified strings. This function does not search child windows.
+[DECLARATION]
+Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpClassName
+Points to a null-terminated string that specifies the class name or is an atom that identifies the class-name string. If this parameter is an atom, it must be a global atom created by a previous call to the GlobalAddAtom function. The atom, a 16-bit value, must be placed in the low-order word of lpClassName; the high-order word must be zero.
+
+· lpWindowName
+Points to a null-terminated string that specifies the window name (the window’s title). If this parameter is NULL, all window names match.
+[RETURNS]
+If the function succeeds, the return value is the handle to the window that has the specified class name and window name. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Get Classname*94ABEE79CC3E011F6F90129CE20D320F.html
+Hide Start-button*466A5EE9AD8B74CD93BC5EE21AEA67B5.html
+New Start-button*0E0BB026AA35C26821E74100E98127E3.html
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+ForeGround Window*FDE3C804A571196D3C52D7CC368A491A.html
+AllowSetForegroundWindow*B7C44612023F283F9F4815D6C2252FD0.html
+PrintWindow*5474182B9FF59F9FC97856E69B9E9442.html
+[RELATED]
+GetActiveWindow
+GetForegroundWindow

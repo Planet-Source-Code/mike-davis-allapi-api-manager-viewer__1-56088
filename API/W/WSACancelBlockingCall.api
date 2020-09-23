@@ -1,0 +1,20 @@
+[NAME]
+WSACancelBlockingCall
+[DESCRIPTION]
+Unsupported
+[DECLARATION]
+Declare Function WSACancelBlockingCall Lib "wsock32.dll" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Undocumented
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+WSAIsBlocking

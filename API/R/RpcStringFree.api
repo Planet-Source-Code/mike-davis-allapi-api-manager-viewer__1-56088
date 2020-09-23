@@ -1,0 +1,22 @@
+[NAME]
+RpcStringFree
+[DESCRIPTION]
+The RpcStringFree function frees a character string allocated by the RPC run-time library.
+[DECLARATION]
+Declare Function RpcStringFree Lib "rpcrt4" Alias "RpcStringFreeA" (lpUUIDString As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rpcrt4
+[PARAMETERS]
+· String
+Pointer to a pointer to the character string to free.
+[RETURNS]
+RPC_S_OK 
+ Success
+[EXAMPLES]
+UUID*5A54D9AD87F7C4C1C70C8F05B9515D5A.html
+[RELATED]
+UuidToString

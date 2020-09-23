@@ -1,0 +1,40 @@
+[NAME]
+CallWindowProc
+[DESCRIPTION]
+The CallWindowProc function passes message information to the specified window procedure.
+[DECLARATION]
+Declare Function CallWindowProc Lib "user32" Alias "CallWindowProcA" (ByVal lpPrevWndFunc As Long, ByVal hWnd As Long, ByVal Msg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.WndProc
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpPrevWndFunc
+Pointer to the previous window procedure.
+If this value is obtained by calling the GetWindowLong function with the nIndex parameter set to GWL_WNDPROC or DWL_DLGPROC, it is actually either the address of a window or dialog box procedure, or a handle representing that address.
+
+· hWnd
+Identifies the window procedure to receive the message.
+
+· Msg
+Specifies the message.
+
+· wParam
+Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter.
+
+· lParam
+Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter.
+[RETURNS]
+The return value specifies the result of the message processing and depends on the message sent. 
+[EXAMPLES]
+Clipboard Viewer*9FE2CF3281A27D4B23955464E2907952.html
+Call Procedure*BFE74A1901430F2637D60129E2B3C775.html
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+Classical*2091523979DBEDCAD728958414922C72.html
+Register Server (2)*27D7E88041923D22A3F0BF14F852A36A.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+DefMDIChildProc
+DefWindowProc

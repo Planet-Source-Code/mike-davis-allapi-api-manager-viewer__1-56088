@@ -1,0 +1,26 @@
+[NAME]
+WSACleanup
+[DESCRIPTION]
+The Windows Sockets WSACleanup function terminates use of the Windows Sockets DLL.
+[DECLARATION]
+Declare Function WSACleanup Lib "WSOCK32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 1.1 or later
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is zero if the operation was successful. Otherwise, the value SOCKET_ERROR is returned, and a specific error number may be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+GetIP*07CCCC8728276405F3111B9A7262DDF2.html
+Ping*B85815D04CEC053CE6DEB8021F2DF1B8.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+Root Servers*6CCD7B9D2E698BA1F19F78A6193C445D.html
+[RELATED]
+WSAStartup
+WSAGetLastError
+gethostname
+gethostbyname

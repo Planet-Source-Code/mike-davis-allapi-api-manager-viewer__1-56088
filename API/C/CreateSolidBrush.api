@@ -1,0 +1,27 @@
+[NAME]
+CreateSolidBrush
+[DESCRIPTION]
+The CreateSolidBrush function creates a logical brush that has the specified solid color.
+[DECLARATION]
+Declare Function CreateSolidBrush Lib "gdi32" Alias "CreateSolidBrush" (ByVal crColor As Long) As Long
+[VBNET]
+System.Drawing.Brush
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· crColor
+Specifies the color of the brush.
+[RETURNS]
+If the function succeeds, the return value identifies a logical brush. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+FloodFill*87A1C3C5015E671A91F7947FFB19D20B.html
+Draw Hotchpotch*6EEC4ABB9F7E4C2A15F72EE6A55E4E9A.html
+Paths*5F53F54D4DA9FC54323733AE6157802B.html
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+DeleteObject
+brushes

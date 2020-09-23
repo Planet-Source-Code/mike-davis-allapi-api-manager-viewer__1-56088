@@ -1,0 +1,24 @@
+[NAME]
+Module32Next
+[DESCRIPTION]
+Retrieves information about the next module associated with a process or thread.
+[DECLARATION]
+Declare Function Module32Next Lib "kernel32" (ByVal hSnapshot As Long, uProcess As MODULEENTRY32) As Long
+[VBNET]
+System.Diagnostics.Process.Modules
+[OS]
+Requires Windows 2000 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hSnapshot 
+[in] Handle to the snapshot returned from a previous call to the CreateToolhelp32Snapshot function. 
+
+· lpme 
+[out] Pointer to a MODULEENTRY32 structure. 
+[RETURNS]
+Returns TRUE if the next entry of the module list has been copied to the buffer or FALSE otherwise. The ERROR_NO_MORE_FILES error value is returned by the GetLastError function if no more modules exist.
+[EXAMPLES]
+Enum Modules*E6AB94D232549AD1B4B448C5500EED21.html
+[RELATED]
+Module32First

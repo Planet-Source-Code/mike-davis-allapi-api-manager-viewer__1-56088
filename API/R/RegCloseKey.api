@@ -1,0 +1,26 @@
+[NAME]
+RegCloseKey
+[DESCRIPTION]
+The RegCloseKey function releases the handle of the specified key.
+[DECLARATION]
+Declare Function RegCloseKey Lib "advapi32.dll" Alias "RegCloseKey" (ByVal hKey As Long) As Long
+[VBNET]
+Microsoft.Win32.RegistryKey.Close
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies the open key to close.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Registry*4E1AB36884B253CE24768DA1C4080A14.html
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+[RELATED]
+RegCreateKey
+RegOpenKey
+registrygetvalue

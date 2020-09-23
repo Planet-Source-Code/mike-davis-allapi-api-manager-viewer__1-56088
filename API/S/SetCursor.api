@@ -1,0 +1,25 @@
+[NAME]
+SetCursor
+[DESCRIPTION]
+The SetCursor function establishes the cursor shape.
+[DECLARATION]
+Declare Function SetCursor Lib "user32" Alias "SetCursor" (ByVal hCursor As Long) As Long
+[VBNET]
+System.Windows.Forms.Cursor.Current
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hCursor
+Identifies the cursor. The cursor must have been created by the CreateCursor or loaded by the LoadCursor or LoadImage function. If this parameter is NULL, the cursor is removed from the screen.
+Windows 95: The width and height of the cursor must be the values returned by the GetSystemMetrics function for SM_CXCURSOR and SM_CYCURSOR. In addition, the cursor bit depth must match the bit depth of the display or the cursor must be monochrome.
+[RETURNS]
+The return value is the handle of the previous cursor, if there was one. 
+
+If there was no previous cursor, the return value is NULL. 
+[EXAMPLES]
+CreateCursor*A9B78B38399F85150C731A1B12FEEF16.html
+Change Cursor*85867E608DF8D61545ACA5C512C3FF4D.html
+[RELATED]
+CreateCursor

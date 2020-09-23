@@ -1,0 +1,231 @@
+[NAME]
+GetDeviceCaps
+[DESCRIPTION]
+The GetDeviceCaps function retrieves device-specific information about a specified device.
+[DECLARATION]
+Declare Function GetDeviceCaps Lib "gdi32" Alias "GetDeviceCaps" (ByVal hdc As Long, ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nIndex
+Specifies the item to return. This parameter can be one of the following values:
+DRIVERVERSION
+ The device driver version.
+
+TECHNOLOGY
+ Device technology. It can be any one of the following values:
+DT_PLOTTER
+ Vector plotter
+DT_RASDISPLAY
+ Raster display
+DT_RASPRINTER
+ Raster printer
+DT_RASCAMERA
+ Raster camera
+DT_CHARSTREAM
+ Character stream
+DT_METAFILE
+ Metafile
+DT_DISPFILE
+ Display file
+ If the hdc parameter identifies the device context of an enhanced metafile, the device technology is that of the referenced device as given to the CreateEnhMetaFile function. To determine whether it is an enhanced metafile device context, use the GetObjectType function.
+HORZSIZE
+ Width, in millimeters, of the physical screen.
+VERTSIZE
+ Height, in millimeters, of the physical screen.
+HORZRES
+ Width, in pixels, of the screen.
+VERTRES
+ Height, in raster lines, of the screen.
+LOGPIXELSX
+ Number of pixels per logical inch along the screen width.
+LOGPIXELSY
+ Number of pixels per logical inch along the screen height.
+BITSPIXEL
+ Number of adjacent color bits for each pixel.
+PLANES
+ Number of color planes.
+NUMBRUSHES
+ Number of device-specific brushes.
+NUMPENS
+ Number of device-specific pens.
+NUMFONTS
+ Number of device-specific fonts.
+NUMCOLORS
+ Number of entries in the device’s color table, if the device has a color depth of no more than 8 bits per pixel. For devices with greater color depths, -1 is returned.
+ASPECTX
+ Relative width of a device pixel used for line drawing.
+ASPECTY
+ Relative height of a device pixel used for line drawing.
+ASPECTXY
+ Diagonal width of the device pixel used for line drawing.
+PDEVICESIZE
+ Reserved.
+CLIPCAPS
+ Flag that indicates the clipping capabilities of the device. If the device can clip to a rectangle, it is 1. Otherwise, it is 0.
+SIZEPALETTE
+ Number of entries in the system palette. This index is valid only if the device driver sets the RC_PALETTE bit in the RASTERCAPS index and is available only if the driver is compatible with Windows version 3.0 or later.
+NUMRESERVED
+ Number of reserved entries in the system palette. This index is valid only if the device driver sets the RC_PALETTE bit in the RASTERCAPS index and is available only if the driver is compatible with Windows version 3.0 or later.
+COLORRES
+ Actual color resolution of the device, in bits per pixel. This index is valid only if the device driver sets the RC_PALETTE bit in the RASTERCAPS index and is available only if the driver is compatible with Windows version 3.0 or later.
+PHYSICALWIDTH
+ For printing devices: the width of the physical page, in device units. For example, a printer set to print at 600 dpi on 8.5"x11" paper has a physical width value of 5100 device units. Note that the physical page is almost always greater than the printable area of the page, and never smaller.
+PHYSICALHEIGHT
+ For printing devices: the height of the physical page, in device units. For example, a printer set to print at 600 dpi on 8.5"x11" paper has a physical height value of 6600 device units. Note that the physical page is almost always greater than the printable area of the page, and never smaller.
+PHYSICALOFFSETX
+ For printing devices: the distance from the left edge of the physical page to the left edge of the printable area, in device units. For example, a printer set to print at 600 dpi on 8.5"x11" paper, that cannot print on the leftmost 0.25" of paper, has a horizontal physical offset of 150 device units.
+PHYSICALOFFSETY
+ For printing devices: the distance from the top edge of the physical page to the top edge of the printable area, in device units. For example, a printer set to print at 600 dpi on 8.5"x11" paper, that cannot print on the topmost 0.5" of paper, has a vertical physical offset of 300 device units.
+VREFRESH
+ Windows NT only: For display devices: the current vertical refresh rate of the device, in cycles per second (Hz).
+ A vertical refresh rate value of 0 or 1 represents the display hardware’s default refresh rate. This default rate is typically set by switches on a display card or computer motherboard, or by a configuration program that does not use Win32 display functions such as ChangeDisplaySettings.
+DESKTOPHORZRES
+ Windows NT only: Width, in pixels, of the virtual desktop. This value may be larger than HORZRES if the device supports a virtual desktop or multiple displays.
+DESKTOPVERTRES
+ Windows NT only: Height, in pixels, of the virtual desktop. This value may be larger than VERTRES if the device supports a virtual desktop or multiple displays.
+BLTALIGNMENT
+ Windows NT only: Preferred horizontal drawing alignment, expressed as a multiple of pixels. For best drawing performance, windows should be horizontally aligned to a multiple of this value. A value of zero indicates that the device is accelerated, and any alignment may be used.
+
+RASTERCAPS
+ Value that indicates the raster capabilities of the device, as shown in the following table:
+RC_BANDING
+ Requires banding support.
+RC_BITBLT
+ Capable of transferring bitmaps.
+RC_BITMAP64
+ Capable of supporting bitmaps larger than 64K.
+RC_DI_BITMAP
+ Capable of supporting the SetDIBits and GetDIBits functions.
+RC_DIBTODEV
+ Capable of supporting the SetDIBitsToDevice function.
+RC_FLOODFILL
+ Capable of performing flood fills.
+RC_GDI20_OUTPUT
+ Capable of supporting features of Windows 2.0.
+RC_PALETTE
+ Specifies a palette-based device.
+RC_SCALING
+ Capable of scaling.
+RC_STRETCHBLT
+ Capable of performing the StretchBlt function.
+RC_STRETCHDIB
+ Capable of performing the StretchDIBits function.
+
+CURVECAPS
+ Value that indicates the curve capabilities of the device, as shown in the following table:
+CC_NONE
+ Device does not support curves.
+CC_CIRCLES
+ Device can draw circles.
+CC_PIE
+ Device can draw pie wedges.
+CC_CHORD
+ Device can draw chord arcs.
+CC_ELLIPSES
+ Device can draw ellipses.
+CC_WIDE
+ Device can draw wide borders.
+CC_STYLED
+ Device can draw styled borders.
+CC_WIDESTYLED
+ Device can draw borders that are wide and styled.
+CC_INTERIORS
+ Device can draw interiors.
+CC_ROUNDRECT
+ Device can draw rounded rectangles.
+
+LINECAPS
+ Value that indicates the line capabilities of the device, as shown in the following table:
+LC_NONE
+ Device does not support lines.
+LC_POLYLINE
+ Device can draw a polyline.
+LC_MARKER
+ Device can draw a marker.
+LC_POLYMARKER
+ Device can draw multiple markers.
+LC_WIDE
+ Device can draw wide lines.
+LC_STYLED
+ Device can draw styled lines.
+LC_WIDESTYLED
+ Device can draw lines that are wide and styled.
+LC_INTERIORS
+ Device can draw interiors.
+
+POLYGONALCAPS
+ Value that indicates the polygon capabilities of the device, as shown in the following table:
+PC_NONE
+ Device does not support polygons.
+PC_POLYGON
+ Device can draw alternate-fill polygons.
+PC_RECTANGLE
+ Device can draw rectangles.
+PC_WINDPOLYGON
+ Device can draw winding-fill polygons.
+PC_SCANLINE
+ Device can draw a single scanline.
+PC_WIDE
+ Device can draw wide borders.
+PC_STYLED
+ Device can draw styled borders.
+PC_WIDESTYLED
+ Device can draw borders that are wide and styled.
+PC_INTERIORS
+ Device can draw interiors.
+
+TEXTCAPS
+ Value that indicates the text capabilities of the device, as shown in the following table:
+TC_OP_CHARACTER
+ Device is capable of character output precision.
+TC_OP_STROKE
+ Device is capable of stroke output precision.
+TC_CP_STROKE
+ Device is capable of stroke clip precision.
+TC_CR_90
+ Device is capable of 90-degree character rotation.
+TC_CR_ANY
+ Device is capable of any character rotation.
+TC_SF_X_YINDEP
+ Device can scale independently in the x- and y-directions.
+TC_SA_DOUBLE
+ Device is capable of doubled character for scaling.
+TC_SA_INTEGER
+ Device uses integer multiples only for character scaling.
+TC_SA_CONTIN
+ Device uses any multiples for exact character scaling.
+TC_EA_DOUBLE
+ Device can draw double-weight characters.
+TC_IA_ABLE
+ Device can italicize.
+TC_UA_ABLE
+ Device can underline.
+TC_SO_ABLE
+ Device can draw strikeouts.
+TC_RA_ABLE
+ Device can draw raster fonts.
+TC_VA_ABLE
+ Device can draw vector fonts.
+TC_RESERVED
+ Reserved; must be zero.
+TC_SCROLLBLT
+ Device cannot scroll using a bit-block transfer. Note that this meaning may be the opposite of what you expect.
+[RETURNS]
+The return value specifies the value of the desired item. 
+[EXAMPLES]
+Move Cursor*9293F0CBEC7C21016EDA676937554781.html
+Create Font*47692B4BB2CD48B5E60CFD96A5A39F20.html
+Change Resolution*D30C6FE933807D158AFF771D2F780906.html
+Create Picture*64251A6CC4AC18DEC4B9CA62DE2A43A5.html
+Fontsize*40B37A60CA3A9A29DF8E1DF24E8F4E80.html
+[RELATED]
+GetSystemInfo
+GetSystemMetrics

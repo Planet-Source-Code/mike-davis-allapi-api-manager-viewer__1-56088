@@ -1,0 +1,41 @@
+[NAME]
+ScrollDC
+[DESCRIPTION]
+The ScrollDC function scrolls a rectangle of bits horizontally and vertically.
+[DECLARATION]
+Declare Function ScrollDC Lib "user32" (ByVal hdc As Long, ByVal dx As Long, ByVal dy As Long, lprcScroll As RECT, lprcClip As RECT, ByVal hrgnUpdate As Long, lprcUpdate As RECT) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hDC 
+[in] Handle to the device context that contains the bits to be scrolled. 
+
+· dx 
+[in] Specifies the amount, in device units, of horizontal scrolling. This parameter must be a negative value to scroll to the left. 
+
+· dy 
+[in] Specifies the amount, in device units, of vertical scrolling. This parameter must be a negative value to scroll up. 
+
+· lprcScroll 
+[in] Pointer to a RECT structure containing the coordinates of the bits to be scrolled. The only bits affected by the scroll operation are bits in the intersection of this rectangle and the rectangle specified by lprcClip. If lprcScroll is NULL, the entire client area is used. 
+
+· lprcClip 
+[in] Pointer to a RECT structure containing the coordinates of the clipping rectangle. The only bits that will be painted are the bits that remain inside this rectangle after the scroll operation has been completed. If lprcClip is NULL, the entire client area is used. 
+
+· hrgnUpdate 
+[in] Handle to the region uncovered by the scrolling process. ScrollDC defines this region; it is not necessarily a rectangle. 
+
+· lprcUpdate 
+[out] Pointer to a RECT structure that receives the coordinates of the rectangle bounding the scrolling update region. This is the largest rectangular area that requires repainting. When the function returns, the values in the structure are in client coordinates, regardless of the mapping mode for the specified device context. This allows applications to use the update region in a call to the InvalidateRgn function, if required.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ScrollDC*B5E684592EBC7270DDCFE1C072E99F75.html
+[RELATED]
+

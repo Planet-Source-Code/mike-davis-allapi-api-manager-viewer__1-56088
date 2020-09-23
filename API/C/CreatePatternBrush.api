@@ -1,0 +1,27 @@
+[NAME]
+CreatePatternBrush
+[DESCRIPTION]
+The CreatePatternBrush function creates a logical brush with the specified bitmap pattern. The bitmap cannot be a DIB section bitmap, which is created by the CreateDIBSection function.
+[DECLARATION]
+Declare Function CreatePatternBrush Lib "gdi32" Alias "CreatePatternBrush" (ByVal hBitmap As Long) As Long
+[VBNET]
+System.Drawing.Brush
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hbmp
+Identifies the bitmap to be used to create the logical brush.
+Windows 95: Creating brushes from bitmaps or DIBs larger than 8x8 pixels is not supported. If a larger bitmap is specified, only a portion of the bitmap is used.
+[RETURNS]
+If the function succeeds, the return value identifies a logical brush. 
+
+If the function fails, the return value is NULL.
+[EXAMPLES]
+Pattern Brush*86931951C45A6EBFC0F88BAE8F1B8FEB.html
+[RELATED]
+CreateSolidBrush
+CreateHatchBrush
+CreateBrushIndirect
+brushes

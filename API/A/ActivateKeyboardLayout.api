@@ -1,0 +1,52 @@
+[NAME]
+ActivateKeyboardLayout
+[DESCRIPTION]
+The ActivateKeyboardLayout function sets the input locale identifier (formerly called the keyboard layout handle) for the calling thread or the current process. The input locale identifier specifies a locale as well as the physical layout of the keyboard.
+[DECLARATION]
+Declare Function ActivateKeyboardLayout Lib "user32" (ByVal HKL As Long, ByVal Flags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hkl 
+[in] Input locale identifier to be activated. 
+Windows 95/98/Me: This parameter can be obtained using LoadKeyboardLayout or GetKeyboardLayoutList, or it can be one of the values in the table that follows. 
+Windows NT/2000/XP: The input locale identifier must have been loaded by a previous call to the LoadKeyboardLayout function. This parameter must be either the handle to a keyboard layout or one of the following values.
+HKL_NEXT 
+ Selects the next locale identifier in the circular list of loaded locale identifiers maintained by the system. 
+HKL_PREV 
+ Selects the previous locale identifier in the circular list of loaded locale identifiers maintained by the system. 
+
+· Flags 
+[in] Specifies how the input locale identifier is to be activated. This parameter can be one of the following values.
+
+KLF_REORDER 
+ If this bit is set, the system's circular list of loaded locale identifiers is reordered by moving the locale identifier to the head of the list. If this bit is not set, the list is rotated without a change of order. 
+For example, if a user had an English locale identifier active, as well as having French, German, and Spanish locale identifiers loaded (in that order), then activating the German locale identifier with the KLF_REORDER bit set would produce the following order: German, English, French, Spanish. Activating the German locale identifier without the KLF_REORDER bit set would produce the following order: German, Spanish, English, French.
+If less than three locale identifiers are loaded, the value of this flag is irrelevant. 
+ 
+KLF_RESET 
+ Windows 2000/XP: If set but KLF_SHIFTLOCK is not set, the Caps Lock state is turned off by pressing the Caps Lock key again. If set and KLF_SHIFTLOCK is also set, the Caps Lock state is turned off by pressing either SHIFT key. 
+These two methods are mutually exclusive, and the setting persists as part of the User's profile in the registry.
+ 
+KLF_SETFORPROCESS 
+ Windows 2000/XP: Activates the specified locale identifier for the entire process and sends the WM_INPUTLANGCHANGE message to the current thread's Focus or Active window.  
+
+KLF_SHIFTLOCK 
+ Windows 2000/XP: This is used with KLF_RESET. See KLF_RESET for an explanation. 
+
+KLF_UNLOADPREVIOUS 
+ This flag is unsupported. Use the UnloadKeyboardLayout function instead. 
+[RETURNS]
+Windows NT 3.51 and earlier: The return value is of type BOOL. If the function succeeds, it is nonzero. If the function fails, it is zero.
+
+Windows 95/98, Windows NT 4.0 and later: The return value is of type HKL. If the function succeeds, the return value is the previous input locale identifier. Otherwise, it is zero. 
+
+To get extended error information, use the GetLastError function.
+[EXAMPLES]
+Keyboard Layout*FC9A0C9925093EB7C2DE5C600A38F0C9.html
+[RELATED]
+GetKeyboardLayout

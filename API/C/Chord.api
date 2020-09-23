@@ -1,0 +1,47 @@
+[NAME]
+Chord
+[DESCRIPTION]
+The Chord function draws a chord (a region bounded by the intersection of an ellipse and a line segment, called a "secant"). The chord is outlined by using the current pen and filled by using the current brush.
+[DECLARATION]
+Declare Function Chord Lib "gdi32" Alias "Chord" (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long, ByVal X3 As Long, ByVal Y3 As Long, ByVal X4 As Long, ByVal Y4 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context in which the chord appears.
+
+· nLeftRect
+Specifies the x-coordinate of the upper-left corner of the bounding rectangle.
+
+· nTopRect
+Specifies the y-coordinate of the upper-left corner of the bounding rectangle.
+
+· nRightRect
+Specifies the x-coordinate of the lower-right corner of the bounding rectangle.
+
+· nBottomRect
+Specifies the y-coordinate of the lower-right corner of the bounding rectangle.
+
+· nXRadial1
+Specifies the x-coordinate of the endpoint of the radial defining the beginning of the chord.
+
+· nYRadial1
+Specifies the y-coordinate of the endpoint of the radial defining the beginning of the chord.
+
+· nXRadial2
+Specifies the x-coordinate of the endpoint of the radial defining the end of the chord.
+
+· nYRadial2
+Specifies the y-coordinate of the endpoint of the radial defining the end of the chord.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Chord*E5BE47EBE30A7EF3E0A7999427D650C7.html
+[RELATED]
+Arc

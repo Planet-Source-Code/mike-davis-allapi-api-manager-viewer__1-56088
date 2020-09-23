@@ -1,0 +1,146 @@
+[NAME]
+GetSystemMetrics
+[DESCRIPTION]
+The GetSystemMetrics function retrieves various system metrics and system configuration settings.System metrics are the dimensions (widths and heights) of Windows display elements. All dimensions retrieved by GetSystemMetrics are in pixels.
+[DECLARATION]
+Declare Function GetSystemMetrics Lib "user32" Alias "GetSystemMetrics" (ByVal nIndex As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· nIndex
+Specifies the system metric or configuration setting to retrieve. All SM_CX* values are widths. All SM_CY* values are heights. The following values are defined:
+SM_ARRANGE
+ Flags specifying how the system arranged minimized windows. For more information about minimized windows, see the following Remarks section.
+SM_CLEANBOOT
+ Value that specifies how the system was started:
+ 0 Normal boot
+ 1 Fail-safe boot
+ 2 Fail-safe with network boot
+ Fail-safe boot (also called SafeBoot) bypasses the user’s startup files.
+SM_CMOUSEBUTTONS
+ Number of buttons on mouse, or zero if no mouse is installed.
+SM_CXBORDER,
+SM_CYBORDER
+ The width and height, in pixels, of a window border. This is equivalent to the SM_CXEDGE value for windows with the 3-D look.
+SM_CXCURSOR,
+SM_CYCURSOR
+ Width and height, in pixels, of a cursor. These are the cursor dimensions supported by the current display driver. The system cannot create cursors of other sizes.
+SM_CXDLGFRAME,
+SM_CYDLGFRAME
+ Same as SM_CXFIXEDFRAME and SM_CYFIXEDFRAME.
+SM_CXDOUBLECLK,
+SM_CYDOUBLECLK
+ Width and height, in pixels, of the rectangle around the location of a first click in a double-click sequence. The second click must occur within this rectangle for the system to consider the two clicks a double-click. (The two clicks must also occur within a specified time.)
+SM_CXDRAG,
+SM_CYDRAG
+ Width and height, in pixels, of a rectangle centered on a drag point to allow for limited movement of the mouse pointer before a drag operation begins. This allows the user to click and release the mouse button easily without unintentionally starting a drag operation.
+SM_CXEDGE,
+SM_CYEDGE
+ Dimensions, in pixels, of a 3-D border. These are the 3-D counterparts of SM_CXBORDER and SM_CYBORDER.
+SM_CXFIXEDFRAME,
+SM_CYFIXEDFRAME
+ Thickness, in pixels, of the frame around the perimeter of a window that has a caption but is not sizable. SM_CXFIXEDFRAME is the width of the horizontal border and SM_CYFIXEDFRAME is the height of the vertical border.
+ Same as SM_CXDLGFRAME and SM_CYDLGFRAME.
+SM_CXFRAME,
+SM_CYFRAME
+ Same as SM_CXSIZEFRAME and SM_CYSIZEFRAME.
+SM_CXFULLSCREEN, SM_CYFULLSCREEN
+ Width and height of the client area for a full-screen window. To get the coordinates of the portion of the screen not obscured by the tray, call the SystemParametersInfo function with the SPI_GETWORKAREA value.
+SM_CXHSCROLL, SM_CYHSCROLL
+ Width, in pixels, of the arrow bitmap on a horizontal scroll bar; and height, in pixels, of a horizontal scroll bar.
+SM_CXHTHUMB
+ Width, in pixels, of the thumb box in a horizontal scroll bar.
+SM_CXICON,
+SM_CYICON
+ The default width and height, in pixels, of an icon. These values are typically 32x32, but can vary depending on the installed display hardware.
+ The LoadIcon function can only load icons of these dimensions.
+SM_CXICONSPACING, SM_CYICONSPACING
+ Dimensions, in pixels, of a grid cell for items in large icon view. Each item fits into a rectangle of this size when arranged. These values are always greater than or equal to SM_CXICON and SM_CYICON.
+SM_CXMAXIMIZED,
+SM_CYMAXIMIZED
+ Default dimensions, in pixels, of a maximized top-level window.
+SM_CXMAXTRACK,
+SM_CYMAXTRACK
+ Default maximum dimensions, in pixels, of a window that has a caption and sizing borders. The user cannot drag the window frame to a size larger than these dimensions. A window can override these values by processing the WM_GETMINMAXINFO message.
+SM_CXMENUCHECK,
+SM_CYMENUCHECK
+ Dimensions, in pixels, of the default menu check-mark bitmap.
+SM_CXMENUSIZE,
+SM_CYMENUSIZE
+ Dimensions, in pixels, of menu bar buttons, such as multiple document (MIDI) child close.
+SM_CXMIN,
+SM_CYMIN
+ Minimum width and height, in pixels, of a window.
+SM_CXMINIMIZED,
+SM_CYMINIMIZED
+ Dimensions, in pixels, of a normal minimized window.
+SM_CXMINSPACING
+SM_CYMINSPACING
+ Dimensions, in pixels, of a grid cell for minimized windows. Each minimized window fits into a rectangle this size when arranged. These values are always greater than or equal to SM_CXMINIMIZED and SM_CYMINIMIZED.
+SM_CXMINTRACK, SM_CYMINTRACK
+ Minimum tracking width and height, in pixels, of a window. The user cannot drag the window frame to a size smaller than these dimensions. A window can override these values by processing the WM_GETMINMAXINFO message.
+SM_CXSCREEN,
+SM_CYSCREEN
+ Width and height, in pixels, of the screen.
+SM_CXSIZE,
+SM_CYSIZE
+ Width and height, in pixels, of a button in a window's caption or title bar.
+SM_CXSIZEFRAME,
+SM_CYSIZEFRAME
+ Thickness, in pixels, of the sizing border around the perimeter of a window that can be resized. SM_CXSIZEFRAME is the width of the horizontal border and SM_CYSIZEFRAME is the height of the vertical border.
+ Same as SM_CXFRAME and SM_CYFRAME.
+SM_CXSMICON,
+SM_CYSMICON
+ Recommended dimensions, in pixels, of a small icon. Small icons typically appear in window captions and in small icon view.
+SM_CXSMSIZE
+SM_CYSMSIZE
+ Dimensions, in pixels, of small caption buttons.
+SM_CXVSCROLL, SM_CYVSCROLL
+ Width, in pixels, of a vertical scroll bar; and height, in pixels, of the arrow bitmap on a vertical scroll bar.
+SM_CYCAPTION
+ Height, in pixels, of normal caption area.
+SM_CYKANJIWINDOW
+ For double-byte character set versions of Windows, height, in pixels, of the Kanji window at the bottom of the screen.
+SM_CYMENU
+ Height, in pixels, of single-line menu bar.
+SM_CYSMCAPTION
+ Height, in pixels, of a small caption.
+SM_CYVTHUMB
+ Height , in pixels, of the thumb box in a vertical scroll bar.
+SM_DBCSENABLED
+ TRUE or nonzero if the double-byte character set (DBCS) version of USER.EXE is installed; FALSE, or zero otherwise.
+SM_DEBUG
+ TRUE or nonzero if the debugging version of USER.EXE is installed; FALSE, or zero, otherwise.
+SM_MENUDROPALIGNMENT
+ TRUE, or nonzero if drop-down menus are right-aligned relative to the corresponding menu-bar item; FALSE, or zero if they are left-aligned.
+SM_MIDEASTENABLED
+ TRUE if the system is enabled for Hebrew/Arabic languages.
+SM_MOUSEPRESENT
+ TRUE or nonzero if a mouse is installed; FALSE, or zero, otherwise.
+SM_MOUSEWHEELPRESENT
+ Windows NT only: TRUE or nonzero if a mouse with a wheel is installed; FALSE, or zero, otherwise.
+SM_NETWORK
+ The least significant bit is set if a network is present; otherwise, it is cleared. The other bits are reserved for future use.
+SM_PENWINDOWS
+ TRUE or nonzero if the Microsoft Windows for Pen computing extensions are installed; zero, or FALSE, otherwise.
+SM_SECURE
+ TRUE if security is present, FALSE otherwise.
+SM_SHOWSOUNDS
+ TRUE or nonzero if the user requires an application to present information visually in situations where it would otherwise present the information only in audible form; FALSE, or zero, otherwise.
+SM_SLOWMACHINE
+ TRUE if the computer has a low-end (slow) processor, FALSE otherwise.
+SM_SWAPBUTTON
+ TRUE or nonzero if the meanings of the left and right mouse buttons are swapped; FALSE, or zero, otherwise.
+[RETURNS]
+If the function succeeds, the return value is the requested system metric or configuration setting. 
+
+If the function fails, the return value is zero. GetLastError does not provide extended error information. 
+[EXAMPLES]
+System Metrics*7D8B6A65A00E54CEAD6633AC4E2CE469.html
+Auto Click Menu*807DB77F1F69ADA353C26A64D80FD3DD.html
+[RELATED]
+GetDeviceCaps

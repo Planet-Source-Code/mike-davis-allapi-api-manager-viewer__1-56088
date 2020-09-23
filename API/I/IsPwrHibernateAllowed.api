@@ -1,0 +1,21 @@
+[NAME]
+IsPwrHibernateAllowed
+[DESCRIPTION]
+The IsPwrHibernateAllowed function determines whether the computer supports hibernation.
+[DECLARATION]
+Declare Function IsPwrHibernateAllowed Lib "Powrprof.dll" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+Powrprof
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the computer supports hibernation (power state S4) and the file Hiberfil.sys is present on the system, the function returns TRUE. Otherwise, the function returns FALSE.
+[EXAMPLES]
+Power Options*8D74B468FC3C9090590AA8447E9C9D80.html
+[RELATED]
+IsPwrShutdownAllowed
+IsPwrSuspendAllowed

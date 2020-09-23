@@ -1,0 +1,38 @@
+[NAME]
+AngleArc
+[DESCRIPTION]
+The AngleArc function draws a line segment and an arc. The line segment is drawn from the current position to the beginning of the arc. The arc is drawn along the perimeter of a circle with the given radius and center. The length of the arc is defined by the given start and sweep angles.
+[DECLARATION]
+Declare Function AngleArc Lib "gdi32" Alias "AngleArc" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal dwRadius As Long, ByVal eStartAngle As Double, ByVal eSweepAngle As Double) As Long
+[VBNET]
+System.Graphics.DrawArc
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies a device context.
+
+· X
+Specifies the logical x-coordinate of the center of the circle.
+
+· Y
+Specifies the logical y-coordinate of the center of the circle.
+
+· dwRadius
+Specifies the radius, in logical units, of the circle. This value must be positive.
+
+· eStartAngle
+Specifies the start angle, in degrees, relative to the x-axis.
+
+· eSweepAngle
+Specifies the sweep angle, in degrees, relative to the starting angle.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+AngleArc*E8DC46530A1091387CDD20D0808C9FD0.html
+[RELATED]
+Arc

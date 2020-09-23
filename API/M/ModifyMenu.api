@@ -1,0 +1,47 @@
+[NAME]
+ModifyMenu
+[DESCRIPTION]
+The ModifyMenu function changes an existing menu item. This function is used to specify the content, appearance, and behavior of the menu item.
+[DECLARATION]
+Declare Function ModifyMenu Lib "user32" Alias "ModifyMenuA" (ByVal hMenu As Long, ByVal nPosition As Long, ByVal wFlags As Long, ByVal wIDNewItem As Long, ByVal lpString As Any) As Long
+[VBNET]
+System.Windows.Forms.Menu.MenuItems()
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hMnu
+Identifies the menu to be changed.
+
+· uPosition
+Specifies the menu item to be changed, as determined by the uFlags parameter.
+
+· uFlags
+Specifies flags that control the interpretation of the uPosition parameter and the content, appearance, and behavior of the menu item. This parameter must be a combination of one of the following required values and at least one of the values listed in the following Remarks section.
+MF_BYCOMMAND
+ Indicates that the uPosition parameter gives the identifier of the menu item. The MF_BYCOMMAND flag is the default if neither the MF_BYCOMMAND nor MF_BYPOSITION flag is specified.
+MF_BYPOSITION
+ Indicates that the uPosition parameter gives the zero-based relative position of the menu item.
+
+· uIDNewItem
+Specifies either the identifier of the modified menu item or, if the uFlags parameter has the MF_POPUP flag set, the handle of the drop-down menu or submenu.
+
+· lpNewItem
+Points to the content of the changed menu item. The interpretation of this parameter depends on whether the uFlags parameter includes the MF_BITMAP, MF_OWNERDRAW, or MF_STRING flag.
+MF_BITMAP
+ Contains a bitmap handle.
+MF_OWNERDRAW
+ Contains a 32-bit value supplied by an application that is used to maintain additional data related to the menu item. The value is in the itemData member of the structure pointed to by the lparam parameter of the WM_MEASUREITEM or WM_DRAWITEM messages sent when the menu item is created or its appearance is updated.
+MF_STRING
+ Contains a pointer to a null-terminated string (the default).
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Bitmap Menu*1EC5CC4476C4AA834EAA48DBF68CE788.html
+[RELATED]
+GetMenu
+GetSubMenu
+GetMenuItemID

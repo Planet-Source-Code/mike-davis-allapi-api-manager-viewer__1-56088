@@ -1,0 +1,38 @@
+[NAME]
+PostMessage
+[DESCRIPTION]
+The PostMessage function places (posts) a message in the message queue associated with the thread that created the specified window and then returns without waiting for the thread to process the message.
+[DECLARATION]
+Declare Function PostMessage Lib "user32" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose window procedure is to receive the message. Two values have special meanings:
+HWND_BROADCAST
+ The message is posted to all top-level windows in the system, including disabled or invisible unowned windows, overlapped windows, and pop-up windows. The message is not posted to child windows.
+NULL
+ The function behaves like a call to PostThreadMessage with the dwThreadId parameter set to the identifier of the current thread.
+
+· Msg
+Specifies the message to be posted.
+
+· wParam
+Specifies additional message-specific information.
+
+· lParam
+Specifies additional message-specific information.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Get Classname*94ABEE79CC3E011F6F90129CE20D320F.html
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+SendMessage
+SendMessageTimeout

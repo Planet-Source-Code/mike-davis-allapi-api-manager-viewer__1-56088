@@ -1,0 +1,21 @@
+[NAME]
+OutputDebugString
+[DESCRIPTION]
+The OutputDebugString function sends a string to the debugger for display.Remarks:If the application has no debugger, the system debugger displays the string. If the application has no debugger and the system debugger is not active, OutputDebugString does nothing.
+[DECLARATION]
+Declare Sub OutputDebugString Lib "kernel32" Alias "OutputDebugStringA" (ByVal lpOutputString As String)
+[VBNET]
+System.Diagnostics.Debug.Write
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpOutputString
+[in] Pointer to the null-terminated string to be displayed.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+OutputDebugString*117B38A6E59C745C9C605870E6E2F4DE.html
+[RELATED]
+IsDebuggerPresent

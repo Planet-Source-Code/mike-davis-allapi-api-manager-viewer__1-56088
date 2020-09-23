@@ -1,0 +1,48 @@
+[NAME]
+GetObject
+[DESCRIPTION]
+The GetObject function obtains information about a specified graphics object.
+[DECLARATION]
+Declare Function GetObject Lib "gdi32" Alias "GetObjectA" (ByVal hObject As Long, ByVal nCount As Long, lpObject As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hgdiobj
+A handle to the graphics object of interest. This can be a handle to one of the following: a logical bitmap, a brush, a font, a palette, a pen, or a device independent bitmap created by calling the CreateDIBSection function.
+
+· cbBuffer
+Specifies the number of bytes of information to be written to the buffer.
+
+· lpvObject
+Points to a buffer that is to receive the information about the specified graphics object.
+The following table shows the type of information the buffer receives for each type of graphics object you can specify with hgdiobj:
+HBITMAP
+ BITMAP
+HBITMAP returned from a call to CreateDIBSection
+ DIBSECTION, if cbBuffer is set to sizeof(DIBSECTION), or BITMAP, if cbBuffer is set to sizeof(BITMAP)
+HPALETTE
+ a WORD count of the number of entries in the logical palette
+HPEN returned from a call to ExtCreatePen
+ EXTLOGPEN
+HPEN
+ LOGPEN
+HBRUSH
+ LOGBRUSH
+HFONT
+ LOGFONT
+
+If the lpvObject parameter is NULL, the function return value is the number of bytes required to store the information it writes to the buffer for the specified graphics object.
+[RETURNS]
+If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer. 
+
+If the function succeeds, and lpvObject is NULL, the return value is the number of bytes required to hold the information the function would store into the buffer. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Bitmap Bits*FCF52530F97D901283E74DFB0D54D5D4.html
+[RELATED]
+CreateCompatibleBitmap

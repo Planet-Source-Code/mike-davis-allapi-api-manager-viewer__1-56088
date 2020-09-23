@@ -1,0 +1,77 @@
+[NAME]
+mmioOpen
+[DESCRIPTION]
+The mmioOpen function opens a file for unbuffered or buffered I/O. The file can be a standard file, a memory file, or an element of a custom storage system. The handle returned by mmioOpen is not a standard file handle; do not use it with any file I/O functions other than multimedia file I/O functions.
+[DECLARATION]
+Declare Function mmioOpen Lib "winmm.dll" Alias "mmioOpenA" (ByVal szFileName As String, lpmmioinfo As MMIOINFO, ByVal dwOpenFlags As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· szFilename
+Address of a string containing the filename of the file to open. If no I/O procedure is specified to open the file, the filename determines how the file is opened, as follows:
+ ·  If the filename does not contain a plus sign (+), it is assumed to be the name of a standard file (that is, a file whose type is not HMMIO).
+ ·  If the filename is of the form EXAMPLE.EXT+ABC, the extension EXT is assumed to identify an installed I/O procedure which is called to perform I/O on the file. For more information, see mmioInstallIOProc.
+ ·  If the filename is NULL and no I/O procedure is given, the adwInfo member of the MMIOINFO structure is assumed to be the standard (non-HMMIO) file handle of a currently open file.
+The filename should not be longer than 128 bytes, including the terminating NULL character.
+When opening a memory file, set szFilename to NULL.
+
+· lpmmioinfo
+Address of an MMIOINFO structure containing extra parameters used by mmioOpen. Unless you are opening a memory file, specifying the size of a buffer for buffered I/O, or specifying an uninstalled I/O procedure to open a file, this parameter should be NULL. If this parameter is not NULL, all unused members of the MMIOINFO structure it references must be set to zero, including the reserved members.
+
+· dwOpenFlags
+Flags for the open operation. The MMIO_READ, MMIO_WRITE, and MMIO_READWRITE flags are mutually exclusive ¾ only one should be specified. The MMIO_COMPAT, MMIO_EXCLUSIVE, MMIO_DENYWRITE, MMIO_DENYREAD, and MMIO_DENYNONE flags are file-sharing flags. The following values are defined:
+MMIO_ALLOCBUF
+Opens a file for buffered I/O. To allocate a buffer larger or smaller than the default buffer size (8K, defined as MMIO_DEFAULTBUFFER), set the cchBuffer member of the MMIOINFO structure to the desired buffer size. If cchBuffer is zero, the default buffer size is used. If you are providing your own I/O buffer, this flag should not be used.
+MMIO_COMPAT
+Opens the file with compatibility mode, allowing any process on a given machine to open the file any number of times. If the file has been opened with any of the other sharing modes, mmioOpen fails.
+MMIO_CREATE
+Creates a new file. If the file already exists, it is truncated to zero length. For memory files, this flag indicates the end of the file is initially at the start of the buffer.
+MMIO_DELETE
+Deletes a file. If this flag is specified, szFilename should not be NULL. The return value is TRUE (cast to HMMIO) if the file was deleted successfully or FALSE otherwise. Do not call the mmioClose function for a file that has been deleted. If this flag is specified, all other flags that open files are ignored.
+MMIO_DENYNONE
+Opens the file without denying other processes read or write access to the file. If the file has been opened in compatibility mode by any other process, mmioOpen fails.
+MMIO_DENYREAD
+Opens the file and denies other processes read access to the file. If the file has been opened in compatibility mode or for read access by any other process, mmioOpen fails.
+MMIO_DENYWRITE
+Opens the file and denies other processes write access to the file. If the file has been opened in compatibility mode or for write access by any other process, mmioOpen fails.
+MMIO_EXCLUSIVE
+Opens the file and denies other processes read and write access to the file. If the file has been opened in any other mode for read or write access, even by the current process, mmioOpen fails.
+MMIO_EXIST
+Determines whether the specified file exists and creates a fully qualified filename from the path specified in szFilename. The filename is placed back into szFilename. The return value is TRUE (cast to HMMIO) if the qualification was successful and the file exists or FALSE otherwise. The file is not opened, and the function does not return a valid multimedia file I/O file handle, so do not attempt to close the file.
+MMIO_GETTEMP
+Creates a temporary filename, optionally using the parameters passed in szFilename. For example, you can specify “C:F” to create a temporary file residing on drive C, starting with letter “F”. The resulting filename is placed in the buffer pointed to by szFilename. The return value is MMSYSERR_NOERROR (cast to HMMIO) if the temporary filename was created successfully or MMIOERR_FILENOTFOUND otherwise. The file is not opened, and the function does not return a valid multimedia file I/O file handle, so do not attempt to close the file. This flag overrides all other flags.
+MMIO_PARSE
+Creates a fully qualified filename from the path specified in szFilename. The filename is placed back into szFilename. The return value is TRUE (cast to HMMIO) if the qualification was successful or FALSE otherwise. The file is not opened, and the function does not return a valid multimedia file I/O file handle, so do not attempt to close the file. If this flag is specified, all flags that open files are ignored.
+MMIO_READ
+Opens the file for reading only. This is the default if MMIO_WRITE and MMIO_READWRITE are not specified.
+MMIO_READWRITE
+Opens the file for reading and writing.
+MMIO_WRITE
+Opens the file for writing only.
+[RETURNS]
+Returns a handle of the opened file. If the file cannot be opened, the return value is NULL. If lpmmioinfo is not NULL, the wErrorRet member of the MMIOINFO structure will contain one of the following error values:
+MMIOERR_ACCESSDENIED 
+ The file is protected and cannot be opened. 
+ 
+MMIOERR_INVALIDFILE 
+ Another failure condition occurred. This is the default error for an open-file failure. 
+ 
+MMIOERR_NETWORKERROR 
+ The network is not responding to the request to open a remote file. 
+ 
+MMIOERR_PATHNOTFOUND 
+ The directory specification is incorrect. 
+ 
+MMIOERR_SHARINGVIOLATION 
+ The file is being used by another application and is unavailable. 
+ 
+MMIOERR_TOOMANYOPENFILES 
+ The number of files simultaneously open is at a maximum level. The system has run out of available file handles. 
+[EXAMPLES]
+Low Level Audio Stream*27E86F6E86FF61338ED21FF2A86FE0D6.html
+[RELATED]
+mmioClose

@@ -1,0 +1,28 @@
+[NAME]
+CharLowerBuff
+[DESCRIPTION]
+The CharLowerBuff function converts uppercase characters in a buffer to lowercase characters. The function converts the characters in place. The function supersedes the AnsiLowerBuff function.
+[DECLARATION]
+Declare Function CharLowerBuff Lib "user32" Alias "CharLowerBuffA" (ByVal lpsz As String, ByVal cchLength As Long) As Long
+[VBNET]
+System.String.ToLower
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lpsz
+Pointer to a buffer containing one or more characters to process.
+
+· cchLength
+Specifies the size, in bytes (ANSI version) or characters (Unicode version), of the buffer pointed to by lpsz.
+The function examines each character, and converts uppercase characters to lowercase characters. The function examines the number of bytes or characters indicated by cchLength, even if one or more characters are null characters.
+[RETURNS]
+If the function succeeds, the return value is the number of bytes (ANSI version) or characters (Unicode version) processed. 
+
+For example, if CharLowerBuff("Acme of Operating Systems", 10) succeeds, the return value is 10. 
+[EXAMPLES]
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+[RELATED]
+CharLower
+CharUpper

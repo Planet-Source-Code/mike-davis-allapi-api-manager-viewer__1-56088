@@ -1,0 +1,55 @@
+[NAME]
+ShowWindow
+[DESCRIPTION]
+The ShowWindow function sets the specified window’s show state.
+[DECLARATION]
+Declare Function ShowWindow Lib "user32" Alias "ShowWindow" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.ShowDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window.
+
+· nCmdShow
+Specifies how the window is to be shown. This parameter is ignored the first time an application calls ShowWindow, if the program that launched the application provides a STARTUPINFO structure. Otherwise, the first time ShowWindow is called, the value should be the value obtained by the WinMain function in its nCmdShow parameter. In subsequent calls, this parameter can be one of the following values:
+SW_HIDE
+ Hides the window and activates another window.
+SW_MAXIMIZE
+ Maximizes the specified window.
+SW_MINIMIZE
+ Minimizes the specified window and activates the next top-level window in the Z order.
+SW_RESTORE
+ Activates and displays the window. If the window is minimized or maximized, Windows restores it to its original size and position. An application should specify this flag when restoring a minimized window.
+SW_SHOW
+ Activates the window and displays it in its current size and position.
+SW_SHOWDEFAULT
+ Sets the show state based on the SW_ flag specified in the STARTUPINFO structure passed to the CreateProcess function by the program that started the application.
+SW_SHOWMAXIMIZED
+ Activates the window and displays it as a maximized window.
+SW_SHOWMINIMIZED
+ Activates the window and displays it as a minimized window.
+SW_SHOWMINNOACTIVE
+ Displays the window as a minimized window. The active window remains active.
+SW_SHOWNA
+ Displays the window in its current state. The active window remains active.
+SW_SHOWNOACTIVATE
+ Displays a window in its most recent size and position. The active window remains active.
+SW_SHOWNORMAL
+ Activates and displays a window. If the window is minimized or maximized, Windows restores it to its original size and position. An application should specify this flag when displaying the window for the first time.
+[RETURNS]
+If the window was previously visible, the return value is nonzero. 
+
+If the window was previously hidden, the return value is zero. 
+[EXAMPLES]
+Get Classname*94ABEE79CC3E011F6F90129CE20D320F.html
+CreateWindowEx*15F638BC34858D9D49F0FAAA8B1B1A1F.html
+New Start-button*0E0BB026AA35C26821E74100E98127E3.html
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+SetWindowPos
+MoveWindow
+drawline

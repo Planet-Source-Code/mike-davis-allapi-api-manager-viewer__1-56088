@@ -1,0 +1,28 @@
+[NAME]
+CHOOSEFONT
+[DESCRIPTION]
+The ChooseFont function creates a Font common dialog box that enables the user to choose attributes for a logical font. These attributes include a typeface name, style (bold, italic, or regular), point size, effects (underline, strikeout, and text color), and a script (or character set).
+[DECLARATION]
+Declare Function ChooseFont Lib "comdlg32.dll" Alias "ChooseFontA" (pChoosefont As CHOOSEFONT) As Long
+[VBNET]
+System.Windows.FontDialog.RunDialog
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Comdlg32
+[PARAMETERS]
+· lpcf
+Pointer to a CHOOSEFONT structure that contains information used to initialize the dialog box. When ChooseFont returns, this structure contains information about the user’s font selection.
+[RETURNS]
+If the user clicks the OK button of the dialog box, the return value is nonzero. The members of the CHOOSEFONT structure indicate the user’s selections. 
+
+If the user cancels or closes the Font dialog box or an error occurs, the return value is zero. To get extended error information, call the CommDlgExtendedError function, which can return one of the following values:
+CDERR_FINDRESFAILURE, CDERR_NOHINSTANCE, CDERR_INITIALIZATION, CDERR_NOHOOK, CDERR_LOCKRESFAILURE, CDERR_NOTEMPLATE, CDERR_LOADRESFAILURE, CDERR_STRUCTSIZE, CDERR_LOADSTRFAILURE, CFERR_MAXLESSTHANMIN, CDERR_MEMALLOCFAILURE, CFERR_NOFONTS, CDERR_MEMLOCKFAILURE 
+[EXAMPLES]
+Common Dialogs*1D52C7E03E3782E75B883E436E7B341B.html
+[RELATED]
+CHOOSECOLOR
+PrintDialog
+PAGESETUPDLG
+GetOpenFileName
+GetSaveFileName

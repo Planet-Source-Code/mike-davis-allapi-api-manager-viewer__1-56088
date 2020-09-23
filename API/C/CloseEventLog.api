@@ -1,0 +1,23 @@
+[NAME]
+CloseEventLog
+[DESCRIPTION]
+The CloseEventLog function closes a read handle to the specified event log.
+[DECLARATION]
+Declare Function CloseEventLog Lib "advapi32.dll" (ByVal hEventLog As Long) As Long
+[VBNET]
+System.Diagnostics.EventLog.Close
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hEventLog
+[in/out] Handle to the event log to be closed. This handle is returned by the OpenEventLog or OpenBackupEventLog function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+EventLog*FFA44FA214A7EA318DB17E175869588C.html
+[RELATED]
+OpenEventLog

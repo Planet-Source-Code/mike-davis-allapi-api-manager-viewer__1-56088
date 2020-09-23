@@ -1,0 +1,32 @@
+[NAME]
+RasGetConnectionStatistics
+[DESCRIPTION]
+The RasGetConnectionStatistics function retrieves accumulated connection statistics for the specified connection.
+[DECLARATION]
+Declare Function RasGetConnectionStatistics Lib "rasapi32" (ByVal hRasConn As Long, ByVal lpStatistics As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· hRasConn
+ [in] Handle to the connection. Use RasDial or RasEnumConnections to obtain this handle. 
+
+· lpStatistics 
+ [in, out] Pointer to the RAS_STATS structure that, on output, receives the statistics. On input, set the dwSize member of this structure to sizeof(RAS_STATS). This parameter cannot be NULL.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS.
+
+If the function fails, the return value is one of the following error codes.
+E_INVALID_ARG
+ At least one of the following is true: the hRasConn parameter is zero, the lpStatistics parameter is NULL, or the value specified by the dwSize member of the RAS_STATS structure specifies a version of the structure that is not supported by the operating system in use. 
+ERROR_NOT_ENOUGH_MEMORY
+ The function could not allocate sufficient memory to complete the operation. 
+ Other Use FormatMessage to retrieve the system error message that corresponds to the error code returned.  
+
+[EXAMPLES]
+RasEnumConnections*1C2F03EE2E692A53D4AB6D8ACCD73D51.html
+[RELATED]
+RasEnumConnections

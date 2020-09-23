@@ -1,0 +1,30 @@
+[NAME]
+PathCompactPath
+[DESCRIPTION]
+Truncates a file path to fit within a given pixel width by replacing path components with ellipses.
+[DECLARATION]
+Declare Function PathCompactPath Lib "shlwapi.dll" Alias "PathCompactPathA" (ByVal hDC As Long, ByVal pszPath As String, ByVal dx As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Requires Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Shlwapi
+[PARAMETERS]
+· hDC
+Handle to the device context used for font metrics.
+
+· lpszPath
+Address of a buffer containing the path string to be modified. The buffer must be at least MAX_PATH characters long. On return, this buffer will contain the modified string.
+
+· dx
+Width, in pixels, within which the string will be forced to fit.
+[RETURNS]
+Returns TRUE if the path was successfully compacted to the specified width. Returns FALSE on failure, or if the base portion of the path would not fit the specified width
+[EXAMPLES]
+Path Functions (2)*D31FFFFF9AECF2ADDF1992FAC3F318C1.html
+[RELATED]
+PathCombine
+PathCommonPrefix
+PathCompactPathEx
+PathCreateFromUrl

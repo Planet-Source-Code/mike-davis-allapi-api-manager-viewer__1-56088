@@ -1,0 +1,22 @@
+[NAME]
+GetSystemTime
+[DESCRIPTION]
+The GetSystemTime function retrieves the current system date and time. The system time is expressed in Coordinated Universal Time (UTC).
+[DECLARATION]
+Declare Sub GetSystemTime Lib "kernel32" Alias "GetSystemTime" (lpSystemTime As SYSTEMTIME)
+[VBNET]
+System.DateTime.Now
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpSystemTime
+Points to a SYSTEMTIME structure to receive the current system date and time.
+[RETURNS]
+This function does not return a value. 
+[EXAMPLES]
+System Time*5D380BD3ACCC74389DCBC345C940BFC8.html
+[RELATED]
+GetLocalTime
+systemtime

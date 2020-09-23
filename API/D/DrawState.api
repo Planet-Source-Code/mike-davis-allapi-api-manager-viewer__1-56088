@@ -1,0 +1,72 @@
+[NAME]
+DrawState
+[DESCRIPTION]
+The DrawState function displays an image and applies a visual effect to indicate a state, such as a disabled or default state.
+[DECLARATION]
+Declare Function DrawState Lib "user32" Alias "DrawStateA" (ByVal hDC As Long, ByVal hBrush As Long, ByVal lpDrawStateProc As Long, ByVal lParam As Long, ByVal wParam As Long, ByVal n1 As Long, ByVal n2 As Long, ByVal n3 As Long, ByVal n4 As Long, ByVal un As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hdc
+Identifies the device context to draw in.
+
+· hbr
+Identifies the brush used to draw the image, if the state specified by the fuFlags parameter is DSS_MONO. This parameter is ignored for other states.
+
+· lpOutputFunc
+Points to an application-defined callback function used to render the image. This parameter is required if the image type in fuFlags is DST_COMPLEX. It is optional and can be NULL if the image type is DST_TEXT. For all other image types, this parameter is ignored. For more information about the callback function, see the DrawStateProc function.
+
+· lData
+Specifies information about the image. The meaning of this parameter depends on the image type.
+
+· wData
+Specifies information about the image. The meaning of this parameter depends on the image type. It is, however, zero extended for use with the DrawStateProc function.
+
+· x
+Specifies the horizontal location at which to draw the image.
+
+· y
+Specifies the vertical location at which to draw the image.
+
+· cx
+Specifies the width of the image, in device units. This parameter is required if the image type is DST_COMPLEX. Otherwise, it can be zero to calculate the width of the image.
+
+· cy
+Specifies the height of the image, in device units. This parameter is required if the image type is DST_COMPLEX. Otherwise, it can be zero to calculate the height of the image.
+
+· fuFlags
+Specifies the image type and state. The type can be one of these values:
+DST_BITMAP
+ The image is a bitmap. The low-order word of the lData parameter is the bitmap handle.
+DST_COMPLEX
+ The image is application defined. To render the image, DrawState calls the callback function specified by the lpOutputFunc parameter.
+DST_ICON
+ The image is an icon. The low-order word of lData is the icon handle.
+DST_PREFIXTEXT
+ The image is text that may contain an accelerator mnemonic. DrawState interprets the ampersand (&amp;) prefix character as a directive to underscore the character that follows. The lData parameter specifies the address of the string, and the wData parameter specifies the length. If wData is zero, the string must be null-terminated.
+DST_TEXT
+ The image is text. The lData parameter specifies the address of the string, and the wData parameter specifies the length. If wData is zero, the string must be null-terminated.
+
+The state can be one of these values:
+DSS_NORMAL
+ Draws the image without any modification.
+DSS_UNION
+ Dithers the image.
+DSS_DISABLED
+ Embosses the image.
+DSS_MONO
+ Draws the image using the brush specified by the hbr parameter.
+
+For all states except DSS_NORMAL, the image is converted to monochrome before the visual effect is applied.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+DrawState*20712908E38C8467A9170D796A469626.html
+[RELATED]
+

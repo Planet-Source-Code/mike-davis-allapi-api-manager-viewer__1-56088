@@ -1,0 +1,53 @@
+[NAME]
+GetCurrencyFormat
+[DESCRIPTION]
+The GetCurrencyFormat function formats a number string as a currency string for a specified locale.
+[DECLARATION]
+Declare Function GetCurrencyFormat Lib "kernel32" Alias "GetCurrencyFormatA" (ByVal Locale As Long, ByVal dwFlags As Long, ByVal lpValue As String, lpFormat As Any, ByVal lpCurrencyStr As String, ByVal cchCurrency As Long) As Long
+[VBNET]
+System.Globalization.CultureInfo.NumberFormat
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· Locale
+Specifies the locale for which the currency string is to be formatted. If lpFormat is NULL, the function formats the string according to the currency format for this locale. If lpFormat is not NULL, the function uses the locale only for formatting information not specified in the CURRENCYFMT structure (for example, the locale’s string value for the negative sign).
+This parameter can be a locale identifier created by the MAKELCID macro, or one of the following predefined values:
+LOCALE_SYSTEM_DEFAULT
+ Default system locale.
+LOCALE_USER_DEFAULT
+ Default user locale.
+
+· dwFlags
+A bit flag that controls the operation of the function. If lpFormat is non-NULL, this parameter must be zero.
+If lpFormat is NULL, you can specify the LOCALE_NOUSEROVERRIDE flag to format the string using the system default currency format for the specified locale; or you can specify zero to format the string using any user overrides to the locale’s default currency format.
+
+· lpValue
+Points to a null-terminated string containing the number string to format.
+This string can contain only the following characters:
+·  Characters ‘0’ through ‘9’
+·  One decimal point (dot) if the number is a floating-point value
+·  A minus sign in the first character position if the number is a negative value
+All other characters are invalid. The function returns an error if the string pointed to by lpValue deviates from these rules.
+
+· lpFormat
+Pointer to a CURRENCYFMT structure that contains currency formatting information. All members in the structure pointed to by lpFormat must contain appropriate values.
+If lpFormat is NULL, the function uses the currency format of the specified locale.
+
+· lpCurrencyStr
+Points to a buffer to receive the formatted currency string.
+
+· cchCurrency
+Specifies the size, in bytes (ANSI version) or characters (Unicode version), of the lpCurrencyStr buffer. If cchCurrency is zero, the function returns the number of bytes or characters required to hold the formatted currency string, and the buffer pointed to by lpCurrencyStr is not used.
+[RETURNS]
+If the function succeeds, the return value is the number of bytes (ANSI version) or characters (Unicode version) written to the buffer pointed to by lpCurrencyStr, or if the cchCurrency parameter is zero, the number of bytes or characters required to hold the formatted currency string. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. GetLastError may return one of the following error codes: 
+ERROR_INSUFFICIENT_BUFFER
+ERROR_INVALID FLAGS
+ERROR_INVALID_PARAMETER 
+[EXAMPLES]
+CurrencyFormat*4DB0B453D80C8FE4B4F0B3FF914BD718.html
+[RELATED]
+

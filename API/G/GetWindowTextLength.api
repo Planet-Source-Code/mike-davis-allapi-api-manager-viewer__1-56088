@@ -1,0 +1,24 @@
+[NAME]
+GetWindowTextLength
+[DESCRIPTION]
+The GetWindowTextLength function retrieves the length, in characters, of the specified window’s title bar text (if the window has a title bar). If the specified window is a control, the function retrieves the length of the text within the control.
+[DECLARATION]
+Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Text
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window or control.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the text. Under certain conditions, this value may actually be greater than the length of the text. For more information, see the following Remarks section. 
+
+If the window has no text, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+GetWindowText*2AB05FBEF5EDDF2027D7F05BDEAC283D.html
+[RELATED]
+GetWindowText
+drawline

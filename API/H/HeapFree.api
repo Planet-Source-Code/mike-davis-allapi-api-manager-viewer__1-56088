@@ -1,0 +1,32 @@
+[NAME]
+HeapFree
+[DESCRIPTION]
+The HeapFree function frees a memory block allocated from a heap by the HeapAlloc or HeapReAlloc function.
+[DECLARATION]
+Declare Function HeapFree Lib "kernel32" Alias "HeapFree" (ByVal hHeap As Long, ByVal dwFlags As Long, lpMem As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hHeap
+Specifies the heap whose memory block the function frees. This parameter is a handle returned by the HeapCreate or GetProcessHeap function.
+
+· dwFlags
+Specifies several controllable aspects of freeing a memory block. Only one flag is currently defined; however, all other flag values are reserved for future use. Specifying this flag will override the corresponding flag specified in the flOptions parameter when the heap was created by using the HeapCreate function:
+HEAP_NO_SERIALIZE
+ Specifies that mutual exclusion will not be used while the function is accessing the heap. For more information about HEAP_NO_SERIALIZE, see the Remarks for the HeapCreate function.
+
+· lpMem
+Points to the memory block to free. This pointer is returned by the HeapAlloc or HeapReAlloc function.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+AdapterAddress*705685484CC1F1A3481096476FA9914C.html
+EnumPorts*4C5449FBA3A6E244B92280E2AC76CFB6.html
+[RELATED]
+HeapAlloc

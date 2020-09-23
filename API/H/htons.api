@@ -1,0 +1,21 @@
+[NAME]
+htons
+[DESCRIPTION]
+The Windows Sockets htons function converts a u_short from host to TCP/IP network byte order.
+[DECLARATION]
+Declare Function htons Lib "wsock32.dll" (ByVal hostshort As Long) As Integer
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· hostshort 
+[in] A 16-bit number in host byte order.
+[RETURNS]
+The htons function returns the value in TCP/IP network byte order. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+ntohs

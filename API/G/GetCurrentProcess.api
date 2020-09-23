@@ -1,0 +1,30 @@
+[NAME]
+GetCurrentProcess
+[DESCRIPTION]
+The GetCurrentProcess function returns a pseudohandle for the current process.
+[DECLARATION]
+Declare Function GetCurrentProcess Lib "kernel32" Alias "GetCurrentProcess" () As Long
+[VBNET]
+System.Diagnostics.Process.GetCurrentProcess
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value is a pseudohandle to the current process. 
+[EXAMPLES]
+Start In*56C1BBA2F17A9ED35A1B54D4462EB24C.html
+ExitProcess*369C402B8A5D413EA013414CC6F92B78.html
+Application Priority*5D850E0D6D3350A8CB040C0648E7233E.html
+ExitWindowsX - NT*8E8F701BA4F21ECAA4CC63ACF1AEE1A3.html
+System Shutdown*24891B9AD182321F4B92786FB2ECA2AB.html
+User Directories*C15713B41CB5D206910AF83B45EF618B.html
+Save/Restore Key*4BA4D16DE5672D73296F9FEE557C4367.html
+WOW64 Process*204681CC993005C53238F78B48EA9F58.html
+GUI Resources*69800605644F02E492B079D2492028AD.html
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+TerminateProcess
+IsWow64Process

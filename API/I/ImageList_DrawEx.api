@@ -1,0 +1,72 @@
+[NAME]
+ImageList_DrawEx
+[DESCRIPTION]
+The ImageList_DrawEx function draws an image list item in the specified device context. The function uses the specified drawing style and blends the image with the specified color.
+[DECLARATION]
+Declare Function ImageList_DrawEx Lib "comctl32.dll" (ByVal himl As Long, ByVal i As Long, ByVal hdcDst As Long, ByVal x As Long, ByVal y As Long, ByVal dx As Long, ByVal dy As Long, ByVal rgbBk As Long, ByVal rgbFg As Long, ByVal fStyle As Long) As Long
+[VBNET]
+System.Windows.Forms.ImageList.Draw
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· himl
+Handle to the image list
+
+· i
+Index of the image to draw.
+
+· hdcDst
+Handle to the destination device context.
+
+· x
+Specifies the x-coordinate at which to draw within the specified device context.
+
+· y
+Specifies the y-coordinate at which to draw within the specified device context.
+
+· dx
+Specifies the width of the portion of the image to draw, relative to the upper-left corner of the image. If dx and dy are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+
+· dy
+Specifies the height of the portion of the image to draw, relative to the upper-left corner of the image. If dx and dy are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+
+· rgbBk
+Background color of the image. This parameter can be an application-defined RGB value or one of the following values:
+CLR_NONE
+ No background color. The image is drawn transparently.
+CLR_DEFAULT
+ Default background color. The image is drawn using the background color of the image list.
+
+This parameter is used only if the image list identified by himl was created with the ILC_MASK value.
+
+· rgbFg
+Foreground color of the image. This parameter can be an application-defined RGB value or one of the following values:
+CLR_NONE
+ No blend color. The image is blended with the color of the destination device context.
+CLR_DEFAULT
+ Default foreground color. The image is drawn using the system highlight color as the foreground color.
+
+This parameter is used only if fStyle includes the ILD_BLEND25 or ILD_BLEND50 value.
+
+· fStyle
+Flag specifying the drawing style. This parameter can be one or more of the following values:
+ILD_BLEND25, ILD_FOCUS
+ Draws the image, blending 25 percent with the blend color specified by rgbFG. This value has no effect if the image list does not contain a mask.
+ILD_BLEND50, ILD_SELECTED, ILD_BLEND
+ Draws the image, blending 50 percent with the blend color specified by rgbFG. This value has no effect if the image list does not contain a mask.
+ILD_MASK
+ Draws the mask.
+ILD_NORMAL
+ Draws the image using the background color for the image list. If the background color is the CLR_NONE value, the image is drawn transparently using the mask.
+ILD_TRANSPARENT
+ Draws the image transparently using the mask, regardless of the background color. This value has no effect if the image list does not contain a mask.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+ImageList*FFF4B6DE1075139CC7AFCCA45CDF2A2C.html
+[RELATED]
+ImageList_Draw

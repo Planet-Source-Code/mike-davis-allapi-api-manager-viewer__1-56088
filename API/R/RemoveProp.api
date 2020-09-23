@@ -1,0 +1,25 @@
+[NAME]
+RemoveProp
+[DESCRIPTION]
+The RemoveProp function removes an entry from the property list of the specified window. The specified character string identifies the entry to be removed.
+[DECLARATION]
+Declare Function RemoveProp Lib "user32" Alias "RemovePropA" (ByVal hwnd As Long, ByVal lpString As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window whose property list is to be changed.
+
+· lpString
+Points to a null-terminated character string or contains an atom that identifies a string. If this parameter is an atom, it must have been created using the AddAtom function. The atom, a 16-bit value, must be placed in the low-order word of lpString; the high-order word must be zero.
+[RETURNS]
+If the function succeeds, the return value identifies the specified string. If the string cannot be found in the specified property list, the return value is NULL. 
+[EXAMPLES]
+Properties*9FC2D28C05ED9EB1D75BA4465ABF15A9.html
+EnumPropsEx*6C729C211996374B0856051301084BA6.html
+[RELATED]
+SetProp

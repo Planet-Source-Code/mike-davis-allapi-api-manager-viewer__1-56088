@@ -1,0 +1,31 @@
+[NAME]
+GetVersionEx
+[DESCRIPTION]
+The GetVersionEx function obtains extended information about the version of the operating system that is currently running.
+[DECLARATION]
+Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (ByVal lpVersionInformation As OSVERSIONINFO) As Long
+[VBNET]
+System.Environment.OSVersion
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel
+[PARAMETERS]
+· lpVersionInformation
+Pointer to an OSVERSIONINFO data structure that the function fills with operating system version information.
+[RETURNS]
+If the function succeeds, the return value is nonzero. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. The function fails if you specify an invalid value for the dwOSVersionInfoSize member of the OSVERSIONINFO structure. 
+[EXAMPLES]
+Windows Version*F25BB7ED556C46024D9A420B77A39F2D.html
+ExitWindowsX - NT*8E8F701BA4F21ECAA4CC63ACF1AEE1A3.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+GetFileNameFromBrowse*9245C5C666C3D5384EC0ABF383E976C3.html
+SHRunDialog*1D6326EF82C774C3BCC46B2248B80F99.html
+GetVersionEx*F573EFB7FD14D7CFC6198C08EA393A8A.html
+Edit Share*30C35D643B20E5268C18104CC64EC775.html
+PickIconDlg*8DF36343754932D48C048D20B37F7246.html
+[RELATED]
+GetVersion
+osversion

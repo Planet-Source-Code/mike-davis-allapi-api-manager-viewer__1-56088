@@ -1,0 +1,21 @@
+[NAME]
+timeGetTime
+[DESCRIPTION]
+The timeGetTime function retrieves the system time, in milliseconds. The system time is the time elapsed since Windows was started.
+[DECLARATION]
+Private Declare Function timeGetTime Lib "winmm.dll" () As Long
+[VBNET]
+System.DateTime.Now
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+Returns the system time, in milliseconds.
+[EXAMPLES]
+Text Effect*65D96A2AF5525DD14C0577E272FA4DDE.html
+[RELATED]
+GetLocalTime
+GetSystemTime

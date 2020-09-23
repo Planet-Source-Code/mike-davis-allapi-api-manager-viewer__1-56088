@@ -1,0 +1,25 @@
+[NAME]
+IsCharAlphaNumeric
+[DESCRIPTION]
+The IsCharAlphaNumeric function determines whether a character is either an alphabetic or a numeric character. This determination is based on the semantics of the language selected by the user during setup or by using Control Panel.
+[DECLARATION]
+Declare Function IsCharAlphaNumeric Lib "user32" Alias "IsCharAlphaNumericA" (ByVal cChar As Byte) As Long
+[VBNET]
+System.Char.IsLetterOrDigit
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· ch
+Specifies the character to be tested.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Char Type*990553DF6396B3584F9A6CC920176B78.html
+[RELATED]
+IsCharAlpha
+IsCharLower
+IsCharUpper

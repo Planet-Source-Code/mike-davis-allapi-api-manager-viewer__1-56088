@@ -1,0 +1,21 @@
+[NAME]
+closesocket
+[DESCRIPTION]
+The Windows Sockets closesocket function closes an existing socket.
+[DECLARATION]
+Declare Function closesocket Lib "wsock32.dll" (ByVal s As Long) As Long
+[VBNET]
+System.Net.Sockets.Socket.Close
+[OS]
+Requires Windows Sockets 1.1
+[LIBRARY]
+Wsock32.dll
+[PARAMETERS]
+· s
+[in] A descriptor identifying a socket to close.
+[RETURNS]
+If no error occurs, closesocket returns zero. Otherwise, a value of SOCKET_ERROR is returned, and a specific error code can be retrieved by calling WSAGetLastError. 
+[EXAMPLES]
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+Connect

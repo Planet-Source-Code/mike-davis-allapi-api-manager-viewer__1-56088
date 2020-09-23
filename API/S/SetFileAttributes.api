@@ -1,0 +1,44 @@
+[NAME]
+SetFileAttributes
+[DESCRIPTION]
+The SetFileAttributes function sets a file’s attributes.
+[DECLARATION]
+Declare Function SetFileAttributes Lib "kernel32" Alias "SetFileAttributesA" (ByVal lpFileName As String, ByVal dwFileAttributes As Long) As Long
+[VBNET]
+System.IO.File.SetAttributes
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+Points to a string that specifies the name of the file whose attributes are to be set.
+Windows 95: This string must not exceed MAX_PATH characters.
+Windows NT: There is a default string size limit for paths of MAX_PATH characters. This limit is related to how the SetFileAttributes function parses paths. An application can transcend this limit and send in paths longer than MAX_PATH characters by calling the wide (W) version of SetFileAttributes and prepending “\\?\” to the path. The “\\?\” tells the function to turn off path parsing; it lets paths longer than MAX_PATH be used with SetFileAttributesW. This also works with UNC names. The “\\?\” is ignored as part of the path. For example, “\\?\C:\myworld\private” is seen as “C:\myworld\private”, and “\\?\UNC\wow\hotstuff\coolapps” is seen as “\\wow\hotstuff\coolapps”.
+
+· dwFileAttributes
+Specifies the file attributes to set for the file. This parameter can be a combination of the following values. However, all other values override FILE_ATTRIBUTE_NORMAL.
+FILE_ATTRIBUTE_ARCHIVE
+ The file is an archive file. Applications use this value to mark files for backup or removal.
+FILE_ATTRIBUTE_HIDDEN
+ The file is hidden. It is not included in an ordinary directory listing.
+FILE_ATTRIBUTE_NORMAL
+ The file has no other attributes set. This value is valid only if used alone.
+FILE_ATTRIBUTE_OFFLINE
+ The data of the file is not immediately available. Indicates that the file data has been physically moved to offline storage.
+FILE_ATTRIBUTE_READONLY
+ The file is read-only. Applications can read the file but cannot write to it or delete it.
+FILE_ATTRIBUTE_SYSTEM
+ The file is part of the operating system or is used exclusively by it.
+FILE_ATTRIBUTE_TEMPORARY
+ The file is being used for temporary storage. File systems attempt to keep all of the data in memory for quicker access rather than flushing the data back to mass storage. A temporary file should be deleted by the application as soon as it is no longer needed.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+[RELATED]
+CreateFile
+OpenFile
+CloseHandle

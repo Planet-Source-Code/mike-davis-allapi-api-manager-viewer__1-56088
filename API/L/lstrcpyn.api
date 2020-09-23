@@ -1,0 +1,33 @@
+[NAME]
+lstrcpyn
+[DESCRIPTION]
+The lstrcpyn function copies a specified number of characters from a source string into a buffer.
+[DECLARATION]
+Declare Function lstrcpyn Lib "kernel32" Alias "lstrcpynA" (ByVal lpString1 As String, ByVal lpString2 As String, ByVal iMaxLength As Long) As Long
+[VBNET]
+System.String.CopyTo
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString1
+Points to a buffer into which the function copies characters. The buffer must be large enough to contain the number of bytes (ANSI version) or characters (Unicode version) specified by iMaxLength, including room for a terminating null character.
+
+· lpString2
+Points to a null-terminated string from which the function copies characters.
+
+· iMaxLength
+Specifies the number bytes (ANSI version) or characters (Unicode version) to be copied from the string pointed to by lpString2 into the buffer pointed to by lpString1, including a terminating null character.
+[RETURNS]
+If the function succeeds, the return value is a pointer to the buffer. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+[RELATED]
+lstrcat
+lstrcmp
+lstrcmpi
+lstrcpy
+lstrlen

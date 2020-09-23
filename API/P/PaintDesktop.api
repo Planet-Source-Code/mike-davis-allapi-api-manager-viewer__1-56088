@@ -1,0 +1,23 @@
+[NAME]
+PaintDesktop
+[DESCRIPTION]
+The PaintDesktop function fills the clipping region in the specified device context with the desktop pattern or wallpaper. The function is provided primarily for shell desktops.
+[DECLARATION]
+Declare Function PaintDesktop Lib "user32" Alias "PaintDesktop" (ByVal hdc As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 4.0 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Stretch Desktop Picture*C77D13F8F4BAB480DDC13ED0C750B3C0.html
+[RELATED]
+

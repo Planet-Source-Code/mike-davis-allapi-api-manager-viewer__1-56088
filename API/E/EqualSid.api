@@ -1,0 +1,29 @@
+[NAME]
+EqualSid
+[DESCRIPTION]
+The EqualSid function tests two security identifier (SID) values for equality. Two SIDs must match exactly to be considered equal.
+[DECLARATION]
+Declare Function EqualSid Lib "advapi32.dll" (pSid1 As Byte, ByVal pSid2 As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pSid1
+[in] Pointer to the first SID structure to compare. This structure is assumed to be valid.
+
+· pSid2
+[in] Pointer to the second SID structure to compare. It also is assumed to be valid.
+[RETURNS]
+If the SID structures are equal, the return value is nonzero. 
+
+If the SID structures are not equal, the return value is zero. To get extended error information, call GetLastError. 
+
+If either SID structure is invalid, the return value is undefined. 
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+Is Administrator*379F19E6D02F0E3CD66CD20D92C324AD.html
+[RELATED]
+GetLengthSid

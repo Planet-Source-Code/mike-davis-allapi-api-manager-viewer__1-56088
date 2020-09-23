@@ -1,0 +1,35 @@
+[NAME]
+CreateDC
+[DESCRIPTION]
+The CreateDC function creates a device context (DC) for a device by using the specified name.
+[DECLARATION]
+Declare Function CreateDC Lib "gdi32" Alias "CreateDCA" (ByVal lpDriverName As String, ByVal lpDeviceName As String, ByVal lpOutput As String, lpInitData As DEVMODE) As Long
+[VBNET]
+System.Drawing.Graphics
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· lpszDriver
+Applications written for earlier versions of Windows used this parameter to specify the filename (without extension) of the device driver.
+Windows 95: In Win32-based applications, this parameter is ignored and should be NULL, with one exception: You may obtain a display device context by specifying the null-terminated string “DISPLAY”. If this parameter is “DISPLAY”, all other parameters must be NULL.
+Windows NT: Points to a null-terminated character string that specifies either “DISPLAY” for a display driver, or the name of a printer driver, which is usually “WINSPOOL”.
+
+· lpszDevice
+Points to a null-terminated character string that specifies the name of the specific output device being used, as shown by the Print Manager (for example, “Epson FX-80”). It is not the printer model name. The lpszDevice parameter must be used.
+
+· lpszOutput
+This parameter is ignored. Do not use it in a Win32 application. Win32-based applications should set this parameter to NULL. It exists to provide compatibility for applications written for earlier versions of Windows. For more information, see the following Remarks section.
+
+· lpInitData
+Points to a DEVMODE structure containing device-specific initialization data for the device driver. The DocumentProperties function retrieves this structure filled in for a specified device. The lpInitData parameter must be NULL if the device driver is to use the default initialization (if any) specified by the user.
+[RETURNS]
+If the function succeeds, the return value is the handle to a device context for the specified device. 
+
+If the function fails, the return value is NULL. 
+[EXAMPLES]
+Change Resolution*D30C6FE933807D158AFF771D2F780906.html
+[RELATED]
+CreateCompatibleDC
+DeleteDC

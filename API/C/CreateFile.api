@@ -1,0 +1,141 @@
+[NAME]
+CreateFile
+[DESCRIPTION]
+The CreateFile function creates or opens the following objects and returns a handle that can be used to access the object: · files · pipes · mailslots · communications resources · disk devices (Windows NT only) · consoles · directories (open only)
+[DECLARATION]
+Declare Function CreateFile Lib "kernel32" Alias "CreateFileA" (ByVal lpFileName As String, ByVal dwDesiredAccess As Long, ByVal dwShareMode As Long, lpSecurityAttributes As SECURITY_ATTRIBUTES, ByVal dwCreationDisposition As Long, ByVal dwFlagsAndAttributes As Long, ByVal hTemplateFile As Long) As Long
+[VBNET]
+System.IO.File.Create; System.IO.File.Open
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileName
+Points to a null-terminated string that specifies the name of the object (file, pipe, mailslot, communications resource, disk device, console, or directory) to create or open.
+If *lpFileName is a path, there is a default string size limit of MAX_PATH characters. This limit is related to how the CreateFile function parses paths.
+Windows NT: You can use paths longer than MAX_PATH characters by calling the wide (W) version of CreateFile and prepending “\\?\” to the path. The “\\?\” tells the function to turn off path parsing. This lets you use paths that are nearly 32,000 Unicode characters long. You must use fully-qualified paths with this technique. This also works with UNC names. The “\\?\” is ignored as part of the path. For example, “\\?\C:\myworld\private” is seen as “C:\myworld\private”, and “\\?\UNC\tom_1\hotstuff\coolapps” is seen as “\\tom_1\hotstuff\coolapps”.
+
+· dwDesiredAccess
+Specifies the type of access to the object. An application can obtain read access, write access, read-write access, or device query access. This parameter can be any combination of the following values.
+0
+ Specifies device query access to the object. An application can query device attributes without accessing the device.
+GENERIC_READ
+ Specifies read access to the object. Data can be read from the file and the file pointer can be moved. Combine with GENERIC_WRITE for read-write access.
+GENERIC_WRITE
+ Specifies write access to the object. Data can be written to the file and the file pointer can be moved. Combine with GENERIC_READ for read-write access.
+
+· dwShareMode
+Set of bit flags that specifies how the object can be shared. If dwShareMode is 0, the object cannot be shared. Subsequent open operations on the object will fail, until the handle is closed.
+To share the object, use a combination of one or more of the following values:
+FILE_SHARE_DELETE
+ Windows NT only: Subsequent open operations on the object will succeed only if delete access is requested.
+FILE_SHARE_READ
+ Subsequent open operations on the object will succeed only if read access is requested.
+FILE_SHARE_WRITE
+ Subsequent open operations on the object will succeed only if write access is requested.
+
+· lpSecurityAttributes
+Pointer to a SECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If lpSecurityAttributes is NULL, the handle cannot be inherited.
+Windows NT: The lpSecurityDescriptor member of the structure specifies a security descriptor for the object. If lpSecurityAttributes is NULL, the object gets a default security descriptor. The target file system must support security on files and directories for this parameter to have an effect on files.
+Windows 95: The lpSecurityDescriptor member of the structure is ignored.
+
+· dwCreationDistribution
+Specifies which action to take on files that exist, and which action to take when files do not exist. For more information about this parameter, see the Remarks section. This parameter must be one of the following values:
+CREATE_NEW
+ Creates a new file. The function fails if the specified file already exists.
+CREATE_ALWAYS
+ Creates a new file. The function overwrites the file if it exists.
+OPEN_EXISTING
+ Opens the file. The function fails if the file does not exist.
+ See the Remarks section for a discussion of why you should use the OPEN_EXISTING flag if you are using the CreateFile function for devices, including the console.
+OPEN_ALWAYS
+ Opens the file, if it exists. If the file does not exist, the function creates the file as if dwCreationDistribution were CREATE_NEW.
+TRUNCATE_EXISTING
+ Opens the file. Once opened, the file is truncated so that its size is zero bytes. The calling process must open the file with at least GENERIC_WRITE access. The function fails if the file does not exist.
+
+· dwFlagsAndAttributes
+Specifies the file attributes and flags for the file.
+Any combination of the following attributes is acceptable for the dwFlagsAndAttributes parameter, except all other file attributes override FILE_ATTRIBUTE_NORMAL.
+FILE_ATTRIBUTE_ARCHIVE
+ The file should be archived. Applications use this attribute to mark files for backup or removal.
+FILE_ATTRIBUTE_COMPRESSED
+ The file or directory is compressed. For a file, this means that all of the data in the file is compressed. For a directory, this means that compression is the default for newly created files and subdirectories.
+FILE_ATTRIBUTE_HIDDEN
+ The file is hidden. It is not to be included in an ordinary directory listing.
+FILE_ATTRIBUTE_NORMAL
+ The file has no other attributes set. This attribute is valid only if used alone.
+FILE_ATTRIBUTE_OFFLINE
+ The data of the file is not immediately available. Indicates that the file data has been physically moved to offline storage.
+FILE_ATTRIBUTE_READONLY
+ The file is read only. Applications can read the file but cannot write to it or delete it.
+FILE_ATTRIBUTE_SYSTEM
+ The file is part of or is used exclusively by the operating system.
+FILE_ATTRIBUTE_TEMPORARY
+ The file is being used for temporary storage. File systems attempt to keep all of the data in memory for quicker access rather than flushing the data back to mass storage. A temporary file should be deleted by the application as soon as it is no longer needed.
+
+Any combination of the following flags is acceptable for the dwFlagsAndAttributes parameter.
+FILE_FLAG_WRITE_THROUGH
+ Instructs the system to write through any intermediate cache and go directly to disk. Windows can still cache write operations, but cannot lazily flush them.
+FILE_FLAG_OVERLAPPED
+ Instructs the system to initialize the object, so that operations that take a significant amount of time to process return ERROR_IO_PENDING. When the operation is finished, the specified event is set to the signaled state.
+ When you specify FILE_FLAG_OVERLAPPED, the ReadFile and WriteFile functions must specify an OVERLAPPED structure. That is, when FILE_FLAG_OVERLAPPED is specified, an application must perform overlapped reading and writing.
+ When FILE_FLAG_OVERLAPPED is specified, the system does not maintain the file pointer. The file position must be passed as part of the lpOverlapped parameter (pointing to an OVERLAPPED structure) to the ReadFile and WriteFile functions.
+ This flag also enables more than one operation to be performed simultaneously with the handle (a simultaneous read and write operation, for example).
+FILE_FLAG_NO_BUFFERING
+ Instructs the system to open the file with no intermediate buffering or caching. When combined with FILE_FLAG_OVERLAPPED, the flag gives maximum asynchronous performance, because the I/O does not rely on the synchronous operations of the memory manager. However, some I/O operations will take longer, because data is not being held in the cache.
+ An application must meet certain requirements when working with files opened with FILE_FLAG_NO_BUFFERING:
+ ·  File access must begin at byte offsets within the file that are integer multiples of the volume’s sector size.
+ ·  File access must be for numbers of bytes that are integer multiples of the volume’s sector size. For example, if the sector size is 512 bytes, an application can request reads and writes of 512, 1024, or 2048 bytes, but not of 335, 981, or 7171 bytes.
+ ·  Buffer addresses for read and write operations must be aligned on addresses in memory that are integer multiples of the volume’s sector size.
+ One way to align buffers on integer multiples of the volume sector size is to use VirtualAlloc to allocate the buffers. It allocates memory that is aligned on addresses that are integer multiples of the operating system’s memory page size. Because both memory page and volume sector sizes are powers of 2, this memory is also aligned on addresses that are integer multiples of a volume’s sector size.
+ An application can determine a volume’s sector size by calling the GetDiskFreeSpace function.
+FILE_FLAG_RANDOM_ACCESS
+ Indicates that the file is accessed randomly. The system can use this as a hint to optimize file caching.
+FILE_FLAG_SEQUENTIAL_SCAN
+ Indicates that the file is to be accessed sequentially from beginning to end. The system can use this as a hint to optimize file caching. If an application moves the file pointer for random access, optimum caching may not occur; however, correct operation is still guaranteed.
+ Specifying this flag can increase performance for applications that read large files using sequential access. Performance gains can be even more noticeable for applications that read large files mostly sequentially, but occasionally skip over small ranges of bytes.
+FILE_FLAG_DELETE_ON_CLOSE
+ Indicates that the operating system is to delete the file immediately after all of its handles have been closed, not just the handle for which you specified FILE_FLAG_DELETE_ON_CLOSE.
+ Subsequent open requests for the file will fail, unless FILE_SHARE_DELETE is used.
+FILE_FLAG_BACKUP_SEMANTICS
+ Windows NT only: Indicates that the file is being opened or created for a backup or restore operation. The operating system ensures that the calling process overrides file security checks, provided it has the necessary permission to do so. The relevant permissions are SE_BACKUP_NAME and SE_RESTORE_NAME.
+ You can also set this flag to obtain a handle to a directory. A directory handle can be passed to some Win32 functions in place of a file handle.
+FILE_FLAG_POSIX_SEMANTICS
+ Indicates that the file is to be accessed according to POSIX rules. This includes allowing multiple files with names, differing only in case, for file systems that support such naming. Use care when using this option because files created with this flag may not be accessible by applications written for MS-DOS or Windows.
+
+If the CreateFile function opens the client side of a named pipe, the dwFlagsAndAttributes parameter can also contain Security Quality of Service information. When the calling application specifies the SECURITY_SQOS_PRESENT flag, the dwFlagsAndAttributes parameter can contain one or more of the following values:
+SECURITY_ANONYMOUS
+ Specifies to impersonate the client at the Anonymous impersonation level.
+SECURITY_IDENTIFICATION
+ Specifies to impersonate the client at the Identification impersonation level.
+SECURITY_IMPERSONATION
+ Specifies to impersonate the client at the Impersonation impersonation level.
+SECURITY_DELEGATION
+ Specifies to impersonate the client at the Delegation impersonation level.
+SECURITY_CONTEXT_TRACKING
+ Specifies that the security tracking mode is dynamic. If this flag is not specified, Security Tracking Mode is static.
+SECURITY_EFFECTIVE_ONLY
+ Specifies that only the enabled aspects of the client’s security context are available to the server. If you do not specify this flag, all aspects of the client’s security context are available.
+ This flag allows the client to limit the groups and privileges that a server can use while impersonating the client.
+
+· hTemplateFile
+Specifies a handle with GENERIC_READ access to a template file. The template file supplies file attributes and extended attributes for the file being created.
+Windows 95: This value must be NULL. If you supply a handle under Windows 95, the call fails and GetLastError returns ERROR_NOT_SUPPORTED.
+[RETURNS]
+If the function succeeds, the return value is an open handle to the specified file. If the specified file exists before the function call and dwCreationDistribution is CREATE_ALWAYS or OPEN_ALWAYS, a call to GetLastError returns ERROR_ALREADY_EXISTS (even though the function has succeeded). If the file does not exist before the call, GetLastError returns zero. 
+
+If the function fails, the return value is INVALID_HANDLE_VALUE. To get extended error information, call GetLastError. 
+[EXAMPLES]
+File Date*CDE78FEE845B0BA16C94DF22B9299100.html
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+Read and Write*773DDD91012366DDBACF7DFF056CA37C.html
+Read File from Tape*1DF4A482360DF2E0646B74B97E1313EC.html
+GetFileSizeEx*D85F7D5EAEF74832410F8A8245BCA265.html
+File Information By Handle*F843140335623EA020B6033D8F65DF40.html
+Eject CD*EADB2D153F01C2CE33A2FD85A009E5EF.html
+End Of file*EEE812D41301556E9385F49FBB834736.html
+[RELATED]
+SetFileTime
+CloseHandle
+readfile

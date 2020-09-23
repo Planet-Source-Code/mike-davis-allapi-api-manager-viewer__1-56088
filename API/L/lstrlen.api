@@ -1,0 +1,42 @@
+[NAME]
+lstrlen
+[DESCRIPTION]
+The lstrlen function returns the length in bytes (ANSI version) or characters (Unicode version) of the specified string (not including the terminating null character).
+[DECLARATION]
+Declare Function lstrlen Lib "kernel32" Alias "lstrlenA" (ByVal lpString As String) As Long
+[VBNET]
+System.String.Length
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString
+Points to a null-terminated string.
+[RETURNS]
+If the function succeeds, the return value specifies the length of the string in bytes (ANSI version) or characters (Unicode version). 
+[EXAMPLES]
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+LetterToUNC*EF420A3B7566A165446D2B160F52C983.html
+EnumPrinters*07D470F5552B7941146A22E22837C541.html
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+EnumPorts*4C5449FBA3A6E244B92280E2AC76CFB6.html
+Properties*9FC2D28C05ED9EB1D75BA4465ABF15A9.html
+EnumDesktops*61D8353D4B6B7827D7F7BE22007AC256.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+NetShareGetInfo*647D901BF0469F6B8990DAD3B80FD14B.html
+UUID*5A54D9AD87F7C4C1C70C8F05B9515D5A.html
+Environment Strings*076A3CCE224D4C542A5A6EA33DF1B996.html
+EnumPropsEx*6C729C211996374B0856051301084BA6.html
+Get Clipboard Data*2C393D36BE4872F8B7E4DD0DB4275F0D.html
+EnumResources*7ECF27320393EB56B2A2F1406BA51BC9.html
+Root Servers*6CCD7B9D2E698BA1F19F78A6193C445D.html
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+MessageBox*B8E21927764EC9EFCA4149A2193516BD.html
+GetTcpTable*3DBD57E6A4F4E35B266FF2A4BB2FE178.html
+[RELATED]
+lstrcat
+lstrcmp
+lstrcmpi
+lstrcpy
+lstrcpyn

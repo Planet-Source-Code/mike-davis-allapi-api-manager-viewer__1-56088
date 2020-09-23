@@ -1,0 +1,32 @@
+[NAME]
+RegDeleteValue
+[DESCRIPTION]
+The RegDeleteValue function removes a named value from the specified registry key.
+[DECLARATION]
+Declare Function RegDeleteValue Lib "advapi32.dll" Alias "RegDeleteValueA" (ByVal hKey As Long, ByVal lpValueName As String) As Long
+[VBNET]
+Microsoft.Win32.RegistryKey.DeleteValue
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+
+· lpValueName
+Points to a null-terminated string that names the value to remove. If this parameter is NULL or points to an empty string, the value set by the RegSetValue function is removed.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Registry*4E1AB36884B253CE24768DA1C4080A14.html
+[RELATED]
+RegQueryValueEx
+RegSetValueEx
+registrygetset

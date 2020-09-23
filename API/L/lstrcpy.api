@@ -1,0 +1,42 @@
+[NAME]
+lstrcpy
+[DESCRIPTION]
+The lstrcpy function copies a string to a buffer.
+[DECLARATION]
+Declare Function lstrcpy Lib "kernel32" Alias "lstrcpyA" (ByVal lpString1 As String, ByVal lpString2 As String) As Long
+[VBNET]
+System.String.CopyTo
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpString1
+Points to a buffer to receive the contents of the string pointed to by the lpString2 parameter. The buffer must be large enough to contain the string, including the terminating null character.
+
+· lpString2
+Points to the null-terminated string to be copied.
+[RETURNS]
+If the function succeeds, the return value is a pointer to the buffer. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+String Functions*D369B2EB96EDF9550A45F7AAFAFBF5C3.html
+LetterToUNC*EF420A3B7566A165446D2B160F52C983.html
+EnumPrinters*07D470F5552B7941146A22E22837C541.html
+Enum Resources*2AA74BB4AC857C52AD4BC7FA9E4DB1B7.html
+Properties*9FC2D28C05ED9EB1D75BA4465ABF15A9.html
+EnumServicesStatus*D6705C917821069283D192E4F5D63A6F.html
+NetShareGetInfo*647D901BF0469F6B8990DAD3B80FD14B.html
+Enum16Bit*0D25A476EDB108B7EBD4FE678ACC2474.html
+EnumPropsEx*6C729C211996374B0856051301084BA6.html
+EnumResources*7ECF27320393EB56B2A2F1406BA51BC9.html
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+GetTcpTable*3DBD57E6A4F4E35B266FF2A4BB2FE178.html
+Edit Share*30C35D643B20E5268C18104CC64EC775.html
+[RELATED]
+lstrcat
+lstrcmp
+lstrcmpi
+lstrcpyn
+lstrlen

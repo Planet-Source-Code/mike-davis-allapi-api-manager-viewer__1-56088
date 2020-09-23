@@ -1,0 +1,32 @@
+[NAME]
+CompareFileTime
+[DESCRIPTION]
+The CompareFileTime function compares two 64-bit file times.
+[DECLARATION]
+Declare Function CompareFileTime Lib "kernel32" (lpFileTime1 As FILETIME, lpFileTime2 As FILETIME) As Long
+[VBNET]
+System.DateTime.Compare
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpFileTime1 
+Points to a FILETIME structure that specifies the first 64-bit file time. 
+
+· lpFileTime2 
+Points to a FILETIME structure that specifies the second 64-bit file time. 
+[RETURNS]
+If the function succeeds, the return value is one of the following values:
+-1 
+ First file time is less than second file time. 
+ 
+0 
+ First file time is equal to second file time. 
+ 
++1 
+ First file time is greater than second file time. 
+[EXAMPLES]
+CompareFileTime*3464DA23CC0664C17BD7CAEE4A2DB758.html
+[RELATED]
+SystemTimeToFileTime

@@ -1,0 +1,29 @@
+[NAME]
+GetClassInfoEx
+[DESCRIPTION]
+The GetClassInfoEx function retrieves information about a window class, including the handle of the small icon associated with the window class.
+[DECLARATION]
+Declare Function GetClassInfoEx Lib "user32" Alias "GetClassInfoExA" (ByVal hInstance As Long, ByVal lpClassName As String, lpWndClass As WNDCLASSEX) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.5(1) or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hinst
+Identifies the instance of the application that created the class. To retrieve information about classes defined by Windows (such as buttons or list boxes), set this parameter to NULL.
+
+· lpszClass
+Points to a null-terminated string containing the class name. The name must be that of a preregistered class or a class registered by a previous call to the RegisterClass function. Alternatively, this parameter can be an integer atom. If this parameter is an integer atom, it must be a global atom created by a previous call to the GlobalAddAtom function. The atom, a 16-bit value less than 0xC000, must be in the low-order word of lpszClass; the high-order word must be zero.
+
+· lpwcx
+Points to a WNDCLASSEX structure that receives the information about the class.
+[RETURNS]
+If the function finds a matching class and successfully copies the data, the return value is nonzero. 
+
+If the function does not find a matching class and successfully copy the data, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+ClassInfoEx*97C50A771B758E6E3FD9FA48B4F3E88A.html
+[RELATED]
+GetClassInfo

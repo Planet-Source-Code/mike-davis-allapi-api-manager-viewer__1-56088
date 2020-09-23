@@ -1,0 +1,26 @@
+[NAME]
+DeleteUrlCacheEntry
+[DESCRIPTION]
+Removes the file associated with the source name from the cache, if the file exists.
+[DECLARATION]
+Declare Function DeleteUrlCacheEntry Lib "wininet.dll" Alias "DeleteUrlCacheEntryA" (ByVal lpszUrlName As String) As Long
+[VBNET]
+N/A
+[OS]
+Internet Explorer 3.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· lpszUrlName
+[in] Pointer to a string that contains the name of the source corresponding to the cache entry.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get extended error information, call GetLastError. Possible error values include:
+ERROR_ACCESS_DENIED 
+ The file is locked or in use. The entry will be marked and will be deleted when the file is unlocked. 
+ERROR_FILE_NOT_FOUND 
+ The file is not in the cache. 
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+FindFirstUrlCacheEntry
+FindNextUrlCacheEntry

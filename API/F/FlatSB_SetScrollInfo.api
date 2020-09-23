@@ -1,0 +1,42 @@
+[NAME]
+FlatSB_SetScrollInfo
+[DESCRIPTION]
+Sets the information for a flat scroll bar. If flat scroll bars are not initialized for the window, this function calls the standard SetScrollInfo API.
+[DECLARATION]
+Declare Function FlatSB_SetScrollInfo Lib "comctl32" (ByVal hWnd As Long, ByVal fnBar As Long, lpsi As SCROLLINFO, ByVal fRedraw As Boolean) As Long
+[VBNET]
+N/A
+[OS]
+Windows 2000 (or Windows NT 4.0 with Internet Explorer 4.0 or later); Windows 98 (or Windows 95 with Internet Explorer 4.0 or later)
+[LIBRARY]
+Comctl32
+[PARAMETERS]
+· hwnd
+Handle to the window that contains the flat scroll bar. This window handle must have been passed previously in a call to InitializeFlatSB.
+
+· fnBar
+Parameter that specifies the scroll bar type. It can be one of the following values:
+SB_HORZ
+ Sets the information for the horizontal scroll bar.
+SB_VERT
+ Sets the information for the vertical scroll bar.
+
+· lpsi
+Address of a SCROLLINFO structure that contains the new information for the specified scroll bar. The cbSize and fMask members of the structure must be filled in prior to calling FlatSB_SetScrollInfo. The fMask member specifies which members of the structure contain valid information and can be any combination of the following values: SIF_DISABLENOSCROLL  Disables the scroll bar if the new information would cause the scroll bar to be removed.
+SIF_PAGE
+ Sets the page information for the flat scroll bar. The nPage member of the SCROLLINFO structure must contain the new page value.
+SIF_POS
+ Sets the position information for the flat scroll bar. The nPos member of the SCROLLINFO structure must contain the new position value.
+SIF_RANGE
+ Sets the range information for the flat scroll bar. The nMin and nMax members of the SCROLLINFO structure must contain the new range values.
+SIF_ALL
+ A combination of SIF_PAGE, SIF_POS, and SIF_RANGE.
+
+· fRedraw
+Parameter that specifies whether the scroll bar should be redrawn immediately to reflect the change. If this parameter is TRUE, the scroll bar is redrawn; if it is FALSE, the scroll bar is not redrawn.
+[RETURNS]
+Returns the current scroll position. If the call to FlatSB_SetScrollInfo changes the scroll position, then the previous position is returned. 
+[EXAMPLES]
+Flat Scrollbar*2CB711D947F634B1F03118DD840FBAD4.html
+[RELATED]
+FlatSB_GetScrollInfo

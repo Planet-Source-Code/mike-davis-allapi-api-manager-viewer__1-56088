@@ -1,0 +1,24 @@
+[NAME]
+WSAGetLastError
+[DESCRIPTION]
+The Windows Sockets WSAGetLastError function gets the error status for the last operation that failed.
+[DECLARATION]
+Declare Function WSAGetLastError Lib "WSOCK32" () As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows Sockets 1.1 or later
+[LIBRARY]
+Wsock32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+The return value indicates the error code for this thread’s last Windows Sockets operation that failed. 
+[EXAMPLES]
+GetIP*07CCCC8728276405F3111B9A7262DDF2.html
+Download File*B85AACB0E1401DE4D155972D9CC47087.html
+[RELATED]
+WSAStartup
+WSACleanup
+gethostname
+gethostbyname

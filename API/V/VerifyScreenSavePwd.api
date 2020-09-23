@@ -1,0 +1,21 @@
+[NAME]
+VerifyScreenSavePwd
+[DESCRIPTION]
+The VerifyScreenSavePwd function shows the Screen saver password verification-dialog.
+[DECLARATION]
+Declare Function VerifyScreenSavePwd Lib "password.cpl" (ByVal hwnd As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+password.cpl
+[LIBRARY]
+Password.cpl
+[PARAMETERS]
+· hwnd
+Handle of the parent window
+[RETURNS]
+Undocumented
+[EXAMPLES]
+VerifyScreenSavePwd*D68902B56661391037A274D54756E1F4.html
+[RELATED]
+

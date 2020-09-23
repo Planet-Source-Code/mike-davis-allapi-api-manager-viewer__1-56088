@@ -1,0 +1,24 @@
+[NAME]
+IsRectEmpty
+[DESCRIPTION]
+The IsRectEmpty function determines whether the specified rectangle is empty. A empty rectangle is one that has no area; that is, the coordinate of the right side is less than or equal to the coordinate of the left side, or the coordinate of the bottom side is less than or equal to the coordinate of the top side.
+[DECLARATION]
+Declare Function IsRectEmpty Lib "user32" Alias "IsRectEmpty" (lpRect As RECT) As Long
+[VBNET]
+System.Drawing.Rectangle.IsEmpty
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· lprc
+Points to a RECT structure that contains the logical coordinates of the rectangle.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Rectangles*D3F3719BBC36D7E57F628A99BB3D6672.html
+[RELATED]
+SetRect
+SetRectEmpty

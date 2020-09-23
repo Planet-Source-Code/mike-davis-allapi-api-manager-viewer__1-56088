@@ -1,0 +1,75 @@
+[NAME]
+RegEnumValue
+[DESCRIPTION]
+The RegEnumValue function enumerates the values for the specified open registry key. The function copies one indexed value name and data block for the key each time it is called.
+[DECLARATION]
+Declare Function RegEnumValue Lib "advapi32.dll" Alias "RegEnumValueA" (ByVal hKey As Long, ByVal dwIndex As Long, ByVal lpValueName As String, lpcbValueName As Long, ByVal lpReserved As Long, lpType As Long, lpData As Byte, lpcbData As Long) As Long
+[VBNET]
+Microsoft.Win32.RegistryKey.GetValueNames
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· hKey
+Identifies a currently open key or any of the following predefined reserved handle values:
+HKEY_CLASSES_ROOT
+HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE
+HKEY_USERS
+The enumerated values are associated with the key identified by hKey.
+
+· dwIndex
+Specifies the index of the value to retrieve. This parameter should be zero for the first call to the RegEnumValue function and then be incremented for subsequent calls.
+Because values are not ordered, any new value will have an arbitrary index. This means that the function may return values in any order.
+
+· lpValueName
+Points to a buffer that receives the name of the value, including the terminating null character.
+
+· lpcbValueName
+Points to a variable that specifies the size, in characters, of the buffer pointed to by the lpValueName parameter. This size should include the terminating null character. When the function returns, the variable pointed to by lpcbValueName contains the number of characters stored in the buffer. The count returned does not include the terminating null character.
+
+· lpReserved
+Reserved; must be NULL.
+
+· lpType
+Points to a variable that receives the type code for the value entry. The type code can be one of the following values:
+REG_BINARY
+ Binary data in any form.
+REG_DWORD
+ A 32-bit number.
+REG_DWORD_LITTLE_ENDIAN
+ A 32-bit number in little-endian format (same as REG_DWORD). In little-endian format, the most significant byte of a word is the high-order byte. This is the most common format for computers running Windows NT and Windows 95.
+REG_DWORD_BIG_ENDIAN
+ A 32-bit number in big-endian format. In big-endian format, the most significant byte of a word is the low-order byte.
+REG_EXPAND_SZ
+ A null-terminated string that contains unexpanded references to environment variables (for example, “%PATH%”). It will be a Unicode or ANSI string depending on whether you use the Unicode or ANSI functions.
+REG_LINK
+ A Unicode symbolic link.
+REG_MULTI_SZ
+ An array of null-terminated strings, terminated by two null characters.
+REG_NONE
+ No defined value type.
+REG_RESOURCE_LIST
+ A device-driver resource list.
+REG_SZ
+ A null-terminated string. It will be a Unicode or ANSI string, depending on whether you use the Unicode or ANSI functions.
+
+The lpType parameter can be NULL if the type code is not required.
+
+· lpData
+Points to a buffer that receives the data for the value entry. This parameter can be NULL if the data is not required.
+
+· lpcbData
+Points to a variable that specifies the size, in bytes, of the buffer pointed to by the lpData parameter. When the function returns, the variable pointed to by the lpcbData parameter contains the number of bytes stored in the buffer. This parameter can be NULL, only if lpData is NULL.
+[RETURNS]
+If the function succeeds, the return value is ERROR_SUCCESS. 
+
+If the function fails, the return value is a nonzero error code defined in WINERROR.H. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error. 
+[EXAMPLES]
+Enumerate Registry*253F9FB262EAA45DC6210E4066F9DFC3.html
+[RELATED]
+RegEnumKeyEx
+RegOpenKey
+RegCloseKey
+registryenum

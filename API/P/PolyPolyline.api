@@ -1,0 +1,34 @@
+[NAME]
+PolyPolyline
+[DESCRIPTION]
+The PolyPolyline function draws multiple series of connected line segments.
+[DECLARATION]
+Declare Function PolyPolyline Lib "gdi32" Alias "PolyPolyline" (ByVal hdc As Long, lppt As POINTAPI, lpdwPolyPoints As Long, ByVal cCount As Long) As Long
+[VBNET]
+System.Drawing.Graphics.DrawLines
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· lppt
+Points to an array of POINT structures that contains the vertices of the polylines. The polylines are specified consecutively.
+
+· lpdwPolyPoints
+Points to an array of variables specifying the number of points in the lppt array for the corresponding polyline. Each entry must be greater than or equal to two.
+
+· cCount
+Specifies the total number of counts in the lpdwPolyPoints array.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+PolyPolyline*415CC6E4559B08D4373543A27D6D3C84.html
+[RELATED]
+Polygon
+Polyline
+PolylineTo

@@ -1,0 +1,26 @@
+[NAME]
+FlashWindow
+[DESCRIPTION]
+The FlashWindow function flashes the specified window once.
+[DECLARATION]
+Declare Function FlashWindow Lib "user32" Alias "FlashWindow" (ByVal hwnd As Long, ByVal bInvert As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window to be flashed. The window can be either open or minimized (iconic).
+
+· bInvert
+Specifies whether the window is to be flashed or returned to its original state. The window is flashed from one state to the other if this parameter is TRUE. If it is FALSE, the window is returned to its original state (either active or inactive). When an application is iconic, if this parameter is TRUE, the taskbar window button flashes active/inactive. If it is FALSE, the taskbar window button flashes inactive, meaning that it does not change colors. It flashes, as if it were being redraw, but it does not provide the visual invert clue to the user.
+[RETURNS]
+The return value specifies the window’s state before the call to the FlashWindow function. If the window was active before the call, the return value is nonzero. 
+
+If the window was not active before the call, the return value is zero. 
+[EXAMPLES]
+Flash Window*27B4D71E234E4AC68CA2B5576F22BAF4.html
+[RELATED]
+FlashWindowEx

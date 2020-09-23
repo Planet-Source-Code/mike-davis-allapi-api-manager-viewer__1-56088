@@ -1,0 +1,30 @@
+[NAME]
+GetConsoleProcessList
+[DESCRIPTION]
+The GetConsoleProcessList function retrieves a list of the processes attached to the current console.
+[DECLARATION]
+Declare Function GetConsoleProcessList Lib "kernel32" (lpdwProcessList As Long, ByVal dwProcessCount As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows XP or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpdwProcessList 
+[out] Pointer to a buffer that receives an array of process identifiers. 
+
+· dwProcessCount 
+[in] Maximum number of process identifiers that can be stored in the lpdwProcessList buffer.
+[RETURNS]
+The return value is the number of processes that are attached to the current console.
+
+If the return value is less than or equal to dwProcessCount, it is also the number of process identifiers stored in the lpdwProcessList buffer.
+
+If the return value is greater than dwProcessCount, the lpdwProcessList buffer is too small to hold all the valid process identifiers. The function will have stored no identifiers in the buffer. In this situation, use the return value to allocate a buffer that is large enough to store the entire list, and call the function again.
+
+If the return value is zero, the function has failed, because every console has at least one process associated with it. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Console Application II*BDA18107A74914618446F4548DE6EEC8.html
+[RELATED]
+AllocConsole

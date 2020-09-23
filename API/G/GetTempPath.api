@@ -1,0 +1,27 @@
+[NAME]
+GetTempPath
+[DESCRIPTION]
+The GetTempPath function retrieves the path of the directory designated for temporary files. This function supersedes the GetTempDrive function.
+[DECLARATION]
+Declare Function GetTempPath Lib "kernel32" Alias "GetTempPathA" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· nBufferLength
+Specifies the size, in characters, of the string buffer identified by lpBuffer.
+
+· lpBuffer
+Points to a string buffer that receives the null-terminated string specifying the temporary file path.
+[RETURNS]
+If the function succeeds, the return value is the length, in characters, of the string copied to lpBuffer, not including the terminating null character. If the return value is greater than nBufferLength, the return value is the size of the buffer required to hold the path. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Window(s) Information*C93C31150C11452A22AA6D3043899315.html
+[RELATED]
+GetWindowsDirectory
+GetSystemDirectory

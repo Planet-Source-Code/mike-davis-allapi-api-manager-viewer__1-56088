@@ -1,0 +1,31 @@
+[NAME]
+GetClassName
+[DESCRIPTION]
+The GetClassName function retrieves the name of the class to which the specified window belongs.
+[DECLARATION]
+Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window and, indirectly, the class to which the window belongs.
+
+· lpClassName
+Points to the buffer that is to receive the class name string.
+
+· nMaxCount
+Specifies the length, in characters, of the buffer pointed to by the lpClassName parameter. The class name string is truncated if it is longer than the buffer.
+[RETURNS]
+If the function succeeds, the return value is the number of characters copied to the specified buffer. 
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Get Classname*94ABEE79CC3E011F6F90129CE20D320F.html
+Hide Start-button*466A5EE9AD8B74CD93BC5EE21AEA67B5.html
+Enum Classnames*A2A6293A01E25C7EBF36F85FCEFCDFE8.html
+[RELATED]
+

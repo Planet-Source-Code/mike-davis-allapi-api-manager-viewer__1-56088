@@ -1,0 +1,21 @@
+[NAME]
+FlashWindowEx
+[DESCRIPTION]
+The FlashWindowEx function flashes the specified window. Using this function, you can specify the number of times the system will flash the window, whereas the FlashWindow function flashes the window only once.
+[DECLARATION]
+Declare Function FlashWindowEx Lib "user32" (pfwi As FLASHWINFO) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 98 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· pfwi
+[in] Pointer to the FLASHWINFO structure.
+[RETURNS]
+The return value specifies the window's state before the call to the FlashWindowEx function. If the window caption was drawn as active before the call, the return value is nonzero. Otherwise, the return value is zero. 
+[EXAMPLES]
+FlashWindowEx*354B35E13B1AEE7522455E5478278369.html
+[RELATED]
+FlashWindow

@@ -1,0 +1,44 @@
+[NAME]
+CopyFileEx
+[DESCRIPTION]
+The CopyFileEx function copies an existing file to a new file. This function preserves extended attributes, OLE structured storage, NTFS alternate data streams, and file attributes. Security attributes for the existing file are not copied to the new file.
+[DECLARATION]
+Declare Function CopyFileEx Lib "kernel32.dll" Alias "CopyFileExA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal lpProgressRoutine As Long, lpData As Any, ByRef pbCancel As Long, ByVal dwCopyFlags As Long) As Long
+[VBNET]
+System.IO.File.Copy
+[OS]
+Requires Windows NT 4.0 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpExistingFileName
+Points to a null-terminated string that specifies the name of an existing file.
+
+· lpNewFileName
+Points to a null-terminated string that specifies the name of the new file.
+
+· lpProgressRoutine
+Specifies the address of a callback function of type LPPROGRESS_ROUTINE that is called each time another portion of the file has been copied. This parameter can be NULL. For more information on the progress callback function, see CopyProgressRoutine.
+
+· lpData
+Specifies an argument to be passed to the callback function. This parameter can be NULL.
+
+· pbCancel
+Points to a Boolean variable that can be used to cancel the operation. If this flag is set to TRUE during the copy operation, the operation is canceled.
+
+· dwCopyFlags
+Specifies how the file is to be copied. This parameter can be a combination of the following values:
+COPY_FILE_FAIL_IF_EXISTS
+ The copy operation fails immediately if the target file already exists.
+COPY_FILE_RESTARTABLE
+ Progress of the copy is tracked in the target file in case the copy fails. The failed copy can be restarted at a later time by specifying the same values for lpExistingFileName and lpNewFileName as those used in the call that failed.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+CopyFileEx*578D8A66191323E0F8FFECF588222A33.html
+[RELATED]
+CopyFile
+SHFileOperation
+copy

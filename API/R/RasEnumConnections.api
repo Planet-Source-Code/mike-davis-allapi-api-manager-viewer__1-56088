@@ -1,0 +1,30 @@
+[NAME]
+RasEnumConnections
+[DESCRIPTION]
+The RasEnumConnections function lists all active RAS connections. It returns each connection’s handle and phone-book entry name.
+[DECLARATION]
+Declare Function RasEnumConnections Lib "rasapi32.dll" Alias "RasEnumConnectionsA" (lpRasConn As Any, lpcb As Long, lpcConnections As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rasapi32
+[PARAMETERS]
+· lprasconn
+Points to a buffer that receives an array of RASCONN structures, one for each RAS connection. Before calling the function, an application must set the dwSize member of the first RASCONN structure in the buffer to sizeof(RASCONN) in order to identify the version of the structure being passed.
+
+· lpcb
+Points to a variable that contains the size, in bytes, of the buffer specified by lprasconn. On return, the function sets this variable to the number of bytes required to enumerate the RAS connections.
+
+· lpcConnections
+Points to a variable that the function sets to the number of RASCONN structures written to the buffer specified by lprasconn.
+[RETURNS]
+If the function succeeds, the return value is zero. 
+
+If the function fails, the return value is a nonzero error value listed in the RAS header file or one of ERROR_BUFFER_TOO_SMALL or ERROR_NOT_ENOUGH_MEMORY.
+[EXAMPLES]
+Hang Up*E3A485B0C5110205D8198B8418D2B9DE.html
+RasEnumConnections*1C2F03EE2E692A53D4AB6D8ACCD73D51.html
+[RELATED]
+RasHangUp

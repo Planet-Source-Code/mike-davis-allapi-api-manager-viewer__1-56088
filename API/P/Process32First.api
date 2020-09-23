@@ -1,0 +1,27 @@
+[NAME]
+Process32First
+[DESCRIPTION]
+Retrieves information about the first process encountered in a system snapshot.
+[DECLARATION]
+Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+[VBNET]
+System.Diagnostics.Process
+[OS]
+Requires Windows 2000 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· hSnapshot
+Handle of the snapshot returned from a previous call to the CreateToolhelp32Snapshot function.
+
+· lppe
+Address of a PROCESSENTRY32 structure.
+[RETURNS]
+Returns TRUE if the first entry of the process list has been copied to the buffer or FALSE otherwise. The ERROR_NO_MORE_FILES error value is returned by the GetLastError function if no processes exist or the snapshot does not contain process information.
+[EXAMPLES]
+EnumProcesses*0DE03FF0C317A9A5FC33A4FCAC220023.html
+Enumerate Processes*3F67FD0ABC04BEB6623FB5C547B77976.html
+[RELATED]
+CreateToolhelp32Snapshot
+Process32Next
+Enum Processes

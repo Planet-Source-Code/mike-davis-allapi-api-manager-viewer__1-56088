@@ -1,0 +1,39 @@
+[NAME]
+midiOutGetDevCaps
+[DESCRIPTION]
+The midiOutGetDevCaps function queries a specified MIDI output device to determine its capabilities.
+[DECLARATION]
+Declare Function midiOutGetDevCaps Lib "winmm.dll" Alias "midiOutGetDevCapsA" (ByVal uDeviceID As Long, lpCaps As MIDIOUTCAPS, ByVal uSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· uDeviceID
+Identifier of the MIDI output device. The device identifier specified by this parameter varies from zero to one less than the number of devices present. The MIDI_MAPPER constant is also a valid device identifier.
+This parameter can also be a properly cast device handle.
+
+· lpMidiOutCaps
+Address of a MIDIOUTCAPS structure. This structure is filled with information about the capabilities of the device.
+
+· cbMidiOutCaps
+Size, in bytes, of the MIDIOUTCAPS structure. Only cbMidiOutCaps bytes (or less) of information is copied to the location pointed to by lpMidiOutCaps. If cbMidiOutCaps is zero, nothing is copied, and the function returns MMSYSERR_NOERROR.
+[RETURNS]
+Returns MMSYSERR_NOERROR if successful or an error otherwise. Possible error values include the following:
+MMSYSERR_BADDEVICEID 
+ The specified device identifier is out of range. 
+ 
+MMSYSERR_INVALPARAM 
+ The specified pointer or structure is invalid. 
+ 
+MMSYSERR_NODRIVER 
+ The driver is not installed. 
+ 
+MMSYSERR_NOMEM 
+ The system is unable to load mapper string description. 
+[EXAMPLES]
+midiOut*8733809FDC417FB4B3D88E76BD9E90D7.html
+[RELATED]
+midiOutGetNumDevs

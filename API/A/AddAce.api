@@ -1,0 +1,39 @@
+[NAME]
+AddAce
+[DESCRIPTION]
+The AddAce function adds one or more ACEs to a specified ACL. An ACE is an access-control entry. An ACL is an access-control list.
+[DECLARATION]
+Declare Function AddAce Lib "advapi32.dll" (ByVal pAcl As Long, ByVal dwAceRevision As Long, ByVal dwStartingAceIndex As Long, ByVal pAceList As Long, ByVal nAceListLength As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pAcl
+[in/out] Pointer to an ACL structure. This function adds an ACE to this ACL.
+
+· dwAceRevision
+[in] Specifies the revision level of the ACL being modified.
+Windows NT 4.0 and earlier: This value must be ACL_REVISION.
+Windows 2000: This value can be ACL_REVISION or ACL_REVISION_DS. Use ACL_REVISION_DS if the ACL contains object-specific ACEs.
+
+· dwStartingAceIndex
+[in] Specifies the position in the ACL's list of ACEs at which to add new ACEs. A value of zero inserts the ACEs at the beginning of the list. A value of MAXDWORD appends the ACEs to the end of the list.
+
+· pAceList
+[in] Pointer to a list of one or more ACEs to be added to the specified ACL. The ACEs in the list must be stored contiguously.
+
+· nAceListLength
+[in] Specifies the size, in bytes, of the input buffer pointed to by the pAceList parameter.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+GetAce
+AddAccessAllowedAce
+AddAccessDeniedAce

@@ -1,0 +1,31 @@
+[NAME]
+DefWindowProc
+[DESCRIPTION]
+The DefWindowProc function calls the default window procedure to provide default processing for any window messages that an application does not process. This function ensures that every message is processed. DefWindowProc is called with the same parameters received by the window procedure.
+[DECLARATION]
+Declare Function DefWindowProc Lib "user32" Alias "DefWindowProcA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window procedure that received the message.
+
+· Msg
+Specifies the message.
+
+· wParam
+Specifies additional message information. The content of this parameter depends on the value of the Msg parameter.
+
+· lParam
+Specifies additional message information. The content of this parameter depends on the value of the Msg parameter.
+[RETURNS]
+The return value is the result of the message processing and depends on the message. 
+[EXAMPLES]
+Hotkey*8DB21EE66D0ED1F6D24CE1B9C4274D4C.html
+Classical*2091523979DBEDCAD728958414922C72.html
+[RELATED]
+CallWindowProc

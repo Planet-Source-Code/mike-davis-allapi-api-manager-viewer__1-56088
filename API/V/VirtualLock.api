@@ -1,0 +1,28 @@
+[NAME]
+VirtualLock
+[DESCRIPTION]
+The VirtualLock function locks the specified region of the process's virtual address space into physical memory, ensuring that subsequent access to the region will not incur a page fault. 
+[DECLARATION]
+Declare Function VirtualLock Lib "kernel32" (ByVal lpAddress As Long, ByVal dwSize As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAddress 
+[in] Pointer to the base address of the region of pages to be locked. 
+
+· dwSize 
+[in] Specifies the size, in bytes, of the region to be locked. The region of affected pages includes all pages that contain one or more bytes in the range from the lpAddress parameter to (lpAddress+dwSize). This means that a 2-byte range straddling a page boundary causes both pages to be locked. 
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+VirtualUnlock
+VirtualAlloc
+GlobalLock

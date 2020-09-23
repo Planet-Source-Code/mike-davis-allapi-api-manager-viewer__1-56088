@@ -1,0 +1,38 @@
+[NAME]
+OffsetClipRgn
+[DESCRIPTION]
+The OffsetClipRgn function moves the clipping region of a device context by the specified offsets.
+[DECLARATION]
+Declare Function OffsetClipRgn Lib "gdi32" Alias "OffsetClipRgn" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· nXOffset
+Specifies the number of logical units to move left or right.
+
+· nYOffset
+Specifies the number of logical units to move up or down.
+[RETURNS]
+If the function succeeds, the return value specifies the new region’s complexity and can be any one of the following values:
+NULLREGION 
+ Region is empty. 
+ 
+SIMPLEREGION 
+ Region is a single rectangle. 
+ 
+COMPLEXREGION 
+ Region is more than one rectangle. 
+ 
+ERROR 
+ An error occurred. (The current clipping region is unaffected.) 
+[EXAMPLES]
+Clipping Regions*992BA156A76A165608C6D9E626536275.html
+[RELATED]
+GetClipRgn

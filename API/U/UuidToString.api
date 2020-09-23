@@ -1,0 +1,31 @@
+[NAME]
+UuidToString
+[DESCRIPTION]
+The UuidToString function converts a UUID to a string.
+[DECLARATION]
+Declare Function UuidToString Lib "rpcrt4" Alias "UuidToStringA" (lpUUID As UUID, lpUUIDString As Long) As Long
+[VBNET]
+System.Guid.ToString
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Rpcrt4
+[PARAMETERS]
+· Uuid
+Pointer to a binary UUID.
+
+· StringUuid
+Returns a pointer to a pointer to the string representation of the UUID specified in the Uuid argument.
+Specify a NULL value to prevent UuidToString from returning the StringUuid parameter. In this case, the application does not call RpcStringFree.
+[RETURNS]
+RPC_S_OK 
+ Success 
+ 
+RPC_S_OUT_OF_MEMORY 
+ No memory 
+[EXAMPLES]
+UUID*5A54D9AD87F7C4C1C70C8F05B9515D5A.html
+[RELATED]
+UuidCreate
+RpcStringFree
+guid

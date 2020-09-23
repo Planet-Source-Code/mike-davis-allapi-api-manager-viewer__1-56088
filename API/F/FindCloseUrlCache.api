@@ -1,0 +1,22 @@
+[NAME]
+FindCloseUrlCache
+[DESCRIPTION]
+Closes the specified cache enumeration handle.
+[DECLARATION]
+Declare Sub FindCloseUrlCache Lib "wininet.dll" (ByVal hEnumHandle As Long)
+[VBNET]
+N/A
+[OS]
+Requires Internet Explorer 3.0
+[LIBRARY]
+Wininet
+[PARAMETERS]
+· hEnumHandle
+[in] Handle returned by a previous call to the FindFirstUrlCacheEntry function.
+[RETURNS]
+Returns TRUE if successful, or FALSE otherwise. To get extended error information, call GetLastError.
+[EXAMPLES]
+Enum and Delete Cache*F0E921F82444253AF6757B1C5DA57848.html
+[RELATED]
+FindFirstUrlCacheEntry
+FindNextUrlCacheEntry

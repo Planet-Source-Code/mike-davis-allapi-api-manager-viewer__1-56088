@@ -1,0 +1,30 @@
+[NAME]
+MoveFile
+[DESCRIPTION]
+The MoveFile function renames an existing file or a directory (including all its children).
+[DECLARATION]
+Declare Function MoveFile Lib "kernel32" Alias "MoveFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String) As Long
+[VBNET]
+System.IO.File.Move
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpExistingFileName
+Points to a null-terminated string that names an existing file or directory.
+
+· lpNewFileName
+Points to a null-terminated string that specifies the new name of a file or directory. The new name must not already exist. A new file may be on a different file system or drive. A new directory must be on the same drive.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Files*91F3A2C0E4424C87689525DA44C4DB11.html
+[RELATED]
+CopyFile
+CreateDirectory
+CreateFile
+SHFileOperation
+move

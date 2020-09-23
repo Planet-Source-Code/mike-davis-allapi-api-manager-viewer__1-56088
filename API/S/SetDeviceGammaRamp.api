@@ -1,0 +1,26 @@
+[NAME]
+SetDeviceGammaRamp
+[DESCRIPTION]
+The SetDeviceGammaRamp function sets the gamma ramp on direct color display boards having drivers that support downloadable gamma ramps in hardware.
+[DECLARATION]
+Declare Function SetDeviceGammaRamp Lib "gdi32" (ByVal hdc As Long, lpv As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hDC 
+Specifies the device context of the direct color display board in question. 
+
+· lpRamp 
+Pointer to a buffer containing the gamma ramp to be set. The gamma ramp is specified in three arrays of 256 WORD elements each, which contain the mapping between RGB values in the frame buffer and digital-analog-converter (DAC) values. The sequence of the arrays is red, green, blue. The RGB values must be stored in the most significant bits of each WORD to increase DAC independence. 
+[RETURNS]
+If this function succeeds, the return value is TRUE. 
+
+If this function fails, the return value is FALSE. 
+[EXAMPLES]
+Device Gamma*B03A7F35DCABD71053DE122C26B90021.html
+[RELATED]
+GetDeviceGammaRamp

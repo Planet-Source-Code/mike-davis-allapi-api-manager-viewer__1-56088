@@ -1,0 +1,25 @@
+[NAME]
+IsWindowEnabled
+[DESCRIPTION]
+The IsWindowEnabled function determines whether the specified window is enabled for mouse and keyboard input.
+[DECLARATION]
+Declare Function IsWindowEnabled Lib "user32" Alias "IsWindowEnabled" (ByVal hwnd As Long) As Long
+[VBNET]
+System.Windows.Forms.Form.Enabled
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· hWnd
+Identifies the window to test.
+[RETURNS]
+If the window is enabled, the return value is nonzero. 
+
+If the window is not enabled, the return value is zero. 
+[EXAMPLES]
+Move Window*E006C5AAF20F14BD392F3D28B5247D8D.html
+EnableWindow*3F73BD2D68408111A7D5D568E0EEC5D9.html
+[RELATED]
+MoveWindow
+DestroyWindow

@@ -1,0 +1,30 @@
+[NAME]
+SetClipboardData
+[DESCRIPTION]
+The SetClipboardData function places data on the clipboard in a specified clipboard format.
+[DECLARATION]
+Declare Function SetClipboardData Lib "user32" Alias "SetClipboardDataA" (ByVal wFormat As Long, ByVal hMem As Long) As Long
+[VBNET]
+System.Windows.Forms.Clipboard
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· uFormat
+Specifies a clipboard format. This parameter can be a registered format or any of the standard clipboard formats listed in the following Remarks section. For information about registered clipboard formats, see the RegisterClipboardFormat function.
+
+· hMem
+Identifies the data in the specified format. This parameter can be NULL, indicating that the window provides data in the specified clipboard format (renders the format) upon request. If a window delays rendering, it must process the WM_RENDERFORMAT and WM_RENDERALLFORMATS messages.
+Once SetClipboardData is called, the system owns the object identified by the hMem parameter. The application can read the data, but must not free the handle or leave it locked. If the hMem parameter identifies a memory object, the object must have been allocated using the GlobalAlloc function with the GMEM_MOVEABLE and GMEM_DDESHARE flags.
+[RETURNS]
+If the function succeeds, the return value is the handle of the data. 
+
+If the function fails, the return value is NULL. To get extended error information, call GetLastError. 
+[EXAMPLES]
+Clipboard Bitmap*4628A326E513772C4DDFD7DA6614024E.html
+Clipboard Picture*F6A2AF7423E51EB105A8040D0EE9F27C.html
+[RELATED]
+OpenClipboard
+IsClipboardFormatAvailable
+Clipboard

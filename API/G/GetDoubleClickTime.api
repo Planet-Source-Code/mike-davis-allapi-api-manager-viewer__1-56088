@@ -1,0 +1,20 @@
+[NAME]
+GetDoubleClickTime
+[DESCRIPTION]
+The GetDoubleClickTime function retrieves the current double-click time for the mouse. A double-click is a series of two clicks of the mouse button, the second occurring within a specified time after the first. The double-click time is the maximum number of milliseconds that may occur between the first and second click of a double-click.
+[DECLARATION]
+Declare Function GetDoubleClickTime Lib "user32" Alias "GetDoubleClickTime" () As Long
+[VBNET]
+System.Windows.Forms.SystemInformation.DoubleClickTime
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+<font color="#96D89E" face="Verdana" size="-1">&nbsp;</font>
+[RETURNS]
+If the function succeeds, the return value specifies the current double-click time, in milliseconds.
+[EXAMPLES]
+Double Click Time*8A6893A1A90E06CE30FE6DE31B4CAC47.html
+[RELATED]
+SetDoubleClickTime

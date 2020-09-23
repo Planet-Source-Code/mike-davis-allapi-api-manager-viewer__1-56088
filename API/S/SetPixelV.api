@@ -1,0 +1,33 @@
+[NAME]
+SetPixelV
+[DESCRIPTION]
+The SetPixelV function sets the pixel at the specified coordinates to the closest approximation of the specified color. The point must be in the clipping region and the visible part of the device surface.
+[DECLARATION]
+Declare Function SetPixelV Lib "gdi32" Alias "SetPixelV" (ByVal hdc As Long, ByVal x As Long, ByVal y As Long, ByVal crColor As Long) As Long
+[VBNET]
+System.Drawing.Bitmap.SetPixel
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Gdi32
+[PARAMETERS]
+· hdc
+Identifies the device context.
+
+· X
+Specifies the x-coordinate, in logical units, of the point to be set.
+
+· Y
+Specifies the y-coordinate, in logical units, of the point to be set.
+
+· crColor
+Specifies the color to be used to paint the point.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Point in ...*66150F7BC58BDDB0200DAF320FD6BCFA.html
+[RELATED]
+SetPixel
+GetPixel

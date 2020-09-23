@@ -1,0 +1,23 @@
+[NAME]
+mciExecute
+[DESCRIPTION]
+The API function MCIEXECUTE can be used to access a variety of MCI devices.
+[DECLARATION]
+Declare Function mciExecute Lib "winmm.dll" (ByVal lpstrCommand As String) As Long
+[VBNET]
+N/A
+[OS]
+Windows 3.1
+[LIBRARY]
+Winmm
+[PARAMETERS]
+· lpstrCommand
+Specifies what the function should do.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+mciExecute*B1B6C7D918A459C0B9474BB9029449AE.html
+[RELATED]
+mciSendString

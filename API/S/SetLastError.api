@@ -1,0 +1,22 @@
+[NAME]
+SetLastError
+[DESCRIPTION]
+The SetLastError function sets the last-error code for the calling thread.
+[DECLARATION]
+Declare Sub SetLastError Lib "kernel32" Alias "SetLastError" (ByVal dwErrCode As Long)
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· dwErrCode
+Specifies the last-error code for the thread.
+[RETURNS]
+This function does not return a value.
+[EXAMPLES]
+Format Message*E50807F37770F79D234F3E6B9F525172.html
+[RELATED]
+GetLastError
+FormatMessage

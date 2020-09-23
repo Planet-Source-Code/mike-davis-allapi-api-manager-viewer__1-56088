@@ -1,0 +1,29 @@
+[NAME]
+GetKeyboardType
+[DESCRIPTION]
+The GetKeyboardType function retrieves information about the current keyboard.
+[DECLARATION]
+Declare Function GetKeyboardType Lib "user32" Alias "GetKeyboardType" (ByVal nTypeFlag As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· nTypeFlag
+Specifies the type of keyboard information to be retrieved. This parameter can be one of the following values:
+0
+ Keyboard type
+1
+ Keyboard subtype
+2
+ Number of function keys on the keyboard
+[RETURNS]
+If the function succeeds, the return value specifies the requested information. 
+
+If the function fails, the return value is zero. 
+[EXAMPLES]
+Keyboard Type*FB5FDF1B27AABC5F7AE9B8496E2CA5B0.html
+[RELATED]
+GetKeyboardLayoutName

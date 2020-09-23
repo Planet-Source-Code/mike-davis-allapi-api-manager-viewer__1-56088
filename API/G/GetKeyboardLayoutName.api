@@ -1,0 +1,25 @@
+[NAME]
+GetKeyboardLayoutName
+[DESCRIPTION]
+The GetKeyboardLayoutName function retrieves the name of the active keyboard layout.
+[DECLARATION]
+Declare Function GetKeyboardLayoutName Lib "user32" Alias "GetKeyboardLayoutNameA" (ByVal pwszKLID As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+User32
+[PARAMETERS]
+· pwszKLID
+Points to the buffer of at least KL_NAMELENGTH characters that is to receive the name of the keyboard layout, including the NULL terminator. This will be a copy of the string provided to the LoadKeyboardLayout function, unless layout substitution took place.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Keyboard Type*FB5FDF1B27AABC5F7AE9B8496E2CA5B0.html
+LoadKeyboardLayout*2CE10A2B0C329813580BC86F96DB36F7.html
+Keyboard Layout*FC9A0C9925093EB7C2DE5C600A38F0C9.html
+[RELATED]
+GetKeyboardType

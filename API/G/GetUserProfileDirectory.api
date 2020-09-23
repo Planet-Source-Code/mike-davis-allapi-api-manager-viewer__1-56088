@@ -1,0 +1,31 @@
+[NAME]
+GetUserProfileDirectory
+[DESCRIPTION]
+The GetUserProfileDirectory function retrieves the path to the root directory of the specified user's profile.
+[DECLARATION]
+Declare Function GetUserProfileDirectory Lib "userenv.dll" Alias "GetUserProfileDirectoryA" (ByVal hToken As Long, ByVal lpProfileDir As String, lpcchSize As Long) As Boolean
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Userenv
+[PARAMETERS]
+· hToken
+[in] Token for the user, which is returned by the LogonUser, CreateRestrictedToken, DuplicateToken, OpenProcessToken, or OpenThreadToken function. The token must have TOKEN_QUERY access.
+
+· lpProfileDir
+[out] Pointer to the buffer that receives the path to the specified user's profile directory.
+
+· lpcchSize
+[in/out] Specifies the size of the lpProfilesDir buffer, in TCHARs.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+User Directories*C15713B41CB5D206910AF83B45EF618B.html
+[RELATED]
+GetAllUsersProfileDirectory
+GetDefaultUserProfileDirectory
+GetProfilesDirectory

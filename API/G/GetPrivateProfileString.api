@@ -1,0 +1,45 @@
+[NAME]
+GetPrivateProfileString
+[DESCRIPTION]
+The GetPrivateProfileString function retrieves a string from the specified section in an initialization file. This function is provided for compatibility with 16-bit Windows-based applications.
+[DECLARATION]
+Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Kernel32
+[PARAMETERS]
+· lpAppName
+Points to a null-terminated string that specifies the section containing the key name. If this parameter is NULL, the GetPrivateProfileString function copies all section names in the file to the supplied buffer.
+
+· lpKeyName
+Pointer to the null-terminated string containing the key name whose associated string is to be retrieved. If this parameter is NULL, all key names in the section specified by the lpAppName parameter are copied to the buffer specified by the lpReturnedString parameter.
+
+· lpDefault
+Pointer to a null-terminated default string. If the lpKeyName key cannot be found in the initialization file, GetPrivateProfileString copies the default string to the lpReturnedString buffer. This parameter cannot be NULL.
+Avoid specifying a default string with trailing blank characters. The function inserts a null character in the lpReturnedString buffer to strip any trailing blanks.
+Windows 95: Although lpDefault is declared as a constant parameter, Windows 95 strips any trailing blanks by inserting a null character into the lpDefault string before copying it to the lpReturnedString buffer.
+Windows NT: Windows NT does not modify the lpDefault string. This means that if the default string contains trailing blanks, the lpReturnedString and lpDefault strings will not match when compared using the lstrcmp function.
+
+· lpReturnedString
+Pointer to the buffer that receives the retrieved string.
+
+· nSize
+Specifies the size, in characters, of the buffer pointed to by the lpReturnedString parameter.
+
+· lpFileName
+Pointer to a null-terminated string that names the initialization file. If this parameter does not contain a full path to the file, Windows searches for the file in the Windows directory.
+[RETURNS]
+If the function succeeds, the return value is the number of characters copied to the buffer, not including the terminating null character. 
+
+If neither lpAppName nor lpKeyName is NULL and the supplied destination buffer is too small to hold the requested string, the string is truncated and followed by a null character, and the return value is equal to nSize minus one. 
+
+If either lpAppName or lpKeyName is NULL and the supplied destination buffer is too small to hold all the strings, the last string is truncated and followed by two null characters. In this case, the return value is equal to nSize minus two. 
+[EXAMPLES]
+PrivateProfileString*1E354CE393C7BEAF70812B4B8398D238.html
+INI Files*1107BDBCD3503C84C6E931D8D25F5969.html
+[RELATED]
+WritePrivateProfileString
+GetProfileString

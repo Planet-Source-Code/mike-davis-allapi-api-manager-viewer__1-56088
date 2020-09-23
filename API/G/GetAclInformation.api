@@ -1,0 +1,33 @@
+[NAME]
+GetAclInformation
+[DESCRIPTION]
+The GetAclInformation function retrieves information about an access-control list (ACL).
+[DECLARATION]
+Declare Function GetAclInformation Lib "advapi32.dll" (ByVal pAcl As Long, pAclInformation As Any, ByVal nAclInformationLength As Long, ByVal dwAclInformationClass As Long) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows NT 3.1 or later; Win9x/ME: Not supported
+[LIBRARY]
+Advapi32
+[PARAMETERS]
+· pAcl
+[in] Pointer to an ACL structure. The function retrieves information about this ACL. If a NULL ACL is passed, the function causes an access violation.
+
+· pAclInformation
+[out] Pointer to a buffer receiving the requested information. The structure put into the buffer depends on the information class requested in the dwAclInformationClass parameter.
+
+· nAclInformationLength
+[in] Specifies the size, in bytes, of the buffer pointed to by the pAclInformation parameter.
+
+· dwAclInformationClass
+[in] Specifies an ACL_INFORMATION_CLASS enumerated value that gives the class of information requested. This parameter can be one of two values from this enumerated type. If the value is AclRevisionInformation, the function fills the buffer pointed to by the pAclInformation parameter with an ACL_REVISION_INFORMATION structure.
+If the value is AclSizeInformation, the function fills the buffer pointed to by the pAclInformation parameter with an ACL_SIZE_INFORMATION structure.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+NTFS Permissions*9C3BBC69930313A7D25B3142EF2C084B.html
+[RELATED]
+InitializeAcl

@@ -1,0 +1,25 @@
+[NAME]
+MakeSureDirectoryPathExists
+[DESCRIPTION]
+The MakeSureDirectoryPathExists function creates all the directories in the specified DirPath, beginning with the root.
+[DECLARATION]
+Declare Function MakeSureDirectoryPathExists Lib "imagehlp.dll" (ByVal lpPath As String) As Long
+[VBNET]
+System.IO.Directory.CreateDirectory
+[OS]
+Requires Windows NT 3.1 or later; Requires Windows 95 or later
+[LIBRARY]
+Imagehlp
+[PARAMETERS]
+· DirPath
+[in] Pointer to a null-terminated string that specifies a valid path name. If the final component of the path is a directory, not a file name, the string must end with a backslash (\) character.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+MakeSureDirectoryPathExists*72C0967CC9F4A8C879F3FA63B4557B0B.html
+[RELATED]
+CreateDirectory
+CreateDirectoryEx
+SHCreateDirectoryEx

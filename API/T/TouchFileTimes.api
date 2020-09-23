@@ -1,0 +1,26 @@
+[NAME]
+TouchFileTimes
+[DESCRIPTION]
+The TouchFileTimes function updates the date and time at which the specified file was last modified.
+[DECLARATION]
+Declare Function TouchFileTimes Lib "imagehlp.dll" (ByVal FileHandle As Long, ByRef pSystemTime As Any) As Long
+[VBNET]
+N/A
+[OS]
+Requires Windows 2000 or later; Win9x/ME: Not supported
+[LIBRARY]
+Imagehlp
+[PARAMETERS]
+· FileHandle 
+[in] Handle to the file of interest. 
+
+· pSystemTime 
+[in] Pointer to a SYSTEMTIME structure. If this parameter is NULL, the current system date and time is used.
+[RETURNS]
+If the function succeeds, the return value is nonzero.
+
+If the function fails, the return value is zero. To get extended error information, call GetLastError.
+[EXAMPLES]
+Touch Files*4D1D8FBC50289F07DE0B7026BFD157CF.html
+[RELATED]
+CreateFile
